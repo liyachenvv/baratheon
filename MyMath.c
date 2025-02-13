@@ -9,9 +9,6 @@
 #include "Globals.h"
 #include "MyMath.h"
 
-#define MULU( a, b )  ( ( U32 )a * ( U32 )b )
-#define MULS( a, b )  ( ( S32 )a * ( S32 )b )
-
 U16  SQRT32( U32 a )
   {
     U32 root = 0;
@@ -36,19 +33,20 @@ U16  SQRT32( U32 a )
     return ( ( U16 )root );
   }
 
-S16  PI_CAL( PI_t * p, S16 err )
+S16  PID_CAL( PID_t * p, S16 err )
   {
     if ( !( p->ro.W.H < p->ro.W.L && err >= 0 )
       && !( p->ro.W.L < p->ro.W.H && err < 0 ) )
       {
-        p->ri.D += MULS( p->ki, err );
+        p->ri.D += MULS32( p->ki, err );
       }
-    p->ro.D = MULS( p->kp, err ) + p->ri.D;
+    p->ro.D = MULS32( p->kp, err ) + MULS32( p->kd, err - p->e1 ) + p->ri.D;
     p->ro.W.L = p->ro.W.H;
+    p->e1 = err;
     return p->ro.W.H;
   }
 
-S16  PI_LIM( PI_t * p, S16 min, S16 max )
+S16  PID_LIM( PID_t * p, S16 min, S16 max )
   {
     if ( min < max )
       {

@@ -2058,24 +2058,32 @@ Version 3.2 HI-TECH Software Intermediate Code
 "3028 c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f1829.h
 [v _TOSHbits `VS251  1 e@4079 ]
 [p mainexit ]
-"99 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
+"97 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
 [v _MCU_Init `(v  0 ef ]
-"20 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\COM.h
+"20 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\COM.h
 [v _COM_Init `(v  0 ef ]
-"35 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Motor.h
+"49 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Motor.h
 [v _MTR_Init `(v  0 ef ]
-"29 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\System.h
+"41 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\System.h
 [v _SYS_Init `(v  0 ef ]
-"60 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
+"75 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Service.h
+[v _SVC_Init `(v  0 ef ]
+"60 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
 [v _sysTicks `Xuc  0 e ]
-"100 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
+"98 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
 [v _MCU_Refresh `(v  0 ef ]
-"21 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\COM.h
+"21 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\COM.h
 [v _COM_Ctrl `(v  0 ef ]
-"36 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Motor.h
+"50 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Motor.h
 [v _MTR_Ctrl `(v  0 ef ]
-"30 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\System.h
+"42 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\System.h
 [v _SYS_Ctrl `(v  0 ef ]
+"76 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Service.h
+[v _SVC_Ctrl `(v  0 ef ]
+"25 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\System.h
+[v _sysStatus `uc  0 e ]
+"73 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Service.h
+[v _e2pWrFlags `uc  0 e ]
 [; ;pic16f1829.h: 132: volatile unsigned char INDF0 @ 0x000;
 [; ;pic16f1829.h: 136: volatile unsigned char INDF1 @ 0x001;
 [; ;pic16f1829.h: 140: volatile unsigned char PCL @ 0x002;
@@ -4028,45 +4036,52 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom_routines.h: 43: extern void eecpymem(volatile unsigned char *to, eeprom unsigned char *from, unsigned char size);
 [; ;eeprom_routines.h: 44: extern void memcpyee(eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 [; ;pic.h: 154: extern void _delay(unsigned long);
-[; ;PicTypes.h: 11: typedef unsigned char U8;
-[; ;PicTypes.h: 12: typedef unsigned short U16;
-[; ;PicTypes.h: 13: typedef unsigned long U32;
-[; ;PicTypes.h: 14: typedef signed char S8;
-[; ;PicTypes.h: 15: typedef signed short S16;
-[; ;PicTypes.h: 16: typedef signed long S32;
-[; ;PicTypes.h: 18: typedef union
-[; ;PicTypes.h: 19: {
-[; ;PicTypes.h: 20: U8 B;
-[; ;PicTypes.h: 21: struct
-[; ;PicTypes.h: 22: {
-[; ;PicTypes.h: 23: unsigned char b0 : 1;
-[; ;PicTypes.h: 24: unsigned char b1 : 1;
-[; ;PicTypes.h: 25: unsigned char b2 : 1;
-[; ;PicTypes.h: 26: unsigned char b3 : 1;
-[; ;PicTypes.h: 27: unsigned char b4 : 1;
-[; ;PicTypes.h: 28: unsigned char b5 : 1;
-[; ;PicTypes.h: 29: unsigned char b6 : 1;
-[; ;PicTypes.h: 30: unsigned char b7 : 1;
-[; ;PicTypes.h: 31: } bits;
-[; ;PicTypes.h: 32: } BYTE;
-[; ;PicTypes.h: 34: typedef union
-[; ;PicTypes.h: 35: {
-[; ;PicTypes.h: 36: U16 W;
-[; ;PicTypes.h: 37: struct
-[; ;PicTypes.h: 38: {
-[; ;PicTypes.h: 39: U8 L;
-[; ;PicTypes.h: 40: U8 H;
-[; ;PicTypes.h: 41: } B;
-[; ;PicTypes.h: 42: } WORD;
-[; ;PicTypes.h: 44: typedef union
-[; ;PicTypes.h: 45: {
-[; ;PicTypes.h: 46: U32 D;
-[; ;PicTypes.h: 47: struct
-[; ;PicTypes.h: 48: {
-[; ;PicTypes.h: 49: U16 L;
-[; ;PicTypes.h: 50: U16 H;
-[; ;PicTypes.h: 51: } W;
-[; ;PicTypes.h: 52: } DWORD;
+[; ;PicTypes.h: 15: typedef unsigned char U8;
+[; ;PicTypes.h: 16: typedef unsigned short U16;
+[; ;PicTypes.h: 17: typedef unsigned long U32;
+[; ;PicTypes.h: 18: typedef signed char S8;
+[; ;PicTypes.h: 19: typedef signed short S16;
+[; ;PicTypes.h: 20: typedef signed long S32;
+[; ;PicTypes.h: 22: typedef union
+[; ;PicTypes.h: 23: {
+[; ;PicTypes.h: 24: U8 B;
+[; ;PicTypes.h: 25: struct
+[; ;PicTypes.h: 26: {
+[; ;PicTypes.h: 27: unsigned char b0 : 1;
+[; ;PicTypes.h: 28: unsigned char b1 : 1;
+[; ;PicTypes.h: 29: unsigned char b2 : 1;
+[; ;PicTypes.h: 30: unsigned char b3 : 1;
+[; ;PicTypes.h: 31: unsigned char b4 : 1;
+[; ;PicTypes.h: 32: unsigned char b5 : 1;
+[; ;PicTypes.h: 33: unsigned char b6 : 1;
+[; ;PicTypes.h: 34: unsigned char b7 : 1;
+[; ;PicTypes.h: 35: } bits;
+[; ;PicTypes.h: 36: } BYTE;
+[; ;PicTypes.h: 38: typedef union
+[; ;PicTypes.h: 39: {
+[; ;PicTypes.h: 40: U16 W;
+[; ;PicTypes.h: 41: struct
+[; ;PicTypes.h: 42: {
+[; ;PicTypes.h: 43: U8 L;
+[; ;PicTypes.h: 44: U8 H;
+[; ;PicTypes.h: 45: } B;
+[; ;PicTypes.h: 46: } WORD;
+[; ;PicTypes.h: 48: typedef union
+[; ;PicTypes.h: 49: {
+[; ;PicTypes.h: 50: U32 D;
+[; ;PicTypes.h: 51: struct
+[; ;PicTypes.h: 52: {
+[; ;PicTypes.h: 53: U16 L;
+[; ;PicTypes.h: 54: U16 H;
+[; ;PicTypes.h: 55: } W;
+[; ;PicTypes.h: 56: struct
+[; ;PicTypes.h: 57: {
+[; ;PicTypes.h: 58: U8 L;
+[; ;PicTypes.h: 59: U8 H;
+[; ;PicTypes.h: 60: U8 M;
+[; ;PicTypes.h: 61: U8 T;
+[; ;PicTypes.h: 62: } B;
+[; ;PicTypes.h: 63: } DWORD;
 [; ;Hardware.h: 60: extern bank1 U8 sysTicks;
 [; ;Hardware.h: 62: extern bank1 U32 adCur2;
 [; ;Hardware.h: 63: extern bank1 U8 adCurN;
@@ -4075,110 +4090,165 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Hardware.h: 67: extern bank1 U8 adVac;
 [; ;Hardware.h: 69: extern bank1 U8 idrTest0;
 [; ;Hardware.h: 70: extern bank1 U8 idrTest1;
-[; ;Hardware.h: 72: extern bank3 U8 txCNT;
-[; ;Hardware.h: 73: extern bank3 U8 txWRP;
-[; ;Hardware.h: 74: extern bank3 U8 txRDP;
-[; ;Hardware.h: 75: extern bank3 U8 txTIM;
-[; ;Hardware.h: 76: extern bank3 U8 txFIFO[ 32 ];
-[; ;Hardware.h: 77: extern bank3 U8 rxCNT;
-[; ;Hardware.h: 78: extern bank3 U8 rxWRP;
-[; ;Hardware.h: 79: extern bank3 U8 rxRDP;
-[; ;Hardware.h: 80: extern bank3 U8 rxTIM;
-[; ;Hardware.h: 81: extern bank3 U8 rxFIFO[ 32 ];
-[; ;Hardware.h: 83: extern bank2 U16 mtrHallTime[ 32 ];
-[; ;Hardware.h: 84: extern bank1 U8 mtrHallIndex;
-[; ;Hardware.h: 85: extern bank1 U8 mtrHallEvent;
-[; ;Hardware.h: 86: extern bank1 U8 mtrHallWDT;
-[; ;Hardware.h: 88: extern bank2 U16 acCrossTime[ 8 ];
-[; ;Hardware.h: 89: extern bank1 U8 acCrossIndex;
-[; ;Hardware.h: 90: extern bank1 U8 acCrossEvent;
-[; ;Hardware.h: 91: extern bank1 U8 acCrossWDT;
-[; ;Hardware.h: 93: extern bank1 U16 acCycle;
-[; ;Hardware.h: 94: extern bank1 U8 acCycleHalf;
-[; ;Hardware.h: 95: extern bank1 U8 acCycleFlag;
-[; ;Hardware.h: 97: extern bank1 U16 tmTriac;
-[; ;Hardware.h: 99: extern void MCU_Init( void );
-[; ;Hardware.h: 100: extern void MCU_Refresh( void );
+[; ;Hardware.h: 72: extern  U16 mtrHallTime[ 32 ] @ 0x320;
+[; ;Hardware.h: 73: extern bank1 U8 mtrHallIndex;
+[; ;Hardware.h: 74: extern bank1 U8 mtrHallEvent;
+[; ;Hardware.h: 75: extern bank1 U8 mtrHallWDT;
+[; ;Hardware.h: 77: extern  U16 acCrossTime[ 8 ] @ 0x360;
+[; ;Hardware.h: 78: extern bank1 U8 acCrossIndex;
+[; ;Hardware.h: 79: extern bank1 U8 acCrossEvent;
+[; ;Hardware.h: 80: extern bank1 U8 acCrossWDT;
+[; ;Hardware.h: 81: extern bank1 U16 acCycle;
+[; ;Hardware.h: 82: extern bank1 U8 acCycleHalf;
+[; ;Hardware.h: 83: extern bank1 U8 acCycleFlag;
+[; ;Hardware.h: 84: extern bank1 U16 tmTriac;
+[; ;Hardware.h: 86: extern bank3 U8 txCNT;
+[; ;Hardware.h: 87: extern bank3 U8 txWRP;
+[; ;Hardware.h: 88: extern bank3 U8 txRDP;
+[; ;Hardware.h: 89: extern bank3 U8 txTIM;
+[; ;Hardware.h: 90: extern  U8 txFIFO[ 32 ] @ 0x3A0;
+[; ;Hardware.h: 91: extern bank3 U8 rxCNT;
+[; ;Hardware.h: 92: extern bank3 U8 rxWRP;
+[; ;Hardware.h: 93: extern bank3 U8 rxRDP;
+[; ;Hardware.h: 94: extern bank3 U8 rxTIM;
+[; ;Hardware.h: 95: extern  U8 rxFIFO[ 32 ] @ 0x3C0;
+[; ;Hardware.h: 97: extern void MCU_Init( void );
+[; ;Hardware.h: 98: extern void MCU_Refresh( void );
+[; ;Hardware.h: 99: extern void E2P_WriteByte( U8 addr, U8 byte );
+[; ;Hardware.h: 100: extern U8 E2P_ReadByte( U8 addr );
 [; ;COM.h: 20: extern void COM_Init( void );
 [; ;COM.h: 21: extern void COM_Ctrl( void );
-[; ;Motor.h: 25: extern U16 mtrSpeedRef;
-[; ;Motor.h: 26: extern U16 mtrSpeed;
-[; ;Motor.h: 27: extern U16 mtrCurrent;
-[; ;Motor.h: 33: extern U8 mtrError;
-[; ;Motor.h: 35: extern void MTR_Init( void );
-[; ;Motor.h: 36: extern void MTR_Ctrl( void );
-[; ;System.h: 24: extern U8 sysStatus;
-[; ;System.h: 26: extern U8 sysLevel;
-[; ;System.h: 27: extern U8 sysError;
-[; ;System.h: 29: extern void SYS_Init( void );
-[; ;System.h: 30: extern void SYS_Ctrl( void );
-"9 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\main.c
+[; ;Motor.h: 36: extern  U16 mtrSpeedRef;
+[; ;Motor.h: 37: extern  U16 mtrSpeed;
+[; ;Motor.h: 38: extern  U16 mtrCurrent;
+[; ;Motor.h: 39: extern  S8 mtrTemp;
+[; ;Motor.h: 47: extern  U8 mtrError;
+[; ;Motor.h: 49: extern void MTR_Init( void );
+[; ;Motor.h: 50: extern void MTR_Ctrl( void );
+[; ;System.h: 25: extern  U8 sysStatus;
+[; ;System.h: 27: extern  U8 sysFault;
+[; ;System.h: 37: extern  U8 sysLevel;
+[; ;System.h: 39: extern  U8 mtrLevel;
+[; ;System.h: 41: extern void SYS_Init( void );
+[; ;System.h: 42: extern void SYS_Ctrl( void );
+[; ;Service.h: 73: extern  U8 e2pWrFlags;
+[; ;Service.h: 75: extern void SVC_Init( void );
+[; ;Service.h: 76: extern void SVC_Ctrl( void );
+[; ;Service.h: 77: extern U8 SVC_GetTuneValue( void );
+[; ;Service.h: 78: extern void SVC_SetTuneValue( U8 value );
+"10 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\main.c
 [v _main `(v  1 ef ]
 {
-[; ;main.c: 8: void main( void )
-[; ;main.c: 9: {
+[; ;main.c: 9: void main( void )
+[; ;main.c: 10: {
 [e :U _main ]
 [f ]
-[; ;main.c: 10: GIE = 0;
-"10
-[e = _GIE -> -> 0 `i `b ]
-[; ;main.c: 11: MCU_Init( );
 "11
-[e ( _MCU_Init ..  ]
-[; ;main.c: 12: COM_Init( );
+[v F2591 `uc  1 s offTime ]
+[i F2591
+-> -> 0 `i `uc
+]
+[; ;main.c: 11: static U8 offTime = 0;
+[; ;main.c: 12: GIE = 0;
 "12
-[e ( _COM_Init ..  ]
-[; ;main.c: 13: MTR_Init( );
+[e = _GIE -> -> 0 `i `b ]
+[; ;main.c: 13: MCU_Init( );
 "13
-[e ( _MTR_Init ..  ]
-[; ;main.c: 14: SYS_Init( );
+[e ( _MCU_Init ..  ]
+[; ;main.c: 14: COM_Init( );
 "14
-[e ( _SYS_Init ..  ]
-[; ;main.c: 15: while ( 1 )
+[e ( _COM_Init ..  ]
+[; ;main.c: 15: MTR_Init( );
 "15
-[e :U 261 ]
-[; ;main.c: 16: {
+[e ( _MTR_Init ..  ]
+[; ;main.c: 16: SYS_Init( );
 "16
-{
-[; ;main.c: 17: GIE = 1;
+[e ( _SYS_Init ..  ]
+[; ;main.c: 17: SVC_Init( );
 "17
-[e = _GIE -> -> 1 `i `b ]
-[; ;main.c: 18: asm(" CLRWDT        ");
+[e ( _SVC_Init ..  ]
+[; ;main.c: 18: while ( 1 )
 "18
-[;  CLRWDT         ;#
-[; ;main.c: 19: if ( sysTicks >= 100 )
-"19
-[e $ ! >= -> _sysTicks `i -> 100 `i 263  ]
-[; ;main.c: 20: {
-"20
-{
-[; ;main.c: 21: sysTicks -= 100;
-"21
-[e =- _sysTicks -> -> 100 `i `uc ]
-[; ;main.c: 22: MCU_Refresh( );
-"22
-[e ( _MCU_Refresh ..  ]
-[; ;main.c: 23: COM_Ctrl( );
-"23
-[e ( _COM_Ctrl ..  ]
-[; ;main.c: 24: MTR_Ctrl( );
-"24
-[e ( _MTR_Ctrl ..  ]
-[; ;main.c: 25: SYS_Ctrl( );
-"25
-[e ( _SYS_Ctrl ..  ]
-"26
-}
-[e :U 263 ]
-"27
-}
-[e :U 260 ]
-"15
-[e $U 261  ]
 [e :U 262 ]
-[; ;main.c: 26: }
-[; ;main.c: 27: }
-[; ;main.c: 28: }
+[; ;main.c: 19: {
+"19
+{
+[; ;main.c: 20: GIE = 1;
+"20
+[e = _GIE -> -> 1 `i `b ]
+[; ;main.c: 21: asm(" CLRWDT        ");
+"21
+[;  CLRWDT         ;#
+[; ;main.c: 22: if ( sysTicks >= 100 )
+"22
+[e $ ! >= -> _sysTicks `i -> 100 `i 264  ]
+[; ;main.c: 23: {
+"23
+{
+[; ;main.c: 24: sysTicks -= 100;
+"24
+[e =- _sysTicks -> -> 100 `i `uc ]
+[; ;main.c: 25: MCU_Refresh( );
+"25
+[e ( _MCU_Refresh ..  ]
+[; ;main.c: 26: COM_Ctrl( );
+"26
+[e ( _COM_Ctrl ..  ]
+[; ;main.c: 27: MTR_Ctrl( );
+"27
+[e ( _MTR_Ctrl ..  ]
+[; ;main.c: 28: SYS_Ctrl( );
 "28
-[e :UE 259 ]
+[e ( _SYS_Ctrl ..  ]
+[; ;main.c: 29: SVC_Ctrl( );
+"29
+[e ( _SVC_Ctrl ..  ]
+[; ;main.c: 30: if ( sysStatus != 4 || e2pWrFlags )
+"30
+[e $ ! || != -> _sysStatus `i -> 4 `i != -> _e2pWrFlags `i -> -> -> 0 `i `uc `i 265  ]
+[; ;main.c: 31: {
+"31
+{
+[; ;main.c: 32: offTime = 5;
+"32
+[e = F2591 -> -> 5 `i `uc ]
+[; ;main.c: 33: LATB6 = 1;
+"33
+[e = _LATB6 -> -> 1 `i `b ]
+"34
+}
+[; ;main.c: 34: }
+[e $U 266  ]
+"35
+[e :U 265 ]
+[; ;main.c: 35: else if ( --offTime == 0 )
+[e $ ! == -> =- F2591 -> -> 1 `i `uc `i -> 0 `i 267  ]
+[; ;main.c: 36: {
+"36
+{
+[; ;main.c: 37: offTime = 1;
+"37
+[e = F2591 -> -> 1 `i `uc ]
+[; ;main.c: 38: LATB6 = 0;
+"38
+[e = _LATB6 -> -> 0 `i `b ]
+"39
+}
+[e :U 267 ]
+"40
+[e :U 266 ]
+}
+[e :U 264 ]
+"41
+}
+[e :U 261 ]
+"18
+[e $U 262  ]
+[e :U 263 ]
+[; ;main.c: 39: }
+[; ;main.c: 40: }
+[; ;main.c: 41: }
+[; ;main.c: 42: }
+"42
+[e :UE 260 ]
 }

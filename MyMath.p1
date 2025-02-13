@@ -2057,12 +2057,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S251 . . ]
 "3028 c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f1829.h
 [v _TOSHbits `VS251  1 e@4079 ]
-[s S260 `s 1 `s 1 ]
-[n S260 . L H ]
-[u S259 `l 1 `S260 1 ]
-[n S259 . D W ]
-[s S261 `s 1 `s 1 `S259 1 `S259 1 ]
-[n S261 . kp ki ri ro ]
+[s S261 `s 1 `s 1 ]
+[n S261 . L H ]
+[u S260 `l 1 `S261 1 ]
+[n S260 . D W ]
+[s S262 `s 1 `s 1 `s 1 `s 1 `S260 1 `S260 1 ]
+[n S262 . kp ki kd e1 ri ro ]
 [; ;pic16f1829.h: 132: volatile unsigned char INDF0 @ 0x000;
 [; ;pic16f1829.h: 136: volatile unsigned char INDF1 @ 0x001;
 [; ;pic16f1829.h: 140: volatile unsigned char PCL @ 0x002;
@@ -4015,45 +4015,52 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom_routines.h: 43: extern void eecpymem(volatile unsigned char *to, eeprom unsigned char *from, unsigned char size);
 [; ;eeprom_routines.h: 44: extern void memcpyee(eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 [; ;pic.h: 154: extern void _delay(unsigned long);
-[; ;PicTypes.h: 11: typedef unsigned char U8;
-[; ;PicTypes.h: 12: typedef unsigned short U16;
-[; ;PicTypes.h: 13: typedef unsigned long U32;
-[; ;PicTypes.h: 14: typedef signed char S8;
-[; ;PicTypes.h: 15: typedef signed short S16;
-[; ;PicTypes.h: 16: typedef signed long S32;
-[; ;PicTypes.h: 18: typedef union
-[; ;PicTypes.h: 19: {
-[; ;PicTypes.h: 20: U8 B;
-[; ;PicTypes.h: 21: struct
-[; ;PicTypes.h: 22: {
-[; ;PicTypes.h: 23: unsigned char b0 : 1;
-[; ;PicTypes.h: 24: unsigned char b1 : 1;
-[; ;PicTypes.h: 25: unsigned char b2 : 1;
-[; ;PicTypes.h: 26: unsigned char b3 : 1;
-[; ;PicTypes.h: 27: unsigned char b4 : 1;
-[; ;PicTypes.h: 28: unsigned char b5 : 1;
-[; ;PicTypes.h: 29: unsigned char b6 : 1;
-[; ;PicTypes.h: 30: unsigned char b7 : 1;
-[; ;PicTypes.h: 31: } bits;
-[; ;PicTypes.h: 32: } BYTE;
-[; ;PicTypes.h: 34: typedef union
-[; ;PicTypes.h: 35: {
-[; ;PicTypes.h: 36: U16 W;
-[; ;PicTypes.h: 37: struct
-[; ;PicTypes.h: 38: {
-[; ;PicTypes.h: 39: U8 L;
-[; ;PicTypes.h: 40: U8 H;
-[; ;PicTypes.h: 41: } B;
-[; ;PicTypes.h: 42: } WORD;
-[; ;PicTypes.h: 44: typedef union
-[; ;PicTypes.h: 45: {
-[; ;PicTypes.h: 46: U32 D;
-[; ;PicTypes.h: 47: struct
-[; ;PicTypes.h: 48: {
-[; ;PicTypes.h: 49: U16 L;
-[; ;PicTypes.h: 50: U16 H;
-[; ;PicTypes.h: 51: } W;
-[; ;PicTypes.h: 52: } DWORD;
+[; ;PicTypes.h: 15: typedef unsigned char U8;
+[; ;PicTypes.h: 16: typedef unsigned short U16;
+[; ;PicTypes.h: 17: typedef unsigned long U32;
+[; ;PicTypes.h: 18: typedef signed char S8;
+[; ;PicTypes.h: 19: typedef signed short S16;
+[; ;PicTypes.h: 20: typedef signed long S32;
+[; ;PicTypes.h: 22: typedef union
+[; ;PicTypes.h: 23: {
+[; ;PicTypes.h: 24: U8 B;
+[; ;PicTypes.h: 25: struct
+[; ;PicTypes.h: 26: {
+[; ;PicTypes.h: 27: unsigned char b0 : 1;
+[; ;PicTypes.h: 28: unsigned char b1 : 1;
+[; ;PicTypes.h: 29: unsigned char b2 : 1;
+[; ;PicTypes.h: 30: unsigned char b3 : 1;
+[; ;PicTypes.h: 31: unsigned char b4 : 1;
+[; ;PicTypes.h: 32: unsigned char b5 : 1;
+[; ;PicTypes.h: 33: unsigned char b6 : 1;
+[; ;PicTypes.h: 34: unsigned char b7 : 1;
+[; ;PicTypes.h: 35: } bits;
+[; ;PicTypes.h: 36: } BYTE;
+[; ;PicTypes.h: 38: typedef union
+[; ;PicTypes.h: 39: {
+[; ;PicTypes.h: 40: U16 W;
+[; ;PicTypes.h: 41: struct
+[; ;PicTypes.h: 42: {
+[; ;PicTypes.h: 43: U8 L;
+[; ;PicTypes.h: 44: U8 H;
+[; ;PicTypes.h: 45: } B;
+[; ;PicTypes.h: 46: } WORD;
+[; ;PicTypes.h: 48: typedef union
+[; ;PicTypes.h: 49: {
+[; ;PicTypes.h: 50: U32 D;
+[; ;PicTypes.h: 51: struct
+[; ;PicTypes.h: 52: {
+[; ;PicTypes.h: 53: U16 L;
+[; ;PicTypes.h: 54: U16 H;
+[; ;PicTypes.h: 55: } W;
+[; ;PicTypes.h: 56: struct
+[; ;PicTypes.h: 57: {
+[; ;PicTypes.h: 58: U8 L;
+[; ;PicTypes.h: 59: U8 H;
+[; ;PicTypes.h: 60: U8 M;
+[; ;PicTypes.h: 61: U8 T;
+[; ;PicTypes.h: 62: } B;
+[; ;PicTypes.h: 63: } DWORD;
 [; ;Hardware.h: 60: extern bank1 U8 sysTicks;
 [; ;Hardware.h: 62: extern bank1 U32 adCur2;
 [; ;Hardware.h: 63: extern bank1 U8 adCurN;
@@ -4062,30 +4069,32 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Hardware.h: 67: extern bank1 U8 adVac;
 [; ;Hardware.h: 69: extern bank1 U8 idrTest0;
 [; ;Hardware.h: 70: extern bank1 U8 idrTest1;
-[; ;Hardware.h: 72: extern bank3 U8 txCNT;
-[; ;Hardware.h: 73: extern bank3 U8 txWRP;
-[; ;Hardware.h: 74: extern bank3 U8 txRDP;
-[; ;Hardware.h: 75: extern bank3 U8 txTIM;
-[; ;Hardware.h: 76: extern bank3 U8 txFIFO[ 32 ];
-[; ;Hardware.h: 77: extern bank3 U8 rxCNT;
-[; ;Hardware.h: 78: extern bank3 U8 rxWRP;
-[; ;Hardware.h: 79: extern bank3 U8 rxRDP;
-[; ;Hardware.h: 80: extern bank3 U8 rxTIM;
-[; ;Hardware.h: 81: extern bank3 U8 rxFIFO[ 32 ];
-[; ;Hardware.h: 83: extern bank2 U16 mtrHallTime[ 32 ];
-[; ;Hardware.h: 84: extern bank1 U8 mtrHallIndex;
-[; ;Hardware.h: 85: extern bank1 U8 mtrHallEvent;
-[; ;Hardware.h: 86: extern bank1 U8 mtrHallWDT;
-[; ;Hardware.h: 88: extern bank2 U16 acCrossTime[ 8 ];
-[; ;Hardware.h: 89: extern bank1 U8 acCrossIndex;
-[; ;Hardware.h: 90: extern bank1 U8 acCrossEvent;
-[; ;Hardware.h: 91: extern bank1 U8 acCrossWDT;
-[; ;Hardware.h: 93: extern bank1 U16 acCycle;
-[; ;Hardware.h: 94: extern bank1 U8 acCycleHalf;
-[; ;Hardware.h: 95: extern bank1 U8 acCycleFlag;
-[; ;Hardware.h: 97: extern bank1 U16 tmTriac;
-[; ;Hardware.h: 99: extern void MCU_Init( void );
-[; ;Hardware.h: 100: extern void MCU_Refresh( void );
+[; ;Hardware.h: 72: extern  U16 mtrHallTime[ 32 ] @ 0x320;
+[; ;Hardware.h: 73: extern bank1 U8 mtrHallIndex;
+[; ;Hardware.h: 74: extern bank1 U8 mtrHallEvent;
+[; ;Hardware.h: 75: extern bank1 U8 mtrHallWDT;
+[; ;Hardware.h: 77: extern  U16 acCrossTime[ 8 ] @ 0x360;
+[; ;Hardware.h: 78: extern bank1 U8 acCrossIndex;
+[; ;Hardware.h: 79: extern bank1 U8 acCrossEvent;
+[; ;Hardware.h: 80: extern bank1 U8 acCrossWDT;
+[; ;Hardware.h: 81: extern bank1 U16 acCycle;
+[; ;Hardware.h: 82: extern bank1 U8 acCycleHalf;
+[; ;Hardware.h: 83: extern bank1 U8 acCycleFlag;
+[; ;Hardware.h: 84: extern bank1 U16 tmTriac;
+[; ;Hardware.h: 86: extern bank3 U8 txCNT;
+[; ;Hardware.h: 87: extern bank3 U8 txWRP;
+[; ;Hardware.h: 88: extern bank3 U8 txRDP;
+[; ;Hardware.h: 89: extern bank3 U8 txTIM;
+[; ;Hardware.h: 90: extern  U8 txFIFO[ 32 ] @ 0x3A0;
+[; ;Hardware.h: 91: extern bank3 U8 rxCNT;
+[; ;Hardware.h: 92: extern bank3 U8 rxWRP;
+[; ;Hardware.h: 93: extern bank3 U8 rxRDP;
+[; ;Hardware.h: 94: extern bank3 U8 rxTIM;
+[; ;Hardware.h: 95: extern  U8 rxFIFO[ 32 ] @ 0x3C0;
+[; ;Hardware.h: 97: extern void MCU_Init( void );
+[; ;Hardware.h: 98: extern void MCU_Refresh( void );
+[; ;Hardware.h: 99: extern void E2P_WriteByte( U8 addr, U8 byte );
+[; ;Hardware.h: 100: extern U8 E2P_ReadByte( U8 addr );
 [; ;MyMath.h: 20: typedef union
 [; ;MyMath.h: 21: {
 [; ;MyMath.h: 22: S32 D;
@@ -4095,187 +4104,192 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MyMath.h: 27: {
 [; ;MyMath.h: 28: S16 kp;
 [; ;MyMath.h: 29: S16 ki;
-[; ;MyMath.h: 30: SDW ri;
-[; ;MyMath.h: 31: SDW ro;
-[; ;MyMath.h: 32: } PI_t;
-[; ;MyMath.h: 34: U16 SQRT32( U32 a );
-[; ;MyMath.h: 35: S16 PI_CAL( PI_t * p, S16 err );
-[; ;MyMath.h: 36: S16 PI_LIM( PI_t * p, S16 min, S16 max );
-"16 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\MyMath.c
+[; ;MyMath.h: 30: S16 kd;
+[; ;MyMath.h: 31: S16 e1;
+[; ;MyMath.h: 32: SDW ri;
+[; ;MyMath.h: 33: SDW ro;
+[; ;MyMath.h: 34: } PID_t;
+[; ;MyMath.h: 39: U16 SQRT32( U32 a );
+[; ;MyMath.h: 40: S16 PID_CAL( PID_t * p, S16 err );
+[; ;MyMath.h: 41: S16 PID_LIM( PID_t * p, S16 min, S16 max );
+"13 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\MyMath.c
 [v _SQRT32 `(us  1 ef1`ul ]
 {
-[; ;MyMath.c: 15: U16 SQRT32( U32 a )
-[; ;MyMath.c: 16: {
+[; ;MyMath.c: 12: U16 SQRT32( U32 a )
+[; ;MyMath.c: 13: {
 [e :U _SQRT32 ]
 [v _a `ul  1 r1 ]
 [f ]
-"17
+"14
 [v _root `ul  1 a ]
-[; ;MyMath.c: 17: U32 root = 0;
+[; ;MyMath.c: 14: U32 root = 0;
 [e = _root -> -> -> 0 `i `l `ul ]
-"18
+"15
 [v _divisor `ul  1 a ]
-[; ;MyMath.c: 18: U32 divisor = 0;
+[; ;MyMath.c: 15: U32 divisor = 0;
 [e = _divisor -> -> -> 0 `i `l `ul ]
-"19
+"16
 [v _remainder `ul  1 a ]
-[; ;MyMath.c: 19: U32 remainder = 0;
+[; ;MyMath.c: 16: U32 remainder = 0;
 [e = _remainder -> -> -> 0 `i `l `ul ]
-"20
+"17
 [v _i `uc  1 a ]
-[; ;MyMath.c: 20: U8 i = 16;
+[; ;MyMath.c: 17: U8 i = 16;
 [e = _i -> -> 16 `i `uc ]
-[; ;MyMath.c: 21: do{
-"21
-[e :U 265 ]
+[; ;MyMath.c: 18: do{
+"18
+[e :U 266 ]
 {
-[; ;MyMath.c: 22: root <<= 1;
-"22
+[; ;MyMath.c: 19: root <<= 1;
+"19
 [e =<< _root -> 1 `i ]
+[; ;MyMath.c: 20: remainder <<= 1;
+"20
+[e =<< _remainder -> 1 `i ]
+[; ;MyMath.c: 21: if ( a & 0x80000000 ) remainder |= 1;
+"21
+[e $ ! != & _a -> -2147483648 `ul -> -> 0 `i `ul 267  ]
+[e =| _remainder -> -> -> 1 `i `l `ul ]
+[e :U 267 ]
+[; ;MyMath.c: 22: a <<= 1;
+"22
+[e =<< _a -> 1 `i ]
 [; ;MyMath.c: 23: remainder <<= 1;
 "23
 [e =<< _remainder -> 1 `i ]
 [; ;MyMath.c: 24: if ( a & 0x80000000 ) remainder |= 1;
 "24
-[e $ ! != & _a -> -2147483648 `ul -> -> 0 `i `ul 266  ]
+[e $ ! != & _a -> -2147483648 `ul -> -> 0 `i `ul 268  ]
 [e =| _remainder -> -> -> 1 `i `l `ul ]
-[e :U 266 ]
+[e :U 268 ]
 [; ;MyMath.c: 25: a <<= 1;
 "25
 [e =<< _a -> 1 `i ]
-[; ;MyMath.c: 26: remainder <<= 1;
+[; ;MyMath.c: 26: divisor = ( root << 1 ) | 1;
 "26
-[e =<< _remainder -> 1 `i ]
-[; ;MyMath.c: 27: if ( a & 0x80000000 ) remainder |= 1;
-"27
-[e $ ! != & _a -> -2147483648 `ul -> -> 0 `i `ul 267  ]
-[e =| _remainder -> -> -> 1 `i `l `ul ]
-[e :U 267 ]
-[; ;MyMath.c: 28: a <<= 1;
-"28
-[e =<< _a -> 1 `i ]
-[; ;MyMath.c: 29: divisor = ( root << 1 ) | 1;
-"29
 [e = _divisor | << _root -> 1 `i -> -> -> 1 `i `l `ul ]
-[; ;MyMath.c: 30: if ( remainder >= divisor )
-"30
-[e $ ! >= _remainder _divisor 268  ]
-[; ;MyMath.c: 31: {
-"31
+[; ;MyMath.c: 27: if ( remainder >= divisor )
+"27
+[e $ ! >= _remainder _divisor 269  ]
+[; ;MyMath.c: 28: {
+"28
 {
-[; ;MyMath.c: 32: remainder -= divisor;
-"32
+[; ;MyMath.c: 29: remainder -= divisor;
+"29
 [e =- _remainder _divisor ]
-[; ;MyMath.c: 33: root |= 1;
-"33
+[; ;MyMath.c: 30: root |= 1;
+"30
 [e =| _root -> -> -> 1 `i `l `ul ]
-"34
+"31
 }
-[e :U 268 ]
-"35
+[e :U 269 ]
+"32
 }
-[; ;MyMath.c: 34: }
-[; ;MyMath.c: 35: } while( --i );
-[e $ != -> =- _i -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 265  ]
-[e :U 264 ]
-[; ;MyMath.c: 36: return ( ( U16 )root );
-"36
+[; ;MyMath.c: 31: }
+[; ;MyMath.c: 32: } while( --i );
+[e $ != -> =- _i -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 266  ]
+[e :U 265 ]
+[; ;MyMath.c: 33: return ( ( U16 )root );
+"33
 [e ) -> _root `us ]
-[e $UE 262  ]
-[; ;MyMath.c: 37: }
-"37
-[e :UE 262 ]
+[e $UE 263  ]
+[; ;MyMath.c: 34: }
+"34
+[e :UE 263 ]
 }
-"40
-[v _PI_CAL `(s  1 ef2`*S261`s ]
+"37
+[v _PID_CAL `(s  1 ef2`*S262`s ]
 {
-[; ;MyMath.c: 39: S16 PI_CAL( PI_t * p, S16 err )
-[; ;MyMath.c: 40: {
-[e :U _PI_CAL ]
-[v _p `*S261  1 r1 ]
+[; ;MyMath.c: 36: S16 PID_CAL( PID_t * p, S16 err )
+[; ;MyMath.c: 37: {
+[e :U _PID_CAL ]
+[v _p `*S262  1 r1 ]
 [v _err `s  1 r2 ]
 [f ]
-[; ;MyMath.c: 41: if ( !( p->ro.W.H < p->ro.W.L && err >= 0 )
-[; ;MyMath.c: 42: && !( p->ro.W.L < p->ro.W.H && err < 0 ) )
+[; ;MyMath.c: 38: if ( !( p->ro.W.H < p->ro.W.L && err >= 0 )
+[; ;MyMath.c: 39: && !( p->ro.W.L < p->ro.W.H && err < 0 ) )
+"39
+[e $ ! && ! && < -> . . . *U _p 5 1 1 `i -> . . . *U _p 5 1 0 `i >= -> _err `i -> 0 `i ! && < -> . . . *U _p 5 1 0 `i -> . . . *U _p 5 1 1 `i < -> _err `i -> 0 `i 271  ]
+[; ;MyMath.c: 40: {
+"40
+{
+[; ;MyMath.c: 41: p->ri.D += ( ( S32 )p->ki * ( S32 )err );
+"41
+[e =+ . . *U _p 4 0 * -> . *U _p 1 `l -> _err `l ]
 "42
-[e $ ! && ! && < -> . . . *U _p 3 1 1 `i -> . . . *U _p 3 1 0 `i >= -> _err `i -> 0 `i ! && < -> . . . *U _p 3 1 0 `i -> . . . *U _p 3 1 1 `i < -> _err `i -> 0 `i 270  ]
-[; ;MyMath.c: 43: {
+}
+[e :U 271 ]
+[; ;MyMath.c: 42: }
+[; ;MyMath.c: 43: p->ro.D = ( ( S32 )p->kp * ( S32 )err ) + ( ( S32 )p->kd * ( S32 )err - p->e1 ) + p->ri.D;
 "43
-{
-[; ;MyMath.c: 44: p->ri.D += ( ( S32 )p->ki * ( S32 )err );
+[e = . . *U _p 5 0 + + * -> . *U _p 0 `l -> _err `l - * -> . *U _p 2 `l -> _err `l -> . *U _p 3 `l . . *U _p 4 0 ]
+[; ;MyMath.c: 44: p->ro.W.L = p->ro.W.H;
 "44
-[e =+ . . *U _p 2 0 * -> . *U _p 1 `l -> _err `l ]
+[e = . . . *U _p 5 1 0 . . . *U _p 5 1 1 ]
+[; ;MyMath.c: 45: p->e1 = err;
 "45
-}
-[e :U 270 ]
-[; ;MyMath.c: 45: }
-[; ;MyMath.c: 46: p->ro.D = ( ( S32 )p->kp * ( S32 )err ) + p->ri.D;
+[e = . *U _p 3 _err ]
+[; ;MyMath.c: 46: return p->ro.W.H;
 "46
-[e = . . *U _p 3 0 + * -> . *U _p 0 `l -> _err `l . . *U _p 2 0 ]
-[; ;MyMath.c: 47: p->ro.W.L = p->ro.W.H;
+[e ) . . . *U _p 5 1 1 ]
+[e $UE 270  ]
+[; ;MyMath.c: 47: }
 "47
-[e = . . . *U _p 3 1 0 . . . *U _p 3 1 1 ]
-[; ;MyMath.c: 48: return p->ro.W.H;
-"48
-[e ) . . . *U _p 3 1 1 ]
-[e $UE 269  ]
-[; ;MyMath.c: 49: }
-"49
-[e :UE 269 ]
+[e :UE 270 ]
 }
-"52
-[v _PI_LIM `(s  1 ef3`*S261`s`s ]
+"50
+[v _PID_LIM `(s  1 ef3`*S262`s`s ]
 {
-[; ;MyMath.c: 51: S16 PI_LIM( PI_t * p, S16 min, S16 max )
-[; ;MyMath.c: 52: {
-[e :U _PI_LIM ]
-[v _p `*S261  1 r1 ]
+[; ;MyMath.c: 49: S16 PID_LIM( PID_t * p, S16 min, S16 max )
+[; ;MyMath.c: 50: {
+[e :U _PID_LIM ]
+[v _p `*S262  1 r1 ]
 [v _min `s  1 r2 ]
 [v _max `s  1 r3 ]
 [f ]
-[; ;MyMath.c: 53: if ( min < max )
+[; ;MyMath.c: 51: if ( min < max )
+"51
+[e $ ! < -> _min `i -> _max `i 273  ]
+[; ;MyMath.c: 52: {
+"52
+{
+[; ;MyMath.c: 53: if ( p->ro.W.H > max )
 "53
-[e $ ! < -> _min `i -> _max `i 272  ]
+[e $ ! > -> . . . *U _p 5 1 1 `i -> _max `i 274  ]
 [; ;MyMath.c: 54: {
 "54
 {
-[; ;MyMath.c: 55: if ( p->ro.W.H > max )
+[; ;MyMath.c: 55: p->ro.W.H = max;
 "55
-[e $ ! > -> . . . *U _p 3 1 1 `i -> _max `i 273  ]
-[; ;MyMath.c: 56: {
+[e = . . . *U _p 5 1 1 _max ]
 "56
-{
-[; ;MyMath.c: 57: p->ro.W.H = max;
+}
+[; ;MyMath.c: 56: }
+[e $U 275  ]
 "57
-[e = . . . *U _p 3 1 1 _max ]
-"58
-}
-[; ;MyMath.c: 58: }
-[e $U 274  ]
-"59
-[e :U 273 ]
-[; ;MyMath.c: 59: else if ( p->ro.W.H < min )
-[e $ ! < -> . . . *U _p 3 1 1 `i -> _min `i 275  ]
-[; ;MyMath.c: 60: {
-"60
-{
-[; ;MyMath.c: 61: p->ro.W.H = min;
-"61
-[e = . . . *U _p 3 1 1 _min ]
-"62
-}
-[e :U 275 ]
-"63
 [e :U 274 ]
+[; ;MyMath.c: 57: else if ( p->ro.W.H < min )
+[e $ ! < -> . . . *U _p 5 1 1 `i -> _min `i 276  ]
+[; ;MyMath.c: 58: {
+"58
+{
+[; ;MyMath.c: 59: p->ro.W.H = min;
+"59
+[e = . . . *U _p 5 1 1 _min ]
+"60
 }
-[e :U 272 ]
-[; ;MyMath.c: 62: }
+[e :U 276 ]
+"61
+[e :U 275 ]
+}
+[e :U 273 ]
+[; ;MyMath.c: 60: }
+[; ;MyMath.c: 61: }
+[; ;MyMath.c: 62: return p->ro.W.H;
+"62
+[e ) . . . *U _p 5 1 1 ]
+[e $UE 272  ]
 [; ;MyMath.c: 63: }
-[; ;MyMath.c: 64: return p->ro.W.H;
-"64
-[e ) . . . *U _p 3 1 1 ]
-[e $UE 271  ]
-[; ;MyMath.c: 65: }
-"65
-[e :UE 271 ]
+"63
+[e :UE 272 ]
 }

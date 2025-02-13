@@ -21,10 +21,22 @@
 #define E_SYS_PREPARE   1
 #define E_SYS_RUN       2
 #define E_SYS_TURN_OFF  3
-EXTERN U8  sysStatus;
+#define E_SYS_OFF       4
+EXTERN XRAM U8  sysStatus;
 
-EXTERN U8  sysLevel;
-EXTERN U8  sysError;
+EXTERN XRAM U8  sysFault;
+
+#define E_LVL_STOP      0
+#define E_LVL_PULSE     1
+#define E_LVL_1         2
+#define E_LVL_2         3
+#define E_LVL_3         4
+#define E_LVL_4         5
+#define E_LVL_5         6
+#define E_LVL_6         7
+EXTERN XRAM U8  sysLevel;
+
+EXTERN XRAM U8  mtrLevel;
 
 EXTERN void SYS_Init( void );
 EXTERN void SYS_Ctrl( void );

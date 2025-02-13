@@ -2057,99 +2057,99 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S251 . . ]
 "3028 c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f1829.h
 [v _TOSHbits `VS251  1 e@4079 ]
-"60 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
+"60 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
 [v _sysTicks `Xuc  1 e ]
-"62 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
+"62 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
 [v _adCur2 `Xul  1 e ]
-"63 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
+"63 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
 [v _adCurN `Xuc  1 e ]
-"65 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
+"65 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
 [v _adVrs `Xuc  1 e ]
-"66 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
+"66 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
 [v _adNtc `Xuc  1 e ]
-"67 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
+"67 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
 [v _adVac `Xuc  1 e ]
-"69 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
+"69 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
 [v _idrTest0 `Xuc  1 e ]
-"70 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
+"70 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
 [v _idrTest1 `Xuc  1 e ]
-"72 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
-[v _txCNT `Zuc  1 e ]
-"73 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
-[v _txWRP `Zuc  1 e ]
-"74 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
-[v _txRDP `Zuc  1 e ]
-"75 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
-[v _txTIM `Zuc  1 e ]
-"76 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
-[v _txFIFO `Zuc  -> 32 `i e ]
-"77 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
-[v _rxCNT `Zuc  1 e ]
-"78 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
-[v _rxWRP `Zuc  1 e ]
-"79 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
-[v _rxRDP `Zuc  1 e ]
-"80 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
-[v _rxTIM `Zuc  1 e ]
-"81 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
-[v _rxFIFO `Zuc  -> 32 `i e ]
-"83 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
-[v _mtrHallTime `Yus  -> 32 `i e ]
-"84 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
+"72 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
+[v _mtrHallTime `us  -> 32 `i e@800 ]
+"73 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
 [v _mtrHallIndex `Xuc  1 e ]
-"85 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
+"74 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
 [v _mtrHallEvent `Xuc  1 e ]
-"86 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
+"75 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
 [v _mtrHallWDT `Xuc  1 e ]
-"88 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
-[v _acCrossTime `Yus  -> 8 `i e ]
-"89 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
+"77 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
+[v _acCrossTime `us  -> 8 `i e@864 ]
+"78 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
 [v _acCrossIndex `Xuc  1 e ]
-"90 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
+"79 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
 [v _acCrossEvent `Xuc  1 e ]
-"91 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
+"80 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
 [v _acCrossWDT `Xuc  1 e ]
-"93 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
+"81 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
 [v _acCycle `Xus  1 e ]
-"94 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
+"82 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
 [v _acCycleHalf `Xuc  1 e ]
-"95 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
+"83 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
 [v _acCycleFlag `Xuc  1 e ]
-"97 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
+"84 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
 [v _tmTriac `Xus  1 e ]
-"15 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.c
+"86 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
+[v _txCNT `Zuc  1 e ]
+"87 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
+[v _txWRP `Zuc  1 e ]
+"88 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
+[v _txRDP `Zuc  1 e ]
+"89 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
+[v _txTIM `Zuc  1 e ]
+"90 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
+[v _txFIFO `uc  -> 32 `i e@928 ]
+"91 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
+[v _rxCNT `Zuc  1 e ]
+"92 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
+[v _rxWRP `Zuc  1 e ]
+"93 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
+[v _rxRDP `Zuc  1 e ]
+"94 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
+[v _rxTIM `Zuc  1 e ]
+"95 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
+[v _rxFIFO `uc  -> 32 `i e@960 ]
+"15 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.c
 [v _ODRA `Xuc  1 s ]
-"16 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.c
+"16 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.c
 [v _scnHall `Xuc  1 s ]
-"17 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.c
+"17 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.c
 [v _scnZero `Xuc  1 s ]
-"18 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.c
+"18 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.c
 [v _scnTest `Xuc  1 s ]
-"19 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.c
+"19 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.c
 [v _enADC `Xuc  1 s ]
-"20 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.c
+"20 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.c
 [v _tmADVAC `Xuc  1 s ]
-"21 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.c
+"21 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.c
 [v _tmADVRS `Xuc  1 s ]
-"22 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.c
+"22 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.c
 [v _tmADNTC `Xuc  1 s ]
-"23 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.c
+"23 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.c
 [v _tmTST0 `Xuc  1 s ]
-"24 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.c
+"24 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.c
 [v _tmTST1 `Xuc  1 s ]
-"25 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.c
+"25 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.c
 [v _sysTimer `Xus  1 s ]
-"26 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.c
+"26 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.c
 [v _tmTriacOn `Xus  1 s ]
-"27 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.c
+"27 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.c
 [v _tmTriacOff `Xus  1 s ]
-"28 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.c
+"28 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.c
 [v _adCur2Buf `Xul  1 s ]
-"29 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.c
+"29 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.c
 [v _adCurNBuf `Xuc  1 s ]
-"31 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.c
+"31 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.c
 [v _FLT `Cuc  -> 256 `i e@7424 ]
-"67 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.c
+"67 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.c
 [v _SQ8 `Cus  -> 256 `i e@7680 ]
 [; ;pic16f1829.h: 132: volatile unsigned char INDF0 @ 0x000;
 [; ;pic16f1829.h: 136: volatile unsigned char INDF1 @ 0x001;
@@ -4103,45 +4103,52 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom_routines.h: 43: extern void eecpymem(volatile unsigned char *to, eeprom unsigned char *from, unsigned char size);
 [; ;eeprom_routines.h: 44: extern void memcpyee(eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 [; ;pic.h: 154: extern void _delay(unsigned long);
-[; ;PicTypes.h: 11: typedef unsigned char U8;
-[; ;PicTypes.h: 12: typedef unsigned short U16;
-[; ;PicTypes.h: 13: typedef unsigned long U32;
-[; ;PicTypes.h: 14: typedef signed char S8;
-[; ;PicTypes.h: 15: typedef signed short S16;
-[; ;PicTypes.h: 16: typedef signed long S32;
-[; ;PicTypes.h: 18: typedef union
-[; ;PicTypes.h: 19: {
-[; ;PicTypes.h: 20: U8 B;
-[; ;PicTypes.h: 21: struct
-[; ;PicTypes.h: 22: {
-[; ;PicTypes.h: 23: unsigned char b0 : 1;
-[; ;PicTypes.h: 24: unsigned char b1 : 1;
-[; ;PicTypes.h: 25: unsigned char b2 : 1;
-[; ;PicTypes.h: 26: unsigned char b3 : 1;
-[; ;PicTypes.h: 27: unsigned char b4 : 1;
-[; ;PicTypes.h: 28: unsigned char b5 : 1;
-[; ;PicTypes.h: 29: unsigned char b6 : 1;
-[; ;PicTypes.h: 30: unsigned char b7 : 1;
-[; ;PicTypes.h: 31: } bits;
-[; ;PicTypes.h: 32: } BYTE;
-[; ;PicTypes.h: 34: typedef union
-[; ;PicTypes.h: 35: {
-[; ;PicTypes.h: 36: U16 W;
-[; ;PicTypes.h: 37: struct
-[; ;PicTypes.h: 38: {
-[; ;PicTypes.h: 39: U8 L;
-[; ;PicTypes.h: 40: U8 H;
-[; ;PicTypes.h: 41: } B;
-[; ;PicTypes.h: 42: } WORD;
-[; ;PicTypes.h: 44: typedef union
-[; ;PicTypes.h: 45: {
-[; ;PicTypes.h: 46: U32 D;
-[; ;PicTypes.h: 47: struct
-[; ;PicTypes.h: 48: {
-[; ;PicTypes.h: 49: U16 L;
-[; ;PicTypes.h: 50: U16 H;
-[; ;PicTypes.h: 51: } W;
-[; ;PicTypes.h: 52: } DWORD;
+[; ;PicTypes.h: 15: typedef unsigned char U8;
+[; ;PicTypes.h: 16: typedef unsigned short U16;
+[; ;PicTypes.h: 17: typedef unsigned long U32;
+[; ;PicTypes.h: 18: typedef signed char S8;
+[; ;PicTypes.h: 19: typedef signed short S16;
+[; ;PicTypes.h: 20: typedef signed long S32;
+[; ;PicTypes.h: 22: typedef union
+[; ;PicTypes.h: 23: {
+[; ;PicTypes.h: 24: U8 B;
+[; ;PicTypes.h: 25: struct
+[; ;PicTypes.h: 26: {
+[; ;PicTypes.h: 27: unsigned char b0 : 1;
+[; ;PicTypes.h: 28: unsigned char b1 : 1;
+[; ;PicTypes.h: 29: unsigned char b2 : 1;
+[; ;PicTypes.h: 30: unsigned char b3 : 1;
+[; ;PicTypes.h: 31: unsigned char b4 : 1;
+[; ;PicTypes.h: 32: unsigned char b5 : 1;
+[; ;PicTypes.h: 33: unsigned char b6 : 1;
+[; ;PicTypes.h: 34: unsigned char b7 : 1;
+[; ;PicTypes.h: 35: } bits;
+[; ;PicTypes.h: 36: } BYTE;
+[; ;PicTypes.h: 38: typedef union
+[; ;PicTypes.h: 39: {
+[; ;PicTypes.h: 40: U16 W;
+[; ;PicTypes.h: 41: struct
+[; ;PicTypes.h: 42: {
+[; ;PicTypes.h: 43: U8 L;
+[; ;PicTypes.h: 44: U8 H;
+[; ;PicTypes.h: 45: } B;
+[; ;PicTypes.h: 46: } WORD;
+[; ;PicTypes.h: 48: typedef union
+[; ;PicTypes.h: 49: {
+[; ;PicTypes.h: 50: U32 D;
+[; ;PicTypes.h: 51: struct
+[; ;PicTypes.h: 52: {
+[; ;PicTypes.h: 53: U16 L;
+[; ;PicTypes.h: 54: U16 H;
+[; ;PicTypes.h: 55: } W;
+[; ;PicTypes.h: 56: struct
+[; ;PicTypes.h: 57: {
+[; ;PicTypes.h: 58: U8 L;
+[; ;PicTypes.h: 59: U8 H;
+[; ;PicTypes.h: 60: U8 M;
+[; ;PicTypes.h: 61: U8 T;
+[; ;PicTypes.h: 62: } B;
+[; ;PicTypes.h: 63: } DWORD;
 [; ;Hardware.h: 60: bank1 U8 sysTicks;
 [; ;Hardware.h: 62: bank1 U32 adCur2;
 [; ;Hardware.h: 63: bank1 U8 adCurN;
@@ -4150,38 +4157,40 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Hardware.h: 67: bank1 U8 adVac;
 [; ;Hardware.h: 69: bank1 U8 idrTest0;
 [; ;Hardware.h: 70: bank1 U8 idrTest1;
-[; ;Hardware.h: 72: bank3 U8 txCNT;
-[; ;Hardware.h: 73: bank3 U8 txWRP;
-[; ;Hardware.h: 74: bank3 U8 txRDP;
-[; ;Hardware.h: 75: bank3 U8 txTIM;
-[; ;Hardware.h: 76: bank3 U8 txFIFO[ 32 ];
-[; ;Hardware.h: 77: bank3 U8 rxCNT;
-[; ;Hardware.h: 78: bank3 U8 rxWRP;
-[; ;Hardware.h: 79: bank3 U8 rxRDP;
-[; ;Hardware.h: 80: bank3 U8 rxTIM;
-[; ;Hardware.h: 81: bank3 U8 rxFIFO[ 32 ];
-[; ;Hardware.h: 83: bank2 U16 mtrHallTime[ 32 ];
-[; ;Hardware.h: 84: bank1 U8 mtrHallIndex;
-[; ;Hardware.h: 85: bank1 U8 mtrHallEvent;
-[; ;Hardware.h: 86: bank1 U8 mtrHallWDT;
-[; ;Hardware.h: 88: bank2 U16 acCrossTime[ 8 ];
-[; ;Hardware.h: 89: bank1 U8 acCrossIndex;
-[; ;Hardware.h: 90: bank1 U8 acCrossEvent;
-[; ;Hardware.h: 91: bank1 U8 acCrossWDT;
-[; ;Hardware.h: 93: bank1 U16 acCycle;
-[; ;Hardware.h: 94: bank1 U8 acCycleHalf;
-[; ;Hardware.h: 95: bank1 U8 acCycleFlag;
-[; ;Hardware.h: 97: bank1 U16 tmTriac;
-[; ;Hardware.h: 99: void MCU_Init( void );
-[; ;Hardware.h: 100: void MCU_Refresh( void );
-"12 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.c
-[; ;Hardware.c: 12: asm("\tpsect config,class=CONFIG,delta=2"); asm("\tdw ""0X0E9C");
+[; ;Hardware.h: 72: U16 mtrHallTime[ 32 ] @ 0x320;
+[; ;Hardware.h: 73: bank1 U8 mtrHallIndex;
+[; ;Hardware.h: 74: bank1 U8 mtrHallEvent;
+[; ;Hardware.h: 75: bank1 U8 mtrHallWDT;
+[; ;Hardware.h: 77: U16 acCrossTime[ 8 ] @ 0x360;
+[; ;Hardware.h: 78: bank1 U8 acCrossIndex;
+[; ;Hardware.h: 79: bank1 U8 acCrossEvent;
+[; ;Hardware.h: 80: bank1 U8 acCrossWDT;
+[; ;Hardware.h: 81: bank1 U16 acCycle;
+[; ;Hardware.h: 82: bank1 U8 acCycleHalf;
+[; ;Hardware.h: 83: bank1 U8 acCycleFlag;
+[; ;Hardware.h: 84: bank1 U16 tmTriac;
+[; ;Hardware.h: 86: bank3 U8 txCNT;
+[; ;Hardware.h: 87: bank3 U8 txWRP;
+[; ;Hardware.h: 88: bank3 U8 txRDP;
+[; ;Hardware.h: 89: bank3 U8 txTIM;
+[; ;Hardware.h: 90: U8 txFIFO[ 32 ] @ 0x3A0;
+[; ;Hardware.h: 91: bank3 U8 rxCNT;
+[; ;Hardware.h: 92: bank3 U8 rxWRP;
+[; ;Hardware.h: 93: bank3 U8 rxRDP;
+[; ;Hardware.h: 94: bank3 U8 rxTIM;
+[; ;Hardware.h: 95: U8 rxFIFO[ 32 ] @ 0x3C0;
+[; ;Hardware.h: 97: void MCU_Init( void );
+[; ;Hardware.h: 98: void MCU_Refresh( void );
+[; ;Hardware.h: 99: void E2P_WriteByte( U8 addr, U8 byte );
+[; ;Hardware.h: 100: U8 E2P_ReadByte( U8 addr );
+"12 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.c
+[; ;Hardware.c: 12: asm("\tpsect config,class=CONFIG,delta=2"); asm("\tdw ""0X0F9C");
 [; 	psect config,class=CONFIG,delta=2 ;#
-[; 	dw 0X0E9C ;#
+[; 	dw 0X0F9C ;#
 "13
-[; ;Hardware.c: 13: asm("\tpsect config,class=CONFIG,delta=2"); asm("\tdw ""0X3BFF");
+[; ;Hardware.c: 13: asm("\tpsect config,class=CONFIG,delta=2"); asm("\tdw ""0X3FFC");
 [; 	psect config,class=CONFIG,delta=2 ;#
-[; 	dw 0X3BFF ;#
+[; 	dw 0X3FFC ;#
 [; ;Hardware.c: 15: static bank1 U8 ODRA;
 [; ;Hardware.c: 16: static bank1 U8 scnHall;
 [; ;Hardware.c: 17: static bank1 U8 scnZero;
@@ -4966,1138 +4975,1248 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Hardware.c: 143: tmADNTC = 255;
 "143
 [e = _tmADNTC -> -> 255 `i `uc ]
-[; ;Hardware.c: 145: BAUDCON = 0X0A;
+[; ;Hardware.c: 144: adVac = 0;
+"144
+[e = _adVac -> -> 0 `i `uc ]
+[; ;Hardware.c: 145: adVrs = 0;
 "145
-[e = _BAUDCON -> -> 10 `i `uc ]
-[; ;Hardware.c: 146: SPBRGL = 799%256;
+[e = _adVrs -> -> 0 `i `uc ]
+[; ;Hardware.c: 146: adNtc = 0;
 "146
-[e = _SPBRGL -> % -> 799 `i -> 256 `i `uc ]
-[; ;Hardware.c: 147: SPBRGH = 799/256;
+[e = _adNtc -> -> 0 `i `uc ]
+[; ;Hardware.c: 147: adCur2Buf = 0;
 "147
-[e = _SPBRGH -> / -> 799 `i -> 256 `i `uc ]
-[; ;Hardware.c: 148: RCSTA = 0X00;
+[e = _adCur2Buf -> -> -> 0 `i `l `ul ]
+[; ;Hardware.c: 148: adCurNBuf = 0;
 "148
-[e = _RCSTA -> -> 0 `i `uc ]
-[; ;Hardware.c: 149: TXSTA = 0X04;
+[e = _adCurNBuf -> -> 0 `i `uc ]
+[; ;Hardware.c: 149: adCur2 = 0;
 "149
-[e = _TXSTA -> -> 4 `i `uc ]
-[; ;Hardware.c: 150: SPEN = 1;
+[e = _adCur2 -> -> -> 0 `i `l `ul ]
+[; ;Hardware.c: 150: adCurN = 0;
 "150
-[e = _SPEN -> -> 1 `i `b ]
-[; ;Hardware.c: 151: CREN = 1;
-"151
-[e = _CREN -> -> 1 `i `b ]
-[; ;Hardware.c: 152: TXEN = 1;
+[e = _adCurN -> -> 0 `i `uc ]
+[; ;Hardware.c: 152: BAUDCON = 0X0A;
 "152
-[e = _TXEN -> -> 1 `i `b ]
-[; ;Hardware.c: 154: T1GCON = 0X00;
+[e = _BAUDCON -> -> 10 `i `uc ]
+[; ;Hardware.c: 153: SPBRGL = 799%256;
+"153
+[e = _SPBRGL -> % -> 799 `i -> 256 `i `uc ]
+[; ;Hardware.c: 154: SPBRGH = 799/256;
 "154
-[e = _T1GCON -> -> 0 `i `uc ]
-[; ;Hardware.c: 155: T1CON = 0X30;
+[e = _SPBRGH -> / -> 799 `i -> 256 `i `uc ]
+[; ;Hardware.c: 155: RCSTA = 0X00;
 "155
-[e = _T1CON -> -> 48 `i `uc ]
-[; ;Hardware.c: 156: PR6 = 49;
+[e = _RCSTA -> -> 0 `i `uc ]
+[; ;Hardware.c: 156: TXSTA = 0X04;
 "156
-[e = _PR6 -> -> 49 `i `uc ]
-[; ;Hardware.c: 157: T6CON = 0X05;
+[e = _TXSTA -> -> 4 `i `uc ]
+[; ;Hardware.c: 157: SPEN = 1;
 "157
-[e = _T6CON -> -> 5 `i `uc ]
-[; ;Hardware.c: 159: PIR1 = 0X00;
+[e = _SPEN -> -> 1 `i `b ]
+[; ;Hardware.c: 158: CREN = 1;
+"158
+[e = _CREN -> -> 1 `i `b ]
+[; ;Hardware.c: 159: TXEN = 1;
 "159
-[e = _PIR1 -> -> 0 `i `uc ]
-[; ;Hardware.c: 160: PIR2 = 0X00;
+[e = _TXEN -> -> 1 `i `b ]
+[; ;Hardware.c: 160: txTIM = 0;
 "160
-[e = _PIR2 -> -> 0 `i `uc ]
-[; ;Hardware.c: 161: PIR3 = 0X00;
-"161
-[e = _PIR3 -> -> 0 `i `uc ]
-[; ;Hardware.c: 162: PIR4 = 0X00;
-"162
-[e = _PIR4 -> -> 0 `i `uc ]
-[; ;Hardware.c: 163: PIE1 = 0X00;
-"163
-[e = _PIE1 -> -> 0 `i `uc ]
-[; ;Hardware.c: 164: PIE2 = 0X00;
-"164
-[e = _PIE2 -> -> 0 `i `uc ]
-[; ;Hardware.c: 165: PIE3 = 0X08;
-"165
-[e = _PIE3 -> -> 8 `i `uc ]
-[; ;Hardware.c: 166: PIE4 = 0X00;
-"166
-[e = _PIE4 -> -> 0 `i `uc ]
-[; ;Hardware.c: 167: PEIE = 1;
-"167
-[e = _PEIE -> -> 1 `i `b ]
-[; ;Hardware.c: 169: sysTicks = 0;
-"169
-[e = _sysTicks -> -> 0 `i `uc ]
-[; ;Hardware.c: 170: sysTimer = 0;
-"170
-[e = _sysTimer -> -> 0 `i `us ]
-[; ;Hardware.c: 171: txTIM = 0;
-"171
 [e = _txTIM -> -> 0 `i `uc ]
-[; ;Hardware.c: 172: txCNT = 0;
-"172
+[; ;Hardware.c: 161: txCNT = 0;
+"161
 [e = _txCNT -> -> 0 `i `uc ]
-[; ;Hardware.c: 173: txWRP = 0;
-"173
+[; ;Hardware.c: 162: txWRP = 0;
+"162
 [e = _txWRP -> -> 0 `i `uc ]
-[; ;Hardware.c: 174: txRDP = 0;
-"174
+[; ;Hardware.c: 163: txRDP = 0;
+"163
 [e = _txRDP -> -> 0 `i `uc ]
-[; ;Hardware.c: 175: rxTIM = 0;
-"175
+[; ;Hardware.c: 164: rxTIM = 0;
+"164
 [e = _rxTIM -> -> 0 `i `uc ]
-[; ;Hardware.c: 176: rxCNT = 0;
-"176
+[; ;Hardware.c: 165: rxCNT = 0;
+"165
 [e = _rxCNT -> -> 0 `i `uc ]
-[; ;Hardware.c: 177: rxWRP = 0;
-"177
+[; ;Hardware.c: 166: rxWRP = 0;
+"166
 [e = _rxWRP -> -> 0 `i `uc ]
-[; ;Hardware.c: 178: rxRDP = 0;
-"178
+[; ;Hardware.c: 167: rxRDP = 0;
+"167
 [e = _rxRDP -> -> 0 `i `uc ]
-[; ;Hardware.c: 179: tmTST0 = 255;
+[; ;Hardware.c: 169: T1GCON = 0X00;
+"169
+[e = _T1GCON -> -> 0 `i `uc ]
+[; ;Hardware.c: 170: T1CON = 0X30;
+"170
+[e = _T1CON -> -> 48 `i `uc ]
+[; ;Hardware.c: 171: PR6 = 49;
+"171
+[e = _PR6 -> -> 49 `i `uc ]
+[; ;Hardware.c: 172: T6CON = 0X05;
+"172
+[e = _T6CON -> -> 5 `i `uc ]
+[; ;Hardware.c: 174: PIR1 = 0X00;
+"174
+[e = _PIR1 -> -> 0 `i `uc ]
+[; ;Hardware.c: 175: PIR2 = 0X00;
+"175
+[e = _PIR2 -> -> 0 `i `uc ]
+[; ;Hardware.c: 176: PIR3 = 0X00;
+"176
+[e = _PIR3 -> -> 0 `i `uc ]
+[; ;Hardware.c: 177: PIR4 = 0X00;
+"177
+[e = _PIR4 -> -> 0 `i `uc ]
+[; ;Hardware.c: 178: PIE1 = 0X00;
+"178
+[e = _PIE1 -> -> 0 `i `uc ]
+[; ;Hardware.c: 179: PIE2 = 0X00;
 "179
-[e = _tmTST0 -> -> 255 `i `uc ]
-[; ;Hardware.c: 180: tmTST1 = 255;
+[e = _PIE2 -> -> 0 `i `uc ]
+[; ;Hardware.c: 180: PIE3 = 0X08;
 "180
-[e = _tmTST1 -> -> 255 `i `uc ]
-[; ;Hardware.c: 181: idrTest0 = 0;
+[e = _PIE3 -> -> 8 `i `uc ]
+[; ;Hardware.c: 181: PIE4 = 0X00;
 "181
-[e = _idrTest0 -> -> 0 `i `uc ]
-[; ;Hardware.c: 182: idrTest1 = 0;
+[e = _PIE4 -> -> 0 `i `uc ]
+[; ;Hardware.c: 182: PEIE = 1;
 "182
-[e = _idrTest1 -> -> 0 `i `uc ]
-[; ;Hardware.c: 183: }
-"183
-[e :UE 259 ]
-}
+[e = _PEIE -> -> 1 `i `b ]
+[; ;Hardware.c: 184: sysTicks = 0;
+"184
+[e = _sysTicks -> -> 0 `i `uc ]
+[; ;Hardware.c: 185: sysTimer = 0;
+"185
+[e = _sysTimer -> -> 0 `i `us ]
+[; ;Hardware.c: 186: tmTST0 = 255;
 "186
-[v _MCU_Refresh `(v  1 ef ]
-{
-[; ;Hardware.c: 185: void MCU_Refresh( void )
-[; ;Hardware.c: 186: {
-[e :U _MCU_Refresh ]
-[f ]
-[; ;Hardware.c: 187: APFCON0 = 0X00;
+[e = _tmTST0 -> -> 255 `i `uc ]
+[; ;Hardware.c: 187: tmTST1 = 255;
 "187
-[e = _APFCON0 -> -> 0 `i `uc ]
-[; ;Hardware.c: 188: APFCON1 = 0X00;
+[e = _tmTST1 -> -> 255 `i `uc ]
+[; ;Hardware.c: 188: idrTest0 = 0;
 "188
-[e = _APFCON1 -> -> 0 `i `uc ]
-[; ;Hardware.c: 189: TRISA = 0X1B;
+[e = _idrTest0 -> -> 0 `i `uc ]
+[; ;Hardware.c: 189: idrTest1 = 0;
 "189
-[e = _TRISA -> -> 27 `i `uc ]
-[; ;Hardware.c: 190: ANSELA = 0X11;
+[e = _idrTest1 -> -> 0 `i `uc ]
+[; ;Hardware.c: 190: scnHall = 0;
 "190
-[e = _ANSELA -> -> 17 `i `uc ]
-[; ;Hardware.c: 191: WPUA = 0X00;
+[e = _scnHall -> -> 0 `i `uc ]
+[; ;Hardware.c: 191: scnZero = 0;
 "191
-[e = _WPUA -> -> 0 `i `uc ]
-[; ;Hardware.c: 192: INLVLA = 0X00;
+[e = _scnZero -> -> 0 `i `uc ]
+[; ;Hardware.c: 192: scnTest = 0;
 "192
-[e = _INLVLA -> -> 0 `i `uc ]
-[; ;Hardware.c: 193: TRISB = 0X30;
+[e = _scnTest -> -> 0 `i `uc ]
+[; ;Hardware.c: 193: tmTriacOn = 0;
 "193
-[e = _TRISB -> -> 48 `i `uc ]
-[; ;Hardware.c: 194: ANSELB = 0X00;
+[e = _tmTriacOn -> -> 0 `i `us ]
+[; ;Hardware.c: 194: tmTriacOff = 0;
 "194
-[e = _ANSELB -> -> 0 `i `uc ]
-[; ;Hardware.c: 195: WPUB = 0X00;
+[e = _tmTriacOff -> -> 0 `i `us ]
+[; ;Hardware.c: 195: }
 "195
-[e = _WPUB -> -> 0 `i `uc ]
-[; ;Hardware.c: 196: INLVLB = 0X20;
-"196
-[e = _INLVLB -> -> 32 `i `uc ]
-[; ;Hardware.c: 197: TRISC = 0XEF;
-"197
-[e = _TRISC -> -> 239 `i `uc ]
-[; ;Hardware.c: 198: ANSELC = 0XCF;
-"198
-[e = _ANSELC -> -> 207 `i `uc ]
-[; ;Hardware.c: 199: WPUC = 0X00;
-"199
-[e = _WPUC -> -> 0 `i `uc ]
-[; ;Hardware.c: 200: INLVLC = 0X00;
-"200
-[e = _INLVLC -> -> 0 `i `uc ]
-[; ;Hardware.c: 201: FVRCON = 0X00;
-"201
-[e = _FVRCON -> -> 0 `i `uc ]
-[; ;Hardware.c: 202: DACCON0 = 0X00;
-"202
-[e = _DACCON0 -> -> 0 `i `uc ]
-[; ;Hardware.c: 203: DACCON1 = 0X00;
-"203
-[e = _DACCON1 -> -> 0 `i `uc ]
-[; ;Hardware.c: 204: CM1CON0 = 0X82;
-"204
-[e = _CM1CON0 -> -> 130 `i `uc ]
-[; ;Hardware.c: 205: CM1CON1 = 0X03;
-"205
-[e = _CM1CON1 -> -> 3 `i `uc ]
-[; ;Hardware.c: 206: CM2CON0 = 0XA2;
-"206
-[e = _CM2CON0 -> -> 162 `i `uc ]
-[; ;Hardware.c: 207: CM2CON1 = 0X01;
-"207
-[e = _CM2CON1 -> -> 1 `i `uc ]
-[; ;Hardware.c: 208: }
-"208
 [e :UE 260 ]
 }
-"211
-[v F2569 `(v  1 tf ]
-[v _INTSR `IF2569  1 e ]
+"198
+[v _MCU_Refresh `(v  1 ef ]
 {
-[; ;Hardware.c: 210: void interrupt INTSR( void )
-[; ;Hardware.c: 211: {
+[; ;Hardware.c: 197: void MCU_Refresh( void )
+[; ;Hardware.c: 198: {
+[e :U _MCU_Refresh ]
+[f ]
+[; ;Hardware.c: 199: APFCON0 = 0X00;
+"199
+[e = _APFCON0 -> -> 0 `i `uc ]
+[; ;Hardware.c: 200: APFCON1 = 0X00;
+"200
+[e = _APFCON1 -> -> 0 `i `uc ]
+[; ;Hardware.c: 201: TRISA = 0X1B;
+"201
+[e = _TRISA -> -> 27 `i `uc ]
+[; ;Hardware.c: 202: ANSELA = 0X11;
+"202
+[e = _ANSELA -> -> 17 `i `uc ]
+[; ;Hardware.c: 203: WPUA = 0X00;
+"203
+[e = _WPUA -> -> 0 `i `uc ]
+[; ;Hardware.c: 204: INLVLA = 0X00;
+"204
+[e = _INLVLA -> -> 0 `i `uc ]
+[; ;Hardware.c: 205: TRISB = 0X30;
+"205
+[e = _TRISB -> -> 48 `i `uc ]
+[; ;Hardware.c: 206: ANSELB = 0X00;
+"206
+[e = _ANSELB -> -> 0 `i `uc ]
+[; ;Hardware.c: 207: WPUB = 0X00;
+"207
+[e = _WPUB -> -> 0 `i `uc ]
+[; ;Hardware.c: 208: INLVLB = 0X20;
+"208
+[e = _INLVLB -> -> 32 `i `uc ]
+[; ;Hardware.c: 209: TRISC = 0XEF;
+"209
+[e = _TRISC -> -> 239 `i `uc ]
+[; ;Hardware.c: 210: ANSELC = 0XCF;
+"210
+[e = _ANSELC -> -> 207 `i `uc ]
+[; ;Hardware.c: 211: WPUC = 0X00;
+"211
+[e = _WPUC -> -> 0 `i `uc ]
+[; ;Hardware.c: 212: INLVLC = 0X00;
+"212
+[e = _INLVLC -> -> 0 `i `uc ]
+[; ;Hardware.c: 213: FVRCON = 0X00;
+"213
+[e = _FVRCON -> -> 0 `i `uc ]
+[; ;Hardware.c: 214: DACCON0 = 0X00;
+"214
+[e = _DACCON0 -> -> 0 `i `uc ]
+[; ;Hardware.c: 215: DACCON1 = 0X00;
+"215
+[e = _DACCON1 -> -> 0 `i `uc ]
+[; ;Hardware.c: 216: CM1CON0 = 0X82;
+"216
+[e = _CM1CON0 -> -> 130 `i `uc ]
+[; ;Hardware.c: 217: CM1CON1 = 0X03;
+"217
+[e = _CM1CON1 -> -> 3 `i `uc ]
+[; ;Hardware.c: 218: CM2CON0 = 0XA2;
+"218
+[e = _CM2CON0 -> -> 162 `i `uc ]
+[; ;Hardware.c: 219: CM2CON1 = 0X01;
+"219
+[e = _CM2CON1 -> -> 1 `i `uc ]
+[; ;Hardware.c: 220: }
+"220
+[e :UE 261 ]
+}
+"223
+[v _E2P_WriteByte `(v  1 ef2`uc`uc ]
+{
+[; ;Hardware.c: 222: void E2P_WriteByte( U8 addr, U8 byte )
+[; ;Hardware.c: 223: {
+[e :U _E2P_WriteByte ]
+[v _addr `uc  1 r1 ]
+[v _byte `uc  1 r2 ]
+[f ]
+[; ;Hardware.c: 224: EEADRL = addr;
+"224
+[e = _EEADRL _addr ]
+[; ;Hardware.c: 225: EEDATL = byte;
+"225
+[e = _EEDATL _byte ]
+[; ;Hardware.c: 226: CFGS = 0;
+"226
+[e = _CFGS -> -> 0 `i `b ]
+[; ;Hardware.c: 227: EEPGD = 0;
+"227
+[e = _EEPGD -> -> 0 `i `b ]
+[; ;Hardware.c: 228: WREN = 1;
+"228
+[e = _WREN -> -> 1 `i `b ]
+[; ;Hardware.c: 229: GIE = 0;
+"229
+[e = _GIE -> -> 0 `i `b ]
+[; ;Hardware.c: 230: EECON2 = 0X55;
+"230
+[e = _EECON2 -> -> 85 `i `uc ]
+[; ;Hardware.c: 231: EECON2 = 0XAA;
+"231
+[e = _EECON2 -> -> 170 `i `uc ]
+[; ;Hardware.c: 232: WR = 1;
+"232
+[e = _WR -> -> 1 `i `b ]
+[; ;Hardware.c: 233: GIE = 1;
+"233
+[e = _GIE -> -> 1 `i `b ]
+[; ;Hardware.c: 234: WREN = 0;
+"234
+[e = _WREN -> -> 0 `i `b ]
+[; ;Hardware.c: 235: }
+"235
+[e :UE 262 ]
+}
+"238
+[v _E2P_ReadByte `(uc  1 ef1`uc ]
+{
+[; ;Hardware.c: 237: U8 E2P_ReadByte( U8 addr )
+[; ;Hardware.c: 238: {
+[e :U _E2P_ReadByte ]
+[v _addr `uc  1 r1 ]
+[f ]
+[; ;Hardware.c: 239: EEADRL = addr;
+"239
+[e = _EEADRL _addr ]
+[; ;Hardware.c: 240: CFGS = 0;
+"240
+[e = _CFGS -> -> 0 `i `b ]
+[; ;Hardware.c: 241: EEPGD = 0;
+"241
+[e = _EEPGD -> -> 0 `i `b ]
+[; ;Hardware.c: 242: RD = 1;
+"242
+[e = _RD -> -> 1 `i `b ]
+[; ;Hardware.c: 243: return EEDATL;
+"243
+[e ) _EEDATL ]
+[e $UE 263  ]
+[; ;Hardware.c: 244: }
+"244
+[e :UE 263 ]
+}
+"247
+[v F2583 `(v  1 tf ]
+[v _INTSR `IF2583  1 e ]
+{
+[; ;Hardware.c: 246: void interrupt INTSR( void )
+[; ;Hardware.c: 247: {
 [e :U _INTSR ]
 [f ]
-"213
-[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
-"214
-[;             ; COMMON REGS. ;#
-"215
-[;             INDF0 EQU 0X00 ;#
-"216
-[;             INDF1 EQU 0X01 ;#
-"217
-[;             PCL EQU 0X02 ;#
-"218
-[;             STATUS EQU 0X03 ;#
-"219
-[;             C EQU 0 ;#
-"220
-[;             Z EQU 2 ;#
-"221
-[;             FSR0L EQU 0X04 ;#
-"222
-[;             FSR0H EQU 0X05 ;#
-"223
-[;             FSR1L EQU 0X06 ;#
-"224
-[;             FSR1H EQU 0X07 ;#
-"225
-[;             BSR EQU 0X08 ;#
-"226
-[;             WREG EQU 0X09 ;#
-"227
-[;             PCLATH EQU 0X0A ;#
-"228
-[;             INTCON EQU 0X0B ;#
-"229
-[;             ; BANK0 REGS. ;#
-"230
-[;             PORTA EQU 0X0C ;#
-"231
-[;             PORTB EQU 0X0D ;#
-"232
-[;             PORTC EQU 0X0E ;#
-"233
-[;             PIR1 EQU 0X11 ;#
-"234
-[;             TMR1IF EQU 0 ;#
-"235
-[;             TMR2IF EQU 1 ;#
-"236
-[;             TXIF EQU 4 ;#
-"237
-[;             RCIF EQU 5 ;#
-"238
-[;             PIR2 EQU 0X12 ;#
-"239
-[;             PIR3 EQU 0X13 ;#
-"240
-[;             TMR4IF EQU 1 ;#
-"241
-[;             TMR6IF EQU 3 ;#
-"242
-[;             PIR4 EQU 0X14 ;#
-"243
-[;             ; BANK1 REGS. ;#
-"244
-[;             TRISA EQU 0X0C ;#
-"245
-[;             TRISB EQU 0X0D ;#
-"246
-[;             TRISC EQU 0X0E ;#
-"247
-[;             PIE1 EQU 0X11 ;#
-"248
-[;             PIE2 EQU 0X12 ;#
 "249
-[;             PIE3 EQU 0X13 ;#
+[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
 "250
-[;             PIE4 EQU 0X14 ;#
+[;             ; COMMON REGS. ;#
 "251
-[;             ADRESL EQU 0X1B ;#
+[;             INDF0 EQU 0X00 ;#
 "252
-[;             ADRESH EQU 0X1C ;#
+[;             INDF1 EQU 0X01 ;#
 "253
-[;             ADCON0 EQU 0X1D ;#
+[;             PCL EQU 0X02 ;#
 "254
-[;             ADCON1 EQU 0X1E ;#
+[;             STATUS EQU 0X03 ;#
 "255
-[;             ; BANK2 REGS. ;#
+[;             C EQU 0 ;#
 "256
-[;             LATA EQU 0X0C ;#
+[;             Z EQU 2 ;#
 "257
-[;             LATB EQU 0X0D ;#
+[;             FSR0L EQU 0X04 ;#
 "258
-[;             LATC EQU 0X0E ;#
+[;             FSR0H EQU 0X05 ;#
 "259
-[;             CM1CON0 EQU 0X11 ;#
+[;             FSR1L EQU 0X06 ;#
 "260
-[;             CM1CON1 EQU 0X12 ;#
+[;             FSR1H EQU 0X07 ;#
 "261
-[;             CM2CON0 EQU 0X13 ;#
+[;             BSR EQU 0X08 ;#
 "262
-[;             CM2CON1 EQU 0X14 ;#
+[;             WREG EQU 0X09 ;#
 "263
-[;             CMOUT EQU 0X15 ;#
+[;             PCLATH EQU 0X0A ;#
 "264
-[;             DACCON0 EQU 0X18 ;#
+[;             INTCON EQU 0X0B ;#
 "265
-[;             DACCON1 EQU 0X19 ;#
+[;             ; BANK0 REGS. ;#
 "266
-[;             ; BANK3 REGS. ;#
+[;             PORTA EQU 0X0C ;#
 "267
-[;             ANSELA EQU 0X0C ;#
+[;             PORTB EQU 0X0D ;#
 "268
-[;             ANSELB EQU 0X0D ;#
+[;             PORTC EQU 0X0E ;#
 "269
-[;             ANSELC EQU 0X0E ;#
+[;             PIR1 EQU 0X11 ;#
 "270
-[;             RCREG EQU 0X19 ;#
+[;             TMR1IF EQU 0 ;#
 "271
-[;             TXREG EQU 0X1A ;#
+[;             TMR2IF EQU 1 ;#
 "272
-[;             RCSTA EQU 0X1D ;#
+[;             TXIF EQU 4 ;#
 "273
-[;             TXSTA EQU 0X1E ;#
+[;             RCIF EQU 5 ;#
 "274
-[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
+[;             PIR2 EQU 0X12 ;#
 "275
-[;             ; PORT DEFINITION. ;#
+[;             PIR3 EQU 0X13 ;#
 "276
-[;             ODRA EQU (127&_ODRA) ;#
+[;             TMR4IF EQU 1 ;#
 "277
-[;             ODR_TRIAC EQU ODRA ;#
+[;             TMR6IF EQU 3 ;#
 "278
-[;             PIN_TRIAC EQU 5 ;#
+[;             PIR4 EQU 0X14 ;#
 "279
-[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
+[;             ; BANK1 REGS. ;#
 "280
-[;             ; DATA DEFINITION. ;#
+[;             TRISA EQU 0X0C ;#
 "281
-[;             SYS_TICKS EQU (127&_sysTicks) ;#
+[;             TRISB EQU 0X0D ;#
 "282
-[;             SYS_TIMER EQU (127&_sysTimer) ;#
+[;             TRISC EQU 0X0E ;#
 "283
-[;             HL_SCAN EQU (127&_scnHall) ;#
+[;             PIE1 EQU 0X11 ;#
 "284
-[;             AC_SCAN EQU (127&_scnZero) ;#
+[;             PIE2 EQU 0X12 ;#
 "285
-[;             TS_SCAN EQU (127&_scnTest) ;#
+[;             PIE3 EQU 0X13 ;#
 "286
-[;             nEDGE EQU 6 ;#
+[;             PIE4 EQU 0X14 ;#
 "287
-[;             nFALL EQU 5 ;#
+[;             ADRESL EQU 0X1B ;#
 "288
-[;             nRISE EQU 4 ;#
+[;             ADRESH EQU 0X1C ;#
 "289
-[;             EN_ADC EQU (127&_enADC) ;#
+[;             ADCON0 EQU 0X1D ;#
 "290
-[;             TAD_VAC EQU (127&_tmADVAC) ;#
+[;             ADCON1 EQU 0X1E ;#
 "291
-[;             TAD_VRS EQU (127&_tmADVRS) ;#
+[;             ; BANK2 REGS. ;#
 "292
-[;             TAD_NTC EQU (127&_tmADNTC) ;#
+[;             LATA EQU 0X0C ;#
 "293
-[;             TM_TST0 EQU (127&_tmTST0) ;#
+[;             LATB EQU 0X0D ;#
 "294
-[;             TM_TST1 EQU (127&_tmTST1) ;#
+[;             LATC EQU 0X0E ;#
 "295
-[;             DR_TST0 EQU (127&_idrTest0) ;#
+[;             CM1CON0 EQU 0X11 ;#
 "296
-[;             DR_TST1 EQU (127&_idrTest1) ;#
+[;             CM1CON1 EQU 0X12 ;#
 "297
-[;             AD_VRS EQU (127&_adVrs) ;#
+[;             CM2CON0 EQU 0X13 ;#
 "298
-[;             AD_NTC EQU (127&_adNtc) ;#
+[;             CM2CON1 EQU 0X14 ;#
 "299
-[;             AD_VAC EQU (127&_adVac) ;#
+[;             CMOUT EQU 0X15 ;#
 "300
-[;             AD_CUR_2 EQU (127&_adCur2) ;#
+[;             DACCON0 EQU 0X18 ;#
 "301
-[;             AD_CUR_N EQU (127&_adCurN) ;#
+[;             DACCON1 EQU 0X19 ;#
 "302
-[;             AD_CUR_2B EQU (127&_adCur2Buf) ;#
+[;             ; BANK3 REGS. ;#
 "303
-[;             AD_CUR_NB EQU (127&_adCurNBuf) ;#
+[;             ANSELA EQU 0X0C ;#
 "304
-[;             TX_CNT EQU (127&_txCNT) ;#
+[;             ANSELB EQU 0X0D ;#
 "305
-[;             TX_WRP EQU (127&_txWRP) ;#
+[;             ANSELC EQU 0X0E ;#
 "306
-[;             TX_RDP EQU (127&_txRDP) ;#
+[;             RCREG EQU 0X19 ;#
 "307
-[;             TX_TIM EQU (127&_txTIM) ;#
+[;             TXREG EQU 0X1A ;#
 "308
-[;             TX_FIFO_PL EQU LOW (_txFIFO) ;#
+[;             RCSTA EQU 0X1D ;#
 "309
-[;             TX_FIFO_PH EQU HIGH(_txFIFO) ;#
+[;             TXSTA EQU 0X1E ;#
 "310
-[;             RX_CNT EQU (127&_rxCNT) ;#
+[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
 "311
-[;             RX_WRP EQU (127&_rxWRP) ;#
+[;             ; PORT DEFINITION. ;#
 "312
-[;             RX_RDP EQU (127&_rxRDP) ;#
+[;             ODRA EQU (127&_ODRA) ;#
 "313
-[;             RX_TIM EQU (127&_rxTIM) ;#
+[;             ODR_TRIAC EQU ODRA ;#
 "314
-[;             RX_FIFO_PL EQU LOW (_rxFIFO) ;#
+[;             PIN_TRIAC EQU 5 ;#
 "315
-[;             RX_FIFO_PH EQU HIGH(_rxFIFO) ;#
+[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
 "316
-[;             AC_CYCLE EQU (127&_acCycle) ;#
+[;             ; DATA DEFINITION. ;#
 "317
-[;             AC_CYCLE_2 EQU (127&_acCycleHalf) ;#
+[;             SYS_TICKS EQU (127&_sysTicks) ;#
 "318
-[;             AC_FLAG EQU (127&_acCycleFlag) ;#
+[;             SYS_TIMER EQU (127&_sysTimer) ;#
 "319
-[;             AC_INDEX EQU (127&_acCrossIndex) ;#
+[;             HL_SCAN EQU (127&_scnHall) ;#
 "320
-[;             AC_EVENT EQU (127&_acCrossEvent) ;#
+[;             AC_SCAN EQU (127&_scnZero) ;#
 "321
-[;             AC_WATCH EQU (127&_acCrossWDT) ;#
+[;             TS_SCAN EQU (127&_scnTest) ;#
 "322
-[;             AC_TIME_PL EQU LOW (_acCrossTime) ;#
+[;             nEDGE EQU 6 ;#
 "323
-[;             AC_TIME_PH EQU HIGH(_acCrossTime) ;#
+[;             nFALL EQU 5 ;#
 "324
-[;             HL_INDEX EQU (127&_mtrHallIndex) ;#
+[;             nRISE EQU 4 ;#
 "325
-[;             HL_EVENT EQU (127&_mtrHallEvent) ;#
+[;             EN_ADC EQU (127&_enADC) ;#
 "326
-[;             HL_WATCH EQU (127&_mtrHallWDT) ;#
+[;             TAD_VAC EQU (127&_tmADVAC) ;#
 "327
-[;             HL_TIME_PL EQU LOW (_mtrHallTime) ;#
+[;             TAD_VRS EQU (127&_tmADVRS) ;#
 "328
-[;             HL_TIME_PH EQU HIGH(_mtrHallTime) ;#
+[;             TAD_NTC EQU (127&_tmADNTC) ;#
 "329
-[;             TM_TRIAC EQU (127&_tmTriac) ;#
+[;             TM_TST0 EQU (127&_tmTST0) ;#
 "330
-[;             TMR_ON EQU (127&_tmTriacOn) ;#
+[;             TM_TST1 EQU (127&_tmTST1) ;#
 "331
-[;             TMR_OFF EQU (127&_tmTriacOff) ;#
+[;             DR_TST0 EQU (127&_idrTest0) ;#
 "332
-[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
+[;             DR_TST1 EQU (127&_idrTest1) ;#
 "333
-[;            ;MOVLP 0 ;#
+[;             AD_VRS EQU (127&_adVrs) ;#
 "334
-[;             MOVLB 1 ;#
+[;             AD_NTC EQU (127&_adNtc) ;#
 "335
-[;             BTFSC EN_ADC, 0 ;#
+[;             AD_VAC EQU (127&_adVac) ;#
 "336
-[;             BSF ADCON0, 1 ;#
+[;             AD_CUR_2 EQU (127&_adCur2) ;#
 "337
-[;             BSF ODRA, 2 ;#
+[;             AD_CUR_N EQU (127&_adCurN) ;#
 "338
-[;             MOVF ODRA, W ;#
+[;             AD_CUR_2B EQU (127&_adCur2Buf) ;#
 "339
-[;             MOVLB 2 ;#
+[;             AD_CUR_NB EQU (127&_adCurNBuf) ;#
 "340
-[;             XORWF LATA, W ;#
+[;             TX_CNT EQU (127&_txCNT) ;#
 "341
-[;             ANDLW 0X24 ;#
+[;             TX_WRP EQU (127&_txWRP) ;#
 "342
-[;             XORWF LATA, F ;#
+[;             TX_RDP EQU (127&_txRDP) ;#
 "343
-[;             MOVLB 0 ;#
+[;             TX_TIM EQU (127&_txTIM) ;#
 "344
-[;             BCF PIR3, TMR6IF ; 12 ;#
+[;             TX_FIFO_PL EQU LOW (_txFIFO) ;#
 "345
-[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
+[;             TX_FIFO_PH EQU HIGH(_txFIFO) ;#
 "346
-[;             MOVLW HIGH _FLT | 0X80 ;#
+[;             RX_CNT EQU (127&_rxCNT) ;#
 "347
-[;             MOVWF FSR0H ;#
+[;             RX_WRP EQU (127&_rxWRP) ;#
 "348
-[;             MOVLB 1 ; 3 ;#
+[;             RX_RDP EQU (127&_rxRDP) ;#
 "349
-[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
+[;             RX_TIM EQU (127&_rxTIM) ;#
 "350
-[;             SCAN_HALL: ;#
+[;             RX_FIFO_PL EQU LOW (_rxFIFO) ;#
 "351
-[;             MOVF HL_SCAN, W ;#
+[;             RX_FIFO_PH EQU HIGH(_rxFIFO) ;#
 "352
-[;             MOVLB 0 ;#
+[;             AC_CYCLE EQU (127&_acCycle) ;#
 "353
-[;             BTFSC PORTC, 5 ;#
+[;             AC_CYCLE_2 EQU (127&_acCycleHalf) ;#
 "354
-[;             IORLW 1 ;#
+[;             AC_FLAG EQU (127&_acCycleFlag) ;#
 "355
-[;             MOVWF FSR0L ;#
+[;             AC_INDEX EQU (127&_acCrossIndex) ;#
 "356
-[;             MOVIW [0]FSR0 ;#
+[;             AC_EVENT EQU (127&_acCrossEvent) ;#
 "357
-[;             MOVLB 1 ;#
+[;             AC_WATCH EQU (127&_acCrossWDT) ;#
 "358
-[;             MOVWF HL_SCAN ; 9 ;#
+[;             AC_TIME_PL EQU LOW (_acCrossTime) ;#
 "359
-[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
+[;             AC_TIME_PH EQU HIGH(_acCrossTime) ;#
 "360
-[;             SCAN_ZERO: ;#
+[;             HL_INDEX EQU (127&_mtrHallIndex) ;#
 "361
-[;             MOVF AC_SCAN, W ;#
+[;             HL_EVENT EQU (127&_mtrHallEvent) ;#
 "362
-[;             MOVLB 2 ;#
+[;             HL_WATCH EQU (127&_mtrHallWDT) ;#
 "363
-[;             BTFSC CMOUT, 1 ;#
+[;             HL_TIME_PL EQU LOW (_mtrHallTime) ;#
 "364
-[;             IORLW 1 ;#
+[;             HL_TIME_PH EQU HIGH(_mtrHallTime) ;#
 "365
-[;             MOVWF FSR0L ;#
+[;             TM_TRIAC EQU (127&_tmTriac) ;#
 "366
-[;             MOVIW [0]FSR0 ;#
+[;             TMR_ON EQU (127&_tmTriacOn) ;#
 "367
-[;             MOVLB 1 ;#
+[;             TMR_OFF EQU (127&_tmTriacOff) ;#
 "368
-[;             MOVWF AC_SCAN ; 9 ;#
+[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
 "369
-[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
+[;            ;MOVLP 0 ;#
 "370
-[;             SCAN_TEST: ;#
+[;             MOVLB 1 ;#
 "371
-[;             MOVF TS_SCAN, W ;#
+[;             BTFSC EN_ADC, 0 ;#
 "372
-[;             MOVLB 2 ;#
+[;             BSF ADCON0, 1 ;#
 "373
-[;             BTFSC CMOUT, 0 ;#
+[;             BSF ODRA, 2 ;#
 "374
-[;             IORLW 1 ;#
+[;             MOVF ODRA, W ;#
 "375
-[;             MOVWF FSR0L ;#
+[;             MOVLB 2 ;#
 "376
-[;             MOVIW [0]FSR0 ;#
+[;             XORWF LATA, W ;#
 "377
-[;             MOVLB 1 ;#
+[;             ANDLW 0X24 ;#
 "378
-[;             MOVWF TS_SCAN ; 9 ;#
+[;             XORWF LATA, F ;#
 "379
-[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
-"380
-[;             HALL_CHECK: ;#
-"381
-[;             BTFSS HL_SCAN, nFALL ;#
-"382
-[;             GOTO HALL_CHECK_E ; 3 ;#
-"383
-[;             LSLF HL_INDEX, W ;#
-"384
-[;             ANDLW 31*2 ;#
-"385
-[;             ADDLW HL_TIME_PL ;#
-"386
-[;             MOVWF FSR0L ;#
-"387
-[;             MOVLW HL_TIME_PH ;#
-"388
-[;             MOVWF FSR0H ;#
-"389
-[;             MOVF SYS_TIMER, W ;#
-"390
-[;             MOVWI FSR0++ ;#
-"391
-[;             MOVF SYS_TIMER+1,W ;#
-"392
-[;             MOVWI FSR0++ ;#
-"393
-[;             INCF HL_INDEX, F ;#
-"394
-[;             INCF HL_EVENT, F ;#
-"395
-[;             CLRF HL_WATCH ; 15 ;#
-"396
-[;             HALL_CHECK_E: ;#
-"397
-[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
-"398
-[;             ZERO_CHECK: ;#
-"399
-[;             BCF ODR_TRIAC, PIN_TRIAC ; ;#
-"400
-[;             BTFSC AC_SCAN, nEDGE ;#
-"401
-[;             GOTO ZERO_EDGE ; 4 ;#
-"402
-[;             ZERO_TRIG: ;#
-"403
-[;             BTFSS TMR_OFF+1, 7 ;#
-"404
-[;             GOTO ZERO_CHECK_E ; 6 ;#
-"405
-[;             INCFSZ TMR_OFF, F ;#
-"406
-[;             GOTO $+2 ;#
-"407
-[;             INCF TMR_OFF+1, F ;#
-"408
-[;             INCFSZ TMR_ON, F ;#
-"409
-[;             GOTO $+2 ;#
-"410
-[;             INCF TMR_ON+1, F ;#
-"411
-[;             BTFSC TMR_ON+1, 7 ;#
-"412
-[;             GOTO ZERO_CHECK_E ; 14 ;#
-"413
-[;             BSF ODR_TRIAC, PIN_TRIAC ; ;#
-"414
-[;             GOTO ZERO_CHECK_E ; 16 ;#
-"415
-[;             ZERO_EDGE: ;#
-"416
-[;             CLRF TMR_OFF+1 ;#
-"417
-[;             MOVF AC_CYCLE_2, W ;#
-"418
-[;             BTFSC STATUS, Z ;#
-"419
-[;             GOTO ZERO_CYCLE ; 9 ;#
-"420
-[;             ADDLW 256-3 ;#
-"421
-[;             MOVWF TM_TST0 ;#
-"422
-[;             ADDLW 10 ;#
-"423
-[;             MOVWF TM_TST1 ;#
-"424
-[;             MOVLW 40 ;#
-"425
-[;             SUBWF TM_TRIAC, W ;#
-"426
-[;             MOVLW 0 ;#
-"427
-[;             SUBWFB TM_TRIAC+1, W ;#
-"428
-[;             BTFSS STATUS, C ;#
-"429
-[;             GOTO ZERO_CYCLE ; 19 ;#
-"430
-[;             MOVF AC_CYCLE, W ;#
-"431
-[;             SUBWF TM_TRIAC, W ;#
-"432
-[;             MOVWF TMR_ON ;#
-"433
-[;             MOVF AC_CYCLE+1, W ;#
-"434
-[;             SUBWFB TM_TRIAC+1, W ;#
-"435
-[;             MOVWF TMR_ON+1 ;#
-"436
-[;             MOVLW 255 ;#
-"437
-[;             BTFSC STATUS, C ;#
-"438
-[;             MOVWF TMR_ON ;#
-"439
-[;             BTFSC STATUS, C ;#
-"440
-[;             MOVWF TMR_ON+1 ;#
-"441
-[;             MOVF AC_CYCLE, W ;#
-"442
-[;             SUBLW 36 ;#
-"443
-[;             MOVWF FSR0L ;#
-"444
-[;             MOVF AC_CYCLE+1, W ;#
-"445
-[;             SUBWFB TMR_OFF+1, W ;#
-"446
-[;             MOVWF FSR0H ;#
-"447
-[;             MOVLW 5;98 ;#
-"448
-[;             SUBWF TMR_ON, W ;#
-"449
-[;             MOVWF TMR_OFF ;#
-"450
-[;             MOVLW 0 ;#
-"451
-[;             SUBWFB TMR_ON+1, W ;#
-"452
-[;             MOVWF TMR_OFF+1 ;#
-"453
-[;             MOVF FSR0L, W ;#
-"454
-[;             SUBWF TMR_OFF, W ;#
-"455
-[;             MOVF FSR0H, W ;#
-"456
-[;             SUBWFB TMR_OFF+1, W ;#
-"457
-[;             BTFSC STATUS, C ;#
-"458
-[;             GOTO ZERO_CYCLE ; 48 ;#
-"459
-[;             MOVF FSR0L, W ;#
-"460
-[;             MOVWF TMR_OFF ;#
-"461
-[;             MOVF FSR0H, W ;#
-"462
-[;             MOVWF TMR_OFF+1 ; 51 ;#
-"463
-[;             ZERO_CYCLE: ;#
-"464
-[;             BTFSS AC_SCAN, nRISE ;#
-"465
-[;             GOTO ZERO_CHECK_E ;#
-"466
-[;             BSF AC_FLAG, 0 ;#
-"467
-[;             LSLF AC_INDEX, W ;#
-"468
-[;             ANDLW 7*2 ;#
-"469
-[;             ADDLW AC_TIME_PL ;#
-"470
-[;             MOVWF FSR0L ;#
-"471
-[;             MOVLW AC_TIME_PH ;#
-"472
-[;             MOVWF FSR0H ;#
-"473
-[;             MOVF SYS_TIMER, W ;#
-"474
-[;             MOVWI FSR0++ ;#
-"475
-[;             MOVF SYS_TIMER+1,W ;#
-"476
-[;             MOVWI FSR0++ ;#
-"477
-[;             INCF AC_INDEX, F ;#
-"478
-[;             INCF AC_EVENT, F ;#
-"479
-[;             CLRF AC_WATCH ;#
-"480
-[;             MOVF AD_CUR_2B, W ;#
-"481
-[;             MOVWF AD_CUR_2 ;#
-"482
-[;             MOVF AD_CUR_2B+1,W ;#
-"483
-[;             MOVWF AD_CUR_2+1 ;#
-"484
-[;             MOVF AD_CUR_2B+2,W ;#
-"485
-[;             MOVWF AD_CUR_2+2 ;#
-"486
-[;             MOVF AD_CUR_2B+3,W ;#
-"487
-[;             MOVWF AD_CUR_2+3 ;#
-"488
-[;             MOVF AD_CUR_NB, W ;#
-"489
-[;             MOVWF AD_CUR_N ;#
-"490
-[;             CLRF AD_CUR_2B ;#
-"491
-[;             CLRF AD_CUR_2B+1 ;#
-"492
-[;             CLRF AD_CUR_2B+2 ;#
-"493
-[;             CLRF AD_CUR_2B+3 ;#
-"494
-[;             CLRF AD_CUR_NB ;#
-"495
-[;             MOVF AC_CYCLE_2, W ;#
-"496
-[;             BTFSC STATUS, Z ;#
-"497
-[;             GOTO ZERO_CHECK_E ;#
-"498
-[;            ;MOVLW 10 ;#
-"499
-[;             ADDLW 1 ;#
-"500
-[;             MOVWF TAD_VRS ;#
-"501
-[;             ADDLW 1 ;#
-"502
-[;             MOVWF TAD_VAC ;#
-"503
-[;             ADDLW 1 ;#
-"504
-[;             MOVWF TAD_NTC ;#
-"505
-[;             ZERO_CHECK_E: ;#
-"506
-[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
-"507
-[;             MOVF SYS_TIMER, W ;#
-"508
-[;             INCFSZ SYS_TIMER, F ;#
-"509
-[;             GOTO $+2 ;#
-"510
-[;             INCF SYS_TIMER+1,F ;#
-"511
-[;             ANDLW 3 ;#
-"512
-[;             BRW ;#
-"513
-[;             GOTO ISR_BRCH_0 ; 9 ;#
-"514
-[;             GOTO ISR_BRCH_1 ; 9 ;#
-"515
-[;             GOTO ISR_BRCH_2 ; 9 ;#
-"516
-[;             GOTO ISR_BRCH_3 ; 9 ;#
-"517
-[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
-"518
-[;             ISR_BRCH_0: ;#
-"519
-[;             UART_TX_PRO: ;#
-"520
-[;             MOVLB 3 ;#
-"521
-[;             BTFSS TX_TIM, 7 ;#
-"522
-[;             INCF TX_TIM, F ;#
-"523
-[;             MOVF TX_CNT, W ;#
-"524
-[;             BTFSC STATUS, Z ;#
-"525
-[;             GOTO UART_TX_PRO_E ; 7 ;#
-"526
-[;             MOVLW 12 ;#
-"527
-[;             SUBWF TX_TIM, W ;#
-"528
-[;             BTFSS STATUS, C ;#
-"529
-[;             GOTO UART_TX_PRO_E ; 11 ;#
-"530
-[;             CLRF TX_TIM ;#
-"531
-[;             MOVF TX_RDP, W ;#
-"532
-[;             ANDLW 31 ;#
-"533
-[;             ADDLW TX_FIFO_PL ;#
-"534
-[;             MOVWF FSR0L ;#
-"535
-[;             MOVLW TX_FIFO_PH ;#
-"536
-[;             MOVWF FSR0H ;#
-"537
-[;             MOVIW [0]FSR0 ;#
-"538
-[;             MOVWF TXREG ;#
-"539
-[;             INCF TX_RDP, F ;#
-"540
-[;             DECF TX_CNT, F ; 21 ;#
-"541
-[;             UART_TX_PRO_E: ;#
-"542
-[;             MOVLB 1 ;#
-"543
-[;             INCF SYS_TICKS, F ;#
-"544
-[;             BTFSS EN_ADC, 0 ;#
-"545
-[;             GOTO AD_VAC_START ;#
-"546
-[;             AD_CUR_READ: ;#
-"547
-[;             BTFSC ADCON0, 1 ;#
-"548
-[;             GOTO $-1 ; ? ;#
-"549
-[;             COMF ADRESL, W ;#
-"550
-[;             MOVWF FSR0L ;#
-"551
-[;             MOVLW HIGH _SQ8 | 0X80 ;#
-"552
-[;             MOVWF FSR0H ;#
-"553
-[;             LSLF FSR0L, F ;#
-"554
-[;             BTFSC STATUS, C ;#
-"555
-[;             INCF FSR0H, F ;#
-"556
-[;             MOVIW FSR0++ ;#
-"557
-[;             ADDWF AD_CUR_2B, F ;#
-"558
-[;             MOVIW FSR0++ ;#
-"559
-[;             ADDWFC AD_CUR_2B+1,F ;#
-"560
-[;             CLRW ;#
-"561
-[;             ADDWFC AD_CUR_2B+2,F ;#
-"562
-[;             ADDWFC AD_CUR_2B+3,F ;#
-"563
-[;             INCF AD_CUR_NB, F ;#
-"564
-[;             AD_VAC_START: ;#
-"565
-[;             CLRF EN_ADC ;#
-"566
-[;             BTFSS TAD_VAC, 7 ;#
-"567
-[;             DECFSZ TAD_VAC, F ;#
-"568
-[;             RETFIE ;#
-"569
-[;             MOVLW 5*4+1 ;#
-"570
-[;             MOVWF ADCON0 ;#
-"571
-[;             MOVLW 0X20 ;#
-"572
-[;             MOVWF ADCON1 ;#
-"573
-[;             BSF EN_ADC, 0 ;#
-"574
-[;             RETFIE ;#
-"575
-[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
-"576
-[;             ISR_BRCH_1: ;#
-"577
-[;             UART_RX_PRO: ;#
-"578
-[;             MOVLB 3 ;#
-"579
-[;             BTFSS RX_TIM, 7 ;#
-"580
-[;             INCF RX_TIM, F ;#
-"581
 [;             MOVLB 0 ;#
-"582
-[;             BTFSS PIR1, RCIF ;#
-"583
-[;             GOTO UART_RX_PRO_E ; 11 ;#
-"584
-[;             MOVLB 3 ;#
-"585
-[;             CLRF RX_TIM ;#
-"586
-[;             MOVF RCREG, W ;#
-"587
+"380
+[;             BCF PIR3, TMR6IF ; 12 ;#
+"381
+[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
+"382
+[;             MOVLW HIGH _FLT | 0X80 ;#
+"383
 [;             MOVWF FSR0H ;#
-"588
-[;             MOVLW 32 ;#
-"589
-[;             SUBWF RX_CNT, W ;#
-"590
-[;             BTFSS STATUS, C ;#
-"591
-[;             GOTO UART_RX_PRO_E ; 19 ;#
-"592
-[;             MOVF RX_WRP, W ;#
-"593
-[;             ANDLW 31 ;#
-"594
-[;             ADDLW RX_FIFO_PL ;#
-"595
+"384
+[;             MOVLB 1 ; 3 ;#
+"385
+[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
+"386
+[;             SCAN_HALL: ;#
+"387
+[;             MOVF HL_SCAN, W ;#
+"388
+[;             MOVLB 0 ;#
+"389
+[;             BTFSC PORTC, 5 ;#
+"390
+[;             IORLW 1 ;#
+"391
 [;             MOVWF FSR0L ;#
-"596
-[;             MOVLW RX_FIFO_PH ;#
-"597
-[;             XORWF FSR0H, W ;#
-"598
-[;             XORWF FSR0H, F ;#
-"599
-[;             XORWF FSR0H, W ;#
-"600
-[;             MOVWI [0]FSR0 ;#
-"601
-[;             INCF RX_WRP, F ;#
-"602
-[;             INCF RX_CNT, F ;#
-"603
-[;             UART_RX_PRO_E: ;#
-"604
+"392
+[;             MOVIW [0]FSR0 ;#
+"393
 [;             MOVLB 1 ;#
-"605
-[;             BTFSS EN_ADC, 0 ;#
-"606
-[;             GOTO AD_VRS_START ;#
-"607
-[;             AD_VAC_READ: ;#
-"608
-[;             BTFSC ADCON0, 1 ;#
-"609
-[;             GOTO $-1 ; ? ;#
-"610
-[;             MOVF ADRESH, W ;#
-"611
-[;             SUBLW 128 ;#
-"612
+"394
+[;             MOVWF HL_SCAN ; 9 ;#
+"395
+[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
+"396
+[;             SCAN_ZERO: ;#
+"397
+[;             MOVF AC_SCAN, W ;#
+"398
+[;             MOVLB 2 ;#
+"399
+[;             BTFSC CMOUT, 1 ;#
+"400
+[;             IORLW 1 ;#
+"401
+[;             MOVWF FSR0L ;#
+"402
+[;             MOVIW [0]FSR0 ;#
+"403
+[;             MOVLB 1 ;#
+"404
+[;             MOVWF AC_SCAN ; 9 ;#
+"405
+[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
+"406
+[;             SCAN_TEST: ;#
+"407
+[;             MOVF TS_SCAN, W ;#
+"408
+[;             MOVLB 2 ;#
+"409
+[;             BTFSC CMOUT, 0 ;#
+"410
+[;             IORLW 1 ;#
+"411
+[;             MOVWF FSR0L ;#
+"412
+[;             MOVIW [0]FSR0 ;#
+"413
+[;             MOVLB 1 ;#
+"414
+[;             MOVWF TS_SCAN ; 9 ;#
+"415
+[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
+"416
+[;             HALL_CHECK: ;#
+"417
+[;             BTFSS HL_SCAN, nFALL ;#
+"418
+[;             GOTO HALL_CHECK_E ; 3 ;#
+"419
+[;             LSLF HL_INDEX, W ;#
+"420
+[;             ANDLW 31*2 ;#
+"421
+[;             ADDLW HL_TIME_PL ;#
+"422
+[;             MOVWF FSR0L ;#
+"423
+[;             MOVLW HL_TIME_PH ;#
+"424
+[;             MOVWF FSR0H ;#
+"425
+[;             MOVF SYS_TIMER, W ;#
+"426
+[;             MOVWI FSR0++ ;#
+"427
+[;             MOVF SYS_TIMER+1,W ;#
+"428
+[;             MOVWI FSR0++ ;#
+"429
+[;             INCF HL_INDEX, F ;#
+"430
+[;             INCF HL_EVENT, F ;#
+"431
+[;             CLRF HL_WATCH ; 15 ;#
+"432
+[;             HALL_CHECK_E: ;#
+"433
+[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
+"434
+[;             ZERO_CHECK: ;#
+"435
+[;             BCF ODR_TRIAC, PIN_TRIAC ;#
+"436
+[;             BTFSC AC_SCAN, nEDGE ;#
+"437
+[;             GOTO ZERO_EDGE ; 4 ;#
+"438
+[;             ZERO_TRIG: ;#
+"439
+[;             BTFSS TMR_OFF+1, 7 ;#
+"440
+[;             GOTO ZERO_CHECK_E ; 6 ;#
+"441
+[;             INCFSZ TMR_OFF, F ;#
+"442
+[;             GOTO $+2 ;#
+"443
+[;             INCF TMR_OFF+1, F ;#
+"444
+[;             INCFSZ TMR_ON, F ;#
+"445
+[;             GOTO $+2 ;#
+"446
+[;             INCF TMR_ON+1, F ;#
+"447
+[;             BTFSC TMR_ON+1, 7 ;#
+"448
+[;             GOTO ZERO_CHECK_E ; 14 ;#
+"449
+[;             BSF ODR_TRIAC, PIN_TRIAC ;#
+"450
+[;             GOTO ZERO_CHECK_E ; 16 ;#
+"451
+[;             ZERO_EDGE: ;#
+"452
+[;             CLRF TMR_OFF+1 ;#
+"453
+[;             MOVF AC_CYCLE_2, W ;#
+"454
+[;             BTFSC STATUS, Z ;#
+"455
+[;             GOTO ZERO_CYCLE ; 9 ;#
+"456
+[;             ADDLW 256-3 ;#
+"457
+[;             MOVWF TM_TST0 ;#
+"458
+[;             ADDLW 10 ;#
+"459
+[;             MOVWF TM_TST1 ;#
+"460
+[;             MOVLW 40 ;#
+"461
+[;             SUBWF TM_TRIAC, W ;#
+"462
+[;             MOVLW 0 ;#
+"463
+[;             SUBWFB TM_TRIAC+1, W ;#
+"464
 [;             BTFSS STATUS, C ;#
+"465
+[;             GOTO ZERO_CYCLE ; 19 ;#
+"466
+[;             MOVF AC_CYCLE, W ;#
+"467
+[;             SUBWF TM_TRIAC, W ;#
+"468
+[;             MOVWF TMR_ON ;#
+"469
+[;             MOVF AC_CYCLE+1, W ;#
+"470
+[;             SUBWFB TM_TRIAC+1, W ;#
+"471
+[;             MOVWF TMR_ON+1 ;#
+"472
+[;             MOVLW 255 ;#
+"473
+[;             BTFSC STATUS, C ;#
+"474
+[;             MOVWF TMR_ON ;#
+"475
+[;             BTFSC STATUS, C ;#
+"476
+[;             MOVWF TMR_ON+1 ;#
+"477
+[;             MOVF AC_CYCLE, W ;#
+"478
+[;             SUBLW 36 ;#
+"479
+[;             MOVWF FSR0L ;#
+"480
+[;             MOVF AC_CYCLE+1, W ;#
+"481
+[;             SUBWFB TMR_OFF+1, W ;#
+"482
+[;             MOVWF FSR0H ;#
+"483
+[;             MOVLW 5;98 ;#
+"484
+[;             SUBWF TMR_ON, W ;#
+"485
+[;             MOVWF TMR_OFF ;#
+"486
+[;             MOVLW 0 ;#
+"487
+[;             SUBWFB TMR_ON+1, W ;#
+"488
+[;             MOVWF TMR_OFF+1 ;#
+"489
+[;             MOVF FSR0L, W ;#
+"490
+[;             SUBWF TMR_OFF, W ;#
+"491
+[;             MOVF FSR0H, W ;#
+"492
+[;             SUBWFB TMR_OFF+1, W ;#
+"493
+[;             BTFSC STATUS, C ;#
+"494
+[;             GOTO ZERO_CYCLE ; 48 ;#
+"495
+[;             MOVF FSR0L, W ;#
+"496
+[;             MOVWF TMR_OFF ;#
+"497
+[;             MOVF FSR0H, W ;#
+"498
+[;             MOVWF TMR_OFF+1 ; 51 ;#
+"499
+[;             ZERO_CYCLE: ;#
+"500
+[;             BTFSS AC_SCAN, nRISE ;#
+"501
+[;             GOTO ZERO_CHECK_E ;#
+"502
+[;             BSF AC_FLAG, 0 ;#
+"503
+[;             LSLF AC_INDEX, W ;#
+"504
+[;             ANDLW 7*2 ;#
+"505
+[;             ADDLW AC_TIME_PL ;#
+"506
+[;             MOVWF FSR0L ;#
+"507
+[;             MOVLW AC_TIME_PH ;#
+"508
+[;             MOVWF FSR0H ;#
+"509
+[;             MOVF SYS_TIMER, W ;#
+"510
+[;             MOVWI FSR0++ ;#
+"511
+[;             MOVF SYS_TIMER+1,W ;#
+"512
+[;             MOVWI FSR0++ ;#
+"513
+[;             INCF AC_INDEX, F ;#
+"514
+[;             INCF AC_EVENT, F ;#
+"515
+[;             CLRF AC_WATCH ;#
+"516
+[;             MOVF AD_CUR_2B, W ;#
+"517
+[;             MOVWF AD_CUR_2 ;#
+"518
+[;             MOVF AD_CUR_2B+1,W ;#
+"519
+[;             MOVWF AD_CUR_2+1 ;#
+"520
+[;             MOVF AD_CUR_2B+2,W ;#
+"521
+[;             MOVWF AD_CUR_2+2 ;#
+"522
+[;             MOVF AD_CUR_2B+3,W ;#
+"523
+[;             MOVWF AD_CUR_2+3 ;#
+"524
+[;             MOVF AD_CUR_NB, W ;#
+"525
+[;             MOVWF AD_CUR_N ;#
+"526
+[;             CLRF AD_CUR_2B ;#
+"527
+[;             CLRF AD_CUR_2B+1 ;#
+"528
+[;             CLRF AD_CUR_2B+2 ;#
+"529
+[;             CLRF AD_CUR_2B+3 ;#
+"530
+[;             CLRF AD_CUR_NB ;#
+"531
+[;             MOVF AC_CYCLE_2, W ;#
+"532
+[;             BTFSC STATUS, Z ;#
+"533
+[;             GOTO ZERO_CHECK_E ;#
+"534
+[;             ADDLW 2 ;#
+"535
+[;             MOVWF TAD_VAC ;#
+"536
+"540
+[;                                                             ADDLW 1 ;#
+"541
+"542
+[;                         MOVWF TAD_VRS ;#
+"543
+[;             ADDLW 2 ;#
+"544
+[;             MOVWF TAD_NTC ;#
+"545
+[;             ZERO_CHECK_E: ;#
+"546
+[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
+"547
+[;             MOVF SYS_TIMER, W ;#
+"548
+[;             INCFSZ SYS_TIMER, F ;#
+"549
+[;             GOTO $+2 ;#
+"550
+[;             INCF SYS_TIMER+1,F ;#
+"551
+[;             ANDLW 3 ;#
+"552
+[;             BRW ;#
+"553
+[;             GOTO ISR_BRCH_0 ; 9 ;#
+"554
+[;             GOTO ISR_BRCH_1 ; 9 ;#
+"555
+[;             GOTO ISR_BRCH_2 ; 9 ;#
+"556
+[;             GOTO ISR_BRCH_3 ; 9 ;#
+"557
+[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
+"558
+[;             ISR_BRCH_0: ;#
+"559
+[;             UART_TX_PRO: ;#
+"560
+[;             MOVLB 3 ;#
+"561
+[;             BTFSS TX_TIM, 7 ;#
+"562
+[;             INCF TX_TIM, F ;#
+"563
+[;             MOVF TX_CNT, W ;#
+"564
+[;             BTFSC STATUS, Z ;#
+"565
+[;             GOTO UART_TX_PRO_E ; 7 ;#
+"566
+[;             MOVLW 12 ;#
+"567
+[;             SUBWF TX_TIM, W ;#
+"568
+[;             BTFSS STATUS, C ;#
+"569
+[;             GOTO UART_TX_PRO_E ; 11 ;#
+"570
+[;             CLRF TX_TIM ;#
+"571
+[;             MOVF TX_RDP, W ;#
+"572
+[;             ANDLW 31 ;#
+"573
+[;             ADDLW TX_FIFO_PL ;#
+"574
+[;             MOVWF FSR0L ;#
+"575
+[;             MOVLW TX_FIFO_PH ;#
+"576
+[;             MOVWF FSR0H ;#
+"577
+[;             MOVIW [0]FSR0 ;#
+"578
+[;             MOVWF TXREG ;#
+"579
+[;             INCF TX_RDP, F ;#
+"580
+[;             DECF TX_CNT, F ; 21 ;#
+"581
+[;             UART_TX_PRO_E: ;#
+"582
+[;             MOVLB 1 ;#
+"583
+[;             INCF SYS_TICKS, F ;#
+"584
+[;             BTFSS EN_ADC, 0 ;#
+"585
+[;             GOTO AD_VAC_START ;#
+"586
+[;             AD_CUR_READ: ;#
+"587
+[;             BTFSC ADCON0, 1 ;#
+"588
+[;             GOTO $-1 ; ? ;#
+"589
+[;             COMF ADRESL, W ;#
+"590
+[;             MOVWF FSR0L ;#
+"591
+[;             MOVLW HIGH _SQ8 | 0X80 ;#
+"592
+[;             MOVWF FSR0H ;#
+"593
+[;             LSLF FSR0L, F ;#
+"594
+[;             BTFSC STATUS, C ;#
+"595
+[;             INCF FSR0H, F ;#
+"596
+[;             MOVIW FSR0++ ;#
+"597
+[;             ADDWF AD_CUR_2B, F ;#
+"598
+[;             MOVIW FSR0++ ;#
+"599
+[;             ADDWFC AD_CUR_2B+1,F ;#
+"600
+[;             CLRW ;#
+"601
+[;             ADDWFC AD_CUR_2B+2,F ;#
+"602
+[;             ADDWFC AD_CUR_2B+3,F ;#
+"603
+[;             INCF AD_CUR_NB, F ;#
+"604
+[;             AD_VAC_START: ;#
+"605
+[;             CLRF EN_ADC ;#
+"606
+[;             BTFSS TAD_VAC, 7 ;#
+"607
+[;             DECFSZ TAD_VAC, F ;#
+"608
+[;             RETFIE ;#
+"609
+[;             MOVLW 5*4+1 ;#
+"610
+[;             MOVWF ADCON0 ;#
+"611
+[;             MOVLW 0X20 ;#
+"612
+[;             MOVWF ADCON1 ;#
 "613
-[;             SUBLW 0 ;#
+[;             BSF EN_ADC, 0 ;#
 "614
-[;             MOVWF AD_VAC ;#
+[;             RETFIE ;#
 "615
-[;             AD_VRS_START: ;#
+[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
 "616
-[;             CLRF EN_ADC ;#
+[;             ISR_BRCH_1: ;#
 "617
-[;             BTFSS TAD_VRS, 7 ;#
+[;             UART_RX_PRO: ;#
 "618
-[;             DECFSZ TAD_VRS, F ;#
+[;             MOVLB 3 ;#
 "619
-[;             RETFIE ;#
+[;             BTFSS RX_TIM, 7 ;#
 "620
-[;             MOVLW 6*4+1 ;#
+[;             INCF RX_TIM, F ;#
 "621
-[;             MOVWF ADCON0 ;#
+[;             MOVLB 0 ;#
 "622
-[;             MOVLW 0X20 ;#
+[;             BTFSS PIR1, RCIF ;#
 "623
-[;             MOVWF ADCON1 ;#
+[;             GOTO UART_RX_PRO_E ; 11 ;#
 "624
-[;             BSF EN_ADC, 0 ;#
+[;             MOVLB 3 ;#
 "625
-[;             RETFIE ;#
+[;             CLRF RX_TIM ;#
 "626
-[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
+[;             MOVF RCREG, W ;#
 "627
-[;             ISR_BRCH_2: ;#
+[;             MOVWF FSR0H ;#
 "628
-[;             TST0_PRO: ;#
+[;             MOVLW 32 ;#
 "629
-[;             BTFSS TM_TST0, 7 ;#
+[;             SUBWF RX_CNT, W ;#
 "630
-[;             DECFSZ TM_TST0, F ;#
+[;             BTFSS STATUS, C ;#
 "631
-[;             GOTO TST0_PRO_E ;#
+[;             GOTO UART_RX_PRO_E ; 19 ;#
 "632
-[;             MOVF TS_SCAN, W ;#
+[;             MOVF RX_WRP, W ;#
 "633
-[;             XORWF AC_SCAN, W ;#
+[;             ANDLW 31 ;#
 "634
-[;             XORLW 0X80 ;#
+[;             ADDLW RX_FIFO_PL ;#
 "635
-[;             RLF WREG, W ;#
+[;             MOVWF FSR0L ;#
 "636
-[;             RLF DR_TST0, F ;#
+[;             MOVLW RX_FIFO_PH ;#
 "637
-[;             TST0_PRO_E: ;#
+[;             XORWF FSR0H, W ;#
 "638
-[;             BTFSS EN_ADC, 0 ;#
+[;             XORWF FSR0H, F ;#
 "639
-[;             GOTO AD_NTC_START ;#
+[;             XORWF FSR0H, W ;#
 "640
-[;             AD_VRS_READ: ;#
+[;             MOVWI [0]FSR0 ;#
 "641
-[;             BTFSC ADCON0, 1 ;#
+[;             INCF RX_WRP, F ;#
 "642
-[;             GOTO $-1 ; ? ;#
+[;             INCF RX_CNT, F ;#
 "643
-[;             MOVF ADRESH, W ;#
+[;             UART_RX_PRO_E: ;#
 "644
-[;             MOVWF AD_VRS ;#
+[;             MOVLB 1 ;#
 "645
-[;             AD_NTC_START: ;#
-"646
-[;             CLRF EN_ADC ;#
-"647
-[;             BTFSS TAD_NTC, 7 ;#
-"648
-[;             DECFSZ TAD_NTC, F ;#
-"649
-[;             RETFIE ;#
-"650
-[;             MOVLW 3*4+1 ;#
-"651
-[;             MOVWF ADCON0 ;#
-"652
-[;             MOVLW 0X20 ;#
-"653
-[;             MOVWF ADCON1 ;#
-"654
-[;             BSF EN_ADC, 0 ;#
-"655
-[;             RETFIE ;#
-"656
-[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
-"657
-[;             ISR_BRCH_3: ;#
-"658
-[;             TST1_PRO: ;#
-"659
-[;             BTFSS TM_TST1, 7 ;#
-"660
-[;             DECFSZ TM_TST1, F ;#
-"661
-[;             GOTO TST1_PRO_E ;#
-"662
-[;             MOVF TS_SCAN, W ;#
-"663
-[;             XORWF AC_SCAN, W ;#
-"664
-[;             XORLW 0X80 ;#
-"665
-[;             RLF WREG, W ;#
-"666
-[;             RLF DR_TST1, F ;#
-"667
-[;             TST1_PRO_E: ;#
-"668
 [;             BTFSS EN_ADC, 0 ;#
-"669
-[;             GOTO AD_CUR_START ;#
-"670
-[;             AD_NTC_READ: ;#
-"671
+"646
+[;             GOTO AD_VRS_START ;#
+"647
+[;             AD_VAC_READ: ;#
+"648
 [;             BTFSC ADCON0, 1 ;#
-"672
+"649
 [;             GOTO $-1 ; ? ;#
-"673
+"650
 [;             MOVF ADRESH, W ;#
-"674
-[;             MOVWF AD_NTC ;#
-"675
-[;             AD_CUR_START: ;#
-"676
-[;             MOVLW 9*4+1 ;#
-"677
-[;             MOVWF ADCON0 ;#
-"678
-[;             MOVLW 0XA0 ;#
-"679
-[;             MOVWF ADCON1 ;#
-"680
-[;             BSF EN_ADC, 0 ;#
-"681
+"651
+[;             SUBLW 128 ;#
+"652
+[;             BTFSS STATUS, C ;#
+"653
+[;             SUBLW 0 ;#
+"654
+[;             MOVWF AD_VAC ;#
+"655
+[;             AD_VRS_START: ;#
+"656
+[;             CLRF EN_ADC ;#
+"657
+[;             BTFSS TAD_VRS, 7 ;#
+"658
+[;             DECFSZ TAD_VRS, F ;#
+"659
 [;             RETFIE ;#
-"682
+"660
+[;             MOVLW 6*4+1 ;#
+"661
+[;             MOVWF ADCON0 ;#
+"662
+[;             MOVLW 0X20 ;#
+"663
+[;             MOVWF ADCON1 ;#
+"664
+[;             BSF EN_ADC, 0 ;#
+"665
+[;             RETFIE ;#
+"666
 [;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
-[; ;Hardware.c: 684: }
+"667
+[;             ISR_BRCH_2: ;#
+"668
+[;             TST0_PRO: ;#
+"669
+[;             BTFSS TM_TST0, 7 ;#
+"670
+[;             DECFSZ TM_TST0, F ;#
+"671
+[;             GOTO TST0_PRO_E ;#
+"672
+[;             MOVF TS_SCAN, W ;#
+"673
+[;             XORWF AC_SCAN, W ;#
+"674
+[;             XORLW 0X80 ;#
+"675
+[;             RLF WREG, W ;#
+"676
+[;             RLF DR_TST0, F ;#
+"677
+[;             TST0_PRO_E: ;#
+"678
+[;             BTFSS EN_ADC, 0 ;#
+"679
+[;             GOTO AD_NTC_START ;#
+"680
+[;             AD_VRS_READ: ;#
+"681
+[;             BTFSC ADCON0, 1 ;#
+"682
+[;             GOTO $-1 ; ? ;#
+"683
+[;             MOVF ADRESH, W ;#
 "684
-[e :UE 261 ]
+[;             MOVWF AD_VRS ;#
+"685
+[;             AD_NTC_START: ;#
+"686
+[;             CLRF EN_ADC ;#
+"687
+[;             BTFSS TAD_NTC, 7 ;#
+"688
+[;             DECFSZ TAD_NTC, F ;#
+"689
+[;             RETFIE ;#
+"690
+[;             MOVLW 3*4+1 ;#
+"691
+[;             MOVWF ADCON0 ;#
+"692
+[;             MOVLW 0X20 ;#
+"693
+[;             MOVWF ADCON1 ;#
+"694
+[;             BSF EN_ADC, 0 ;#
+"695
+[;             RETFIE ;#
+"696
+[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
+"697
+[;             ISR_BRCH_3: ;#
+"698
+[;             TST1_PRO: ;#
+"699
+[;             BTFSS TM_TST1, 7 ;#
+"700
+[;             DECFSZ TM_TST1, F ;#
+"701
+[;             GOTO TST1_PRO_E ;#
+"702
+[;             MOVF TS_SCAN, W ;#
+"703
+[;             XORWF AC_SCAN, W ;#
+"704
+[;             XORLW 0X80 ;#
+"705
+[;             RLF WREG, W ;#
+"706
+[;             RLF DR_TST1, F ;#
+"707
+[;             TST1_PRO_E: ;#
+"708
+[;             BTFSS EN_ADC, 0 ;#
+"709
+[;             GOTO AD_CUR_START ;#
+"710
+[;             AD_NTC_READ: ;#
+"711
+[;             BTFSC ADCON0, 1 ;#
+"712
+[;             GOTO $-1 ; ? ;#
+"713
+[;             MOVF ADRESH, W ;#
+"714
+[;             MOVWF AD_NTC ;#
+"715
+[;             AD_CUR_START: ;#
+"716
+[;             MOVLW 9*4+1 ;#
+"717
+[;             MOVWF ADCON0 ;#
+"718
+[;             MOVLW 0XA0 ;#
+"719
+[;             MOVWF ADCON1 ;#
+"720
+[;             BSF EN_ADC, 0 ;#
+"721
+[;             RETFIE ;#
+"722
+[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
+[; ;Hardware.c: 724: }
+"724
+[e :UE 264 ]
 }

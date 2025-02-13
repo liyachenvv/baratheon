@@ -2057,56 +2057,60 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S251 . . ]
 "3028 c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f1829.h
 [v _TOSHbits `VS251  1 e@4079 ]
-"25 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Motor.h
+"36 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Motor.h
 [v _mtrSpeedRef `us  1 e ]
-"26 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Motor.h
+"37 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Motor.h
 [v _mtrSpeed `us  1 e ]
-"27 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Motor.h
+"38 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Motor.h
 [v _mtrCurrent `us  1 e ]
-"33 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Motor.h
+"39 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Motor.h
+[v _mtrTemp `c  1 e ]
+"47 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Motor.h
 [v _mtrError `uc  1 e ]
-"91 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
-[v _acCrossWDT `Xuc  0 e ]
-"90 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
-[v _acCrossEvent `Xuc  0 e ]
-"94 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
+"16 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Motor.c
+[v _ad2tpr `Cuc  -> 256 `i e ]
+"82 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
 [v _acCycleHalf `Xuc  0 e ]
-"93 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
-[v _acCycle `Xus  0 e ]
-"89 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
-[v _acCrossIndex `Xuc  0 e ]
-"88 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
-[v _acCrossTime `Yus  -> 0 `x e ]
-"86 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
-[v _mtrHallWDT `Xuc  0 e ]
-"85 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
-[v _mtrHallEvent `Xuc  0 e ]
-"84 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
-[v _mtrHallIndex `Xuc  0 e ]
-"83 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
-[v _mtrHallTime `Yus  -> 0 `x e ]
-"95 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
+"83 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
 [v _acCycleFlag `Xuc  0 e ]
-"63 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
-[v _adCurN `Xuc  0 e ]
-"62 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
-[v _adCur2 `Xul  0 e ]
-"34 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\MyMath.h
-[v _SQRT32 `(us  0 ef1`ul ]
-"66 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
+"66 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
 [v _adNtc `Xuc  0 e ]
-[s S260 `s 1 `s 1 ]
-[n S260 . L H ]
-[u S259 `l 1 `S260 1 ]
-[n S259 . D W ]
-[s S261 `s 1 `s 1 `S259 1 `S259 1 ]
-[n S261 . kp ki ri ro ]
-"97 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h
+"63 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
+[v _adCurN `Xuc  0 e ]
+"62 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
+[v _adCur2 `Xul  0 e ]
+"39 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\MyMath.h
+[v _SQRT32 `(us  0 ef1`ul ]
+"75 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
+[v _mtrHallWDT `Xuc  0 e ]
+"74 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
+[v _mtrHallEvent `Xuc  0 e ]
+"73 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
+[v _mtrHallIndex `Xuc  0 e ]
+"72 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
+[v _mtrHallTime `us  -> 0 `x e@800 ]
+"84 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
 [v _tmTriac `Xus  0 e ]
-"35 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\MyMath.h
-[v _PI_CAL `(s  0 ef2`*S261`s ]
-"36 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\MyMath.h
-[v _PI_LIM `(s  0 ef3`*S261`s`s ]
+"80 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
+[v _acCrossWDT `Xuc  0 e ]
+"79 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
+[v _acCrossEvent `Xuc  0 e ]
+"81 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
+[v _acCycle `Xus  0 e ]
+"78 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
+[v _acCrossIndex `Xuc  0 e ]
+"77 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h
+[v _acCrossTime `us  -> 0 `x e@864 ]
+[s S261 `s 1 `s 1 ]
+[n S261 . L H ]
+[u S260 `l 1 `S261 1 ]
+[n S260 . D W ]
+[s S262 `s 1 `s 1 `s 1 `s 1 `S260 1 `S260 1 ]
+[n S262 . kp ki kd e1 ri ro ]
+"40 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\MyMath.h
+[v _PID_CAL `(s  0 ef2`*S262`s ]
+"41 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\MyMath.h
+[v _PID_LIM `(s  0 ef3`*S262`s`s ]
 [; ;pic16f1829.h: 132: volatile unsigned char INDF0 @ 0x000;
 [; ;pic16f1829.h: 136: volatile unsigned char INDF1 @ 0x001;
 [; ;pic16f1829.h: 140: volatile unsigned char PCL @ 0x002;
@@ -4059,45 +4063,52 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom_routines.h: 43: extern void eecpymem(volatile unsigned char *to, eeprom unsigned char *from, unsigned char size);
 [; ;eeprom_routines.h: 44: extern void memcpyee(eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 [; ;pic.h: 154: extern void _delay(unsigned long);
-[; ;PicTypes.h: 11: typedef unsigned char U8;
-[; ;PicTypes.h: 12: typedef unsigned short U16;
-[; ;PicTypes.h: 13: typedef unsigned long U32;
-[; ;PicTypes.h: 14: typedef signed char S8;
-[; ;PicTypes.h: 15: typedef signed short S16;
-[; ;PicTypes.h: 16: typedef signed long S32;
-[; ;PicTypes.h: 18: typedef union
-[; ;PicTypes.h: 19: {
-[; ;PicTypes.h: 20: U8 B;
-[; ;PicTypes.h: 21: struct
-[; ;PicTypes.h: 22: {
-[; ;PicTypes.h: 23: unsigned char b0 : 1;
-[; ;PicTypes.h: 24: unsigned char b1 : 1;
-[; ;PicTypes.h: 25: unsigned char b2 : 1;
-[; ;PicTypes.h: 26: unsigned char b3 : 1;
-[; ;PicTypes.h: 27: unsigned char b4 : 1;
-[; ;PicTypes.h: 28: unsigned char b5 : 1;
-[; ;PicTypes.h: 29: unsigned char b6 : 1;
-[; ;PicTypes.h: 30: unsigned char b7 : 1;
-[; ;PicTypes.h: 31: } bits;
-[; ;PicTypes.h: 32: } BYTE;
-[; ;PicTypes.h: 34: typedef union
-[; ;PicTypes.h: 35: {
-[; ;PicTypes.h: 36: U16 W;
-[; ;PicTypes.h: 37: struct
-[; ;PicTypes.h: 38: {
-[; ;PicTypes.h: 39: U8 L;
-[; ;PicTypes.h: 40: U8 H;
-[; ;PicTypes.h: 41: } B;
-[; ;PicTypes.h: 42: } WORD;
-[; ;PicTypes.h: 44: typedef union
-[; ;PicTypes.h: 45: {
-[; ;PicTypes.h: 46: U32 D;
-[; ;PicTypes.h: 47: struct
-[; ;PicTypes.h: 48: {
-[; ;PicTypes.h: 49: U16 L;
-[; ;PicTypes.h: 50: U16 H;
-[; ;PicTypes.h: 51: } W;
-[; ;PicTypes.h: 52: } DWORD;
+[; ;PicTypes.h: 15: typedef unsigned char U8;
+[; ;PicTypes.h: 16: typedef unsigned short U16;
+[; ;PicTypes.h: 17: typedef unsigned long U32;
+[; ;PicTypes.h: 18: typedef signed char S8;
+[; ;PicTypes.h: 19: typedef signed short S16;
+[; ;PicTypes.h: 20: typedef signed long S32;
+[; ;PicTypes.h: 22: typedef union
+[; ;PicTypes.h: 23: {
+[; ;PicTypes.h: 24: U8 B;
+[; ;PicTypes.h: 25: struct
+[; ;PicTypes.h: 26: {
+[; ;PicTypes.h: 27: unsigned char b0 : 1;
+[; ;PicTypes.h: 28: unsigned char b1 : 1;
+[; ;PicTypes.h: 29: unsigned char b2 : 1;
+[; ;PicTypes.h: 30: unsigned char b3 : 1;
+[; ;PicTypes.h: 31: unsigned char b4 : 1;
+[; ;PicTypes.h: 32: unsigned char b5 : 1;
+[; ;PicTypes.h: 33: unsigned char b6 : 1;
+[; ;PicTypes.h: 34: unsigned char b7 : 1;
+[; ;PicTypes.h: 35: } bits;
+[; ;PicTypes.h: 36: } BYTE;
+[; ;PicTypes.h: 38: typedef union
+[; ;PicTypes.h: 39: {
+[; ;PicTypes.h: 40: U16 W;
+[; ;PicTypes.h: 41: struct
+[; ;PicTypes.h: 42: {
+[; ;PicTypes.h: 43: U8 L;
+[; ;PicTypes.h: 44: U8 H;
+[; ;PicTypes.h: 45: } B;
+[; ;PicTypes.h: 46: } WORD;
+[; ;PicTypes.h: 48: typedef union
+[; ;PicTypes.h: 49: {
+[; ;PicTypes.h: 50: U32 D;
+[; ;PicTypes.h: 51: struct
+[; ;PicTypes.h: 52: {
+[; ;PicTypes.h: 53: U16 L;
+[; ;PicTypes.h: 54: U16 H;
+[; ;PicTypes.h: 55: } W;
+[; ;PicTypes.h: 56: struct
+[; ;PicTypes.h: 57: {
+[; ;PicTypes.h: 58: U8 L;
+[; ;PicTypes.h: 59: U8 H;
+[; ;PicTypes.h: 60: U8 M;
+[; ;PicTypes.h: 61: U8 T;
+[; ;PicTypes.h: 62: } B;
+[; ;PicTypes.h: 63: } DWORD;
 [; ;Hardware.h: 60: extern bank1 U8 sysTicks;
 [; ;Hardware.h: 62: extern bank1 U32 adCur2;
 [; ;Hardware.h: 63: extern bank1 U8 adCurN;
@@ -4106,36 +4117,39 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Hardware.h: 67: extern bank1 U8 adVac;
 [; ;Hardware.h: 69: extern bank1 U8 idrTest0;
 [; ;Hardware.h: 70: extern bank1 U8 idrTest1;
-[; ;Hardware.h: 72: extern bank3 U8 txCNT;
-[; ;Hardware.h: 73: extern bank3 U8 txWRP;
-[; ;Hardware.h: 74: extern bank3 U8 txRDP;
-[; ;Hardware.h: 75: extern bank3 U8 txTIM;
-[; ;Hardware.h: 76: extern bank3 U8 txFIFO[ 32 ];
-[; ;Hardware.h: 77: extern bank3 U8 rxCNT;
-[; ;Hardware.h: 78: extern bank3 U8 rxWRP;
-[; ;Hardware.h: 79: extern bank3 U8 rxRDP;
-[; ;Hardware.h: 80: extern bank3 U8 rxTIM;
-[; ;Hardware.h: 81: extern bank3 U8 rxFIFO[ 32 ];
-[; ;Hardware.h: 83: extern bank2 U16 mtrHallTime[ 32 ];
-[; ;Hardware.h: 84: extern bank1 U8 mtrHallIndex;
-[; ;Hardware.h: 85: extern bank1 U8 mtrHallEvent;
-[; ;Hardware.h: 86: extern bank1 U8 mtrHallWDT;
-[; ;Hardware.h: 88: extern bank2 U16 acCrossTime[ 8 ];
-[; ;Hardware.h: 89: extern bank1 U8 acCrossIndex;
-[; ;Hardware.h: 90: extern bank1 U8 acCrossEvent;
-[; ;Hardware.h: 91: extern bank1 U8 acCrossWDT;
-[; ;Hardware.h: 93: extern bank1 U16 acCycle;
-[; ;Hardware.h: 94: extern bank1 U8 acCycleHalf;
-[; ;Hardware.h: 95: extern bank1 U8 acCycleFlag;
-[; ;Hardware.h: 97: extern bank1 U16 tmTriac;
-[; ;Hardware.h: 99: extern void MCU_Init( void );
-[; ;Hardware.h: 100: extern void MCU_Refresh( void );
-[; ;Motor.h: 25: U16 mtrSpeedRef;
-[; ;Motor.h: 26: U16 mtrSpeed;
-[; ;Motor.h: 27: U16 mtrCurrent;
-[; ;Motor.h: 33: U8 mtrError;
-[; ;Motor.h: 35: void MTR_Init( void );
-[; ;Motor.h: 36: void MTR_Ctrl( void );
+[; ;Hardware.h: 72: extern  U16 mtrHallTime[ 32 ] @ 0x320;
+[; ;Hardware.h: 73: extern bank1 U8 mtrHallIndex;
+[; ;Hardware.h: 74: extern bank1 U8 mtrHallEvent;
+[; ;Hardware.h: 75: extern bank1 U8 mtrHallWDT;
+[; ;Hardware.h: 77: extern  U16 acCrossTime[ 8 ] @ 0x360;
+[; ;Hardware.h: 78: extern bank1 U8 acCrossIndex;
+[; ;Hardware.h: 79: extern bank1 U8 acCrossEvent;
+[; ;Hardware.h: 80: extern bank1 U8 acCrossWDT;
+[; ;Hardware.h: 81: extern bank1 U16 acCycle;
+[; ;Hardware.h: 82: extern bank1 U8 acCycleHalf;
+[; ;Hardware.h: 83: extern bank1 U8 acCycleFlag;
+[; ;Hardware.h: 84: extern bank1 U16 tmTriac;
+[; ;Hardware.h: 86: extern bank3 U8 txCNT;
+[; ;Hardware.h: 87: extern bank3 U8 txWRP;
+[; ;Hardware.h: 88: extern bank3 U8 txRDP;
+[; ;Hardware.h: 89: extern bank3 U8 txTIM;
+[; ;Hardware.h: 90: extern  U8 txFIFO[ 32 ] @ 0x3A0;
+[; ;Hardware.h: 91: extern bank3 U8 rxCNT;
+[; ;Hardware.h: 92: extern bank3 U8 rxWRP;
+[; ;Hardware.h: 93: extern bank3 U8 rxRDP;
+[; ;Hardware.h: 94: extern bank3 U8 rxTIM;
+[; ;Hardware.h: 95: extern  U8 rxFIFO[ 32 ] @ 0x3C0;
+[; ;Hardware.h: 97: extern void MCU_Init( void );
+[; ;Hardware.h: 98: extern void MCU_Refresh( void );
+[; ;Hardware.h: 99: extern void E2P_WriteByte( U8 addr, U8 byte );
+[; ;Hardware.h: 100: extern U8 E2P_ReadByte( U8 addr );
+[; ;Motor.h: 36: U16 mtrSpeedRef;
+[; ;Motor.h: 37: U16 mtrSpeed;
+[; ;Motor.h: 38: U16 mtrCurrent;
+[; ;Motor.h: 39: S8 mtrTemp;
+[; ;Motor.h: 47: U8 mtrError;
+[; ;Motor.h: 49: void MTR_Init( void );
+[; ;Motor.h: 50: void MTR_Ctrl( void );
 [; ;MyMath.h: 20: typedef union
 [; ;MyMath.h: 21: {
 [; ;MyMath.h: 22: S32 D;
@@ -4145,657 +4159,1249 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MyMath.h: 27: {
 [; ;MyMath.h: 28: S16 kp;
 [; ;MyMath.h: 29: S16 ki;
-[; ;MyMath.h: 30: SDW ri;
-[; ;MyMath.h: 31: SDW ro;
-[; ;MyMath.h: 32: } PI_t;
-[; ;MyMath.h: 34: extern U16 SQRT32( U32 a );
-[; ;MyMath.h: 35: extern S16 PI_CAL( PI_t * p, S16 err );
-[; ;MyMath.h: 36: extern S16 PI_LIM( PI_t * p, S16 min, S16 max );
-"16 D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Motor.c
-[v _CAL_AcPeriod `(v  1 ef ]
-{
-[; ;Motor.c: 15: void CAL_AcPeriod( void )
-[; ;Motor.c: 16: {
-[e :U _CAL_AcPeriod ]
-[f ]
-"17
-[v _i `uc  1 a ]
+[; ;MyMath.h: 30: S16 kd;
+[; ;MyMath.h: 31: S16 e1;
+[; ;MyMath.h: 32: SDW ri;
+[; ;MyMath.h: 33: SDW ro;
+[; ;MyMath.h: 34: } PID_t;
+[; ;MyMath.h: 39: extern U16 SQRT32( U32 a );
+[; ;MyMath.h: 40: extern S16 PID_CAL( PID_t * p, S16 err );
+[; ;MyMath.h: 41: extern S16 PID_LIM( PID_t * p, S16 min, S16 max );
+"16 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Motor.c
+[i _ad2tpr
+:U ..
 "18
-[v _t `us  1 a ]
-[; ;Motor.c: 17: U8 i;
-[; ;Motor.c: 18: U16 t;
-[; ;Motor.c: 19: if ( ++acCrossWDT >= 5 )
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
 "19
-[e $ ! >= -> =+ _acCrossWDT -> -> 1 `i `uc `i -> 5 `i 263  ]
-[; ;Motor.c: 20: {
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
 "20
-{
-[; ;Motor.c: 21: acCrossWDT = 5;
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
 "21
-[e = _acCrossWDT -> -> 5 `i `uc ]
-[; ;Motor.c: 22: acCrossEvent = 0;
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
 "22
-[e = _acCrossEvent -> -> 0 `i `uc ]
-[; ;Motor.c: 23: acCycleHalf = 0;
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
 "23
-[e = _acCycleHalf -> -> 0 `i `uc ]
-[; ;Motor.c: 24: acCycle = 0;
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
 "24
-[e = _acCycle -> -> 0 `i `us ]
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
 "25
-}
-[; ;Motor.c: 25: }
-[e $U 264  ]
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
 "26
-[e :U 263 ]
-[; ;Motor.c: 26: else if ( acCrossEvent >= 5 )
-[e $ ! >= -> _acCrossEvent `i -> 5 `i 265  ]
-[; ;Motor.c: 27: {
+-> -> 126 `i `uc
+-> -> 125 `i `uc
+-> -> 124 `i `uc
+-> -> 123 `i `uc
+-> -> 122 `i `uc
+-> -> 122 `i `uc
+-> -> 121 `i `uc
+-> -> 120 `i `uc
 "27
-{
-[; ;Motor.c: 28: acCrossEvent = 5;
+-> -> 119 `i `uc
+-> -> 119 `i `uc
+-> -> 118 `i `uc
+-> -> 117 `i `uc
+-> -> 117 `i `uc
+-> -> 116 `i `uc
+-> -> 115 `i `uc
+-> -> 115 `i `uc
 "28
-[e = _acCrossEvent -> -> 5 `i `uc ]
-[; ;Motor.c: 29: i = acCrossIndex - 1;
+-> -> 114 `i `uc
+-> -> 113 `i `uc
+-> -> 113 `i `uc
+-> -> 112 `i `uc
+-> -> 111 `i `uc
+-> -> 111 `i `uc
+-> -> 110 `i `uc
+-> -> 109 `i `uc
 "29
-[e = _i -> - -> _acCrossIndex `i -> 1 `i `uc ]
-[; ;Motor.c: 30: t = ( acCrossTime[ i & 7 ] - acCrossTime[ i - 4 & 7 ] ) >> 3;
+-> -> 109 `i `uc
+-> -> 108 `i `uc
+-> -> 107 `i `uc
+-> -> 107 `i `uc
+-> -> 106 `i `uc
+-> -> 106 `i `uc
+-> -> 105 `i `uc
+-> -> 104 `i `uc
 "30
-[e = _t -> >> - -> *U + &U _acCrossTime * -> -> & -> _i `i -> 7 `i `ui `ux -> -> # *U &U _acCrossTime `ui `ux `ui -> *U + &U _acCrossTime * -> -> & - -> _i `i -> 4 `i -> 7 `i `ui `ux -> -> # *U &U _acCrossTime `ui `ux `ui -> 3 `i `us ]
-[; ;Motor.c: 31: if ( 300 < t && t < 500 )
+-> -> 104 `i `uc
+-> -> 103 `i `uc
+-> -> 103 `i `uc
+-> -> 102 `i `uc
+-> -> 102 `i `uc
+-> -> 101 `i `uc
+-> -> 100 `i `uc
+-> -> 100 `i `uc
 "31
-[e $ ! && < -> -> 300 `i `ui -> _t `ui < -> _t `ui -> -> 500 `i `ui 266  ]
-[; ;Motor.c: 32: {
+-> -> 99 `i `uc
+-> -> 99 `i `uc
+-> -> 98 `i `uc
+-> -> 98 `i `uc
+-> -> 97 `i `uc
+-> -> 97 `i `uc
+-> -> 96 `i `uc
+-> -> 96 `i `uc
 "32
-{
-[; ;Motor.c: 33: acCycle = t;
+-> -> 95 `i `uc
+-> -> 94 `i `uc
+-> -> 94 `i `uc
+-> -> 93 `i `uc
+-> -> 93 `i `uc
+-> -> 92 `i `uc
+-> -> 92 `i `uc
+-> -> 91 `i `uc
 "33
-[e = _acCycle _t ]
-[; ;Motor.c: 34: acCycleHalf = t >> 3;
+-> -> 91 `i `uc
+-> -> 90 `i `uc
+-> -> 90 `i `uc
+-> -> 89 `i `uc
+-> -> 89 `i `uc
+-> -> 88 `i `uc
+-> -> 88 `i `uc
+-> -> 87 `i `uc
 "34
-[e = _acCycleHalf -> >> -> _t `ui -> 3 `i `uc ]
+-> -> 87 `i `uc
+-> -> 86 `i `uc
+-> -> 86 `i `uc
+-> -> 85 `i `uc
+-> -> 85 `i `uc
+-> -> 84 `i `uc
+-> -> 84 `i `uc
+-> -> 83 `i `uc
 "35
-}
-[e :U 266 ]
+-> -> 83 `i `uc
+-> -> 82 `i `uc
+-> -> 82 `i `uc
+-> -> 81 `i `uc
+-> -> 81 `i `uc
+-> -> 80 `i `uc
+-> -> 80 `i `uc
+-> -> 79 `i `uc
 "36
-}
-[e :U 265 ]
+-> -> 79 `i `uc
+-> -> 78 `i `uc
+-> -> 78 `i `uc
+-> -> 77 `i `uc
+-> -> 77 `i `uc
+-> -> 76 `i `uc
+-> -> 76 `i `uc
+-> -> 75 `i `uc
 "37
-[e :U 264 ]
-[; ;Motor.c: 35: }
-[; ;Motor.c: 36: }
-[; ;Motor.c: 37: }
-[e :UE 262 ]
-}
+-> -> 75 `i `uc
+-> -> 74 `i `uc
+-> -> 74 `i `uc
+-> -> 73 `i `uc
+-> -> 73 `i `uc
+-> -> 72 `i `uc
+-> -> 72 `i `uc
+-> -> 71 `i `uc
+"38
+-> -> 71 `i `uc
+-> -> 70 `i `uc
+-> -> 70 `i `uc
+-> -> 69 `i `uc
+-> -> 69 `i `uc
+-> -> 68 `i `uc
+-> -> 68 `i `uc
+-> -> 67 `i `uc
+"39
+-> -> 67 `i `uc
+-> -> 66 `i `uc
+-> -> 66 `i `uc
+-> -> 65 `i `uc
+-> -> 65 `i `uc
+-> -> 64 `i `uc
+-> -> 64 `i `uc
+-> -> 63 `i `uc
 "40
-[v _CAL_MtrSpeed `(v  1 ef ]
-{
-[; ;Motor.c: 39: void CAL_MtrSpeed( void )
-[; ;Motor.c: 40: {
-[e :U _CAL_MtrSpeed ]
-[f ]
+-> -> 63 `i `uc
+-> -> 62 `i `uc
+-> -> 62 `i `uc
+-> -> 61 `i `uc
+-> -> 61 `i `uc
+-> -> 60 `i `uc
+-> -> 60 `i `uc
+-> -> 59 `i `uc
 "41
-[v _n `uc  1 a ]
-[v _i `uc  1 a ]
-[v _j `uc  1 a ]
+-> -> 59 `i `uc
+-> -> 58 `i `uc
+-> -> 58 `i `uc
+-> -> 57 `i `uc
+-> -> 56 `i `uc
+-> -> 56 `i `uc
+-> -> 55 `i `uc
+-> -> 55 `i `uc
 "42
-[v _t `us  1 a ]
-[; ;Motor.c: 41: U8 n, i, j;
-[; ;Motor.c: 42: U16 t;
-[; ;Motor.c: 43: if ( ++mtrHallWDT >= 50 )
+-> -> 54 `i `uc
+-> -> 54 `i `uc
+-> -> 53 `i `uc
+-> -> 53 `i `uc
+-> -> 52 `i `uc
+-> -> 51 `i `uc
+-> -> 51 `i `uc
+-> -> 50 `i `uc
 "43
-[e $ ! >= -> =+ _mtrHallWDT -> -> 1 `i `uc `i -> 50 `i 268  ]
-[; ;Motor.c: 44: {
+-> -> 50 `i `uc
+-> -> 49 `i `uc
+-> -> 48 `i `uc
+-> -> 48 `i `uc
+-> -> 47 `i `uc
+-> -> 46 `i `uc
+-> -> 46 `i `uc
+-> -> 45 `i `uc
 "44
-{
-[; ;Motor.c: 45: mtrHallWDT = 50;
+-> -> 45 `i `uc
+-> -> 44 `i `uc
+-> -> 43 `i `uc
+-> -> 42 `i `uc
+-> -> 42 `i `uc
+-> -> 41 `i `uc
+-> -> 40 `i `uc
+-> -> 40 `i `uc
 "45
-[e = _mtrHallWDT -> -> 50 `i `uc ]
-[; ;Motor.c: 46: mtrHallEvent = 0;
+-> -> 39 `i `uc
+-> -> 38 `i `uc
+-> -> 37 `i `uc
+-> -> 37 `i `uc
+-> -> 36 `i `uc
+-> -> 35 `i `uc
+-> -> 34 `i `uc
+-> -> 33 `i `uc
 "46
-[e = _mtrHallEvent -> -> 0 `i `uc ]
-[; ;Motor.c: 47: mtrSpeed = 0;
+-> -> 33 `i `uc
+-> -> 32 `i `uc
+-> -> 31 `i `uc
+-> -> 30 `i `uc
+-> -> 29 `i `uc
+-> -> 28 `i `uc
+-> -> 27 `i `uc
+-> -> 26 `i `uc
 "47
-[e = _mtrSpeed -> -> 0 `i `us ]
+-> -> 25 `i `uc
+-> -> 24 `i `uc
+-> -> 23 `i `uc
+-> -> 21 `i `uc
+-> -> 20 `i `uc
+-> -> 19 `i `uc
+-> -> 18 `i `uc
+-> -> 16 `i `uc
 "48
-}
-[; ;Motor.c: 48: }
-[e $U 269  ]
+-> -> 15 `i `uc
+-> -> 13 `i `uc
+-> -> 12 `i `uc
+-> -> 10 `i `uc
+-> -> 8 `i `uc
+-> -> 6 `i `uc
+-> -> 4 `i `uc
+-> -> 2 `i `uc
 "49
-[e :U 268 ]
-[; ;Motor.c: 49: else if ( mtrHallEvent >= 3 )
-[e $ ! >= -> _mtrHallEvent `i -> 3 `i 270  ]
-[; ;Motor.c: 50: {
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
 "50
-{
-[; ;Motor.c: 51: if ( mtrHallEvent >= 30 ) mtrHallEvent = 30;
-"51
-[e $ ! >= -> _mtrHallEvent `i -> 30 `i 271  ]
-[e = _mtrHallEvent -> -> 30 `i `uc ]
-[e :U 271 ]
-[; ;Motor.c: 52: n = mtrHallEvent - 2;
-"52
-[e = _n -> - -> _mtrHallEvent `i -> 2 `i `uc ]
-[; ;Motor.c: 53: i = mtrHallIndex - 1;
+-> -> 0 `i `uc
+..
+]
+[; ;Motor.c: 16: const U8 ad2tpr[ 256 ] =
+[; ;Motor.c: 17: {
+[; ;Motor.c: 18: 127, 127, 127, 127, 127, 127, 127, 127,
+[; ;Motor.c: 19: 127, 127, 127, 127, 127, 127, 127, 127,
+[; ;Motor.c: 20: 127, 127, 127, 127, 127, 127, 127, 127,
+[; ;Motor.c: 21: 127, 127, 127, 127, 127, 127, 127, 127,
+[; ;Motor.c: 22: 127, 127, 127, 127, 127, 127, 127, 127,
+[; ;Motor.c: 23: 127, 127, 127, 127, 127, 127, 127, 127,
+[; ;Motor.c: 24: 127, 127, 127, 127, 127, 127, 127, 127,
+[; ;Motor.c: 25: 127, 127, 127, 127, 127, 127, 127, 127,
+[; ;Motor.c: 26: 126, 125, 124, 123, 122, 122, 121, 120,
+[; ;Motor.c: 27: 119, 119, 118, 117, 117, 116, 115, 115,
+[; ;Motor.c: 28: 114, 113, 113, 112, 111, 111, 110, 109,
+[; ;Motor.c: 29: 109, 108, 107, 107, 106, 106, 105, 104,
+[; ;Motor.c: 30: 104, 103, 103, 102, 102, 101, 100, 100,
+[; ;Motor.c: 31: 99, 99, 98, 98, 97, 97, 96, 96,
+[; ;Motor.c: 32: 95, 94, 94, 93, 93, 92, 92, 91,
+[; ;Motor.c: 33: 91, 90, 90, 89, 89, 88, 88, 87,
+[; ;Motor.c: 34: 87, 86, 86, 85, 85, 84, 84, 83,
+[; ;Motor.c: 35: 83, 82, 82, 81, 81, 80, 80, 79,
+[; ;Motor.c: 36: 79, 78, 78, 77, 77, 76, 76, 75,
+[; ;Motor.c: 37: 75, 74, 74, 73, 73, 72, 72, 71,
+[; ;Motor.c: 38: 71, 70, 70, 69, 69, 68, 68, 67,
+[; ;Motor.c: 39: 67, 66, 66, 65, 65, 64, 64, 63,
+[; ;Motor.c: 40: 63, 62, 62, 61, 61, 60, 60, 59,
+[; ;Motor.c: 41: 59, 58, 58, 57, 56, 56, 55, 55,
+[; ;Motor.c: 42: 54, 54, 53, 53, 52, 51, 51, 50,
+[; ;Motor.c: 43: 50, 49, 48, 48, 47, 46, 46, 45,
+[; ;Motor.c: 44: 45, 44, 43, 42, 42, 41, 40, 40,
+[; ;Motor.c: 45: 39, 38, 37, 37, 36, 35, 34, 33,
+[; ;Motor.c: 46: 33, 32, 31, 30, 29, 28, 27, 26,
+[; ;Motor.c: 47: 25, 24, 23, 21, 20, 19, 18, 16,
+[; ;Motor.c: 48: 15, 13, 12, 10, 8, 6, 4, 2,
+[; ;Motor.c: 49: 0, 0, 0, 0, 0, 0, 0, 0
+[; ;Motor.c: 50: };
 "53
-[e = _i -> - -> _mtrHallIndex `i -> 1 `i `uc ]
-[; ;Motor.c: 54: j = 0;
-"54
-[e = _j -> -> 0 `i `uc ]
-[; ;Motor.c: 55: if ( n < 4 )
-"55
-[e $ ! < -> _n `i -> 4 `i 272  ]
-[; ;Motor.c: 56: {
-"56
+[v _CAL_MtrTemp `(v  1 ef ]
 {
-[; ;Motor.c: 57: j = n;
-"57
-[e = _j _n ]
-[; ;Motor.c: 58: t = mtrHallTime[ i & 31 ] - mtrHallTime[ i - j & 31 ];
-"58
-[e = _t -> - -> *U + &U _mtrHallTime * -> -> & -> _i `i -> 31 `i `ui `ux -> -> # *U &U _mtrHallTime `ui `ux `ui -> *U + &U _mtrHallTime * -> -> & - -> _i `i -> _j `i -> 31 `i `ui `ux -> -> # *U &U _mtrHallTime `ui `ux `ui `us ]
-"59
-}
-[; ;Motor.c: 59: }
-[e $U 273  ]
-"60
-[e :U 272 ]
-[; ;Motor.c: 60: else while ( 1 )
-[e :U 275 ]
-[; ;Motor.c: 61: {
-"61
-{
-[; ;Motor.c: 62: n -= 4;
-"62
-[e =- _n -> -> 4 `i `uc ]
-[; ;Motor.c: 63: j += 4;
-"63
-[e =+ _j -> -> 4 `i `uc ]
-[; ;Motor.c: 64: t = mtrHallTime[ i & 31 ] - mtrHallTime[ i - j & 31 ];
-"64
-[e = _t -> - -> *U + &U _mtrHallTime * -> -> & -> _i `i -> 31 `i `ui `ux -> -> # *U &U _mtrHallTime `ui `ux `ui -> *U + &U _mtrHallTime * -> -> & - -> _i `i -> _j `i -> 31 `i `ui `ux -> -> # *U &U _mtrHallTime `ui `ux `ui `us ]
-[; ;Motor.c: 65: if ( n < 4 ) break;
-"65
-[e $ ! < -> _n `i -> 4 `i 277  ]
-[e $U 276  ]
-[e :U 277 ]
-[; ;Motor.c: 66: if ( t >= 1600 ) break;
-"66
-[e $ ! >= -> _t `ui -> -> 1600 `i `ui 278  ]
-[e $U 276  ]
-[e :U 278 ]
-"67
-}
-[e :U 274 ]
-"60
-[e $U 275  ]
-[e :U 276 ]
-"67
-[e :U 273 ]
-[; ;Motor.c: 67: }
-[; ;Motor.c: 68: mtrSpeed = ( U16 )( 600000UL * ( U32 )j / ( U32 )t );
-"68
-[e = _mtrSpeed -> / * -> 600000 `ul -> _j `ul -> _t `ul `us ]
-"69
-}
-[e :U 270 ]
-"70
-[e :U 269 ]
-[; ;Motor.c: 69: }
-[; ;Motor.c: 70: }
-[e :UE 267 ]
-}
-"73
-[v _CAL_MtrCurrent `(v  1 ef ]
-{
-[; ;Motor.c: 72: void CAL_MtrCurrent( void )
-[; ;Motor.c: 73: {
-[e :U _CAL_MtrCurrent ]
+[; ;Motor.c: 52: void CAL_MtrTemp( void )
+[; ;Motor.c: 53: {
+[e :U _CAL_MtrTemp ]
 [f ]
+"54
+[v F2595 `us  1 s sum ]
+[i F2595
+-> -> 0 `i `us
+]
+"55
+[v F2596 `uc  1 s err ]
+[i F2596
+-> -> 0 `i `uc
+]
+"56
+[v F2597 `uc  1 s er1 ]
+[i F2597
+-> -> 0 `i `uc
+]
+"57
+[v F2598 `uc  1 s cnt ]
+[i F2598
+-> -> 0 `i `uc
+]
+[; ;Motor.c: 54: static  U16 sum = 0;
+[; ;Motor.c: 55: static  U8 err = 0;
+[; ;Motor.c: 56: static  U8 er1 = 0;
+[; ;Motor.c: 57: static  U8 cnt = 0;
+[; ;Motor.c: 58: if ( !acCycleHalf )
+"58
+[e $ ! ! != -> _acCycleHalf `i -> -> -> 0 `i `Xuc `i 264  ]
+[; ;Motor.c: 59: {
+"59
+{
+[; ;Motor.c: 60: sum = 0;
+"60
+[e = F2595 -> -> 0 `i `us ]
+[; ;Motor.c: 61: err = 0;
+"61
+[e = F2596 -> -> 0 `i `uc ]
+[; ;Motor.c: 62: er1 = 0;
+"62
+[e = F2597 -> -> 0 `i `uc ]
+[; ;Motor.c: 63: cnt = 0;
+"63
+[e = F2598 -> -> 0 `i `uc ]
+"64
+}
+[; ;Motor.c: 64: }
+[e $U 265  ]
+"65
+[e :U 264 ]
+[; ;Motor.c: 65: else if ( acCycleFlag )
+[e $ ! != -> _acCycleFlag `i -> -> -> 0 `i `Xuc `i 266  ]
+[; ;Motor.c: 66: {
+"66
+{
+[; ;Motor.c: 67: sum += ( U16 )adNtc;
+"67
+[e =+ F2595 -> _adNtc `us ]
+[; ;Motor.c: 68: if ( adNtc < 2 || adNtc >= 254 ) err++;
+"68
+[e $ ! || < -> _adNtc `i -> 2 `i >= -> _adNtc `i -> 254 `i 267  ]
+[e ++ F2596 -> -> 1 `i `uc ]
+[e :U 267 ]
+[; ;Motor.c: 69: if ( ++cnt >= 4 )
+"69
+[e $ ! >= -> =+ F2598 -> -> 1 `i `uc `i -> 4 `i 268  ]
+[; ;Motor.c: 70: {
+"70
+{
+[; ;Motor.c: 71: if ( !err )
+"71
+[e $ ! ! != -> F2596 `i -> -> -> 0 `i `uc `i 269  ]
+[; ;Motor.c: 72: {
+"72
+{
+[; ;Motor.c: 73: er1 = 0;
+"73
+[e = F2597 -> -> 0 `i `uc ]
+[; ;Motor.c: 74: mtrTemp = ad2tpr[ sum >> 2 ];
 "74
-[v _s `ul  1 a ]
-[v _n `ul  1 a ]
-[; ;Motor.c: 74: U32 s, n;
-[; ;Motor.c: 75: if ( acCrossEvent < 5 )
+[e = _mtrTemp -> *U + &U _ad2tpr * -> >> -> F2595 `ui -> 2 `i `ux -> -> # *U &U _ad2tpr `ui `ux `c ]
+[; ;Motor.c: 75: if ( mtrTemp >= 104 )
 "75
-[e $ ! < -> _acCrossEvent `i -> 5 `i 280  ]
+[e $ ! >= -> _mtrTemp `i -> 104 `i 270  ]
 [; ;Motor.c: 76: {
 "76
 {
-[; ;Motor.c: 77: mtrCurrent = 0;
+[; ;Motor.c: 77: do { if ( !mtrError ) mtrError = 2; } while(0);
 "77
-[e = _mtrCurrent -> -> 0 `i `us ]
+[e :U 273 ]
+{
+[e $ ! ! != -> _mtrError `i -> -> -> 0 `i `uc `i 274  ]
+[e = _mtrError -> -> 2 `i `uc ]
+[e :U 274 ]
+}
+[e :U 272 ]
 "78
 }
-[; ;Motor.c: 78: }
-[e $U 281  ]
+[e :U 270 ]
 "79
-[e :U 280 ]
-[; ;Motor.c: 79: else if ( acCycleFlag && adCurN != 0 )
-[e $ ! && != -> _acCycleFlag `i -> -> -> 0 `i `Xuc `i != -> _adCurN `i -> 0 `i 282  ]
-[; ;Motor.c: 80: {
+}
+[; ;Motor.c: 78: }
+[; ;Motor.c: 79: }
+[e $U 275  ]
 "80
-{
-[; ;Motor.c: 81: s = adCur2 << 1;
+[e :U 269 ]
+[; ;Motor.c: 80: else if ( ++er1 >= 10 )
+[e $ ! >= -> =+ F2597 -> -> 1 `i `uc `i -> 10 `i 276  ]
+[; ;Motor.c: 81: {
 "81
-[e = _s << _adCur2 -> 1 `i ]
-[; ;Motor.c: 82: n = ( U32 )adCurN;
+{
+[; ;Motor.c: 82: do { if ( !mtrError ) mtrError = 2; } while(0);
 "82
-[e = _n -> _adCurN `ul ]
-[; ;Motor.c: 83: adCurN = 0;
+[e :U 279 ]
+{
+[e $ ! ! != -> _mtrError `i -> -> -> 0 `i `uc `i 280  ]
+[e = _mtrError -> -> 2 `i `uc ]
+[e :U 280 ]
+}
+[e :U 278 ]
 "83
-[e = _adCurN -> -> 0 `i `uc ]
-[; ;Motor.c: 84: s = ( U32 )SQRT32( s );
+}
+[e :U 276 ]
 "84
-[e = _s -> ( _SQRT32 (1 _s `ul ]
-[; ;Motor.c: 85: n = ( U32 )SQRT32( n << 16 );
+[e :U 275 ]
+[; ;Motor.c: 83: }
+[; ;Motor.c: 84: sum = 0;
+[e = F2595 -> -> 0 `i `us ]
+[; ;Motor.c: 85: err = 0;
 "85
-[e = _n -> ( _SQRT32 (1 << _n -> 16 `i `ul ]
-[; ;Motor.c: 86: mtrCurrent = ( U16 )( ( 25600UL*4800UL/50UL/1023UL ) * s / n );
+[e = F2596 -> -> 0 `i `uc ]
+[; ;Motor.c: 86: cnt = 0;
 "86
-[e = _mtrCurrent -> / * / / * -> 25600 `ul -> 4800 `ul -> 50 `ul -> 1023 `ul _s _n `us ]
+[e = F2598 -> -> 0 `i `uc ]
 "87
 }
-[e :U 282 ]
+[e :U 268 ]
 "88
-[e :U 281 ]
+}
+[e :U 266 ]
+"89
+[e :U 265 ]
 [; ;Motor.c: 87: }
 [; ;Motor.c: 88: }
-[e :UE 279 ]
+[; ;Motor.c: 89: }
+[e :UE 263 ]
 }
-"91
-[v _CAL_MtrError `(v  1 ef ]
-{
-[; ;Motor.c: 90: void CAL_MtrError( void )
-[; ;Motor.c: 91: {
-[e :U _CAL_MtrError ]
-[f ]
 "92
-[v F2601 `uc  1 s tmErr1 ]
-[i F2601
--> -> 0 `i `uc
-]
+[v _CAL_MtrCurrent `(v  1 ef ]
+{
+[; ;Motor.c: 91: void CAL_MtrCurrent( void )
+[; ;Motor.c: 92: {
+[e :U _CAL_MtrCurrent ]
+[f ]
 "93
-[v F2602 `us  1 s tmErr2 ]
+[v F2602 `us  1 s tmOVC ]
 [i F2602
 -> -> 0 `i `us
 ]
 "94
-[v F2603 `us  1 s tmErr3 ]
-[i F2603
--> -> 0 `i `us
-]
+[v _s `ul  1 a ]
+[v _n `ul  1 a ]
+[; ;Motor.c: 93: static  U16 tmOVC = 0;
+[; ;Motor.c: 94: U32 s, n;
+[; ;Motor.c: 95: if ( !acCycleHalf )
 "95
-[v F2604 `uc  1 s tmErr4 ]
-[i F2604
--> -> 0 `i `uc
-]
-[; ;Motor.c: 92: static U8 tmErr1 = 0;
-[; ;Motor.c: 93: static U16 tmErr2 = 0;
-[; ;Motor.c: 94: static U16 tmErr3 = 0;
-[; ;Motor.c: 95: static U8 tmErr4 = 0;
-[; ;Motor.c: 96: if ( acCycleHalf != 0 )
+[e $ ! ! != -> _acCycleHalf `i -> -> -> 0 `i `Xuc `i 282  ]
+[; ;Motor.c: 96: {
 "96
-[e $ ! != -> _acCycleHalf `i -> 0 `i 284  ]
-[; ;Motor.c: 97: {
+{
+[; ;Motor.c: 97: mtrCurrent = 0;
 "97
-{
-[; ;Motor.c: 98: tmErr1 = 0;
+[e = _mtrCurrent -> -> 0 `i `us ]
 "98
-[e = F2601 -> -> 0 `i `uc ]
+}
+[; ;Motor.c: 98: }
+[e $U 283  ]
 "99
-}
-[; ;Motor.c: 99: }
-[e $U 285  ]
+[e :U 282 ]
+[; ;Motor.c: 99: else if ( acCycleFlag && adCurN != 0 )
+[e $ ! && != -> _acCycleFlag `i -> -> -> 0 `i `Xuc `i != -> _adCurN `i -> 0 `i 284  ]
+[; ;Motor.c: 100: {
 "100
-[e :U 284 ]
-[; ;Motor.c: 100: else if ( ++tmErr1 >= 100 )
-[e $ ! >= -> =+ F2601 -> -> 1 `i `uc `i -> 100 `i 286  ]
-[; ;Motor.c: 101: {
+{
+[; ;Motor.c: 101: s = adCur2 << 1;
 "101
-{
-[; ;Motor.c: 102: mtrError = 1;
+[e = _s << _adCur2 -> 1 `i ]
+[; ;Motor.c: 102: n = ( U32 )adCurN;
 "102
-[e = _mtrError -> -> 1 `i `uc ]
+[e = _n -> _adCurN `ul ]
+[; ;Motor.c: 103: adCurN = 0;
 "103
-}
-[e :U 286 ]
+[e = _adCurN -> -> 0 `i `uc ]
+[; ;Motor.c: 104: s = ( U32 )SQRT32( s );
 "104
-[e :U 285 ]
-[; ;Motor.c: 103: }
-[; ;Motor.c: 104: if ( mtrSpeedRef == 0 || mtrSpeed >= 500 )
-[e $ ! || == -> _mtrSpeedRef `ui -> -> 0 `i `ui >= -> _mtrSpeed `ui -> -> 500 `i `ui 287  ]
-[; ;Motor.c: 105: {
+[e = _s -> ( _SQRT32 (1 _s `ul ]
+[; ;Motor.c: 105: n = ( U32 )SQRT32( n << 16 );
 "105
-{
-[; ;Motor.c: 106: tmErr2 = 0;
+[e = _n -> ( _SQRT32 (1 << _n -> 16 `i `ul ]
+[; ;Motor.c: 106: mtrCurrent = ( U16 )( ( 25600UL*4800UL/50UL/1023UL ) * s / n );
 "106
-[e = F2602 -> -> 0 `i `us ]
+[e = _mtrCurrent -> / * / / * -> 25600 `ul -> 4800 `ul -> 50 `ul -> 1023 `ul _s _n `us ]
 "107
 }
-[; ;Motor.c: 107: }
-[e $U 288  ]
+[e :U 284 ]
 "108
-[e :U 287 ]
-[; ;Motor.c: 108: else if ( ++tmErr2 >= 500 )
-[e $ ! >= -> =+ F2602 -> -> 1 `i `us `ui -> -> 500 `i `ui 289  ]
+[e :U 283 ]
+[; ;Motor.c: 107: }
+[; ;Motor.c: 108: if ( mtrCurrent < 1000 )
+[e $ ! < -> _mtrCurrent `ui -> -> 1000 `i `ui 285  ]
 [; ;Motor.c: 109: {
 "109
 {
-[; ;Motor.c: 110: mtrError = 2;
+[; ;Motor.c: 110: tmOVC = 0;
 "110
-[e = _mtrError -> -> 2 `i `uc ]
+[e = F2602 -> -> 0 `i `us ]
 "111
 }
-[e :U 289 ]
-"112
-[e :U 288 ]
 [; ;Motor.c: 111: }
-[; ;Motor.c: 112: if ( mtrCurrent < 760 )
-[e $ ! < -> _mtrCurrent `ui -> -> 760 `i `ui 290  ]
+[e $U 286  ]
+"112
+[e :U 285 ]
+[; ;Motor.c: 112: else if ( ++tmOVC >= 600 )
+[e $ ! >= -> =+ F2602 -> -> 1 `i `us `ui -> -> 600 `i `ui 287  ]
 [; ;Motor.c: 113: {
 "113
 {
-[; ;Motor.c: 114: tmErr3 = 0;
+[; ;Motor.c: 114: do { if ( !mtrError ) mtrError = 8; } while(0);
 "114
-[e = F2603 -> -> 0 `i `us ]
+[e :U 290 ]
+{
+[e $ ! ! != -> _mtrError `i -> -> -> 0 `i `uc `i 291  ]
+[e = _mtrError -> -> 8 `i `uc ]
+[e :U 291 ]
+}
+[e :U 289 ]
 "115
 }
-[; ;Motor.c: 115: }
-[e $U 291  ]
+[e :U 287 ]
 "116
-[e :U 290 ]
-[; ;Motor.c: 116: else if ( ++tmErr3 >= 1500 )
-[e $ ! >= -> =+ F2603 -> -> 1 `i `us `ui -> -> 1500 `i `ui 292  ]
-[; ;Motor.c: 117: {
-"117
-{
-[; ;Motor.c: 118: mtrError = 3;
-"118
-[e = _mtrError -> -> 3 `i `uc ]
+[e :U 286 ]
+[; ;Motor.c: 115: }
+[; ;Motor.c: 116: }
+[e :UE 281 ]
+}
 "119
-}
-[e :U 292 ]
-"120
-[e :U 291 ]
-[; ;Motor.c: 119: }
-[; ;Motor.c: 120: if ( adNtc >= 95 && adNtc < 254 )
-[e $ ! && >= -> _adNtc `i -> 95 `i < -> _adNtc `i -> 254 `i 293  ]
-[; ;Motor.c: 121: {
-"121
+[v _CAL_MtrSpeed `(v  1 ef ]
 {
-[; ;Motor.c: 122: tmErr4 = 0;
-"122
-[e = F2604 -> -> 0 `i `uc ]
-"123
-}
-[; ;Motor.c: 123: }
-[e $U 294  ]
-"124
-[e :U 293 ]
-[; ;Motor.c: 124: else if ( ++tmErr4 >= 200 )
-[e $ ! >= -> =+ F2604 -> -> 1 `i `uc `i -> 200 `i 295  ]
-[; ;Motor.c: 125: {
-"125
-{
-[; ;Motor.c: 126: mtrError = 4;
-"126
-[e = _mtrError -> -> 4 `i `uc ]
-"127
-}
-[e :U 295 ]
-"128
-[e :U 294 ]
-[; ;Motor.c: 127: }
-[; ;Motor.c: 128: }
-[e :UE 283 ]
-}
-"131
-[v _MTR_Driver `(v  1 ef ]
-{
-[; ;Motor.c: 130: void MTR_Driver( void )
-[; ;Motor.c: 131: {
-[e :U _MTR_Driver ]
+[; ;Motor.c: 118: void CAL_MtrSpeed( void )
+[; ;Motor.c: 119: {
+[e :U _CAL_MtrSpeed ]
 [f ]
-"132
-[v F2607 `uc  1 s state ]
-[i F2607
--> -> 0 `i `uc
+"120
+[v F2611 `us  1 s tmZSP ]
+[i F2611
+-> -> 0 `i `us
 ]
+"121
+[v _n `uc  1 a ]
+[v _i `uc  1 a ]
+[v _j `uc  1 a ]
+"122
+[v _t `us  1 a ]
+[; ;Motor.c: 120: static  U16 tmZSP = 0;
+[; ;Motor.c: 121: U8 n, i, j;
+[; ;Motor.c: 122: U16 t;
+[; ;Motor.c: 123: if ( ++mtrHallWDT >= 50 )
+"123
+[e $ ! >= -> =+ _mtrHallWDT -> -> 1 `i `uc `i -> 50 `i 293  ]
+[; ;Motor.c: 124: {
+"124
+{
+[; ;Motor.c: 125: mtrHallWDT = 50;
+"125
+[e = _mtrHallWDT -> -> 50 `i `uc ]
+[; ;Motor.c: 126: mtrHallEvent = 0;
+"126
+[e = _mtrHallEvent -> -> 0 `i `uc ]
+[; ;Motor.c: 127: mtrSpeed = 0;
+"127
+[e = _mtrSpeed -> -> 0 `i `us ]
+"128
+}
+[; ;Motor.c: 128: }
+[e $U 294  ]
+"129
+[e :U 293 ]
+[; ;Motor.c: 129: else if ( mtrHallEvent >= 3 )
+[e $ ! >= -> _mtrHallEvent `i -> 3 `i 295  ]
+[; ;Motor.c: 130: {
+"130
+{
+[; ;Motor.c: 131: if ( mtrHallEvent >= 30 ) mtrHallEvent = 30;
+"131
+[e $ ! >= -> _mtrHallEvent `i -> 30 `i 296  ]
+[e = _mtrHallEvent -> -> 30 `i `uc ]
+[e :U 296 ]
+[; ;Motor.c: 132: n = mtrHallEvent - 2;
+"132
+[e = _n -> - -> _mtrHallEvent `i -> 2 `i `uc ]
+[; ;Motor.c: 133: i = mtrHallIndex - 1;
 "133
-[v F2608 `S261  1 s IREG ]
+[e = _i -> - -> _mtrHallIndex `i -> 1 `i `uc ]
+[; ;Motor.c: 134: j = 0;
 "134
-[v F2609 `S261  1 s SREG ]
+[e = _j -> -> 0 `i `uc ]
+[; ;Motor.c: 135: if ( n < 4 )
 "135
-[v _max `s  1 a ]
-[; ;Motor.c: 132: static U8 state = 0;
-[; ;Motor.c: 133: static PI_t IREG;
-[; ;Motor.c: 134: static PI_t SREG;
-[; ;Motor.c: 135: S16 max;
-[; ;Motor.c: 136: if ( mtrSpeedRef == 0 || !acCycleHalf )
+[e $ ! < -> _n `i -> 4 `i 297  ]
+[; ;Motor.c: 136: {
 "136
-[e $ ! || == -> _mtrSpeedRef `ui -> -> 0 `i `ui ! != -> _acCycleHalf `i -> -> -> 0 `i `Xuc `i 297  ]
-[; ;Motor.c: 137: {
+{
+[; ;Motor.c: 137: j = n;
 "137
-{
-[; ;Motor.c: 138: state = 0;
+[e = _j _n ]
+[; ;Motor.c: 138: t = mtrHallTime[ i & 31 ] - mtrHallTime[ i - j & 31 ];
 "138
-[e = F2607 -> -> 0 `i `uc ]
-[; ;Motor.c: 139: do { GIE = 0; tmTriac = 0; GIE = 1; } while(0);
+[e = _t -> - -> *U + &U _mtrHallTime * -> -> & -> _i `i -> 31 `i `ui `ux -> -> # *U &U _mtrHallTime `ui `ux `ui -> *U + &U _mtrHallTime * -> -> & - -> _i `i -> _j `i -> 31 `i `ui `ux -> -> # *U &U _mtrHallTime `ui `ux `ui `us ]
 "139
+}
+[; ;Motor.c: 139: }
+[e $U 298  ]
+"140
+[e :U 297 ]
+[; ;Motor.c: 140: else while ( 1 )
 [e :U 300 ]
+[; ;Motor.c: 141: {
+"141
 {
-[e = _GIE -> -> 0 `i `b ]
-[e = _tmTriac -> -> 0 `i `us ]
-[e = _GIE -> -> 1 `i `b ]
+[; ;Motor.c: 142: n -= 4;
+"142
+[e =- _n -> -> 4 `i `uc ]
+[; ;Motor.c: 143: j += 4;
+"143
+[e =+ _j -> -> 4 `i `uc ]
+[; ;Motor.c: 144: t = mtrHallTime[ i & 31 ] - mtrHallTime[ i - j & 31 ];
+"144
+[e = _t -> - -> *U + &U _mtrHallTime * -> -> & -> _i `i -> 31 `i `ui `ux -> -> # *U &U _mtrHallTime `ui `ux `ui -> *U + &U _mtrHallTime * -> -> & - -> _i `i -> _j `i -> 31 `i `ui `ux -> -> # *U &U _mtrHallTime `ui `ux `ui `us ]
+[; ;Motor.c: 145: if ( n < 4 ) break;
+"145
+[e $ ! < -> _n `i -> 4 `i 302  ]
+[e $U 301  ]
+[e :U 302 ]
+[; ;Motor.c: 146: if ( t >= 1600 ) break;
+"146
+[e $ ! >= -> _t `ui -> -> 1600 `i `ui 303  ]
+[e $U 301  ]
+[e :U 303 ]
+"147
 }
 [e :U 299 ]
 "140
+[e $U 300  ]
+[e :U 301 ]
+"147
+[e :U 298 ]
+[; ;Motor.c: 147: }
+[; ;Motor.c: 148: mtrSpeed = ( U16 )( 600000UL * ( U32 )j / ( U32 )t );
+"148
+[e = _mtrSpeed -> / * -> 600000 `ul -> _j `ul -> _t `ul `us ]
+"149
 }
-[; ;Motor.c: 140: }
-[e $U 301  ]
-"141
-[e :U 297 ]
-[; ;Motor.c: 141: else switch ( state )
-[e $U 303  ]
-[; ;Motor.c: 142: {
-"142
+[e :U 295 ]
+"150
+[e :U 294 ]
+[; ;Motor.c: 149: }
+[; ;Motor.c: 150: if ( tmTriac <= ( U16 )( acCycleHalf ) || mtrSpeed >= 300 )
+[e $ ! || <= -> _tmTriac `ui -> -> _acCycleHalf `us `ui >= -> _mtrSpeed `ui -> -> 300 `i `ui 304  ]
+[; ;Motor.c: 151: {
+"151
 {
-[; ;Motor.c: 143: case 0:
-"143
+[; ;Motor.c: 152: tmZSP = 0;
+"152
+[e = F2611 -> -> 0 `i `us ]
+"153
+}
+[; ;Motor.c: 153: }
+[e $U 305  ]
+"154
 [e :U 304 ]
-[; ;Motor.c: 144: do { GIE = 0; tmTriac = 0; GIE = 1; } while(0);
-"144
-[e :U 307 ]
+[; ;Motor.c: 154: else if ( ++tmZSP >= 300 )
+[e $ ! >= -> =+ F2611 -> -> 1 `i `us `ui -> -> 300 `i `ui 306  ]
+[; ;Motor.c: 155: {
+"155
+{
+[; ;Motor.c: 156: do { if ( !mtrError ) mtrError = mtrError = 7; } while(0);
+"156
+[e :U 309 ]
+{
+[e $ ! ! != -> _mtrError `i -> -> -> 0 `i `uc `i 310  ]
+[e = _mtrError = _mtrError -> -> 7 `i `uc ]
+[e :U 310 ]
+}
+[e :U 308 ]
+"157
+}
+[e :U 306 ]
+"158
+[e :U 305 ]
+[; ;Motor.c: 157: }
+[; ;Motor.c: 158: }
+[e :UE 292 ]
+}
+"161
+[v _CAL_AcPeriod `(v  1 ef ]
+{
+[; ;Motor.c: 160: void CAL_AcPeriod( void )
+[; ;Motor.c: 161: {
+[e :U _CAL_AcPeriod ]
+[f ]
+"162
+[v F2622 `us  1 s tmCRS ]
+[i F2622
+-> -> 0 `i `us
+]
+"163
+[v _i `uc  1 a ]
+"164
+[v _t `us  1 a ]
+[; ;Motor.c: 162: static U16 tmCRS = 0;
+[; ;Motor.c: 163: U8 i;
+[; ;Motor.c: 164: U16 t;
+[; ;Motor.c: 165: if ( ++acCrossWDT >= 5 )
+"165
+[e $ ! >= -> =+ _acCrossWDT -> -> 1 `i `uc `i -> 5 `i 312  ]
+[; ;Motor.c: 166: {
+"166
+{
+[; ;Motor.c: 167: acCrossWDT = 5;
+"167
+[e = _acCrossWDT -> -> 5 `i `uc ]
+[; ;Motor.c: 168: acCrossEvent = 0;
+"168
+[e = _acCrossEvent -> -> 0 `i `uc ]
+[; ;Motor.c: 169: acCycleHalf = 0;
+"169
+[e = _acCycleHalf -> -> 0 `i `uc ]
+[; ;Motor.c: 170: acCycle = 0;
+"170
+[e = _acCycle -> -> 0 `i `us ]
+"171
+}
+[; ;Motor.c: 171: }
+[e $U 313  ]
+"172
+[e :U 312 ]
+[; ;Motor.c: 172: else if ( acCrossEvent >= 5 )
+[e $ ! >= -> _acCrossEvent `i -> 5 `i 314  ]
+[; ;Motor.c: 173: {
+"173
+{
+[; ;Motor.c: 174: acCrossEvent = 5;
+"174
+[e = _acCrossEvent -> -> 5 `i `uc ]
+[; ;Motor.c: 175: i = acCrossIndex - 1;
+"175
+[e = _i -> - -> _acCrossIndex `i -> 1 `i `uc ]
+[; ;Motor.c: 176: t = ( acCrossTime[ i & 7 ] - acCrossTime[ i - 4 & 7 ] ) >> 3;
+"176
+[e = _t -> >> - -> *U + &U _acCrossTime * -> -> & -> _i `i -> 7 `i `ui `ux -> -> # *U &U _acCrossTime `ui `ux `ui -> *U + &U _acCrossTime * -> -> & - -> _i `i -> 4 `i -> 7 `i `ui `ux -> -> # *U &U _acCrossTime `ui `ux `ui -> 3 `i `us ]
+[; ;Motor.c: 177: if ( 300 < t && t < 500 )
+"177
+[e $ ! && < -> -> 300 `i `ui -> _t `ui < -> _t `ui -> -> 500 `i `ui 315  ]
+[; ;Motor.c: 178: {
+"178
+{
+[; ;Motor.c: 179: acCycle = t;
+"179
+[e = _acCycle _t ]
+[; ;Motor.c: 180: acCycleHalf = t >> 3;
+"180
+[e = _acCycleHalf -> >> -> _t `ui -> 3 `i `uc ]
+"181
+}
+[e :U 315 ]
+"182
+}
+[e :U 314 ]
+"183
+[e :U 313 ]
+[; ;Motor.c: 181: }
+[; ;Motor.c: 182: }
+[; ;Motor.c: 183: if ( acCycleHalf != 0 )
+[e $ ! != -> _acCycleHalf `i -> 0 `i 316  ]
+[; ;Motor.c: 184: {
+"184
+{
+[; ;Motor.c: 185: tmCRS = 0;
+"185
+[e = F2622 -> -> 0 `i `us ]
+"186
+}
+[; ;Motor.c: 186: }
+[e $U 317  ]
+"187
+[e :U 316 ]
+[; ;Motor.c: 187: else if ( ++tmCRS >= 300 )
+[e $ ! >= -> =+ F2622 -> -> 1 `i `us `ui -> -> 300 `i `ui 318  ]
+[; ;Motor.c: 188: {
+"188
+{
+[; ;Motor.c: 189: do { if ( !mtrError ) mtrError = mtrError = 10; } while(0);
+"189
+[e :U 321 ]
+{
+[e $ ! ! != -> _mtrError `i -> -> -> 0 `i `uc `i 322  ]
+[e = _mtrError = _mtrError -> -> 10 `i `uc ]
+[e :U 322 ]
+}
+[e :U 320 ]
+"190
+}
+[e :U 318 ]
+"191
+[e :U 317 ]
+[; ;Motor.c: 190: }
+[; ;Motor.c: 191: }
+[e :UE 311 ]
+}
+"194
+[v _CAL_MtrError `(v  1 ef ]
+{
+[; ;Motor.c: 193: void CAL_MtrError( void )
+[; ;Motor.c: 194: {
+[e :U _CAL_MtrError ]
+[f ]
+[; ;Motor.c: 195: }
+"195
+[e :UE 323 ]
+}
+"198
+[v _MTR_Driver `(v  1 ef ]
+{
+[; ;Motor.c: 197: void MTR_Driver( void )
+[; ;Motor.c: 198: {
+[e :U _MTR_Driver ]
+[f ]
+"199
+[v F2629 `uc  1 s state ]
+[i F2629
+-> -> 0 `i `uc
+]
+"200
+[v F2630 `us  1 s sref ]
+[i F2630
+-> -> 0 `i `us
+]
+"201
+[v F2631 `uc  1 s time ]
+[i F2631
+-> -> 0 `i `uc
+]
+"202
+[v F2632 `S260  1 s OLIM ]
+"203
+[v F2633 `S262  1 s SREG ]
+"204
+[v _max `s  1 a ]
+"205
+[v _err `s  1 a ]
+[; ;Motor.c: 199: static  U8 state = 0;
+[; ;Motor.c: 200: static  U16 sref = 0;
+[; ;Motor.c: 201: static  U8 time = 0;
+[; ;Motor.c: 202: static  SDW OLIM;
+[; ;Motor.c: 203: static  PID_t SREG;
+[; ;Motor.c: 204: S16 max;
+[; ;Motor.c: 205: S16 err;
+[; ;Motor.c: 206: if ( time ) time--;
+"206
+[e $ ! != -> F2631 `i -> -> -> 0 `i `uc `i 325  ]
+[e -- F2631 -> -> 1 `i `uc ]
+[e :U 325 ]
+[; ;Motor.c: 207: if ( mtrSpeedRef == 0 || !acCycleHalf )
+"207
+[e $ ! || == -> _mtrSpeedRef `ui -> -> 0 `i `ui ! != -> _acCycleHalf `i -> -> -> 0 `i `Xuc `i 326  ]
+[; ;Motor.c: 208: {
+"208
+{
+[; ;Motor.c: 209: state = 0;
+"209
+[e = F2629 -> -> 0 `i `uc ]
+[; ;Motor.c: 210: do { GIE = 0; tmTriac = 0; GIE = 1; } while(0);
+"210
+[e :U 329 ]
 {
 [e = _GIE -> -> 0 `i `b ]
 [e = _tmTriac -> -> 0 `i `us ]
 [e = _GIE -> -> 1 `i `b ]
 }
-[e :U 306 ]
-[; ;Motor.c: 145: if ( acCycle )
-"145
-[e $ ! != -> _acCycle `ui -> -> -> 0 `i `Xus `ui 308  ]
-[; ;Motor.c: 146: {
-"146
-{
-[; ;Motor.c: 147: SREG.kp = 1000;
-"147
-[e = . F2609 0 -> -> 1000 `i `s ]
-[; ;Motor.c: 148: SREG.ki = 50;
-"148
-[e = . F2609 1 -> -> 50 `i `s ]
-[; ;Motor.c: 149: SREG.ri.W.H = 40;
-"149
-[e = . . . F2609 2 1 1 -> -> 40 `i `s ]
-[; ;Motor.c: 150: SREG.ri.W.L = 0;
-"150
-[e = . . . F2609 2 1 0 -> -> 0 `i `s ]
-[; ;Motor.c: 151: SREG.ro.W.H = 40;
-"151
-[e = . . . F2609 3 1 1 -> -> 40 `i `s ]
-[; ;Motor.c: 152: SREG.ro.W.L = 40;
-"152
-[e = . . . F2609 3 1 0 -> -> 40 `i `s ]
-[; ;Motor.c: 153: IREG.kp = 8000;
-"153
-[e = . F2608 0 -> -> 8000 `i `s ]
-[; ;Motor.c: 154: IREG.ki = 2000;
-"154
-[e = . F2608 1 -> -> 2000 `i `s ]
-[; ;Motor.c: 155: IREG.ri.W.H = acCycle >> 1;
-"155
-[e = . . . F2608 2 1 1 -> >> -> _acCycle `ui -> 1 `i `s ]
-[; ;Motor.c: 156: IREG.ri.W.L = 0;
-"156
-[e = . . . F2608 2 1 0 -> -> 0 `i `s ]
-[; ;Motor.c: 157: IREG.ro.W.H = SREG.ri.W.H;
-"157
-[e = . . . F2608 3 1 1 . . . F2609 2 1 1 ]
-[; ;Motor.c: 158: IREG.ro.W.L = SREG.ri.W.H;
-"158
-[e = . . . F2608 3 1 0 . . . F2609 2 1 1 ]
-[; ;Motor.c: 159: state++;
-"159
-[e ++ F2607 -> -> 1 `i `uc ]
-"160
+[e :U 328 ]
+"211
 }
-[e :U 308 ]
-[; ;Motor.c: 160: }
-[; ;Motor.c: 161: break;
-"161
-[e $U 302  ]
-[; ;Motor.c: 162: case 1:
-"162
-[e :U 309 ]
-[; ;Motor.c: 163: if ( acCycleFlag )
-"163
-[e $ ! != -> _acCycleFlag `i -> -> -> 0 `i `Xuc `i 310  ]
-[; ;Motor.c: 164: {
-"164
+[; ;Motor.c: 211: }
+[e $U 330  ]
+"212
+[e :U 326 ]
+[; ;Motor.c: 212: else switch ( state )
+[e $U 332  ]
+[; ;Motor.c: 213: {
+"213
 {
-[; ;Motor.c: 165: max = ( S16 )( acCycle*56>>6 );
-"165
-[e = _max -> >> * -> _acCycle `ui -> -> 56 `i `ui -> 6 `i `s ]
-[; ;Motor.c: 166: PI_CAL( &SREG, mtrSpeedRef - mtrSpeed );
-"166
-[e ( _PI_CAL (2 , &U F2609 -> - -> _mtrSpeedRef `ui -> _mtrSpeed `ui `s ]
-[; ;Motor.c: 167: PI_LIM( &SREG, 40, max );
-"167
-[e ( _PI_LIM (3 , , &U F2609 -> -> 40 `i `s _max ]
-[; ;Motor.c: 168: PI_CAL( &IREG, 800 - mtrCurrent );
-"168
-[e ( _PI_CAL (2 , &U F2608 -> - -> -> 800 `i `ui -> _mtrCurrent `ui `s ]
-[; ;Motor.c: 169: PI_LIM( &IREG, 40, max );
-"169
-[e ( _PI_LIM (3 , , &U F2608 -> -> 40 `i `s _max ]
-[; ;Motor.c: 170: if ( SREG.ro.W.H < IREG.ro.W.H )
-"170
-[e $ ! < -> . . . F2609 3 1 1 `i -> . . . F2608 3 1 1 `i 311  ]
-[; ;Motor.c: 171: {
-"171
-{
-[; ;Motor.c: 172: IREG.ro.W.H = SREG.ro.W.H;
-"172
-[e = . . . F2608 3 1 1 . . . F2609 3 1 1 ]
-"173
-}
-[; ;Motor.c: 173: }
-[e $U 312  ]
-"174
-[e :U 311 ]
-[; ;Motor.c: 174: else
-[; ;Motor.c: 175: {
-"175
-{
-[; ;Motor.c: 176: SREG.ro.W.H = IREG.ro.W.H;
-"176
-[e = . . . F2609 3 1 1 . . . F2608 3 1 1 ]
-"177
-}
-[e :U 312 ]
-[; ;Motor.c: 177: }
-[; ;Motor.c: 178: do { GIE = 0; tmTriac = SREG.ro.W.H; GIE = 1; } while(0);
-"178
-[e :U 315 ]
+[; ;Motor.c: 214: case 0:
+"214
+[e :U 333 ]
+[; ;Motor.c: 215: do { GIE = 0; tmTriac = 0; GIE = 1; } while(0);
+"215
+[e :U 336 ]
 {
 [e = _GIE -> -> 0 `i `b ]
-[e = _tmTriac -> . . . F2609 3 1 1 `us ]
+[e = _tmTriac -> -> 0 `i `us ]
 [e = _GIE -> -> 1 `i `b ]
 }
-[e :U 314 ]
-"179
+[e :U 335 ]
+[; ;Motor.c: 216: if ( acCycle )
+"216
+[e $ ! != -> _acCycle `ui -> -> -> 0 `i `Xus `ui 337  ]
+[; ;Motor.c: 217: {
+"217
+{
+[; ;Motor.c: 218: sref = mtrSpeedRef;
+"218
+[e = F2630 _mtrSpeedRef ]
+[; ;Motor.c: 219: OLIM.W.H = 80;
+"219
+[e = . . F2632 1 1 -> -> 80 `i `s ]
+[; ;Motor.c: 220: OLIM.W.L = 0;
+"220
+[e = . . F2632 1 0 -> -> 0 `i `s ]
+[; ;Motor.c: 221: SREG.kp = 2000;
+"221
+[e = . F2633 0 -> -> 2000 `i `s ]
+[; ;Motor.c: 222: SREG.ki = 50;
+"222
+[e = . F2633 1 -> -> 50 `i `s ]
+[; ;Motor.c: 223: SREG.kd = 500;
+"223
+[e = . F2633 2 -> -> 500 `i `s ]
+[; ;Motor.c: 224: SREG.e1 = 0;
+"224
+[e = . F2633 3 -> -> 0 `i `s ]
+[; ;Motor.c: 225: SREG.ri.W.H = 60;
+"225
+[e = . . . F2633 4 1 1 -> -> 60 `i `s ]
+[; ;Motor.c: 226: SREG.ri.W.L = 0;
+"226
+[e = . . . F2633 4 1 0 -> -> 0 `i `s ]
+[; ;Motor.c: 227: SREG.ro.W.H = SREG.ri.W.H;
+"227
+[e = . . . F2633 5 1 1 . . . F2633 4 1 1 ]
+[; ;Motor.c: 228: SREG.ro.W.L = SREG.ri.W.H;
+"228
+[e = . . . F2633 5 1 0 . . . F2633 4 1 1 ]
+[; ;Motor.c: 229: state++;
+"229
+[e ++ F2629 -> -> 1 `i `uc ]
+[; ;Motor.c: 230: time = 200;
+"230
+[e = F2631 -> -> 200 `i `uc ]
+"231
 }
-[e :U 310 ]
-[; ;Motor.c: 179: }
-[; ;Motor.c: 180: break;
-"180
-[e $U 302  ]
-"181
+[e :U 337 ]
+[; ;Motor.c: 231: }
+[; ;Motor.c: 232: break;
+"232
+[e $U 331  ]
+[; ;Motor.c: 233: case 1:
+"233
+[e :U 338 ]
+[; ;Motor.c: 234: if ( acCycleFlag )
+"234
+[e $ ! != -> _acCycleFlag `i -> -> -> 0 `i `Xuc `i 339  ]
+[; ;Motor.c: 235: {
+"235
+{
+[; ;Motor.c: 236: if ( sref != mtrSpeedRef )
+"236
+[e $ ! != -> F2630 `ui -> _mtrSpeedRef `ui 340  ]
+[; ;Motor.c: 237: {
+"237
+{
+[; ;Motor.c: 238: if ( sref < mtrSpeedRef ) time = 200;
+"238
+[e $ ! < -> F2630 `ui -> _mtrSpeedRef `ui 341  ]
+[e = F2631 -> -> 200 `i `uc ]
+[e :U 341 ]
+[; ;Motor.c: 239: sref = mtrSpeedRef;
+"239
+[e = F2630 _mtrSpeedRef ]
+[; ;Motor.c: 240: OLIM.W.H = SREG.ro.W.H;
+"240
+[e = . . F2632 1 1 . . . F2633 5 1 1 ]
+"241
 }
-[; ;Motor.c: 181: }
-[e $U 302  ]
-"141
-[e :U 303 ]
-[e [\ F2607 , $ -> -> 0 `i `uc 304
- , $ -> -> 1 `i `uc 309
- 302 ]
-"181
-[e :U 302 ]
-[e :U 301 ]
-[; ;Motor.c: 182: }
-"182
-[e :UE 296 ]
+[e :U 340 ]
+[; ;Motor.c: 241: }
+[; ;Motor.c: 242: if ( mtrSpeedRef >= 13000 )
+"242
+[e $ ! >= -> _mtrSpeedRef `ui -> -> 13000 `i `ui 342  ]
+[; ;Motor.c: 243: {
+"243
+{
+[; ;Motor.c: 244: if ( time >= 25 ) time = 25;
+"244
+[e $ ! >= -> F2631 `i -> 25 `i 343  ]
+[e = F2631 -> -> 25 `i `uc ]
+[e :U 343 ]
+[; ;Motor.c: 245: if ( mtrSpeedRef & 1 ) time = 0;
+"245
+[e $ ! != & -> _mtrSpeedRef `ui -> -> 1 `i `ui -> -> 0 `i `ui 344  ]
+[e = F2631 -> -> 0 `i `uc ]
+[e :U 344 ]
+"246
 }
-"185
+[e :U 342 ]
+[; ;Motor.c: 246: }
+[; ;Motor.c: 247: max = ( S16 )( acCycle*54>>6 );
+"247
+[e = _max -> >> * -> _acCycle `ui -> -> 54 `i `ui -> 6 `i `s ]
+[; ;Motor.c: 248: OLIM.D += (400UL<<16)/25;
+"248
+[e =+ . F2632 0 -> / << -> 400 `ul -> 16 `i -> -> -> 25 `i `l `ul `l ]
+[; ;Motor.c: 249: if ( OLIM.W.H >= max ) OLIM.W.H = max;
+"249
+[e $ ! >= -> . . F2632 1 1 `i -> _max `i 345  ]
+[e = . . F2632 1 1 _max ]
+[e :U 345 ]
+[; ;Motor.c: 250: err = ( S16 )( mtrSpeedRef - mtrSpeed );
+"250
+[e = _err -> - -> _mtrSpeedRef `ui -> _mtrSpeed `ui `s ]
+[; ;Motor.c: 251: if ( time || err < 0 )
+"251
+[e $ ! || != -> F2631 `i -> -> -> 0 `i `uc `i < -> _err `i -> 0 `i 346  ]
+[; ;Motor.c: 252: {
+"252
+{
+[; ;Motor.c: 253: SREG.kp = 500;
+"253
+[e = . F2633 0 -> -> 500 `i `s ]
+"254
+}
+[; ;Motor.c: 254: }
+[e $U 347  ]
+"255
+[e :U 346 ]
+[; ;Motor.c: 255: else
+[; ;Motor.c: 256: {
+"256
+{
+[; ;Motor.c: 257: SREG.kp = 2000;
+"257
+[e = . F2633 0 -> -> 2000 `i `s ]
+"258
+}
+[e :U 347 ]
+[; ;Motor.c: 258: }
+[; ;Motor.c: 259: PID_CAL( &SREG, err );
+"259
+[e ( _PID_CAL (2 , &U F2633 _err ]
+[; ;Motor.c: 260: if ( mtrSpeedRef & 1 )
+"260
+[e $ ! != & -> _mtrSpeedRef `ui -> -> 1 `i `ui -> -> 0 `i `ui 348  ]
+[; ;Motor.c: 261: {
+"261
+{
+[; ;Motor.c: 262: PID_LIM( &SREG, 40, max );
+"262
+[e ( _PID_LIM (3 , , &U F2633 -> -> 40 `i `s _max ]
+"263
+}
+[; ;Motor.c: 263: }
+[e $U 349  ]
+"264
+[e :U 348 ]
+[; ;Motor.c: 264: else
+[; ;Motor.c: 265: {
+"265
+{
+[; ;Motor.c: 266: PID_LIM( &SREG, 40, OLIM.W.H );
+"266
+[e ( _PID_LIM (3 , , &U F2633 -> -> 40 `i `s . . F2632 1 1 ]
+"267
+}
+[e :U 349 ]
+[; ;Motor.c: 267: }
+[; ;Motor.c: 268: do { GIE = 0; tmTriac = SREG.ro.W.H; GIE = 1; } while(0);
+"268
+[e :U 352 ]
+{
+[e = _GIE -> -> 0 `i `b ]
+[e = _tmTriac -> . . . F2633 5 1 1 `us ]
+[e = _GIE -> -> 1 `i `b ]
+}
+[e :U 351 ]
+"269
+}
+[e :U 339 ]
+[; ;Motor.c: 269: }
+[; ;Motor.c: 270: break;
+"270
+[e $U 331  ]
+"271
+}
+[; ;Motor.c: 271: }
+[e $U 331  ]
+"212
+[e :U 332 ]
+[e [\ F2629 , $ -> -> 0 `i `uc 333
+ , $ -> -> 1 `i `uc 338
+ 331 ]
+"271
+[e :U 331 ]
+[e :U 330 ]
+[; ;Motor.c: 272: }
+"272
+[e :UE 324 ]
+}
+"275
 [v _MTR_Init `(v  1 ef ]
 {
-[; ;Motor.c: 184: void MTR_Init( void )
-[; ;Motor.c: 185: {
+[; ;Motor.c: 274: void MTR_Init( void )
+[; ;Motor.c: 275: {
 [e :U _MTR_Init ]
 [f ]
-[; ;Motor.c: 186: mtrSpeedRef = 0;
-"186
+[; ;Motor.c: 276: acCrossIndex = 0;
+"276
+[e = _acCrossIndex -> -> 0 `i `uc ]
+[; ;Motor.c: 277: acCrossEvent = 0;
+"277
+[e = _acCrossEvent -> -> 0 `i `uc ]
+[; ;Motor.c: 278: acCrossWDT = 0;
+"278
+[e = _acCrossWDT -> -> 0 `i `uc ]
+[; ;Motor.c: 279: acCycle = 0;
+"279
+[e = _acCycle -> -> 0 `i `us ]
+[; ;Motor.c: 280: acCycleHalf = 0;
+"280
+[e = _acCycleHalf -> -> 0 `i `uc ]
+[; ;Motor.c: 281: acCycleFlag = 0;
+"281
+[e = _acCycleFlag -> -> 0 `i `uc ]
+[; ;Motor.c: 282: mtrHallIndex = 0;
+"282
+[e = _mtrHallIndex -> -> 0 `i `uc ]
+[; ;Motor.c: 283: mtrHallEvent = 0;
+"283
+[e = _mtrHallEvent -> -> 0 `i `uc ]
+[; ;Motor.c: 284: mtrHallWDT = 0;
+"284
+[e = _mtrHallWDT -> -> 0 `i `uc ]
+[; ;Motor.c: 285: tmTriac = 0;
+"285
+[e = _tmTriac -> -> 0 `i `us ]
+[; ;Motor.c: 286: mtrSpeedRef = 0;
+"286
 [e = _mtrSpeedRef -> -> 0 `i `us ]
-[; ;Motor.c: 187: mtrSpeed = 0;
-"187
+[; ;Motor.c: 287: mtrSpeed = 0;
+"287
 [e = _mtrSpeed -> -> 0 `i `us ]
-[; ;Motor.c: 188: mtrCurrent = 0;
-"188
+[; ;Motor.c: 288: mtrCurrent = 0;
+"288
 [e = _mtrCurrent -> -> 0 `i `us ]
-[; ;Motor.c: 189: mtrError = 0;
-"189
+[; ;Motor.c: 289: mtrError = 0;
+"289
 [e = _mtrError -> -> 0 `i `uc ]
-[; ;Motor.c: 190: }
-"190
-[e :UE 316 ]
+[; ;Motor.c: 290: mtrTemp = -1;
+"290
+[e = _mtrTemp -> -U -> 1 `i `c ]
+[; ;Motor.c: 291: }
+"291
+[e :UE 353 ]
 }
-"193
+"294
 [v _MTR_Ctrl `(v  1 ef ]
 {
-[; ;Motor.c: 192: void MTR_Ctrl( void )
-[; ;Motor.c: 193: {
+[; ;Motor.c: 293: void MTR_Ctrl( void )
+[; ;Motor.c: 294: {
 [e :U _MTR_Ctrl ]
 [f ]
-[; ;Motor.c: 194: CAL_AcPeriod( );
-"194
-[e ( _CAL_AcPeriod ..  ]
-[; ;Motor.c: 195: CAL_MtrSpeed( );
-"195
-[e ( _CAL_MtrSpeed ..  ]
-[; ;Motor.c: 196: CAL_MtrCurrent( );
-"196
+[; ;Motor.c: 295: CAL_MtrTemp( );
+"295
+[e ( _CAL_MtrTemp ..  ]
+[; ;Motor.c: 296: CAL_MtrCurrent( );
+"296
 [e ( _CAL_MtrCurrent ..  ]
-[; ;Motor.c: 197: CAL_MtrError( );
-"197
+[; ;Motor.c: 297: CAL_MtrSpeed( );
+"297
+[e ( _CAL_MtrSpeed ..  ]
+[; ;Motor.c: 298: CAL_AcPeriod( );
+"298
+[e ( _CAL_AcPeriod ..  ]
+[; ;Motor.c: 299: CAL_MtrError( );
+"299
 [e ( _CAL_MtrError ..  ]
-[; ;Motor.c: 198: MTR_Driver( );
-"198
+[; ;Motor.c: 300: MTR_Driver( );
+"300
 [e ( _MTR_Driver ..  ]
-[; ;Motor.c: 199: acCycleFlag = 0;
-"199
+[; ;Motor.c: 301: acCycleFlag = 0;
+"301
 [e = _acCycleFlag -> -> 0 `i `uc ]
-[; ;Motor.c: 200: }
-"200
-[e :UE 317 ]
+[; ;Motor.c: 302: }
+"302
+[e :UE 354 ]
 }

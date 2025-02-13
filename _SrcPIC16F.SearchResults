@@ -1,0 +1,7 @@
+---- MOTOR_ERROR_SET Matches (6 in 1 files) ----
+Motor.c:#define MOTOR_ERROR_SET( e )  do { if ( !mtrError ) mtrError = e; } while(0)
+Motor.c:                    MOTOR_ERROR_SET( E_ERR_OVER_HEAT );
+Motor.c:                MOTOR_ERROR_SET( E_ERR_NTC_FAULT );
+Motor.c:        MOTOR_ERROR_SET( E_ERR_OVER_CURRENT );
+Motor.c:        MOTOR_ERROR_SET( mtrError = E_ERR_ZERO_SPEED );
+Motor.c:        MOTOR_ERROR_SET( mtrError = E_ERR_NO_CROSS );

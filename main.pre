@@ -1,5 +1,5 @@
 
-# 1 "D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\main.c"
+# 1 "C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\main.c"
 
 # 132 "c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f1829.h"
 volatile unsigned char INDF0 @ 0x000;
@@ -2797,7 +2797,7 @@ extern void memcpyee(eeprom unsigned char *to, const unsigned char *from, unsign
 #pragma inline(_delay)
 extern void _delay(unsigned long);
 
-# 11 "D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\PicTypes.h"
+# 15 "C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\PicTypes.h"
 typedef unsigned char U8;
 typedef unsigned short U16;
 typedef unsigned long U32;
@@ -2839,9 +2839,16 @@ struct
 U16 L;
 U16 H;
 } W;
+struct
+{
+U8 L;
+U8 H;
+U8 M;
+U8 T;
+} B;
 } DWORD;
 
-# 60 "D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h"
+# 60 "C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h"
 extern bank1 U8 sysTicks;
 
 extern bank1 U32 adCur2;
@@ -2854,68 +2861,83 @@ extern bank1 U8 adVac;
 extern bank1 U8 idrTest0;
 extern bank1 U8 idrTest1;
 
-extern bank3 U8 txCNT;
-extern bank3 U8 txWRP;
-extern bank3 U8 txRDP;
-extern bank3 U8 txTIM;
-extern bank3 U8 txFIFO[ 32 ];
-extern bank3 U8 rxCNT;
-extern bank3 U8 rxWRP;
-extern bank3 U8 rxRDP;
-extern bank3 U8 rxTIM;
-extern bank3 U8 rxFIFO[ 32 ];
-
-extern bank2 U16 mtrHallTime[ 32 ];
+extern  U16 mtrHallTime[ 32 ] @ 0x320;
 extern bank1 U8 mtrHallIndex;
 extern bank1 U8 mtrHallEvent;
 extern bank1 U8 mtrHallWDT;
 
-extern bank2 U16 acCrossTime[ 8 ];
+extern  U16 acCrossTime[ 8 ] @ 0x360;
 extern bank1 U8 acCrossIndex;
 extern bank1 U8 acCrossEvent;
 extern bank1 U8 acCrossWDT;
-
 extern bank1 U16 acCycle;
 extern bank1 U8 acCycleHalf;
 extern bank1 U8 acCycleFlag;
-
 extern bank1 U16 tmTriac;
+
+extern bank3 U8 txCNT;
+extern bank3 U8 txWRP;
+extern bank3 U8 txRDP;
+extern bank3 U8 txTIM;
+extern  U8 txFIFO[ 32 ] @ 0x3A0;
+extern bank3 U8 rxCNT;
+extern bank3 U8 rxWRP;
+extern bank3 U8 rxRDP;
+extern bank3 U8 rxTIM;
+extern  U8 rxFIFO[ 32 ] @ 0x3C0;
 
 extern void MCU_Init( void );
 extern void MCU_Refresh( void );
+extern void E2P_WriteByte( U8 addr, U8 byte );
+extern U8 E2P_ReadByte( U8 addr );
 
-# 20 "D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\COM.h"
+# 20 "C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\COM.h"
 extern void COM_Init( void );
 extern void COM_Ctrl( void );
 
-# 25 "D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Motor.h"
-extern U16 mtrSpeedRef;
-extern U16 mtrSpeed;
-extern U16 mtrCurrent;
+# 36 "C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Motor.h"
+extern  U16 mtrSpeedRef;
+extern  U16 mtrSpeed;
+extern  U16 mtrCurrent;
+extern  S8 mtrTemp;
 
-# 33
-extern U8 mtrError;
+# 47
+extern  U8 mtrError;
 
 extern void MTR_Init( void );
 extern void MTR_Ctrl( void );
 
-# 24 "D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\System.h"
-extern U8 sysStatus;
+# 25 "C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\System.h"
+extern  U8 sysStatus;
 
-extern U8 sysLevel;
-extern U8 sysError;
+extern  U8 sysFault;
+
+# 37
+extern  U8 sysLevel;
+
+extern  U8 mtrLevel;
 
 extern void SYS_Init( void );
 extern void SYS_Ctrl( void );
 
-# 8 "D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\main.c"
+# 73 "C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Service.h"
+extern  U8 e2pWrFlags;
+
+extern void SVC_Init( void );
+extern void SVC_Ctrl( void );
+extern U8 SVC_GetTuneValue( void );
+extern void SVC_SetTuneValue( U8 value );
+
+# 9 "C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\main.c"
 void main( void )
 {
+static U8 offTime = 0;
 GIE = 0;
 MCU_Init( );
 COM_Init( );
 MTR_Init( );
 SYS_Init( );
+SVC_Init( );
 while ( 1 )
 {
 GIE = 1;
@@ -2927,6 +2949,17 @@ MCU_Refresh( );
 COM_Ctrl( );
 MTR_Ctrl( );
 SYS_Ctrl( );
+SVC_Ctrl( );
+if ( sysStatus != 4 || e2pWrFlags )
+{
+offTime = 5;
+LATB6 = 1;
+}
+else if ( --offTime == 0 )
+{
+offTime = 1;
+LATB6 = 0;
+}
 }
 }
 }

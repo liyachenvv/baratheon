@@ -9,8 +9,8 @@
 #include "Globals.h"
 #include "Hardware.h"
 
-__CONFIG( 0X0E9C );
-__CONFIG( 0X3BFF );
+__CONFIG( 0X0F9C );
+__CONFIG( 0X3FFC );
 
 static bank1 U8  ODRA;
 static bank1 U8  scnHall;
@@ -28,7 +28,7 @@ static bank1 U16 tmTriacOff;
 static bank1 U32 adCur2Buf;
 static bank1 U8  adCurNBuf;
 
-const U8  FLT[ 256 ] @ 0X1D00 =
+CROM U8  FLT[ 256 ] @ 0X1D00 =
   {
     0x00,   0x02,   0x04,   0x86,   0x00,   0x82,   0x84,   0xDE,
     0x60,   0x0A,   0x0C,   0x8E,   0x08,   0x8A,   0x8C,   0x8E,
@@ -64,7 +64,7 @@ const U8  FLT[ 256 ] @ 0X1D00 =
     0x60,   0x0A,   0x0C,   0x8E,   0x08,   0x8A,   0x8C,   0x8E,
   };
 
-const U16 SQ8[ 256 ] @ 0x1E00 =
+CROM U16 SQ8[ 256 ] @ 0x1E00 =
   {
     0x0000, 0x0001, 0x0004, 0x0009, 0x0010, 0x0019, 0x0024, 0x0031, 
     0x0040, 0x0051, 0x0064, 0x0079, 0x0090, 0x00A9, 0x00C4, 0x00E1, 
@@ -141,6 +141,13 @@ void MCU_Init( void )
     tmADVAC = 255;
     tmADVRS = 255;
     tmADNTC = 255;
+    adVac = 0;
+    adVrs = 0;
+    adNtc = 0;
+    adCur2Buf = 0;
+    adCurNBuf = 0;
+    adCur2 = 0;
+    adCurN = 0;
     // Initialize UART.
     BAUDCON = 0X0A;
     SPBRGL  = 799%256;
@@ -150,11 +157,19 @@ void MCU_Init( void )
     SPEN    = 1;
     CREN    = 1;
     TXEN    = 1;
+    txTIM = 0;
+    txCNT = 0;
+    txWRP = 0;
+    txRDP = 0;
+    rxTIM = 0;
+    rxCNT = 0;
+    rxWRP = 0;
+    rxRDP = 0;
     // Initialize System Timer.
     T1GCON  = 0X00;
-    T1CON   = 0X30;	//Time1 clock source is Fosc/4, 1:8 prescale value
-    PR6     = 49;	//Time6 module period register	 
-    T6CON   = 0X05;	//Time6 output postscaler is 1,Time6 prescale is 4/
+    T1CON   = 0X30;
+    PR6     = 49;
+    T6CON   = 0X05;
     // Initialize Interrupt.
     PIR1    = 0X00;
     PIR2    = 0X00;
@@ -168,18 +183,15 @@ void MCU_Init( void )
     // Initialize Variables.
     sysTicks = 0;
     sysTimer = 0;
-    txTIM = 0;
-    txCNT = 0;
-    txWRP = 0;
-    txRDP = 0;
-    rxTIM = 0;
-    rxCNT = 0;
-    rxWRP = 0;
-    rxRDP = 0;
     tmTST0 = 255;
     tmTST1 = 255;
     idrTest0 = 0;
     idrTest1 = 0;
+    scnHall = 0;
+    scnZero = 0;
+    scnTest = 0;
+    tmTriacOn = 0;
+    tmTriacOff = 0;
   }
 
 void MCU_Refresh( void )
@@ -205,6 +217,30 @@ void MCU_Refresh( void )
     CM1CON1 = CFG_CM1CON1;
     CM2CON0 = CFG_CM2CON0;
     CM2CON1 = CFG_CM2CON1;
+  }
+  
+void E2P_WriteByte( U8 addr, U8 byte )
+  {
+    EEADRL  = addr;
+    EEDATL  = byte;
+    CFGS    = 0;
+    EEPGD   = 0;
+    WREN    = 1;
+    GIE     = 0;
+    EECON2  = 0X55;
+    EECON2  = 0XAA;
+    WR      = 1;
+    GIE     = 1;
+    WREN    = 0;
+  }
+  
+U8   E2P_ReadByte( U8 addr )
+  {
+    EEADRL  = addr;
+    CFGS    = 0;
+    EEPGD   = 0;
+    RD      = 1;
+    return EEDATL;
   }
 
 void interrupt INTSR( void )
@@ -396,7 +432,7 @@ void interrupt INTSR( void )
             HALL_CHECK_E:
             ;++++++++++++++++++++++++++++++++++++++++++++++
             ZERO_CHECK:
-            BCF         ODR_TRIAC,  PIN_TRIAC	;//set PIN_TRIAC low
+            BCF         ODR_TRIAC,  PIN_TRIAC
             BTFSC       AC_SCAN,    nEDGE
             GOTO        ZERO_EDGE               ; 4
             ZERO_TRIG:
@@ -410,7 +446,7 @@ void interrupt INTSR( void )
             INCF        TMR_ON+1,   F
             BTFSC       TMR_ON+1,   7
             GOTO        ZERO_CHECK_E            ; 14
-            BSF         ODR_TRIAC,  PIN_TRIAC	;//set PIN_TRIAC high
+            BSF         ODR_TRIAC,  PIN_TRIAC
             GOTO        ZERO_CHECK_E            ; 16
             ZERO_EDGE:
             CLRF        TMR_OFF+1
@@ -495,12 +531,16 @@ void interrupt INTSR( void )
             MOVF        AC_CYCLE_2, W
             BTFSC       STATUS,     Z
             GOTO        ZERO_CHECK_E
-           ;MOVLW       10
-            ADDLW       1
-            MOVWF       TAD_VRS
-            ADDLW       1
+            ADDLW       2
             MOVWF       TAD_VAC
+            #if         VER_110VAC
+            ADDLW       8
+            #endif
+            #if         VER_220VAC
             ADDLW       1
+            #endif
+            MOVWF       TAD_VRS
+            ADDLW       2
             MOVWF       TAD_NTC
             ZERO_CHECK_E:
             ;++++++++++++++++++++++++++++++++++++++++++++++
