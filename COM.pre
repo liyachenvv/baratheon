@@ -1,7 +1,7 @@
 
-# 1 "C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\COM.c"
+# 1 "E:\SZZB\KenWood\Baratheon\PRG\110V\BARATHEON-A21\COM.c"
 
-# 132 "c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f1829.h"
+# 132 "C:\Program Files\HI-TECH Software\PICC\9.83\include\pic16f1829.h"
 volatile unsigned char INDF0 @ 0x000;
 
 
@@ -2779,25 +2779,25 @@ unsigned TOSH : 7;
 } TOSHbits @ 0xFEF;
 
 
-# 27 "c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic.h"
+# 27 "C:\Program Files\HI-TECH Software\PICC\9.83\include\pic.h"
 #pragma inline(_nop)
 extern void _nop(void);
 
 # 80
 extern unsigned int flash_read(unsigned short addr);
 
-# 41 "c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\eeprom_routines.h"
+# 41 "C:\Program Files\HI-TECH Software\PICC\9.83\include\eeprom_routines.h"
 extern unsigned char eeprom_write(unsigned char addr, unsigned char value);
 extern unsigned char eeprom_read(unsigned char addr);
 extern void eecpymem(volatile unsigned char *to, eeprom unsigned char *from, unsigned char size);
 extern void memcpyee(eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 
 
-# 153 "c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic.h"
+# 153 "C:\Program Files\HI-TECH Software\PICC\9.83\include\pic.h"
 #pragma inline(_delay)
 extern void _delay(unsigned long);
 
-# 15 "C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\PicTypes.h"
+# 15 "E:\SZZB\KenWood\Baratheon\PRG\110V\BARATHEON-A21\PicTypes.h"
 typedef unsigned char U8;
 typedef unsigned short U16;
 typedef unsigned long U32;
@@ -2848,7 +2848,7 @@ U8 T;
 } B;
 } DWORD;
 
-# 60 "C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Hardware.h"
+# 60 "E:\SZZB\KenWood\Baratheon\PRG\110V\BARATHEON-A21\Hardware.h"
 extern bank1 U8 sysTicks;
 
 extern bank1 U32 adCur2;
@@ -2891,7 +2891,39 @@ extern void MCU_Refresh( void );
 extern void E2P_WriteByte( U8 addr, U8 byte );
 extern U8 E2P_ReadByte( U8 addr );
 
-# 25 "C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\System.h"
+# 20 "E:\SZZB\KenWood\Baratheon\PRG\110V\BARATHEON-A21\MyMath.h"
+typedef union
+{
+S32 D;
+struct { S16 L; S16 H; } W;
+} SDW;
+
+typedef struct
+{
+S16 kp;
+S16 ki;
+S16 kd;
+S16 e1;
+SDW ri;
+SDW ro;
+} PID_t;
+
+
+
+
+extern U16 SQRT32( U32 a );
+extern S16 PID_CAL( PID_t * p, S16 err );
+extern S16 PID_LIM( PID_t * p, S16 min, S16 max );
+
+# 77 "E:\SZZB\KenWood\Baratheon\PRG\110V\BARATHEON-A21\Service.h"
+extern  U8 e2pWrFlags;
+
+extern void SVC_Init( void );
+extern void SVC_Ctrl( void );
+extern U8 SVC_GetTuneValue( void );
+extern void SVC_SetTuneValue( U8 value );
+
+# 25 "E:\SZZB\KenWood\Baratheon\PRG\110V\BARATHEON-A21\System.h"
 extern  U8 sysStatus;
 
 extern  U8 sysFault;
@@ -2904,29 +2936,31 @@ extern  U8 mtrLevel;
 extern void SYS_Init( void );
 extern void SYS_Ctrl( void );
 
-# 36 "C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Motor.h"
-extern  U16 mtrSpeedRef;
-extern  U16 mtrSpeed;
-extern  U16 mtrCurrent;
-extern  S8 mtrTemp;
+# 36 "E:\SZZB\KenWood\Baratheon\PRG\110V\BARATHEON-A21\Motor.h"
+extern bank2 U16 mtrSpeedRef;
+extern bank2 U16 mtrSpeed;
+extern bank2 U16 mtrCurrent;
+extern bank2 U8 mtrPower;
+extern bank2 U8 mtrPowerAve;
+extern bank2 S8 mtrTemp;
 
-# 47
-extern  U8 mtrError;
+# 50
+extern bank2 U8 mtrError;
 
 extern void MTR_Init( void );
 extern void MTR_Ctrl( void );
 
-# 20 "C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\Uart.h"
+# 20 "E:\SZZB\KenWood\Baratheon\PRG\110V\BARATHEON-A21\Uart.h"
 extern U8 SRL_Getc( U8 *c );
 extern U8 SRL_Gets( U8 * s );
 extern U8 SRL_Putc( U8 c );
 extern U8 SRL_Puts( U8 * s, U8 n );
 
-# 20 "C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\COM.h"
+# 20 "E:\SZZB\KenWood\Baratheon\PRG\110V\BARATHEON-A21\COM.h"
  void COM_Init( void );
  void COM_Ctrl( void );
 
-# 15 "C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\COM.c"
+# 16 "E:\SZZB\KenWood\Baratheon\PRG\110V\BARATHEON-A21\COM.c"
 void COM_Print( U16 n )
 {
 U8 f = 0;
@@ -2956,6 +2990,35 @@ n %= 10;
 SRL_Putc( '0' + ( U8 )( n ) );
 }
 
+void COM_PrintH8( U8 n )
+{
+U8 c;
+c = n >> 4;
+if ( c < 10 ) c += '0'; else c += ( 'A' - 10 );
+SRL_Putc( c );
+c = n & 15;
+if ( c < 10 ) c += '0'; else c += ( 'A' - 10 );
+SRL_Putc( c );
+SRL_Putc( 'H' );
+}
+
+void COM_PrintD8( U8 n )
+{
+U8 f = 0;
+if ( n >= 100 )
+{
+SRL_Putc( n / 100 + '0' );
+n %= 100;
+f = 1;
+}
+if ( f || n >= 10 )
+{
+SRL_Putc( n / 10 + '0' );
+n %= 10;
+}
+SRL_Putc( n + '0' );
+}
+
 void COM_Init( void )
 {
 }
@@ -2966,21 +3029,16 @@ static  U8 t = 0;
 if ( ++t >= 50 )
 {
 t = 0;
-COM_Print( ( U16 )mtrLevel );
-SRL_Putc( ',' );
-COM_Print( ( U16 )adVrs );
-SRL_Putc( ',' );
-COM_Print( ( U16 )adNtc );
-SRL_Putc( ',' );
-COM_Print( mtrSpeedRef );
-SRL_Putc( ',' );
-COM_Print( mtrSpeed );
-SRL_Putc( ',' );
-COM_Print( mtrCurrent );
-SRL_Putc( ',' );
-COM_Print( ( U16 )mtrTemp );
-SRL_Putc( ',' );
-COM_Print( ( U16 )E2P_ReadByte( 0xFE ) );
+COM_PrintD8( mtrLevel );
+SRL_Putc( ',' ); COM_PrintD8( adVrs );
+SRL_Putc( ',' ); COM_PrintD8( adNtc );
+SRL_Putc( ',' ); COM_PrintD8( mtrPower );
+
+SRL_Putc( ',' ); COM_PrintD8( mtrTemp );
+SRL_Putc( ',' ); COM_PrintH8( idrTest0 );
+SRL_Putc( ',' ); COM_PrintH8( idrTest1 );
+
+
 SRL_Putc( '\r' );
 SRL_Putc( '\n' );
 }

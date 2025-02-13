@@ -33,18 +33,21 @@
 #define CUR_THR   1000
 #endif
 
-EXTERN XRAM U16 mtrSpeedRef;
-EXTERN XRAM U16 mtrSpeed;
-EXTERN XRAM U16 mtrCurrent;
-EXTERN XRAM S8  mtrTemp;
+EXTERN bank2 U16 mtrSpeedRef;
+EXTERN bank2 U16 mtrSpeed;
+EXTERN bank2 U16 mtrCurrent;
+EXTERN bank2 U8  mtrPower;
+EXTERN bank2 U8  mtrPowerAve;
+EXTERN bank2 S8  mtrTemp;
 
-#define E_ERR_NTC_FAULT     2
+#define E_ERR_ZERO_SPEED    1
 #define E_ERR_OVER_HEAT     2
 #define E_ERR_BAD_TRIAC     3
-#define E_ERR_ZERO_SPEED    7
-#define E_ERR_OVER_CURRENT  8
+#define E_ERR_NTC_OPEN      5
+#define E_ERR_NTC_SHORT     6
+#define E_ERR_OVER_CURRENT  7
 #define E_ERR_NO_CROSS      10
-EXTERN XRAM U8  mtrError;
+EXTERN bank2 U8  mtrError;
 
 EXTERN void MTR_Init( void );
 EXTERN void MTR_Ctrl( void );

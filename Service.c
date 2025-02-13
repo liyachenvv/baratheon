@@ -15,8 +15,8 @@ __EEPROM_DATA(
     PRODUCT_NAME_0,
     PRODUCT_NAME_1,
     PRODUCT_NAME_2,
-    PRODUCT_NUM>>8,
-    PRODUCT_NUM&255,
+    PRODUCT_NUM_0,
+    PRODUCT_NUM_1,
     PCBA_NUM_0,
     PCBA_NUM_1,
     PCBA_NUM_2);
@@ -74,24 +74,12 @@ __EEPROM_DATA( 0,0,0,0,0,0,0,0 );
 __EEPROM_DATA( 0,0,0,0,0,0,0,0 );
 __EEPROM_DATA( 0,0,0,0,0,0,0,0 );
 __EEPROM_DATA( 0,0,0,0,0,0,0,0 );
-__EEPROM_DATA( 
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    TUNE_VALUE_DEFAULT,
-    0 );
+__EEPROM_DATA( 0,0,0,0,0,0,0,0 );
 
-#define REC_SPEED_WORKING_INFO    0X01
-#define REC_LAST_USE_INFO         0X02
-#define REC_FAULT_INFO            0X04
-#define REC_TEMP_INFO             0X08
-#define REC_WORKING_INFO          0X10
-#define REC_KEY_WORKING_INFO      0X20
-#define REC_INTERLOCK_INFO        0X40
-#define REC_TUNE_INFO             0X80
+#define REC_TUNE_INFO         0X01
+#define REC_USE_INFO          0X02
+#define REC_KEY_INFO          0X04
+#define REC_INTERLOCK_INFO    0X08
 
 typedef struct { U8 s; U8 m; }                M1S1;
 typedef struct { U8 s; U8 m; U8 h; }          H1M1S1;
@@ -100,65 +88,74 @@ typedef struct { U8 m; U8 h; U8 h1; U8 h2; }  H3M1;
 typedef struct { U8 s; H3M1 h3m1; }           H3M1S1;
 typedef struct { U8 l; U8 h; }                COUNT;
 
-#define LAST_SPEED_SETTING_ADDR         0X23
-static XRAM U8     lastSpeedSetting[ 7 ]        @ 0X420;
-#define LAST_SPEED_WORKING_TIME_ADDR    0X38
-static XRAM H1M1S1 lastSpeedWorkingTime[ 7 ]    @ 0X428;
-#define TOTAL_SPEED_WORKING_TIME_ADDR   0X8F
-static XRAM H2M1S1 totalSpeedWorkingTime[ 7 ]   @ 0X440;
+#define LAST_USE_FAULT_CODE_ADDR        0x1C
+static XRAM  U8     lastUseFaultCode[ 7 ]       @ 0x420;
+#define LAST_USE_SET_SPEED_ADDR         0x23
+static XRAM  U8     lastUseSetSpeed[ 7 ]        @ 0x428;
+#define LAST_USE_MAX_MTR_POWER_ADDR     0x2A
+static XRAM  U8     lastUseMaxMtrPower[ 7 ]     @ 0x430;
+#define LAST_USE_AVE_MTR_POWER_ADDR     0x31
+static XRAM  U8     lastUseAveMtrPower[ 7 ]     @ 0x438;
+#define LAST_USE_WORKING_TIME_ADDR      0x38
+static XRAM  H1M1S1 lastUseWorkingTime[ 7 ]     @ 0x440;
+#define LAST_USE_MAX_MTR_TEMP_ADDR      0x4D
+static XRAM  U8     lastUseMaxMtrTemp[ 7 ]      @ 0x458;
+#define LAST_USE_WAITING_TIME_ADDR      0x54
+static XRAM  M1S1   lastUseWaitingTime[ 7 ]     @ 0x4A0;
+#define LAST_USE_TIME_STAMP_ADDR        0x62
+static XRAM  H3M1   lastUseTimeStamp[ 7 ]       @ 0x4B0;
+#define LAST_USE_MAX_MCU_TEMP_ADDR      0x7E
+static XRAM  U8     lastUseMaxMcuTemp[ 7 ]      @ 0x4D0;
+#define MAX_MOTOR_HISTORY_TEMP_ADDR     0x85
+static XRAM  U8     maxMotorHistoryTemp         @ 0x520;
+#define TOTAL_FAULT_COUNT_ADDR          0x86
+static XRAM  U8     totalFaultCount[ 9 ]        @ 0x522;
+#define TOTAL_SPEED_WORKING_TIME_ADDR   0x8F
+static XRAM  H2M1S1 totalSpeedWorkingTime[ 7 ]  @ 0x530;
+#define TOTAL_WORKING_TIME_ADDR         0xD3
+static XRAM  H3M1   totalWorkingTime            @ 0x550;
+#define TOTAL_POWER_ON_TIME_ADDR        0xD7
+static XRAM  H3M1   totalPowerOnTime            @ 0x554;
+#define TOTAL_STANDBY_TIME_ADDR         0xDF
+static XRAM  H3M1   totalStandbyTime            @ 0x558;
 
-#define LAST_USE_MAX_POWER_ADDR         0X2A
-static XRAM U8     lastUseMaxPower[ 7 ]         @ 0X4A0;
-#define LAST_USE_AVE_POWER_ADDR         0X31
-static XRAM U8     lastUseAvePower[ 7 ]         @ 0X4A8;
-#define LAST_USE_READY_TIME_ADDR        0X54
-static XRAM M1S1   lastUseReadyTime[ 7 ]        @ 0X4B0;
+static bank2 U8     thisUseFaultCode;
+static bank2 U8     thisUseSetSpeed;
+static bank2 U8     thisUseMaxMtrPower;
+static bank2 U8     thisUseAveMtrPower;
+static bank2 S8     thisUseMaxMtrTemp;
+static bank2 H1M1S1 thisUseWorkingTime;
+static bank2 M1S1   thisUseWaitingTime;
+static bank2 H3M1   thisUseTimeStamp;
+static bank2 S8     thisUseMaxMcuTemp;
 
-#define FAULT_CODE_ADDR                 0X1C
-static XRAM U8     faultCode[ 7 ]               @ 0X520;
-#define FAULT_TOTAL_COUNT_ADDR          0X86
-static XRAM U8     faultTotalCount[ 9 ]         @ 0X527;
-#define FAULT_TIME_STAMP_ADDR           0X62
-static XRAM H3M1   faultTimeStamp[ 7 ]          @ 0X530;
+#define AUTO_WORKING_TIME_ADDR          0xAB
+static XRAM  H2M1S1 autoWorkingTime             @ 0x5A0;
+#define KEY_WORKING_TIME_ADDR           0xAF
+static XRAM  H2M1S1 keyWorkingTime[ 9 ]         @ 0x5A6;
+#define TOTAL_AUTO_PRESSED_COUNT_ADDR   0xE5
+static XRAM  COUNT  totalAutoPressedCount       @ 0x5D0;
+#define TOTAL_KEY_PRESSED_COUNT_ADDR    0xE7
+static XRAM  COUNT  totalKeyPressedCount[ 9 ]   @ 0x5D4;
 
-#define MAX_MCU_TEMP_ADDR               0X7E
-static XRAM U8     maxMcuTemp[ 7 ]              @ 0X550;
-#define MAX_MOTOR_HISTORY_TEMP_ADDR     0X85
-static XRAM U8     maxMotorHistoryTemp          @ 0X557;
-#define LAST_USE_MAX_MOTOR_TEMP_ADDR    0X4D
-static XRAM U8     lastUseMaxMotorTemp[ 7 ]     @ 0X558;
+#define TOTAL_NO_INTERLOCK_TIME_ADDR    0xDB
+static XRAM  H3M1   totalNoInterlockTime        @ 0x620;
+#define TOTAL_INTERLOCK_OPEN_COUNT_ADDR 0xE3
+static XRAM  COUNT  totalInterlockOpenCount     @ 0x626;
 
-#define TOTAL_POWER_ON_TIME_ADDR        0XD7
-static XRAM H3M1   totalPowerOnTime             @ 0X5A0;
-#define TOTAL_STANDBY_TIME_ADDR         0XDF
-static XRAM H3M1   totalStandbyTime             @ 0X5A4;
-#define TOTAL_WORKING_TIME_ADDR         0XD3
-static XRAM H3M1   totalWorkingTime             @ 0X5A8;
+#define TUNE_INFO_ADDR                  0xFE
+static bank2 U8     tuneValue;
+#define TUNE_COUNT_ADDR                 0x1B
+static bank2 U8     tuneCount;
 
-#define AUTO_WORKING_TIME_ADDR          0XAB
-static XRAM H2M1S1 autoWorkingTime              @ 0X620;
-#define KEY_WORKING_TIME_ADDR           0XAF
-static XRAM H2M1S1 keyWorkingTime[ 9 ]          @ 0X624;
-#define TOTAL_AUTO_PRESSED_COUNT_ADDR   0XE5
-static XRAM COUNT  totalAutoPressedCount        @ 0X650;
-#define TOTAL_KEY_PRESSED_COUNT_ADDR    0XE7
-static XRAM COUNT  totalKeyPressedCount[ 9 ]    @ 0X654;
-
-#define TOTAL_NO_INTERLOCK_TIME_ADDR    0XDB
-static XRAM H3M1   totalNoInterlockTime         @ 0X658;
-#define TOTAL_INTERLOCK_OPEN_COUNT_ADDR 0XE3
-static XRAM COUNT  totalInterlockOpenCount      @ 0X65C;
-
-#define TUNE_INFO_ADDR                  0XFE
-static XRAM U8     tuneValue;
-
-static XRAM H3M1S1 powerOnTime;
+static bank2 H3M1S1 powerOnTime;
 
 void E2P_RD( U8 addr, U8 * p, U8 n )
   {
     while ( n-- )
       {
-        *p = E2P_ReadByte( addr++ );
+        *p = E2P_ReadByte( addr );
+        addr++;
         p++;
       }
   }
@@ -167,19 +164,15 @@ U8   E2P_WR( U8 addr, U8 * p, U8 n )
   {
     while ( n )
       {
-        n--;
-        if ( *p == E2P_ReadByte( addr ) )
-          {
-            addr++;
-            p++;
-          }
-        else
+        if ( *p != E2P_ReadByte( addr ) )
           {
             E2P_WriteByte( addr, *p );
-            break;
+            return 0;
           }
+        addr++;
+        p++;
+        n--;
       }
-    if ( n ) return 0;
     return 1;
   }
 
@@ -200,17 +193,6 @@ void MEM_Cpy( U8 * p1, U8 * p2, U8 n )
         p1++;
         p2++;
       }
-  }
-
-S8   MEM_Cmp( U8 * p1, U8 * p2, U8 n )
-  {
-    while ( n )
-      {
-        n--;
-        if ( p1[ n ] < p2[ n ] ) return -1;
-        if ( p2[ n ] < p1[ n ] ) return 1;
-      }
-    return 0;
   }
 
 void M1S1_ADD( M1S1 * p, U8 s )
@@ -332,50 +314,48 @@ void SVC_Init( void )
   {
     S8  cmp;
     e2pWrFlags = 0x00;
-    powerOnTime.s = 30;
-    powerOnTime.h3m1.m = 0;
-    powerOnTime.h3m1.h = 0;
-    powerOnTime.h3m1.h1 = 0;
-    powerOnTime.h3m1.h2 = 0;
-    E2P_RD_EX( LAST_SPEED_SETTING_ADDR,         lastSpeedSetting         );
-    E2P_RD_EX( LAST_SPEED_WORKING_TIME_ADDR,    lastSpeedWorkingTime     );
-    E2P_RD_EX( TOTAL_SPEED_WORKING_TIME_ADDR,   totalSpeedWorkingTime    );
-    E2P_RD_EX( LAST_USE_MAX_POWER_ADDR,         lastUseMaxPower          );
-    E2P_RD_EX( LAST_USE_AVE_POWER_ADDR,         lastUseAvePower          );
-    E2P_RD_EX( LAST_USE_READY_TIME_ADDR,        lastUseReadyTime         );
-    E2P_RD_EX( FAULT_CODE_ADDR,                 faultCode                );
-    E2P_RD_EX( FAULT_TOTAL_COUNT_ADDR,          faultTotalCount          );
-    E2P_RD_EX( FAULT_TIME_STAMP_ADDR,           faultTimeStamp           );
-    E2P_RD_EX( MAX_MCU_TEMP_ADDR,               maxMcuTemp               );
+    
+    E2P_RD_EX( TUNE_INFO_ADDR,                  tuneValue                );
+    E2P_RD_EX( TUNE_COUNT_ADDR,                 tuneCount                );
+    
+    E2P_RD_EX( LAST_USE_FAULT_CODE_ADDR,        lastUseFaultCode         );
+    E2P_RD_EX( LAST_USE_SET_SPEED_ADDR,         lastUseSetSpeed          );
+    E2P_RD_EX( LAST_USE_MAX_MTR_POWER_ADDR,     lastUseMaxMtrPower       );
+    E2P_RD_EX( LAST_USE_AVE_MTR_POWER_ADDR,     lastUseAveMtrPower       );
+    E2P_RD_EX( LAST_USE_WORKING_TIME_ADDR,      lastUseWorkingTime       );
+    E2P_RD_EX( LAST_USE_MAX_MTR_TEMP_ADDR,      lastUseMaxMtrTemp        );
+    E2P_RD_EX( LAST_USE_WAITING_TIME_ADDR,      lastUseWaitingTime       );
+    E2P_RD_EX( LAST_USE_TIME_STAMP_ADDR,        lastUseTimeStamp         );
+    E2P_RD_EX( LAST_USE_MAX_MCU_TEMP_ADDR,      lastUseMaxMcuTemp        );
     E2P_RD_EX( MAX_MOTOR_HISTORY_TEMP_ADDR,     maxMotorHistoryTemp      );
-    E2P_RD_EX( LAST_USE_MAX_MOTOR_TEMP_ADDR,    lastUseMaxMotorTemp      );
+    E2P_RD_EX( TOTAL_FAULT_COUNT_ADDR,          totalFaultCount          );
+    E2P_RD_EX( TOTAL_SPEED_WORKING_TIME_ADDR,   totalSpeedWorkingTime    );
+    E2P_RD_EX( TOTAL_WORKING_TIME_ADDR,         totalWorkingTime         );
     E2P_RD_EX( TOTAL_POWER_ON_TIME_ADDR,        totalPowerOnTime         );
     E2P_RD_EX( TOTAL_STANDBY_TIME_ADDR,         totalStandbyTime         );
-    E2P_RD_EX( TOTAL_WORKING_TIME_ADDR,         totalWorkingTime         );
+    thisUseFaultCode   = 0;
+    thisUseSetSpeed    = 0;
+    thisUseMaxMtrPower = 0;
+    thisUseAveMtrPower = 0;
+    thisUseMaxMtrTemp  = 0;
+    thisUseMaxMcuTemp  = 0;
+    MEM_Clr( ( U8* )&thisUseWorkingTime,
+             sizeof( thisUseWorkingTime ) );
+    MEM_Clr( ( U8* )&thisUseWaitingTime,
+             sizeof( thisUseWaitingTime ) );
+    MEM_Clr( ( U8* )&thisUseTimeStamp,
+             sizeof( thisUseTimeStamp ) );
+    MEM_Clr( ( U8* )&powerOnTime,
+             sizeof( powerOnTime ) );
+    
     E2P_RD_EX( AUTO_WORKING_TIME_ADDR,          autoWorkingTime          );
     E2P_RD_EX( KEY_WORKING_TIME_ADDR,           keyWorkingTime           );
     E2P_RD_EX( TOTAL_AUTO_PRESSED_COUNT_ADDR,   totalAutoPressedCount    );
     E2P_RD_EX( TOTAL_KEY_PRESSED_COUNT_ADDR,    totalKeyPressedCount     );
+    
     E2P_RD_EX( TOTAL_NO_INTERLOCK_TIME_ADDR,    totalNoInterlockTime     );
     E2P_RD_EX( TOTAL_INTERLOCK_OPEN_COUNT_ADDR, totalInterlockOpenCount  );
-    E2P_RD_EX( TUNE_INFO_ADDR,                  tuneValue                );
-    cmp = MEM_Cmp( ( U8* )&totalPowerOnTime, ( U8* )&totalWorkingTime, sizeof( H3M1 ) );
-    if ( cmp < 0 )
-      {
-        totalPowerOnTime.h2 = totalWorkingTime.h2;
-        totalPowerOnTime.h1 = totalWorkingTime.h1;
-        totalPowerOnTime.h = totalWorkingTime.h;
-        totalPowerOnTime.m = totalWorkingTime.m;
-        e2pWrFlags |= REC_WORKING_INFO;
-      }
-    else if ( cmp > 0 )
-      {
-        totalWorkingTime.h2 = totalPowerOnTime.h2;
-        totalWorkingTime.h1 = totalPowerOnTime.h1;
-        totalWorkingTime.h = totalPowerOnTime.h;
-        totalWorkingTime.m = totalPowerOnTime.m;
-        e2pWrFlags |= REC_WORKING_INFO;
-      }
+    
   }
 
 U8   SVC_Timer( void )
@@ -389,156 +369,381 @@ U8   SVC_Timer( void )
             powerOnTime.s = 0;
             H3M1_ADD( &powerOnTime.h3m1, 1 );
             H3M1_ADD( &totalPowerOnTime, 1 );
-            MEM_Cpy( ( U8* )&totalWorkingTime, ( U8* )&totalPowerOnTime, sizeof( H3M1 ) );
-            e2pWrFlags |= REC_WORKING_INFO;
+            e2pWrFlags |= REC_USE_INFO;
           }
         return 1;
       }
     return 0;
   }
 
-void REC_SpeedWorking( void )
+void REC_LastUseInfo( void )
   {
-    static XRAM U8     level = 0;
-    static XRAM U8     lsLvl = 0;
-    static XRAM U8     cnLvl = 0;
-    static XRAM H1M1S1 tmLvl = { 0, 0, 0 };
-    H1M1S1_ADD( &tmLvl, 1 );
-    if ( sysLevel != lsLvl )
+    static XRAM U8  lsLvl = 0;
+    static XRAM U8  cnLvl = 0;
+    static XRAM U8  fault = 0;
+    U8  lvl = 0;
+    U8  fau = 0;
+    U8  rec = 0;
+    U8  sec = 0;
+    /////////////////////////////////////////////////////////////////////////////////
+    if ( thisUseSetSpeed != 0 )
       {
-        lsLvl = sysLevel;
-        cnLvl = 0;
-      }
-    else if ( cnLvl < 2 )
-      {
-        cnLvl++;
-      }
-    else if ( sysLevel != level )
-      {
-        H1M1S1_SUB( &tmLvl, 3 );
-        if ( level && level < 8 )
+        if ( thisUseMaxMtrPower < mtrPower )
           {
-            MEM_Cpy( ( U8* )&lastSpeedWorkingTime[ 0 ], ( U8* )&tmLvl, sizeof( H1M1S1 ) );
-            if ( tmLvl.s < 30 )
+            thisUseMaxMtrPower = mtrPower;
+          }
+        if ( mtrPowerAve != 0 )
+          {
+            thisUseAveMtrPower = mtrPowerAve;
+            if ( thisUseAveMtrPower > thisUseMaxMtrPower )
               {
-                H2M1S1_ADD( &totalSpeedWorkingTime[ level - 1 ], tmLvl.s );
+                thisUseAveMtrPower = thisUseMaxMtrPower;
+              }
+          }
+        if ( thisUseMaxMtrTemp < mtrTemp )
+          {
+            thisUseMaxMtrTemp = mtrTemp;
+          }
+        H1M1S1_ADD( &thisUseWorkingTime, 1 );
+        thisUseMaxMcuTemp = 0;
+      }
+    else
+      {
+        M1S1_ADD( &thisUseWaitingTime, 1 );
+        if ( thisUseWaitingTime.s == 0 )
+          {
+            H3M1_ADD( &totalStandbyTime, 1 );
+            e2pWrFlags |= REC_USE_INFO;
+          }
+      }
+    /////////////////////////////////////////////////////////////////////////////////
+    if ( sysFault != 0 && sysFault < 10 )
+      {
+        fau = sysFault;
+        if ( fault != fau )
+          {
+            fault = fau;
+            totalFaultCount[ fault - 1 ]++;
+            e2pWrFlags |= REC_USE_INFO;
+            lvl = 0;
+            if ( thisUseSetSpeed == 0 )
+              {
+                rec = 1;
               }
             else
               {
-                H2M1S1_ADD( &totalSpeedWorkingTime[ level - 1 ], tmLvl.s - 30 );
+                rec = 4;
               }
-            e2pWrFlags |= REC_SPEED_WORKING_INFO;
-          }
-        level = sysLevel;
-        tmLvl.s = 3;
-        tmLvl.m = 0;
-        tmLvl.h = 0;
-        if ( level && level < 8 )
-          {
-            lastSpeedSetting[ 6 ] = lastSpeedSetting[ 5 ];
-            lastSpeedSetting[ 5 ] = lastSpeedSetting[ 4 ];
-            lastSpeedSetting[ 4 ] = lastSpeedSetting[ 3 ];
-            lastSpeedSetting[ 3 ] = lastSpeedSetting[ 2 ];
-            lastSpeedSetting[ 2 ] = lastSpeedSetting[ 1 ];
-            lastSpeedSetting[ 1 ] = lastSpeedSetting[ 0 ];
-            lastSpeedSetting[ 0 ] = 0XF0 + level;
-            MEM_Cpy( ( U8* )&lastSpeedWorkingTime[ 6 ], ( U8* )&lastSpeedWorkingTime[ 5 ], sizeof( H1M1S1 ) );
-            MEM_Cpy( ( U8* )&lastSpeedWorkingTime[ 5 ], ( U8* )&lastSpeedWorkingTime[ 4 ], sizeof( H1M1S1 ) );
-            MEM_Cpy( ( U8* )&lastSpeedWorkingTime[ 4 ], ( U8* )&lastSpeedWorkingTime[ 3 ], sizeof( H1M1S1 ) );
-            MEM_Cpy( ( U8* )&lastSpeedWorkingTime[ 3 ], ( U8* )&lastSpeedWorkingTime[ 2 ], sizeof( H1M1S1 ) );
-            MEM_Cpy( ( U8* )&lastSpeedWorkingTime[ 2 ], ( U8* )&lastSpeedWorkingTime[ 1 ], sizeof( H1M1S1 ) );
-            MEM_Cpy( ( U8* )&lastSpeedWorkingTime[ 1 ], ( U8* )&lastSpeedWorkingTime[ 0 ], sizeof( H1M1S1 ) );
-            MEM_Cpy( ( U8* )&lastSpeedWorkingTime[ 0 ], ( U8* )&tmLvl, sizeof( H1M1S1 ) );
-            H2M1S1_ADD( &totalSpeedWorkingTime[ level - 1 ], 3 );
-            e2pWrFlags |= REC_SPEED_WORKING_INFO;
           }
       }
     else
       {
-        if ( level && level < 8 && ( tmLvl.s == 0 || tmLvl.s == 30 ) )
+        fau = 0;
+        fault = 0;
+      }
+    /////////////////////////////////////////////////////////////////////////////////
+    if ( fault == 0 )
+      {
+        if ( sysLevel < 8 )
           {
-            MEM_Cpy( ( U8* )&lastSpeedWorkingTime[ 0 ], ( U8* )&tmLvl, sizeof( H1M1S1 ) );
-            if ( tmLvl.h == 0 && tmLvl.m == 0 && tmLvl.s == 30 )
+            lvl = sysLevel;
+          }
+        else
+          {
+            lvl = 0;
+          }
+        if ( lsLvl != lvl )
+          {
+            lsLvl = lvl;
+            cnLvl = 0;
+          }
+        else if ( cnLvl < 1 )
+          {
+            cnLvl++;
+          }
+        else if ( thisUseSetSpeed != lvl )
+          {
+            if ( lvl != 0 )
               {
-                H2M1S1_ADD( &totalSpeedWorkingTime[ level - 1 ], 27 );
+                if ( thisUseSetSpeed == 0 )
+                  {
+                    rec = 2;
+                  }
+                else
+                  {
+                    rec = 3;
+                  }
+                if ( thisUseWaitingTime.m == 0
+                  && thisUseWaitingTime.s <= 2 )
+                  {
+                    thisUseWaitingTime.s = 0;
+                  }
+                else
+                  {
+                    M1S1_SUB( &thisUseWaitingTime, 2 );
+                  }
               }
             else
               {
-                H2M1S1_ADD( &totalSpeedWorkingTime[ level - 1 ], 30 );
+                rec = 4;
               }
-            e2pWrFlags |= REC_SPEED_WORKING_INFO;
+          }
+        if ( rec == 0
+          && thisUseSetSpeed != 0
+          && thisUseWorkingTime.s % 15 == 0 )
+          {
+            rec = 5;
           }
       }
-  }
+    else
+      {
+        lsLvl = 0;
+        cnLvl = 0;
+      }
+    /////////////////////////////////////////////////////////////////////////////////
+    if ( rec >= 1 && rec <= 3 )
+      {
+        lastUseFaultCode  [ 6 ] = lastUseFaultCode  [ 5 ];
+        lastUseSetSpeed   [ 6 ] = lastUseSetSpeed   [ 5 ];
+        lastUseMaxMtrPower[ 6 ] = lastUseMaxMtrPower[ 5 ];
+        lastUseAveMtrPower[ 6 ] = lastUseAveMtrPower[ 5 ];
+        lastUseMaxMtrTemp [ 6 ] = lastUseMaxMtrTemp [ 5 ];
+        lastUseMaxMcuTemp [ 6 ] = lastUseMaxMcuTemp [ 5 ];
+        MEM_Cpy( ( U8* )&lastUseWorkingTime[ 6 ],
+                 ( U8* )&lastUseWorkingTime[ 5 ],
+                 sizeof( H1M1S1 ) );
+        MEM_Cpy( ( U8* )&lastUseWaitingTime[ 6 ],
+                 ( U8* )&lastUseWaitingTime[ 5 ],
+                 sizeof( M1S1 ) );
+        MEM_Cpy( ( U8* )&lastUseTimeStamp  [ 6 ],
+                 ( U8* )&lastUseTimeStamp  [ 5 ],
+                 sizeof( H3M1 ) );
+        
+        lastUseFaultCode  [ 5 ] = lastUseFaultCode  [ 4 ];
+        lastUseSetSpeed   [ 5 ] = lastUseSetSpeed   [ 4 ];
+        lastUseMaxMtrPower[ 5 ] = lastUseMaxMtrPower[ 4 ];
+        lastUseAveMtrPower[ 5 ] = lastUseAveMtrPower[ 4 ];
+        lastUseMaxMtrTemp [ 5 ] = lastUseMaxMtrTemp [ 4 ];
+        lastUseMaxMcuTemp [ 5 ] = lastUseMaxMcuTemp [ 4 ];
+        MEM_Cpy( ( U8* )&lastUseWorkingTime[ 5 ],
+                 ( U8* )&lastUseWorkingTime[ 4 ],
+                 sizeof( H1M1S1 ) );
+        MEM_Cpy( ( U8* )&lastUseWaitingTime[ 5 ],
+                 ( U8* )&lastUseWaitingTime[ 4 ],
+                 sizeof( M1S1 ) );
+        MEM_Cpy( ( U8* )&lastUseTimeStamp  [ 5 ],
+                 ( U8* )&lastUseTimeStamp  [ 4 ],
+                 sizeof( H3M1 ) );
+        
+        lastUseFaultCode  [ 4 ] = lastUseFaultCode  [ 3 ];
+        lastUseSetSpeed   [ 4 ] = lastUseSetSpeed   [ 3 ];
+        lastUseMaxMtrPower[ 4 ] = lastUseMaxMtrPower[ 3 ];
+        lastUseAveMtrPower[ 4 ] = lastUseAveMtrPower[ 3 ];
+        lastUseMaxMtrTemp [ 4 ] = lastUseMaxMtrTemp [ 3 ];
+        lastUseMaxMcuTemp [ 4 ] = lastUseMaxMcuTemp [ 3 ];
+        MEM_Cpy( ( U8* )&lastUseWorkingTime[ 4 ],
+                 ( U8* )&lastUseWorkingTime[ 3 ],
+                 sizeof( H1M1S1 ) );
+        MEM_Cpy( ( U8* )&lastUseWaitingTime[ 4 ],
+                 ( U8* )&lastUseWaitingTime[ 3 ],
+                 sizeof( M1S1 ) );
+        MEM_Cpy( ( U8* )&lastUseTimeStamp  [ 4 ],
+                 ( U8* )&lastUseTimeStamp  [ 3 ],
+                 sizeof( H3M1 ) );
+        
+        lastUseFaultCode  [ 3 ] = lastUseFaultCode  [ 2 ];
+        lastUseSetSpeed   [ 3 ] = lastUseSetSpeed   [ 2 ];
+        lastUseMaxMtrPower[ 3 ] = lastUseMaxMtrPower[ 2 ];
+        lastUseAveMtrPower[ 3 ] = lastUseAveMtrPower[ 2 ];
+        lastUseMaxMtrTemp [ 3 ] = lastUseMaxMtrTemp [ 2 ];
+        lastUseMaxMcuTemp [ 3 ] = lastUseMaxMcuTemp [ 2 ];
+        MEM_Cpy( ( U8* )&lastUseWorkingTime[ 3 ],
+                 ( U8* )&lastUseWorkingTime[ 2 ],
+                 sizeof( H1M1S1 ) );
+        MEM_Cpy( ( U8* )&lastUseWaitingTime[ 3 ],
+                 ( U8* )&lastUseWaitingTime[ 2 ],
+                 sizeof( M1S1 ) );
+        MEM_Cpy( ( U8* )&lastUseTimeStamp  [ 3 ],
+                 ( U8* )&lastUseTimeStamp  [ 2 ],
+                 sizeof( H3M1 ) );
+        
+        lastUseFaultCode  [ 2 ] = lastUseFaultCode  [ 1 ];
+        lastUseSetSpeed   [ 2 ] = lastUseSetSpeed   [ 1 ];
+        lastUseMaxMtrPower[ 2 ] = lastUseMaxMtrPower[ 1 ];
+        lastUseAveMtrPower[ 2 ] = lastUseAveMtrPower[ 1 ];
+        lastUseMaxMtrTemp [ 2 ] = lastUseMaxMtrTemp [ 1 ];
+        lastUseMaxMcuTemp [ 2 ] = lastUseMaxMcuTemp [ 1 ];
+        MEM_Cpy( ( U8* )&lastUseWorkingTime[ 2 ],
+                 ( U8* )&lastUseWorkingTime[ 1 ],
+                 sizeof( H1M1S1 ) );
+        MEM_Cpy( ( U8* )&lastUseWaitingTime[ 2 ],
+                 ( U8* )&lastUseWaitingTime[ 1 ],
+                 sizeof( M1S1 ) );
+        MEM_Cpy( ( U8* )&lastUseTimeStamp  [ 2 ],
+                 ( U8* )&lastUseTimeStamp  [ 1 ],
+                 sizeof( H3M1 ) );
 
-void REC_WorkingPower( void )
-  {
+        if ( rec <= 2 )
+          {
+            lastUseFaultCode  [ 1 ] = lastUseFaultCode  [ 0 ];
+            lastUseSetSpeed   [ 1 ] = lastUseSetSpeed   [ 0 ];
+            lastUseMaxMtrPower[ 1 ] = lastUseMaxMtrPower[ 0 ];
+            lastUseAveMtrPower[ 1 ] = lastUseAveMtrPower[ 0 ];
+            lastUseMaxMtrTemp [ 1 ] = lastUseMaxMtrTemp [ 0 ];
+            lastUseMaxMcuTemp [ 1 ] = lastUseMaxMcuTemp [ 0 ];
+            lastUseMaxMcuTemp [ 1 ] = lastUseMaxMcuTemp [ 0 ];
+            MEM_Cpy( ( U8* )&lastUseWorkingTime[ 1 ],
+                     ( U8* )&lastUseWorkingTime[ 0 ],
+                     sizeof( H1M1S1 ) );
+            MEM_Cpy( ( U8* )&lastUseWaitingTime[ 1 ],
+                     ( U8* )&lastUseWaitingTime[ 0 ],
+                     sizeof( M1S1 ) );
+            MEM_Cpy( ( U8* )&lastUseTimeStamp  [ 1 ],
+                     ( U8* )&lastUseTimeStamp  [ 0 ],
+                     sizeof( H3M1 ) );
+          }
+        else
+          {
+            lastUseFaultCode  [ 1 ] = 0;
+            lastUseSetSpeed   [ 1 ] = thisUseSetSpeed;
+            lastUseMaxMtrPower[ 1 ] = thisUseMaxMtrPower;
+            lastUseAveMtrPower[ 1 ] = thisUseAveMtrPower;
+            lastUseMaxMtrTemp [ 1 ] = thisUseMaxMtrTemp;
+            lastUseMaxMcuTemp [ 1 ] = thisUseMaxMcuTemp;
+            if ( lastUseFaultCode[ 1 ] ) lastUseFaultCode[ 1 ] += 0xE0;
+            if ( lastUseSetSpeed [ 1 ] ) lastUseSetSpeed [ 1 ] += 0xF0;
+            MEM_Cpy( ( U8* )&lastUseWorkingTime[ 1 ],
+                     ( U8* )&thisUseWorkingTime,
+                     sizeof( H1M1S1 ) );
+            MEM_Cpy( ( U8* )&lastUseWaitingTime[ 1 ],
+                     ( U8* )&thisUseWaitingTime,
+                     sizeof( M1S1 ) );
+            MEM_Cpy( ( U8* )&lastUseTimeStamp  [ 1 ],
+                     ( U8* )&thisUseTimeStamp,
+                     sizeof( H3M1 ) );
+          }
+
+        if ( rec == 1 )
+          {
+            thisUseFaultCode   = fault;
+            thisUseSetSpeed    = 0;
+            thisUseMaxMtrPower = 0;
+            thisUseAveMtrPower = 0;
+            thisUseMaxMtrTemp  = mtrTemp;
+            thisUseMaxMcuTemp  = 0;
+            MEM_Clr( ( U8* )&thisUseWorkingTime,
+                     sizeof( thisUseWorkingTime ) );
+            MEM_Cpy( ( U8* )&thisUseTimeStamp,
+                     ( U8* )&totalWorkingTime,
+                     sizeof( H3M1 ) );
+          }
+        else
+          {
+            thisUseFaultCode   = 0;
+            thisUseSetSpeed    = lvl;
+            thisUseMaxMtrPower = mtrPower;
+            thisUseAveMtrPower = mtrPower;
+            thisUseMaxMtrTemp  = mtrTemp;
+            thisUseMaxMcuTemp  = 0;
+            MEM_Clr( ( U8* )&thisUseWorkingTime,
+                     sizeof( thisUseWorkingTime ) );
+            MEM_Cpy( ( U8* )&thisUseTimeStamp,
+                     ( U8* )&totalWorkingTime,
+                     sizeof( H3M1 ) );
+          }
+
+        lastUseFaultCode  [ 0 ] = thisUseFaultCode;
+        lastUseSetSpeed   [ 0 ] = thisUseSetSpeed;
+        lastUseMaxMtrPower[ 0 ] = thisUseMaxMtrPower;
+        lastUseAveMtrPower[ 0 ] = thisUseAveMtrPower;
+        lastUseMaxMtrTemp [ 0 ] = thisUseMaxMtrTemp;
+        lastUseMaxMcuTemp [ 0 ] = thisUseMaxMcuTemp;
+        if ( lastUseFaultCode[ 0 ] ) lastUseFaultCode[ 0 ] += 0xE0;
+        if ( lastUseSetSpeed [ 0 ] ) lastUseSetSpeed [ 0 ] += 0xF0;
+        MEM_Cpy( ( U8* )&lastUseWorkingTime[ 0 ],
+                 ( U8* )&thisUseWorkingTime,
+                 sizeof( H1M1S1 ) );
+        MEM_Cpy( ( U8* )&lastUseWaitingTime[ 0 ],
+                 ( U8* )&thisUseWaitingTime,
+                 sizeof( M1S1 ) );
+        MEM_Cpy( ( U8* )&lastUseTimeStamp[ 0 ],
+                 ( U8* )&thisUseTimeStamp,
+                 sizeof( H3M1 ) );
+
+        e2pWrFlags |= REC_USE_INFO;
+          
+      }
+    /////////////////////////////////////////////////////////////////////////////////
+    else if ( rec == 4 )
+      {
+        sec = thisUseWorkingTime.s % 15;
+        if ( sec == 0 ) sec = 15;
+        H2M1S1_ADD( &totalSpeedWorkingTime[ thisUseSetSpeed - 1 ], sec );
+        if ( thisUseWorkingTime.s == 0 ) H3M1_ADD( &totalWorkingTime, 1 );
+        e2pWrFlags |= REC_USE_INFO;
+        
+        thisUseFaultCode = fault;
+        lastUseFaultCode  [ 0 ] = thisUseFaultCode;
+        lastUseSetSpeed   [ 0 ] = thisUseSetSpeed;
+        lastUseMaxMtrPower[ 0 ] = thisUseMaxMtrPower;
+        lastUseAveMtrPower[ 0 ] = thisUseAveMtrPower;
+        lastUseMaxMtrTemp [ 0 ] = thisUseMaxMtrTemp;
+        lastUseMaxMcuTemp [ 0 ] = thisUseMaxMcuTemp;
+        if ( lastUseFaultCode[ 0 ] ) lastUseFaultCode[ 0 ] += 0xE0;
+        if ( lastUseSetSpeed [ 0 ] ) lastUseSetSpeed [ 0 ] += 0xF0;
+        MEM_Cpy( ( U8* )&lastUseWorkingTime[ 0 ],
+                 ( U8* )&thisUseWorkingTime,
+                 sizeof( H1M1S1 ) );
+        MEM_Cpy( ( U8* )&lastUseTimeStamp[ 0 ],
+                 ( U8* )&totalWorkingTime,
+                 sizeof( H3M1 ) );
+        e2pWrFlags |= REC_USE_INFO;
+        
+        thisUseFaultCode   = 0;
+        thisUseSetSpeed    = 0;
+        thisUseMaxMtrPower = 0;
+        thisUseAveMtrPower = 0;
+        thisUseMaxMtrTemp  = 0;
+        thisUseMaxMcuTemp  = 0;
+        MEM_Clr( ( U8* )&thisUseWorkingTime,
+                 sizeof( thisUseWorkingTime ) );
+        MEM_Clr( ( U8* )&thisUseWaitingTime,
+                 sizeof( thisUseWaitingTime ) );
+        MEM_Clr( ( U8* )&thisUseTimeStamp,
+                 sizeof( thisUseTimeStamp ) );
+      }
+    /////////////////////////////////////////////////////////////////////////////////
+    else if ( rec == 5 )
+      {
+        H2M1S1_ADD( &totalSpeedWorkingTime[ thisUseSetSpeed - 1 ], 15 );
+        if ( thisUseWorkingTime.s == 0 ) H3M1_ADD( &totalWorkingTime, 1 );
+        e2pWrFlags |= REC_USE_INFO;
+        
+        thisUseFaultCode = fault;
+        lastUseFaultCode  [ 0 ] = thisUseFaultCode;
+        lastUseSetSpeed   [ 0 ] = thisUseSetSpeed;
+        lastUseMaxMtrPower[ 0 ] = thisUseMaxMtrPower;
+        lastUseAveMtrPower[ 0 ] = thisUseAveMtrPower;
+        lastUseMaxMtrTemp [ 0 ] = thisUseMaxMtrTemp;
+        lastUseMaxMcuTemp [ 0 ] = thisUseMaxMcuTemp;
+        if ( lastUseFaultCode[ 0 ] ) lastUseFaultCode[ 0 ] += 0xE0;
+        if ( lastUseSetSpeed [ 0 ] ) lastUseSetSpeed [ 0 ] += 0xF0;
+        MEM_Cpy( ( U8* )&lastUseWorkingTime[ 0 ],
+                 ( U8* )&thisUseWorkingTime,
+                 sizeof( H1M1S1 ) );
+        MEM_Cpy( ( U8* )&lastUseTimeStamp[ 0 ],
+                 ( U8* )&thisUseTimeStamp,
+                 sizeof( H3M1 ) );
+        e2pWrFlags |= REC_USE_INFO;
+      }
   }
 
 void REC_WorkingTemp( void )
   {
-    static XRAM S8  temp = 0;
-    static XRAM U8  next = 0;
-    if ( sysLevel == 0 )
+    if ( maxMotorHistoryTemp < mtrTemp )
       {
-        next = 0;
-        temp = mtrTemp;
-      }
-    else
-      {
-        if ( maxMotorHistoryTemp < mtrTemp )
-          {
-            maxMotorHistoryTemp = mtrTemp;
-            e2pWrFlags |= REC_TEMP_INFO;
-          }
-        if ( temp < mtrTemp )
-          {
-            temp = mtrTemp;
-          }
-        if ( powerOnTime.s == 0 )
-          {
-            if ( next == 0 )
-              {
-                next = 1;
-                lastUseMaxMotorTemp[ 6 ] = lastUseMaxMotorTemp[ 5 ];
-                lastUseMaxMotorTemp[ 5 ] = lastUseMaxMotorTemp[ 4 ];
-                lastUseMaxMotorTemp[ 4 ] = lastUseMaxMotorTemp[ 3 ];
-                lastUseMaxMotorTemp[ 3 ] = lastUseMaxMotorTemp[ 2 ];
-                lastUseMaxMotorTemp[ 2 ] = lastUseMaxMotorTemp[ 1 ];
-                lastUseMaxMotorTemp[ 1 ] = lastUseMaxMotorTemp[ 0 ];
-              }
-            lastUseMaxMotorTemp[ 0 ] = temp;
-            e2pWrFlags |= REC_TEMP_INFO;
-          }
-      }
-  }
-
-void REC_Faults( void )
-  {
-    static XRAM U8  fault = 0;
-    if ( !sysFault || sysFault >= 10 )
-      {
-        fault = 0;
-      }
-    else if ( fault != sysFault )
-      {
-        fault = sysFault;
-        faultCode[ 6 ] = faultCode[ 5 ];
-        faultCode[ 5 ] = faultCode[ 4 ];
-        faultCode[ 4 ] = faultCode[ 3 ];
-        faultCode[ 3 ] = faultCode[ 2 ];
-        faultCode[ 2 ] = faultCode[ 1 ];
-        faultCode[ 1 ] = faultCode[ 0 ];
-        faultCode[ 0 ] = 0xE0 + sysFault;
-        faultTotalCount[ sysFault - 1 ]++;
-        MEM_Cpy( ( U8* )&faultTimeStamp[ 6 ], ( U8* )&faultTimeStamp[ 5 ], sizeof( H3M1 ) );
-        MEM_Cpy( ( U8* )&faultTimeStamp[ 5 ], ( U8* )&faultTimeStamp[ 4 ], sizeof( H3M1 ) );
-        MEM_Cpy( ( U8* )&faultTimeStamp[ 4 ], ( U8* )&faultTimeStamp[ 3 ], sizeof( H3M1 ) );
-        MEM_Cpy( ( U8* )&faultTimeStamp[ 3 ], ( U8* )&faultTimeStamp[ 2 ], sizeof( H3M1 ) );
-        MEM_Cpy( ( U8* )&faultTimeStamp[ 2 ], ( U8* )&faultTimeStamp[ 1 ], sizeof( H3M1 ) );
-        MEM_Cpy( ( U8* )&faultTimeStamp[ 1 ], ( U8* )&faultTimeStamp[ 0 ], sizeof( H3M1 ) );
-        MEM_Cpy( ( U8* )&faultTimeStamp[ 0 ], ( U8* )&powerOnTime.h3m1,    sizeof( H3M1 ) );
-        e2pWrFlags |= REC_FAULT_INFO;
+        maxMotorHistoryTemp = mtrTemp;
+        e2pWrFlags |= REC_USE_INFO;
       }
   }
   
@@ -547,70 +752,49 @@ void SVC_Ctrl( void )
     /////////////////////////////////////////////////////////////////////////////////
     if ( SVC_Timer( ) )
       {
-        REC_SpeedWorking( );
-        REC_WorkingPower( );
+        REC_LastUseInfo( );
         REC_WorkingTemp( );
       }
-    REC_Faults( );
     /////////////////////////////////////////////////////////////////////////////////
-    if ( e2pWrFlags & REC_SPEED_WORKING_INFO )
+    if ( e2pWrFlags & REC_TUNE_INFO )
       {
-        if ( E2P_WR_EX( LAST_SPEED_SETTING_ADDR,         lastSpeedSetting         ) )
-        if ( E2P_WR_EX( LAST_SPEED_WORKING_TIME_ADDR,    lastSpeedWorkingTime     ) )
-        if ( E2P_WR_EX( TOTAL_SPEED_WORKING_TIME_ADDR,   totalSpeedWorkingTime    ) )
+        if ( E2P_WR_EX( TUNE_INFO_ADDR,                  tuneValue                ) )
+        if ( E2P_WR_EX( TUNE_COUNT_ADDR,                 tuneCount                ) )
           {
-            e2pWrFlags &= ~REC_SPEED_WORKING_INFO;
+            e2pWrFlags &= ~REC_TUNE_INFO;
           }
       }
     /////////////////////////////////////////////////////////////////////////////////
-    else if ( e2pWrFlags & REC_LAST_USE_INFO )
+    else if ( e2pWrFlags & REC_USE_INFO )
       {
-        if ( E2P_WR_EX( LAST_USE_MAX_POWER_ADDR,         lastUseMaxPower          ) )
-        if ( E2P_WR_EX( LAST_USE_AVE_POWER_ADDR,         lastUseAvePower          ) )
-        if ( E2P_WR_EX( LAST_USE_READY_TIME_ADDR,        lastUseReadyTime         ) )
-          {
-            e2pWrFlags &= ~REC_LAST_USE_INFO;
-          }
-      }
-    /////////////////////////////////////////////////////////////////////////////////
-    else if ( e2pWrFlags & REC_FAULT_INFO )
-      {
-        if ( E2P_WR_EX( FAULT_CODE_ADDR,                 faultCode                ) )
-        if ( E2P_WR_EX( FAULT_TOTAL_COUNT_ADDR,          faultTotalCount          ) )
-        if ( E2P_WR_EX( FAULT_TIME_STAMP_ADDR,           faultTimeStamp           ) )
-          {
-            e2pWrFlags &= ~REC_FAULT_INFO;
-          }
-      }
-    /////////////////////////////////////////////////////////////////////////////////
-    else if ( e2pWrFlags & REC_TEMP_INFO )
-      {
-        if ( E2P_WR_EX( MAX_MCU_TEMP_ADDR,               maxMcuTemp               ) )
+        if ( E2P_WR_EX( LAST_USE_FAULT_CODE_ADDR,        lastUseFaultCode         ) )
+        if ( E2P_WR_EX( LAST_USE_SET_SPEED_ADDR,         lastUseSetSpeed          ) )
+        if ( E2P_WR_EX( LAST_USE_MAX_MTR_POWER_ADDR,     lastUseMaxMtrPower       ) )
+        if ( E2P_WR_EX( LAST_USE_AVE_MTR_POWER_ADDR,     lastUseAveMtrPower       ) )
+        if ( E2P_WR_EX( LAST_USE_WORKING_TIME_ADDR,      lastUseWorkingTime       ) )
+        if ( E2P_WR_EX( LAST_USE_MAX_MTR_TEMP_ADDR,      lastUseMaxMtrTemp        ) )
+        if ( E2P_WR_EX( LAST_USE_WAITING_TIME_ADDR,      lastUseWaitingTime       ) )
+        if ( E2P_WR_EX( LAST_USE_TIME_STAMP_ADDR,        lastUseTimeStamp         ) )
+        if ( E2P_WR_EX( LAST_USE_MAX_MCU_TEMP_ADDR,      lastUseMaxMcuTemp        ) )
         if ( E2P_WR_EX( MAX_MOTOR_HISTORY_TEMP_ADDR,     maxMotorHistoryTemp      ) )
-        if ( E2P_WR_EX( LAST_USE_MAX_MOTOR_TEMP_ADDR,    lastUseMaxMotorTemp      ) )
-          {
-            e2pWrFlags &= ~REC_TEMP_INFO;
-          }
-      }
-    /////////////////////////////////////////////////////////////////////////////////
-    else if ( e2pWrFlags & REC_WORKING_INFO )
-      {
+        if ( E2P_WR_EX( TOTAL_FAULT_COUNT_ADDR,          totalFaultCount          ) )
+        if ( E2P_WR_EX( TOTAL_SPEED_WORKING_TIME_ADDR,   totalSpeedWorkingTime    ) )
+        if ( E2P_WR_EX( TOTAL_WORKING_TIME_ADDR,         totalWorkingTime         ) )
         if ( E2P_WR_EX( TOTAL_POWER_ON_TIME_ADDR,        totalPowerOnTime         ) )
         if ( E2P_WR_EX( TOTAL_STANDBY_TIME_ADDR,         totalStandbyTime         ) )
-        if ( E2P_WR_EX( TOTAL_WORKING_TIME_ADDR,         totalWorkingTime         ) )
           {
-            e2pWrFlags &= ~REC_WORKING_INFO;
+            e2pWrFlags &= ~REC_USE_INFO;
           }
       }
     /////////////////////////////////////////////////////////////////////////////////
-    else if ( e2pWrFlags & REC_KEY_WORKING_INFO )
+    else if ( e2pWrFlags & REC_KEY_INFO )
       {
         if ( E2P_WR_EX( AUTO_WORKING_TIME_ADDR,          autoWorkingTime          ) )
         if ( E2P_WR_EX( KEY_WORKING_TIME_ADDR,           keyWorkingTime           ) )
         if ( E2P_WR_EX( TOTAL_AUTO_PRESSED_COUNT_ADDR,   totalAutoPressedCount    ) )
         if ( E2P_WR_EX( TOTAL_KEY_PRESSED_COUNT_ADDR,    totalKeyPressedCount     ) )
           {
-            e2pWrFlags &= ~REC_KEY_WORKING_INFO;
+            e2pWrFlags &= ~REC_KEY_INFO;
           }
       }
     /////////////////////////////////////////////////////////////////////////////////
@@ -623,14 +807,6 @@ void SVC_Ctrl( void )
           }
       }
     /////////////////////////////////////////////////////////////////////////////////
-    else if ( e2pWrFlags & REC_TUNE_INFO )
-      {
-        if ( E2P_WR_EX( TUNE_INFO_ADDR,                  tuneValue                ) )
-          {
-            e2pWrFlags &= ~REC_TUNE_INFO;
-          }
-      }
-    /////////////////////////////////////////////////////////////////////////////////
     else
       {
         e2pWrFlags = 0x00;
@@ -639,15 +815,17 @@ void SVC_Ctrl( void )
   
 U8   SVC_GetTuneValue( void )
   {
+    if ( tuneValue == 0 )
+      {
+        return DEFAULT_TUNE_VALUE;
+      }
     return tuneValue;
   }
   
 void SVC_SetTuneValue( U8 value )
   {
-    if ( tuneValue != value )
-      {
-        tuneValue = value;
-        e2pWrFlags |= REC_TUNE_INFO;
-      }
+    tuneCount++;
+    tuneValue = value;
+    e2pWrFlags |= REC_TUNE_INFO;
   }
 

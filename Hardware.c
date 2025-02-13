@@ -446,6 +446,7 @@ void interrupt INTSR( void )
             INCF        TMR_ON+1,   F
             BTFSC       TMR_ON+1,   7
             GOTO        ZERO_CHECK_E            ; 14
+           ;BTFSS       TMR_ON,     1
             BSF         ODR_TRIAC,  PIN_TRIAC
             GOTO        ZERO_CHECK_E            ; 16
             ZERO_EDGE:
@@ -480,7 +481,7 @@ void interrupt INTSR( void )
             MOVF        AC_CYCLE+1, W
             SUBWFB      TMR_OFF+1,  W
             MOVWF       FSR0H
-            MOVLW       5;98
+            MOVLW       10
             SUBWF       TMR_ON,     W
             MOVWF       TMR_OFF
             MOVLW       0
@@ -534,7 +535,7 @@ void interrupt INTSR( void )
             ADDLW       2
             MOVWF       TAD_VAC
             #if         VER_110VAC
-            ADDLW       8
+            MOVLW       8
             #endif
             #if         VER_220VAC
             ADDLW       1

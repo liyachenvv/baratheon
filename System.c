@@ -11,23 +11,42 @@
 #include "Motor.h"
 #include "Service.h"
 
+#define NO_LEVEL_SPEED  1
+
 #define SECOND  100UL
 #define MINUTE  SECOND*60
+
+CROM U16 sLVL[ ] = 
+  {
+    0,      // 0  STOP
+    2500,   // 1  FOLD
+    3000,   // 2  MIN
+    4000,   // 3  1
+    6000,   // 4  2
+    8000,   // 5  3
+    9500,   // 6  4
+    10500,  // 7  5
+    12000,  // 8  6
+    13500,  // 9  MAX
+    13501   // 10 PULSE
+  };
+
+static bank2 U16 speedSet = 0;
 
 void CAL_MtrLevel( void )
   {
     U8  ofs;
     U8  ad;
     ofs = SVC_GetTuneValue( );
-    if ( ofs < 20 )
+    if ( ofs < DEFAULT_TUNE_VALUE )
       {
-        ofs = 20 - ofs;
+        ofs = DEFAULT_TUNE_VALUE - ofs;
         ad = adVrs + ofs;
         if ( ad < adVrs ) ad = 255;
       }
     else
       {
-        ofs = ofs - 20;
+        ofs = ofs - DEFAULT_TUNE_VALUE;
         ad = adVrs - ofs;
         if ( ad > adVrs ) ad = 0;
       }
@@ -50,14 +69,64 @@ void CAL_MtrLevel( void )
     else if ( ad < 240 - 1 )  mtrLevel = 8;
     else if ( ad < 240 + 1 )  mtrLevel = mtrLevel < 9 ? 8 : 9;
     else                      mtrLevel = 9;
+
+    #if  NO_LEVEL_SPEED
+    if ( ad < 12 )
+      {
+        speedSet = sLVL[ 10 ];
+      }
+    else if ( ad < 32 )
+      {
+        speedSet = sLVL[ 1 ];
+      }
+    else if ( ad < 68 )
+      {
+        speedSet = sLVL[ 1 ] + ( U16 )( MULU32( sLVL[ 2 ]-sLVL[ 1 ], ad-32 ) / ( 68-32 ) );
+      }
+    else if ( ad < 106 )
+      {
+        speedSet = sLVL[ 2 ] + ( U16 )( MULU32( sLVL[ 3 ]-sLVL[ 2 ], ad-68 ) / ( 106-68 ) );
+      }
+    else if ( ad < 127 )
+      {
+        speedSet = sLVL[ 3 ] + ( U16 )( MULU32( sLVL[ 4 ]-sLVL[ 3 ], ad-106 ) / ( 127-106 ) );
+      }
+    else if ( ad < 148 )
+      {
+        speedSet = sLVL[ 4 ] + ( U16 )( MULU32( sLVL[ 5 ]-sLVL[ 4 ], ad-127 ) / ( 148-127 ) );
+      }
+    else if ( ad < 171 )
+      {
+        speedSet = sLVL[ 5 ] + ( U16 )( MULU32( sLVL[ 6 ]-sLVL[ 5 ], ad-148 ) / ( 171-148 ) );
+      }
+    else if ( ad < 197 )
+      {
+        speedSet = sLVL[ 6 ] + ( U16 )( MULU32( sLVL[ 7 ]-sLVL[ 6 ], ad-171 ) / ( 197-171 ) );
+      }
+    else if ( ad < 225 )
+      {
+        speedSet = sLVL[ 7 ] + ( U16 )( MULU32( sLVL[ 8 ]-sLVL[ 7 ], ad-197 ) / ( 225-197 ) );
+      }
+    else if ( ad < 240 )
+      {
+        speedSet = sLVL[ 8 ] + ( U16 )( MULU32( sLVL[ 9 ]-sLVL[ 8 ], ad-225 ) / ( 240-225 ) );
+      }
+    else
+      {
+        speedSet = sLVL[ 9 ];
+      }
+    #else
+    speedSet = sLVL[ mtrLevel ];
+    #endif
+    
   }
 
 void CAL_TuneValue( void )
   {
-    static XRAM U8 state = 0;
+    static XRAM U8  state = 0;
     static XRAM U16 time = 0;
-    static XRAM U8 min = 0;
-    static XRAM U8 max = 0;
+    static XRAM U8  min = 0;
+    static XRAM U8  max = 0;
     if ( time ) time--;
     switch ( state )
       {
@@ -65,20 +134,17 @@ void CAL_TuneValue( void )
             if ( acCycleHalf )
               {
                 state++;
-                time = 6;
+                time = 10;
               }
             break;
         case 1:
-            if ( !time )
+            if ( mtrLevel == 10 )
               {
-                if ( mtrLevel == 10 )
-                  {
-                    state++;
-                  }
-                else
-                  {
-                    state = 255;
-                  }
+                state++;
+              }
+            else if ( !time )
+              {
+                state = 255;
               }
             break;
         case 2:
@@ -86,6 +152,10 @@ void CAL_TuneValue( void )
               {
                 state++;
                 time = 300;
+              }
+            else if ( mtrLevel != 10 )
+              {
+                state = 255;
               }
             break;
         case 3:
@@ -151,7 +221,7 @@ void SYS_Ctrl( void )
               {
                 sysFault = mtrError;
                 sysStatus = E_SYS_TURN_OFF;
-                time = SECOND/2;
+                time = SECOND*5;
               }
             else if ( idrTest0 == 0xFF && idrTest1 == 0xFF && mtrTemp >= 0 )
               {
@@ -165,7 +235,7 @@ void SYS_Ctrl( void )
                 mtrSpeedRef = 0;
                 sysFault = mtrError;
                 sysStatus = E_SYS_TURN_OFF;
-                time = SECOND/2;
+                time = SECOND*5;
               }
             else switch ( mtrLevel )
               {
@@ -175,39 +245,39 @@ void SYS_Ctrl( void )
                     break;
                 case 1:     // Fold
                     sysLevel = E_LVL_1;
-                    mtrSpeedRef = 2500;
+                    mtrSpeedRef = speedSet;
                     break;
                 case 2:     // Min
                     sysLevel = E_LVL_1;
-                    mtrSpeedRef = 3000;
+                    mtrSpeedRef = speedSet;
                     break;
                 case 3:     // 1
                     sysLevel = E_LVL_1;
-                    mtrSpeedRef = 4000;
+                    mtrSpeedRef = speedSet;
                     break;
                 case 4:     // 2
                     sysLevel = E_LVL_2;
-                    mtrSpeedRef = 6000;
+                    mtrSpeedRef = speedSet;
                     break;
                 case 5:     // 3
                     sysLevel = E_LVL_3;
-                    mtrSpeedRef = 8000;
+                    mtrSpeedRef = speedSet;
                     break;
                 case 6:     // 4
                     sysLevel = E_LVL_4;
-                    mtrSpeedRef = 9500;
+                    mtrSpeedRef = speedSet;
                     break;
                 case 7:     // 5
                     sysLevel = E_LVL_5;
-                    mtrSpeedRef = 10500;
+                    mtrSpeedRef = speedSet;
                     break;
                 case 8:     // 6
                     sysLevel = E_LVL_6;
-                    mtrSpeedRef = 12000;
+                    mtrSpeedRef = speedSet;
                     break;
                 case 9:     // Max
                     sysLevel = E_LVL_6;
-                    mtrSpeedRef = 13500;
+                    mtrSpeedRef = speedSet;
                     break;
                 case 10:    // Pulse
                     sysLevel = E_LVL_PULSE;

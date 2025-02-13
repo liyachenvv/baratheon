@@ -52,8 +52,9 @@ CROM U8 ad2tpr[ 256 ] =
 void CAL_MtrTemp( void )
   {
     static XRAM U16 sum = 0;
-    static XRAM U8  err = 0;
+    static XRAM S8  err = 0;
     static XRAM U8  er1 = 0;
+    static XRAM U8  er2 = 0;
     static XRAM U8  cnt = 0;
     if ( !acCycleHalf )
       {
@@ -65,21 +66,39 @@ void CAL_MtrTemp( void )
     else if ( acCycleFlag )
       {
         sum += ( U16 )adNtc;
-        if ( adNtc < 2 || adNtc >= 254 ) err++;
+        if ( adNtc < 3 )
+          {
+            err = -1;
+          }
+        else if ( adNtc >= 254 )
+          {
+            err = 1;
+          }
         if ( ++cnt >= 4 )
           {
-            if ( !err )
+            if ( err == 0 )
               {
                 er1 = 0;
+                er2 = 0;
                 mtrTemp = ad2tpr[ sum >> 2 ];
-                if ( mtrTemp >= 104 )
+                if ( mtrTemp >= 105 )
                   {
                     MOTOR_ERROR_SET( E_ERR_OVER_HEAT );
                   }
               }
-            else if ( ++er1 >= 10 )
+            else if ( err < 0 )
               {
-                MOTOR_ERROR_SET( E_ERR_NTC_FAULT );
+                if ( ++er1 >= 10 )
+                  {
+                    MOTOR_ERROR_SET( E_ERR_NTC_SHORT );
+                  }
+              }
+            else //if ( err > 0 )
+              {
+                if ( ++er2 >= 10 )
+                  {
+                    MOTOR_ERROR_SET( E_ERR_NTC_OPEN );
+                  }
               }
             sum = 0;
             err = 0;
@@ -192,6 +211,78 @@ void CAL_AcPeriod( void )
 
 void CAL_MtrError( void )
   {
+    static XRAM U8  n0 = 0;
+    static XRAM U8  n1 = 0;
+    if ( acCycleHalf != 0 )
+      {
+        if ( tmTriac == 0 && mtrSpeed == 0 )
+          {
+            if ( idrTest1 == 0X00 )
+              {
+                if ( ++n0 >= 50 ) MOTOR_ERROR_SET( E_ERR_BAD_TRIAC );
+              }
+            else
+              {
+                n0 = 0;
+              }
+            n1 = 0;
+          }
+        else if ( tmTriac >= ( acCycle >> 1 ) + 60 )
+          {
+            if ( idrTest1 == 0XFF )
+              {
+                if ( ++n1 >= 50 ) MOTOR_ERROR_SET( E_ERR_BAD_TRIAC );
+              }
+            else
+              {
+                n1 = 0;
+              }
+            n0 = 0;
+          }
+        else
+          {
+            n0 = 0;
+            n1 = 0;
+          }
+      }
+  }
+
+void CAL_MtrPower( void )
+  {
+    static XRAM U8  n = 0;
+    static XRAM U16 s = 0;
+    static XRAM U16 n1 = 0;
+    static XRAM U32 s1 = 0;
+    static XRAM U16 sr = 0;
+    if ( mtrSpeedRef == 0 )
+      {
+        n = 0;
+        s = 0;
+        n1 = 0;
+        s1 = 0;
+        mtrPower = 0;
+        mtrPowerAve = 0;
+      }
+    else
+      {
+        s += tmTriac;
+        if ( ++n >= 100 )
+          {
+            n = 0;
+            mtrPower = s / ( acCycle >> 1 ) * 236 >> 8;
+            s = 0;
+            if ( mtrPower >= 150 ) mtrPower = 150;
+            s1 += ( U32 )mtrPower;
+            n1 += 1;
+            mtrPowerAve = ( U8 )( s1 / ( U32 )n1 );
+          }
+      }
+    if ( sr != mtrSpeedRef )
+      {
+        sr = mtrSpeedRef;
+        s1 = 0;
+        n1 = 0;
+      }
   }
 
 void MTR_Driver( void )
@@ -244,7 +335,7 @@ void MTR_Driver( void )
                     if ( time >= 25 ) time = 25;
                     if ( mtrSpeedRef & 1 ) time = 0;
                   }
-                max = ( S16 )( acCycle*54>>6 );
+                max = ( S16 )( acCycle*52>>6 );
                 OLIM.D += (400UL<<16)/25;
                 if ( OLIM.W.H >= max ) OLIM.W.H = max; 
                 err = ( S16 )( mtrSpeedRef - mtrSpeed );
@@ -255,6 +346,7 @@ void MTR_Driver( void )
                 else
                   {
                     SREG.kp = SREG_KP;
+                    OLIM.W.H = max;
                   }
                 PID_CAL( &SREG, err );
                 if ( mtrSpeedRef & 1 )
@@ -287,6 +379,7 @@ void MTR_Init( void )
     mtrSpeed = 0;
     mtrCurrent = 0;
     mtrError = 0;
+    mtrPower = 0;
     mtrTemp = -1;
   }
 
@@ -295,9 +388,10 @@ void MTR_Ctrl( void )
     CAL_MtrTemp( );
     CAL_MtrCurrent( );
     CAL_MtrSpeed( );
+    CAL_MtrPower( );
     CAL_AcPeriod( );
     CAL_MtrError( );
     MTR_Driver( );
     acCycleFlag = 0;
   }
-
+  

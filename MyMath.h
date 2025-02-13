@@ -33,8 +33,8 @@ typedef struct
     SDW  ro;
   } PID_t;
 
-#define MULU32( a, b )  ( ( U32 )a * ( U32 )b )
-#define MULS32( a, b )  ( ( S32 )a * ( S32 )b )
+#define MULU32( a, b )  ( ( U32 )(a) * ( U32 )(b) )
+#define MULS32( a, b )  ( ( S32 )(a) * ( S32 )(b) )
   
 EXTERN U16  SQRT32( U32 a );
 EXTERN S16  PID_CAL( PID_t * p, S16 err );
