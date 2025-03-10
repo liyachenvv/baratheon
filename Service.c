@@ -15,8 +15,8 @@ __EEPROM_DATA(
     PRODUCT_NAME_0,
     PRODUCT_NAME_1,
     PRODUCT_NAME_2,
-    PRODUCT_NUM>>8,
-    PRODUCT_NUM&255,
+    PRODUCT_NUM>>8,  //H
+    PRODUCT_NUM&255,  //L  220
     PCBA_NUM_0,
     PCBA_NUM_1,
     PCBA_NUM_2);
@@ -33,11 +33,11 @@ __EEPROM_DATA(
     SOFTWARE_NUM_4,
     SOFTWARE_NUM_5,
     SOFTWARE_NUM_6,
-    SOFTWARE_VER_0,
+    SOFTWARE_VER_0,  //0
     '.',
-    SOFTWARE_VER_1,
+    SOFTWARE_VER_1,  //2
     '.',
-    SOFTWARE_VER_2);
+    SOFTWARE_VER_2);  //5
 __EEPROM_DATA(
     SERIAL_NUM_0,
     SERIAL_NUM_1,
@@ -81,7 +81,7 @@ __EEPROM_DATA(
     0,
     0,
     0,
-    TUNE_VALUE_DEFAULT,
+    TUNE_VALUE_DEFAULT,  //20
     0 );
 
 #define REC_SPEED_WORKING_INFO    0X01
@@ -154,7 +154,7 @@ static XRAM U8     tuneValue;
 
 static XRAM H3M1S1 powerOnTime;
 
-void E2P_RD( U8 addr, U8 * p, U8 n )
+void E2P_RD( U8 addr, U8 * p, U8 n )  //eeprom read
   {
     while ( n-- )
       {
@@ -163,7 +163,7 @@ void E2P_RD( U8 addr, U8 * p, U8 n )
       }
   }
 
-U8   E2P_WR( U8 addr, U8 * p, U8 n )
+U8   E2P_WR( U8 addr, U8 * p, U8 n )  //eeprom write
   {
     while ( n )
       {
@@ -183,7 +183,7 @@ U8   E2P_WR( U8 addr, U8 * p, U8 n )
     return 1;
   }
 
-void MEM_Clr( U8 * p, U8 n )
+void MEM_Clr( U8 * p, U8 n )  //memory clear
   {
     while ( n-- )
       {
@@ -192,7 +192,7 @@ void MEM_Clr( U8 * p, U8 n )
       }
   }
 
-void MEM_Cpy( U8 * p1, U8 * p2, U8 n )
+void MEM_Cpy( U8 * p1, U8 * p2, U8 n )  //memory copy(destination, source, number)
   {
     while ( n-- )
       {
@@ -202,7 +202,7 @@ void MEM_Cpy( U8 * p1, U8 * p2, U8 n )
       }
   }
 
-S8   MEM_Cmp( U8 * p1, U8 * p2, U8 n )
+S8   MEM_Cmp( U8 * p1, U8 * p2, U8 n )  //memory compare
   {
     while ( n )
       {
@@ -324,7 +324,7 @@ void H3M1_SUB( H3M1 * p, U8 m )
           }
       }
   }
-  
+  //EXample, list, array
 #define E2P_RD_EX( ADDR, M )  E2P_RD( ADDR, ( U8* )&M, sizeof( M ) )
 #define E2P_WR_EX( ADDR, M )  E2P_WR( ADDR, ( U8* )&M, sizeof( M ) )
 
@@ -381,13 +381,13 @@ void SVC_Init( void )
 U8   SVC_Timer( void )
   {
     static XRAM U8  tmSEC = 0;
-    if ( ++tmSEC >= 100 )
+    if ( ++tmSEC >= 100 )   //10ms*100=1s
       {
         tmSEC = 0;
         if ( ++powerOnTime.s >= 60 )
           {
             powerOnTime.s = 0;
-            H3M1_ADD( &powerOnTime.h3m1, 1 );
+            H3M1_ADD( &powerOnTime.h3m1, 1 );  //60s=1min
             H3M1_ADD( &totalPowerOnTime, 1 );
             MEM_Cpy( ( U8* )&totalWorkingTime, ( U8* )&totalPowerOnTime, sizeof( H3M1 ) );
             e2pWrFlags |= REC_WORKING_INFO;
@@ -419,11 +419,11 @@ void REC_SpeedWorking( void )
         if ( level && level < 8 )
           {
             MEM_Cpy( ( U8* )&lastSpeedWorkingTime[ 0 ], ( U8* )&tmLvl, sizeof( H1M1S1 ) );
-            if ( tmLvl.s < 30 )
+            if ( tmLvl.s < 30 )  //round down
               {
                 H2M1S1_ADD( &totalSpeedWorkingTime[ level - 1 ], tmLvl.s );
               }
-            else
+            else  //round up
               {
                 H2M1S1_ADD( &totalSpeedWorkingTime[ level - 1 ], tmLvl.s - 30 );
               }
@@ -639,7 +639,7 @@ void SVC_Ctrl( void )
   
 U8   SVC_GetTuneValue( void )
   {
-    return tuneValue;
+    return tuneValue;  //ad base offset
   }
   
 void SVC_SetTuneValue( U8 value )

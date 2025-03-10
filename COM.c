@@ -50,24 +50,24 @@ void COM_Ctrl( void )
     static XRAM U8 t = 0;
     if ( ++t >= 50 )
       {
-        t = 0;
-        COM_Print( ( U16 )mtrLevel );
-        SRL_Putc( ',' );
-        COM_Print( ( U16 )adVrs );
-        SRL_Putc( ',' );
-        COM_Print( ( U16 )adNtc );
-        SRL_Putc( ',' );
-        COM_Print( mtrSpeedRef );
-        SRL_Putc( ',' );
-        COM_Print( mtrSpeed );
-        SRL_Putc( ',' );
-        COM_Print( mtrCurrent );
-        SRL_Putc( ',' );
-        COM_Print( ( U16 )mtrTemp );
-        SRL_Putc( ',' );
-        COM_Print( ( U16 )E2P_ReadByte( 0xFE ) );
-        SRL_Putc( '\r' );
-        SRL_Putc( '\n' );
+        t = 0;   //totally 25 Bytes
+        COM_Print( ( U16 )mtrLevel );  //2
+        SRL_Putc( ',' ); //1
+        COM_Print( ( U16 )adVrs );//2
+        SRL_Putc( ',' );//1
+        COM_Print( ( U16 )adNtc );//2
+        SRL_Putc( ',' );//1
+        COM_Print( mtrSpeedRef );  //2
+        SRL_Putc( ',' );//1
+        COM_Print( mtrSpeed );//2
+        SRL_Putc( ',' );//1
+        COM_Print( mtrCurrent );//2
+        SRL_Putc( ',' );//1
+        COM_Print( ( U16 )mtrTemp );//2
+        SRL_Putc( ',' );//1
+        COM_Print( ( U16 )E2P_ReadByte( 0xFE ) );//2
+        SRL_Putc( '\r' );//1
+        SRL_Putc( '\n' );//1
       }
   }
 

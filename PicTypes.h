@@ -74,7 +74,7 @@ typedef union
 #define BMSK(N)       (1U<<(N))
 #define BSET(X,N)     (X)|=BMSK(N)
 #define BCLR(X,N)     (X)&=(BMSK(N)^-1)
-#define BCPL(X,N)     (X)^=BMSK(N)
+#define BCPL(X,N)     (X)^=BMSK(N)   //converse position logical，not.
 #define BTST(X,N)     ((X)&BMSK(N))
 #define BSETEX(X,N)   X[(N)>>3]|=((U8)BMSK((N)&7))
 #define BCLREX(X,N)   X[(N)>>3]&=(((U8)BMSK((N)&7))^-1)

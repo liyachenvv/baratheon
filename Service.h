@@ -48,10 +48,10 @@
 #define PCBA_NUM_0            0X00
 #define PCBA_NUM_1            0X00
 #define PCBA_NUM_2            0X01
-#define PCBA_NUM_3            0X49
-#define PCBA_NUM_4            0X05
-#define PCBA_NUM_5            0X96
-#define PCBA_NUM_6            0X2D
+#define PCBA_NUM_3            0X49  //73 
+#define PCBA_NUM_4            0X05  //5
+#define PCBA_NUM_5            0X96  //150
+#define PCBA_NUM_6            0X2D  //45
 #define SOFTWARE_NUM          5520070189LL
 #define SOFTWARE_NUM_0        0X00
 #define SOFTWARE_NUM_1        0X00

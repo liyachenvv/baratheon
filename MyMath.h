@@ -21,7 +21,7 @@ typedef union
   {
     S32  D;
     struct { S16 L; S16 H; } W;
-  } SDW;
+  } SDW;   //signed double (32bits), words(2*16bits)
 
 typedef struct
   {
@@ -29,12 +29,12 @@ typedef struct
     S16  ki;
     S16  kd;
     S16  e1;
-    SDW  ri;
-    SDW  ro;
+    SDW  ri;  //error in
+    SDW  ro;  //tmTriac
   } PID_t;
 
-#define MULU32( a, b )  ( ( U32 )a * ( U32 )b )
-#define MULS32( a, b )  ( ( S32 )a * ( S32 )b )
+#define MULU32( a, b )  ( ( U32 )a * ( U32 )b )  //Multiply unsigned long
+#define MULS32( a, b )  ( ( S32 )a * ( S32 )b )  //Multiply signed long
   
 EXTERN U16  SQRT32( U32 a );
 EXTERN S16  PID_CAL( PID_t * p, S16 err );

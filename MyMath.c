@@ -9,7 +9,7 @@
 #include "Globals.h"
 #include "MyMath.h"
 
-U16  SQRT32( U32 a )
+U16  SQRT32( U32 a )   //return a^0.5,  2=SQRT32(4)
   {
     U32 root = 0;
     U32 divisor = 0;

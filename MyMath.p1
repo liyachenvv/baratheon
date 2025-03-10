@@ -4061,40 +4061,40 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;PicTypes.h: 61: U8 T;
 [; ;PicTypes.h: 62: } B;
 [; ;PicTypes.h: 63: } DWORD;
-[; ;Hardware.h: 60: extern bank1 U8 sysTicks;
-[; ;Hardware.h: 62: extern bank1 U32 adCur2;
-[; ;Hardware.h: 63: extern bank1 U8 adCurN;
-[; ;Hardware.h: 65: extern bank1 U8 adVrs;
-[; ;Hardware.h: 66: extern bank1 U8 adNtc;
-[; ;Hardware.h: 67: extern bank1 U8 adVac;
-[; ;Hardware.h: 69: extern bank1 U8 idrTest0;
-[; ;Hardware.h: 70: extern bank1 U8 idrTest1;
-[; ;Hardware.h: 72: extern  U16 mtrHallTime[ 32 ] @ 0x320;
-[; ;Hardware.h: 73: extern bank1 U8 mtrHallIndex;
-[; ;Hardware.h: 74: extern bank1 U8 mtrHallEvent;
-[; ;Hardware.h: 75: extern bank1 U8 mtrHallWDT;
-[; ;Hardware.h: 77: extern  U16 acCrossTime[ 8 ] @ 0x360;
-[; ;Hardware.h: 78: extern bank1 U8 acCrossIndex;
-[; ;Hardware.h: 79: extern bank1 U8 acCrossEvent;
-[; ;Hardware.h: 80: extern bank1 U8 acCrossWDT;
-[; ;Hardware.h: 81: extern bank1 U16 acCycle;
-[; ;Hardware.h: 82: extern bank1 U8 acCycleHalf;
-[; ;Hardware.h: 83: extern bank1 U8 acCycleFlag;
-[; ;Hardware.h: 84: extern bank1 U16 tmTriac;
-[; ;Hardware.h: 86: extern bank3 U8 txCNT;
-[; ;Hardware.h: 87: extern bank3 U8 txWRP;
-[; ;Hardware.h: 88: extern bank3 U8 txRDP;
-[; ;Hardware.h: 89: extern bank3 U8 txTIM;
-[; ;Hardware.h: 90: extern  U8 txFIFO[ 32 ] @ 0x3A0;
-[; ;Hardware.h: 91: extern bank3 U8 rxCNT;
-[; ;Hardware.h: 92: extern bank3 U8 rxWRP;
-[; ;Hardware.h: 93: extern bank3 U8 rxRDP;
-[; ;Hardware.h: 94: extern bank3 U8 rxTIM;
-[; ;Hardware.h: 95: extern  U8 rxFIFO[ 32 ] @ 0x3C0;
-[; ;Hardware.h: 97: extern void MCU_Init( void );
-[; ;Hardware.h: 98: extern void MCU_Refresh( void );
-[; ;Hardware.h: 99: extern void E2P_WriteByte( U8 addr, U8 byte );
-[; ;Hardware.h: 100: extern U8 E2P_ReadByte( U8 addr );
+[; ;Hardware.h: 61: extern bank1 U8 sysTicks;
+[; ;Hardware.h: 63: extern bank1 U32 adCur2;
+[; ;Hardware.h: 64: extern bank1 U8 adCurN;
+[; ;Hardware.h: 66: extern bank1 U8 adVrs;
+[; ;Hardware.h: 67: extern bank1 U8 adNtc;
+[; ;Hardware.h: 68: extern bank1 U8 adVac;
+[; ;Hardware.h: 70: extern bank1 U8 idrTest0;
+[; ;Hardware.h: 71: extern bank1 U8 idrTest1;
+[; ;Hardware.h: 73: extern  U16 mtrHallTime[ 32 ] @ 0x320;
+[; ;Hardware.h: 74: extern bank1 U8 mtrHallIndex;
+[; ;Hardware.h: 75: extern bank1 U8 mtrHallEvent;
+[; ;Hardware.h: 76: extern bank1 U8 mtrHallWDT;
+[; ;Hardware.h: 78: extern  U16 acCrossTime[ 8 ] @ 0x360;
+[; ;Hardware.h: 79: extern bank1 U8 acCrossIndex;
+[; ;Hardware.h: 80: extern bank1 U8 acCrossEvent;
+[; ;Hardware.h: 81: extern bank1 U8 acCrossWDT;
+[; ;Hardware.h: 82: extern bank1 U16 acCycle;
+[; ;Hardware.h: 83: extern bank1 U8 acCycleHalf;
+[; ;Hardware.h: 84: extern bank1 U8 acCycleFlag;
+[; ;Hardware.h: 85: extern bank1 U16 tmTriac;
+[; ;Hardware.h: 87: extern bank3 U8 txCNT;
+[; ;Hardware.h: 88: extern bank3 U8 txWRP;
+[; ;Hardware.h: 89: extern bank3 U8 txRDP;
+[; ;Hardware.h: 90: extern bank3 U8 txTIM;
+[; ;Hardware.h: 91: extern  U8 txFIFO[ 32 ] @ 0x3A0;
+[; ;Hardware.h: 92: extern bank3 U8 rxCNT;
+[; ;Hardware.h: 93: extern bank3 U8 rxWRP;
+[; ;Hardware.h: 94: extern bank3 U8 rxRDP;
+[; ;Hardware.h: 95: extern bank3 U8 rxTIM;
+[; ;Hardware.h: 96: extern  U8 rxFIFO[ 32 ] @ 0x3C0;
+[; ;Hardware.h: 98: extern void MCU_Init( void );
+[; ;Hardware.h: 99: extern void MCU_Refresh( void );
+[; ;Hardware.h: 100: extern void E2P_WriteByte( U8 addr, U8 byte );
+[; ;Hardware.h: 101: extern U8 E2P_ReadByte( U8 addr );
 [; ;MyMath.h: 20: typedef union
 [; ;MyMath.h: 21: {
 [; ;MyMath.h: 22: S32 D;
@@ -4112,7 +4112,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MyMath.h: 39: U16 SQRT32( U32 a );
 [; ;MyMath.h: 40: S16 PID_CAL( PID_t * p, S16 err );
 [; ;MyMath.h: 41: S16 PID_LIM( PID_t * p, S16 min, S16 max );
-"13 C:\Users\liyachen\Downloads\rebaratheonsourcecode\DGDK-Baratheon-220V-U1-V1.1-0xECDB\DGDK-Baratheon-220V-U1-V1.1-0xECDB\BARATHEON-A18\MyMath.c
+"13 D:\project\baratheon\baratheon\MyMath.c
 [v _SQRT32 `(us  1 ef1`ul ]
 {
 [; ;MyMath.c: 12: U16 SQRT32( U32 a )

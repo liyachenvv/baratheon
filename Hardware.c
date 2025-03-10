@@ -9,10 +9,19 @@
 #include "Globals.h"
 #include "Hardware.h"
 
-__CONFIG( 0X0F9C );
-__CONFIG( 0X3FFC );
+__CONFIG( 0X0F9C );  
+//00 1111 1001 1100
+//FCMEN=0,IESO=0, BOREN=11,(BOR enable),CPD=1(data memory protection disabled)
+//cp=1(code program memeory protection disabled) mclr=0, lvp=1(ignore mclre) pwrt=0, 
+//WDTE=11 (wdt enable), FOSC=100 (intosc)
 
-static bank1 U8  ODRA;
+__CONFIG( 0X3FFC );
+//11 1111 1111 1100
+//LVP=1 (LOW volt program enable), debug=1(in-circuit debugger disabled)
+//BORV=1 (brown out reset voltage=1.9V) STVREN=1, PLLEN=1 (4x PLL enabled)
+//WRT=00, 0-0X7ff write-protected.(flash memory self-write protection)
+
+static bank1 U8  ODRA;  //operation data of porta.
 static bank1 U8  scnHall;
 static bank1 U8  scnZero;
 static bank1 U8  scnTest;
@@ -29,7 +38,8 @@ static bank1 U32 adCur2Buf;
 static bank1 U8  adCurNBuf;
 
 CROM U8  FLT[ 256 ] @ 0X1D00 =
-  {
+  {  //32*8  //wave filter table
+    //0,2,4,134,0,130,222;96,10,12,142,8,138,140,142
     0x00,   0x02,   0x04,   0x86,   0x00,   0x82,   0x84,   0xDE,
     0x60,   0x0A,   0x0C,   0x8E,   0x08,   0x8A,   0x8C,   0x8E,
     0x00,   0x02,   0x04,   0x86,   0x00,   0x82,   0x84,   0xDE,
@@ -64,8 +74,9 @@ CROM U8  FLT[ 256 ] @ 0X1D00 =
     0x60,   0x0A,   0x0C,   0x8E,   0x08,   0x8A,   0x8C,   0x8E,
   };
 
+//squar 8bits 
 CROM U16 SQ8[ 256 ] @ 0x1E00 =
-  {
+  {  //0,1,2,3,4,5,6,7 square  -> 0,1,4,9,16,25,36,49
     0x0000, 0x0001, 0x0004, 0x0009, 0x0010, 0x0019, 0x0024, 0x0031, 
     0x0040, 0x0051, 0x0064, 0x0079, 0x0090, 0x00A9, 0x00C4, 0x00E1, 
     0x0100, 0x0121, 0x0144, 0x0169, 0x0190, 0x01B9, 0x01E4, 0x0211, 
@@ -98,7 +109,7 @@ CROM U16 SQ8[ 256 ] @ 0x1E00 =
     0xD240, 0xD411, 0xD5E4, 0xD7B9, 0xD990, 0xDB69, 0xDD44, 0xDF21, 
     0xE100, 0xE2E1, 0xE4C4, 0xE6A9, 0xE890, 0xEA79, 0xEC64, 0xEE51, 
     0xF040, 0xF231, 0xF424, 0xF619, 0xF810, 0xFA09, 0xFC04, 0xFE01
-  };
+  };  //61504...65025  ->248---255
   
 void MCU_Init( void )
   {
@@ -107,7 +118,7 @@ void MCU_Init( void )
     OSCCON  = CFG_OSCCON;
     OSCTUNE = CFG_OSCTUNE;
     // Initialize Watchdog. Underflow Time = 250mS.
-    WDTCON  = 0X11;
+    WDTCON  = 0X11;  //01000 = 1:8192 (Interval 256 ms typ)
     // Initialize I/O port function.
     APFCON0 = CFG_APFCON0;
     APFCON1 = CFG_APFCON1;
@@ -135,8 +146,8 @@ void MCU_Init( void )
     CM2CON1 = CFG_CM2CON1;
     CM2CON0 = CFG_CM2CON0;
     // Initialize ADC.
-    ADCON1  = 0XA0;
-    ADCON0  = AIN_CUR*4+1;
+    ADCON1  = 0XA0;  //1010 0000 right justified,FOSC/32=1MHz,vcc,gnd for ref.
+    ADCON0  = AIN_CUR*4+1;   //(Ad chanel <<2)=(AN9,current), adc enable
     enADC   = 1;
     tmADVAC = 255;
     tmADVRS = 255;
@@ -149,14 +160,14 @@ void MCU_Init( void )
     adCur2 = 0;
     adCurN = 0;
     // Initialize UART.
-    BAUDCON = 0X0A;
+    BAUDCON = 0X0A;  //0000 1010 BRG16=1,16-bit Baud Rate Generator,Auto-Baud Detect disabled
     SPBRGL  = 799%256;
-    SPBRGH  = 799/256;
-    RCSTA   = 0X00;
-    TXSTA   = 0X04;
-    SPEN    = 1;
-    CREN    = 1;
-    TXEN    = 1;
+    SPBRGH  = 799/256;  //spbrg=799 bandrate=32 000 000/(4*800)=10 000 ->9600
+    RCSTA   = 0X00;  //spen=0
+    TXSTA   = 0X04;  //0000 0100 sync=0,BRGH=1
+    SPEN    = 1;  //enable uart.
+    CREN    = 1;  //enable receive
+    TXEN    = 1;  //enable transfer
     txTIM = 0;
     txCNT = 0;
     txWRP = 0;
@@ -166,10 +177,10 @@ void MCU_Init( void )
     rxWRP = 0;
     rxRDP = 0;
     // Initialize System Timer.
-    T1GCON  = 0X00;
-    T1CON   = 0X30;
-    PR6     = 49;
-    T6CON   = 0X05;
+    T1GCON  = 0X00;  //T1 not start
+    T1CON   = 0X30;  //0011 0000  8Mhz*1/8 =1Mhz,stop T1
+    PR6     = 49;  //Timer6 Module Period Register,   25us.
+    T6CON   = 0X05;  //0000 0101 T6OUTPS=0, TMR6ON=1,T6CKPS=1(8Mhz/4=2MHz)
     // Initialize Interrupt.
     PIR1    = 0X00;
     PIR2    = 0X00;
@@ -177,7 +188,7 @@ void MCU_Init( void )
     PIR4    = 0X00;
     PIE1    = 0X00;
     PIE2    = 0X00;
-    PIE3    = 0X08;
+    PIE3    = 0X08;  //TMR6IE=1
     PIE4    = 0X00;
     PEIE    = 1;
     // Initialize Variables.
@@ -310,19 +321,19 @@ void interrupt INTSR( void )
             ;++++++++++++++++++++++++++++++++++++++++++++++
             ; PORT DEFINITION.
             ODRA        EQU         (127&_ODRA)
-            ODR_TRIAC   EQU         ODRA
-            PIN_TRIAC   EQU         5
+            ODR_TRIAC   EQU         ODRA     ;porta=0x04
+            PIN_TRIAC   EQU         5  ;RA5
             ;++++++++++++++++++++++++++++++++++++++++++++++
             ; DATA DEFINITION.
             SYS_TICKS   EQU         (127&_sysTicks)
             SYS_TIMER   EQU         (127&_sysTimer)
-            HL_SCAN     EQU         (127&_scnHall)
-            AC_SCAN     EQU         (127&_scnZero)
-            TS_SCAN     EQU         (127&_scnTest)
-            nEDGE       EQU         6
+            HL_SCAN     EQU         (127&_scnHall)   ;hall speed
+            AC_SCAN     EQU         (127&_scnZero)   ;ac zero across
+            TS_SCAN     EQU         (127&_scnTest)   ;motor error detect
+            nEDGE       EQU         6    ;//fall and rise edge
             nFALL       EQU         5
             nRISE       EQU         4
-            EN_ADC      EQU         (127&_enADC)
+            EN_ADC      EQU         (127&_enADC)    ;//U8 8bits
             TAD_VAC     EQU         (127&_tmADVAC)
             TAD_VRS     EQU         (127&_tmADVRS)
             TAD_NTC     EQU         (127&_tmADNTC)
@@ -362,62 +373,62 @@ void interrupt INTSR( void )
             HL_WATCH    EQU         (127&_mtrHallWDT)
             HL_TIME_PL  EQU         LOW (_mtrHallTime)
             HL_TIME_PH  EQU         HIGH(_mtrHallTime)
-            TM_TRIAC    EQU         (127&_tmTriac)
+            TM_TRIAC    EQU         (127&_tmTriac)        ; //triac on time. 1000-8314
             TMR_ON      EQU         (127&_tmTriacOn)
             TMR_OFF     EQU         (127&_tmTriacOff)
             ;++++++++++++++++++++++++++++++++++++++++++++++
            ;MOVLP       0
             MOVLB       1
             BTFSC       EN_ADC,     0
-            BSF         ADCON0,     1
-            BSF         ODRA,       2
+            BSF         ADCON0,     1  ;//if en_ADC=1,  go=1, start ad conversion
+            BSF         ODRA,       2  ;//RA2(C1out)=1
             MOVF        ODRA,       W
             MOVLB       2
-            XORWF       LATA,       W
-            ANDLW       0X24
-            XORWF       LATA,       F
+            XORWF       LATA,       W  ;//polling porta status
+            ANDLW       0X24           ;//&0010 0100  RA4(NTC)=0, RA2
+            XORWF       LATA,       F  
             MOVLB       0
-            BCF         PIR3,       TMR6IF      ; 12
+            BCF         PIR3,       TMR6IF      ; 12 instruction cycle //TMR6IF=0  25us
             ;++++++++++++++++++++++++++++++++++++++++++++++
-            MOVLW       HIGH _FLT | 0X80
+            MOVLW       HIGH _FLT | 0X80    ;//fsr pointer to flt table, read memory
             MOVWF       FSR0H
-            MOVLB       1                       ; 3
+            MOVLB       1                       ; 3 instruction cycle
             ;++++++++++++++++++++++++++++++++++++++++++++++
             SCAN_HALL:
             MOVF        HL_SCAN,    W
             MOVLB       0
-            BTFSC       PORTC,      5
-            IORLW       1
-            MOVWF       FSR0L
-            MOVIW       [0]FSR0
+            BTFSC       PORTC,      5  ;//RC5 speed hall
+            IORLW       1              ;//RC5=1, | HL_SCAN 
+            MOVWF       FSR0L          ;//RC5=0
+            MOVIW       [0]FSR0        ;//get value
             MOVLB       1
-            MOVWF       HL_SCAN                 ; 9
+            MOVWF       HL_SCAN                 ; 9 instruction cycle //polling status
             ;++++++++++++++++++++++++++++++++++++++++++++++
             SCAN_ZERO:
             MOVF        AC_SCAN,    W
             MOVLB       2
-            BTFSC       CMOUT,      1
+            BTFSC       CMOUT,      1   ;//test C2out  zero across
             IORLW       1
             MOVWF       FSR0L
-            MOVIW       [0]FSR0
+            MOVIW       [0]FSR0         ;//fsr++
             MOVLB       1
-            MOVWF       AC_SCAN                 ; 9
+            MOVWF       AC_SCAN                 ; 9 instruction cycle
             ;++++++++++++++++++++++++++++++++++++++++++++++
             SCAN_TEST:
             MOVF        TS_SCAN,    W
             MOVLB       2
-            BTFSC       CMOUT,      0
+            BTFSC       CMOUT,      0   ;//test C1out, error detect
             IORLW       1
             MOVWF       FSR0L
             MOVIW       [0]FSR0
             MOVLB       1
-            MOVWF       TS_SCAN                 ; 9
+            MOVWF       TS_SCAN                 ; 9 instruction cycle
             ;++++++++++++++++++++++++++++++++++++++++++++++
             HALL_CHECK:
-            BTFSS       HL_SCAN,    nFALL
-            GOTO        HALL_CHECK_E            ; 3
+            BTFSS       HL_SCAN,    nFALL       ;RC5, hall 1->0, fall edge
+            GOTO        HALL_CHECK_E            ; 3 instruction cycle
             LSLF        HL_INDEX,   W
-            ANDLW       31*2
+            ANDLW       31*2                    ; 0001 1111<<1, 11 1110
             ADDLW       HL_TIME_PL
             MOVWF       FSR0L
             MOVLW       HL_TIME_PH
@@ -428,16 +439,16 @@ void interrupt INTSR( void )
             MOVWI       FSR0++
             INCF        HL_INDEX,   F
             INCF        HL_EVENT,   F
-            CLRF        HL_WATCH                ; 15
-            HALL_CHECK_E:
+            CLRF        HL_WATCH                ; 15 instruction cycle
+            HALL_CHECK_E:                       ; end
             ;++++++++++++++++++++++++++++++++++++++++++++++
             ZERO_CHECK:
-            BCF         ODR_TRIAC,  PIN_TRIAC
-            BTFSC       AC_SCAN,    nEDGE
+            BCF         ODR_TRIAC,  PIN_TRIAC   ; RA5=0, trig triac, off
+            BTFSC       AC_SCAN,    nEDGE       ; both fall and rise edge
             GOTO        ZERO_EDGE               ; 4
             ZERO_TRIG:
-            BTFSS       TMR_OFF+1,  7
-            GOTO        ZERO_CHECK_E            ; 6
+            BTFSS       TMR_OFF+1,  7           ; max 7F+1=0x80 1000 0000
+            GOTO        ZERO_CHECK_E            ; 6 zero check end
             INCFSZ      TMR_OFF,    F
             GOTO        $+2
             INCF        TMR_OFF+1,  F
@@ -445,26 +456,26 @@ void interrupt INTSR( void )
             GOTO        $+2
             INCF        TMR_ON+1,   F
             BTFSC       TMR_ON+1,   7
-            GOTO        ZERO_CHECK_E            ; 14
-            BSF         ODR_TRIAC,  PIN_TRIAC
-            GOTO        ZERO_CHECK_E            ; 16
+            GOTO        ZERO_CHECK_E            ; 14 instruction cycle
+            BSF         ODR_TRIAC,  PIN_TRIAC   ; RA5=1, trig on
+            GOTO        ZERO_CHECK_E            ; 16 instruction cycle
             ZERO_EDGE:
             CLRF        TMR_OFF+1
-            MOVF        AC_CYCLE_2, W
-            BTFSC       STATUS,     Z
-            GOTO        ZERO_CYCLE              ; 9
-            ADDLW       256-3
-            MOVWF       TM_TST0
+            MOVF        AC_CYCLE_2, W           ; // acCycleHalf
+            BTFSC       STATUS,     Z           ; Z=0,skip, !acCycleHalf
+            GOTO        ZERO_CYCLE              ; 9  //Z=1,acCycleHalf=0
+            ADDLW       256-3                   ; 
+            MOVWF       TM_TST0                 ; TM_TST0=acCycleHalf+253
             ADDLW       10
-            MOVWF       TM_TST1
+            MOVWF       TM_TST1                 ; TM_TST1=acCycleHalf+263
             MOVLW       40
-            SUBWF       TM_TRIAC,   W
+            SUBWF       TM_TRIAC,   W           ; //40*25=1000us  w=TM_TRIAC-40
             MOVLW       0
-            SUBWFB      TM_TRIAC+1, W
+            SUBWFB      TM_TRIAC+1, W           ; u16 tmTriac, high byte= 0
             BTFSS       STATUS,     C
             GOTO        ZERO_CYCLE              ; 19
             MOVF        AC_CYCLE,   W
-            SUBWF       TM_TRIAC,   W
+            SUBWF       TM_TRIAC,   W           ; AC_CYCLE-TM_TRIAC, trig off for safe
             MOVWF       TMR_ON
             MOVF        AC_CYCLE+1, W
             SUBWFB      TM_TRIAC+1, W
@@ -480,7 +491,7 @@ void interrupt INTSR( void )
             MOVF        AC_CYCLE+1, W
             SUBWFB      TMR_OFF+1,  W
             MOVWF       FSR0H
-            MOVLW       5;98
+            MOVLW       5                       ;98
             SUBWF       TMR_ON,     W
             MOVWF       TMR_OFF
             MOVLW       0
@@ -495,13 +506,13 @@ void interrupt INTSR( void )
             MOVF        FSR0L,      W
             MOVWF       TMR_OFF
             MOVF        FSR0H,      W
-            MOVWF       TMR_OFF+1               ; 51
+            MOVWF       TMR_OFF+1               ; 51 instruction cycle
             ZERO_CYCLE:
-            BTFSS       AC_SCAN,    nRISE
+            BTFSS       AC_SCAN,    nRISE       ; rise 0->1
             GOTO        ZERO_CHECK_E
             BSF         AC_FLAG,    0
             LSLF        AC_INDEX,   W
-            ANDLW       7*2
+            ANDLW       7*2                     ; 0111<<1=1110
             ADDLW       AC_TIME_PL
             MOVWF       FSR0L
             MOVLW       AC_TIME_PH
@@ -545,15 +556,15 @@ void interrupt INTSR( void )
             ZERO_CHECK_E:
             ;++++++++++++++++++++++++++++++++++++++++++++++
             MOVF        SYS_TIMER,  W
-            INCFSZ      SYS_TIMER,  F
+            INCFSZ      SYS_TIMER,  F   ;
             GOTO        $+2
-            INCF        SYS_TIMER+1,F
-            ANDLW       3
+            INCF        SYS_TIMER+1,F   ; //25us inc 1
+            ANDLW       3                 
             BRW
-            GOTO        ISR_BRCH_0              ; 9
-            GOTO        ISR_BRCH_1              ; 9
-            GOTO        ISR_BRCH_2              ; 9
-            GOTO        ISR_BRCH_3              ; 9
+            GOTO        ISR_BRCH_0              ; 9  //25us
+            GOTO        ISR_BRCH_1              ; 9  //50us
+            GOTO        ISR_BRCH_2              ; 9  //75us
+            GOTO        ISR_BRCH_3              ; 9  //100us
             ;++++++++++++++++++++++++++++++++++++++++++++++
             ISR_BRCH_0:
             UART_TX_PRO:
@@ -569,7 +580,7 @@ void interrupt INTSR( void )
             GOTO        UART_TX_PRO_E           ; 11
             CLRF        TX_TIM
             MOVF        TX_RDP,     W
-            ANDLW       31
+            ANDLW       31                      ; 0001 1111
             ADDLW       TX_FIFO_PL
             MOVWF       FSR0L
             MOVLW       TX_FIFO_PH
@@ -584,11 +595,11 @@ void interrupt INTSR( void )
             BTFSS       EN_ADC,     0
             GOTO        AD_VAC_START
             AD_CUR_READ:
-            BTFSC       ADCON0,     1
-            GOTO        $-1                     ; ?
-            COMF        ADRESL,     W
-            MOVWF       FSR0L
-            MOVLW       HIGH _SQ8 | 0X80
+            BTFSC       ADCON0,     1       ;// ADCON0.1=1 in progress; 0 complete
+            GOTO        $-1                 ; //waiting for complete
+            COMF        ADRESL,     W       ; //right adjustified, get low 8 bits
+            MOVWF       FSR0L               ; //polling table. ad result->FSR0L
+            MOVLW       HIGH _SQ8 | 0X80    ;//high address, read memory as data
             MOVWF       FSR0H
             LSLF        FSR0L,      F
             BTFSC       STATUS,     C
@@ -600,15 +611,15 @@ void interrupt INTSR( void )
             CLRW
             ADDWFC      AD_CUR_2B+2,F
             ADDWFC      AD_CUR_2B+3,F
-            INCF        AD_CUR_NB,  F
+            INCF        AD_CUR_NB,  F       ; //count ad times
             AD_VAC_START:
             CLRF        EN_ADC
             BTFSS       TAD_VAC,    7
             DECFSZ      TAD_VAC,    F
             RETFIE
-            MOVLW       AIN_VAC*4+1
+            MOVLW       AIN_VAC*4+1          ;//AN5, zero across start
             MOVWF       ADCON0
-            MOVLW       0X20
+            MOVLW       0X20                 ; left adjustied
             MOVWF       ADCON1
             BSF         EN_ADC,     0
             RETFIE
@@ -647,7 +658,7 @@ void interrupt INTSR( void )
             AD_VAC_READ:
             BTFSC       ADCON0,     1
             GOTO        $-1                     ; ?
-            MOVF        ADRESH,     W
+            MOVF        ADRESH,     W           ; zero across, left, ad High 
             SUBLW       128
             BTFSS       STATUS,     C
             SUBLW       0
@@ -657,40 +668,40 @@ void interrupt INTSR( void )
             BTFSS       TAD_VRS,    7
             DECFSZ      TAD_VRS,    F
             RETFIE
-            MOVLW       AIN_VRS*4+1
+            MOVLW       AIN_VRS*4+1             ; AN6, variable resistor, speed   
             MOVWF       ADCON0
-            MOVLW       0X20
+            MOVLW       0X20                    ; left adjustied
             MOVWF       ADCON1
             BSF         EN_ADC,     0
             RETFIE
             ;++++++++++++++++++++++++++++++++++++++++++++++
             ISR_BRCH_2:
             TST0_PRO:
-            BTFSS       TM_TST0,    7
-            DECFSZ      TM_TST0,    F
-            GOTO        TST0_PRO_E
+            BTFSS       TM_TST0,    7    ;
+            DECFSZ      TM_TST0,    F    ; TM_TST0<=127 --
+            GOTO        TST0_PRO_E       ; TM_TST0>127 exit
             MOVF        TS_SCAN,    W
             XORWF       AC_SCAN,    W
             XORLW       0X80
             RLF         WREG,       W
-            RLF         DR_TST0,    F
+            RLF         DR_TST0,    F    ; test "C", rotate 8 times to 0xFF
             TST0_PRO_E:
             BTFSS       EN_ADC,     0
             GOTO        AD_NTC_START
             AD_VRS_READ:
             BTFSC       ADCON0,     1
-            GOTO        $-1                     ; ?
-            MOVF        ADRESH,     W
+            GOTO        $-1                     ; 
+            MOVF        ADRESH,     W           ; variable resistor, ad high, left
             MOVWF       AD_VRS
             AD_NTC_START:
             CLRF        EN_ADC
             BTFSS       TAD_NTC,    7
             DECFSZ      TAD_NTC,    F
             RETFIE
-            MOVLW       AIN_NTC*4+1
+            MOVLW       AIN_NTC*4+1             ;//AN3,NTC
             MOVWF       ADCON0
             MOVLW       0X20
-            MOVWF       ADCON1
+            MOVWF       ADCON1                  ;//Left justified. 1Mhz
             BSF         EN_ADC,     0
             RETFIE
             ;++++++++++++++++++++++++++++++++++++++++++++++
@@ -703,19 +714,19 @@ void interrupt INTSR( void )
             XORWF       AC_SCAN,    W
             XORLW       0X80
             RLF         WREG,       W
-            RLF         DR_TST1,    F
+            RLF         DR_TST1,    F           ; test "C", rotate 8 times to 0xFF
             TST1_PRO_E:
             BTFSS       EN_ADC,     0
             GOTO        AD_CUR_START
             AD_NTC_READ:
             BTFSC       ADCON0,     1
-            GOTO        $-1                     ; ?
+            GOTO        $-1                     ; //waiting for done
             MOVF        ADRESH,     W
-            MOVWF       AD_NTC
+            MOVWF       AD_NTC                  ; //left adjustified. NTC
             AD_CUR_START:
-            MOVLW       AIN_CUR*4+1
+            MOVLW       AIN_CUR*4+1             ; //AN9,current
             MOVWF       ADCON0
-            MOVLW       0XA0
+            MOVLW       0XA0                    ; //right adjustified
             MOVWF       ADCON1
             BSF         EN_ADC,     0
             RETFIE

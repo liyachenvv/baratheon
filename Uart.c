@@ -9,10 +9,10 @@
 #include "Globals.h"
 #include "Uart.h"
 
-U8   SRL_Getc( U8 * c )
+U8   SRL_Getc( U8 * c )  //SerialLogic
   {
     if ( !rxCNT ) return 0;
-    *c = rxFIFO[ rxRDP & 31 ];
+    *c = rxFIFO[ rxRDP & 31 ];  //rxReceiveDataPosition
     rxRDP++;
     rxCNT--;
     return 0;
@@ -38,7 +38,7 @@ U8   SRL_Gets( U8 * s )
 U8   SRL_Putc( U8 c )
   {
     if ( txCNT >= 32 ) return 0;
-    txFIFO[ txWRP & 31 ] = c;
+    txFIFO[ txWRP & 31 ] = c;    //txWriteDataPosition
     txWRP++;
     txCNT++;
     return 1;

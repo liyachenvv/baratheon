@@ -13,6 +13,8 @@
 #define TRIAC_TIME_SET( t )   do { __DI( ); tmTriac  = t;   __EI( ); } while(0)
 #define MOTOR_ERROR_SET( e )  do { if ( !mtrError ) mtrError = e; } while(0)
 
+//ad to temperature Ntc, high temp->resistor reduce->voltage low->ad low
+//ad 0->127 degree. ad[13*8]=ad[104] -->100 degree ad 255 ->0 degree
 CROM U8 ad2tpr[ 256 ] =
   {
     127, 127, 127, 127, 127, 127, 127, 127, 
@@ -71,8 +73,8 @@ void CAL_MtrTemp( void )
             if ( !err )
               {
                 er1 = 0;
-                mtrTemp = ad2tpr[ sum >> 2 ];
-                if ( mtrTemp >= 104 )
+                mtrTemp = ad2tpr[ sum >> 2 ];  //add 4 times, get average
+                if ( mtrTemp >= 104 )  //104 degree, over heat
                   {
                     MOTOR_ERROR_SET( E_ERR_OVER_HEAT );
                   }
@@ -90,7 +92,7 @@ void CAL_MtrTemp( void )
 
 void CAL_MtrCurrent( void )
   {
-    static XRAM U16 tmOVC = 0;
+    static XRAM U16 tmOVC = 0;  //over current
     U32 s, n;
     if ( !acCycleHalf )
       {
@@ -102,14 +104,14 @@ void CAL_MtrCurrent( void )
         n = ( U32 )adCurN;
         adCurN = 0;
         s = ( U32 )SQRT32( s );
-        n = ( U32 )SQRT32( n << 16 );
-        mtrCurrent = ( U16 )( ( 25600UL*4800UL/50UL/1023UL ) * s / n );
+        n = ( U32 )SQRT32( n << 16 );   //SQRT32(N)*SQRTT(65536)=(n^0.5)*256
+        mtrCurrent = ( U16 )( ( 25600UL*4800UL/50UL/1023UL ) * s / n );  //2402*s/n=6.6*sqrt(adcur2/adcurN)
       }
-    if ( mtrCurrent < CUR_THR /*|| ( mtrSpeedRef & 1 )*/ )
+    if ( mtrCurrent < CUR_THR /*|| ( mtrSpeedRef & 1 )*/ )   //1000  ->adcur2=SQ8[151]  10A?
       {
         tmOVC = 0;
       }
-    else if ( ++tmOVC >= 600 )
+    else if ( ++tmOVC >= 600 )  
       {
         MOTOR_ERROR_SET( E_ERR_OVER_CURRENT );
       }
@@ -120,7 +122,7 @@ void CAL_MtrSpeed( void )
     static XRAM U16 tmZSP = 0;
     U8  n, i, j;
     U16 t;
-    if ( ++mtrHallWDT >= 50 )
+    if ( ++mtrHallWDT >= 50 )  //motor hall window time
       {
         mtrHallWDT = 50;
         mtrHallEvent = 0;
@@ -132,24 +134,24 @@ void CAL_MtrSpeed( void )
         n = mtrHallEvent - 2;
         i = mtrHallIndex - 1;
         j = 0;
-        if ( n < 4 )
+        if ( n < 4 )   //mtrHallEvent <6, 0-5
           {
             j = n;
-            t = mtrHallTime[ i & 31 ] - mtrHallTime[ i - j & 31 ];
+            t = mtrHallTime[ i & 31 ] - mtrHallTime[ i - j & 31 ];//[mtrHallIndex - 1-mtrHallEvent +2, mtrHallIndex - 1]
           }
         else while ( 1 )
           {
-            n -= 4;
-            j += 4;
+            n -= 4;  //max 24 20 16 12 8 4 0
+            j += 4;  //max  4 8  12 16 20 24 28
             t = mtrHallTime[ i & 31 ] - mtrHallTime[ i - j & 31 ];
             if ( n < 4 ) break;
             if ( t >= 1600 ) break;
           }
-        mtrSpeed = ( U16 )( 600000UL * ( U32 )j / ( U32 )t );
+        mtrSpeed = ( U16 )( 600000UL * ( U32 )j / ( U32 )t );//10500
       }
-    if ( tmTriac <= ( U16 )( acCycleHalf ) || mtrSpeed >= 300 )
+    if ( tmTriac <= ( U16 )( acCycleHalf ) || mtrSpeed >= 300 )   //mtrSpeed >= 300 is normal speed.
       {
-        tmZSP = 0;
+        tmZSP = 0;   //temp value zero speed
       }
     else if ( ++tmZSP >= 300 )
       {
@@ -173,11 +175,11 @@ void CAL_AcPeriod( void )
       {
         acCrossEvent = 5;
         i = acCrossIndex - 1;
-        t = ( acCrossTime[ i & 7 ] - acCrossTime[ i - 4 & 7 ] ) >> 3;
-        if ( 300 < t && t < 500 )
+        t = ( acCrossTime[ i & 7 ] - acCrossTime[ i - 4 & 7 ] ) >> 3;  //(i-4) & 7
+        if ( 300 < t && t < 500 )   //7.5ms-12.5ms  AC power:66Hz-40Hz
           {
-            acCycle = t;
-            acCycleHalf = t >> 3;
+            acCycle = t;  // for example: 400=10ms=400*25us
+            acCycleHalf = t >> 3;  //400/8=50 *25=1.25ms
           }
       }
     if ( acCycleHalf != 0 )
@@ -207,7 +209,7 @@ void MTR_Driver( void )
     if ( mtrSpeedRef == 0 || !acCycleHalf )
       {
         state = 0;
-        TRIAC_TIME_SET( 0 );
+        TRIAC_TIME_SET( 0 );   //not trig triac
       }
     else switch ( state )
       {
@@ -215,8 +217,8 @@ void MTR_Driver( void )
             TRIAC_TIME_SET( 0 );
             if ( acCycle )
               {
-                sref = mtrSpeedRef;
-                OLIM.W.H = 80;
+                sref = mtrSpeedRef;  //speed ref. goal
+                OLIM.W.H = 80;  
                 OLIM.W.L = 0;
                 SREG.kp = SREG_KP;
                 SREG.ki = SREG_KI;
@@ -224,7 +226,7 @@ void MTR_Driver( void )
                 SREG.e1 = 0;
                 SREG.ri.W.H = 60;
                 SREG.ri.W.L = 0;
-                SREG.ro.W.H = SREG.ri.W.H;
+                SREG.ro.W.H = SREG.ri.W.H;   //tmTriac
                 SREG.ro.W.L = SREG.ri.W.H;
                 state++;
                 time = 200;
@@ -239,31 +241,32 @@ void MTR_Driver( void )
                     sref = mtrSpeedRef;
                     OLIM.W.H = SREG.ro.W.H;
                   }
-                if ( mtrSpeedRef >= 13000 )
+                if ( mtrSpeedRef >= 13000 )   
                   {
-                    if ( time >= 25 ) time = 25;
-                    if ( mtrSpeedRef & 1 ) time = 0;
+                    if ( time >= 25 ) time = 25;   //max speed
+                    if ( mtrSpeedRef & 1 ) time = 0;  //pulse
                   }
-                max = ( S16 )( acCycle*54>>6 );
-                OLIM.D += (400UL<<16)/25;
-                if ( OLIM.W.H >= max ) OLIM.W.H = max; 
+                max = ( S16 )( acCycle*54>>6 );  //if accycle=400, max=337, tmTriac=8425 us. 50Hz.
+                // 500,max=421,tmTriac=10525 us. half cycle=12.5ms, frequency=40Hz.
+                OLIM.D += (400UL<<16)/25;   //1048576=1024*1024
+                if ( OLIM.W.H >= max ) OLIM.W.H = max; //OLIM.W.H is S16,max=32767, restrict to 337
                 err = ( S16 )( mtrSpeedRef - mtrSpeed );
-                if ( time || err < 0 )
+                if ( time || err < 0 )   // speed bigger than goal
                   {
-                    SREG.kp = SREG_KP_M;
+                    SREG.kp = SREG_KP_M;  //500
                   }
-                else
+                else   //speed lower than goal
                   {
-                    SREG.kp = SREG_KP;
+                    SREG.kp = SREG_KP;  //2000
                   }
                 PID_CAL( &SREG, err );
-                if ( mtrSpeedRef & 1 )
+                if ( mtrSpeedRef & 1 )  //pulse
                   {
-                    PID_LIM( &SREG, 40, max );
+                    PID_LIM( &SREG, 40, max );  //min tmTriac=40*25=1000us=1.0ms
                   }
-                else
+                else  // not pulse, fold,min-max speed
                   {
-                    PID_LIM( &SREG, 40, OLIM.W.H );
+                    PID_LIM( &SREG, 40, OLIM.W.H );  //max tmTriac=337*25=8.425ms
                   }
                 TRIAC_TIME_SET( SREG.ro.W.H );
               }

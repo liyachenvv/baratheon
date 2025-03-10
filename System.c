@@ -14,30 +14,31 @@
 #define SECOND  100UL
 #define MINUTE  SECOND*60
 
-void CAL_MtrLevel( void )
+//ad variable resistor,-> speed level
+void CAL_MtrLevel( void )   
   {
     U8  ofs;
     U8  ad;
     ofs = SVC_GetTuneValue( );
-    if ( ofs < 20 )
+    if ( ofs < 20 )  //20 is TUNE_VALUE_DEFAULT
       {
         ofs = 20 - ofs;
         ad = adVrs + ofs;
-        if ( ad < adVrs ) ad = 255;
+        if ( ad < adVrs ) ad = 255;   //? x
       }
     else
       {
         ofs = ofs - 20;
         ad = adVrs - ofs;
-        if ( ad > adVrs ) ad = 0;
+        if ( ad > adVrs ) ad = 0;  //?  x
       }
-    if      ( !acCycleHalf )  mtrLevel = 0;
-    else if ( ad <  12     )  mtrLevel = 10;
-    else if ( ad <  42 - 1 )  mtrLevel = 1;
+    if      ( !acCycleHalf )  mtrLevel = 0;   //no ac power,no zero across, stop
+    else if ( ad <  12     )  mtrLevel = 10;  //pulse 13501 rps, &1 to distinguish max.
+    else if ( ad <  42 - 1 )  mtrLevel = 1;  //2500 fold
     else if ( ad <  42 + 1 )  mtrLevel = mtrLevel < 2 ? 1 : 2;
-    else if ( ad <  94 - 1 )  mtrLevel = 2;
+    else if ( ad <  94 - 1 )  mtrLevel = 2;  //3000 min
     else if ( ad <  94 + 1 )  mtrLevel = mtrLevel < 3 ? 2 : 3;
-    else if ( ad < 117 - 1 )  mtrLevel = 3;
+    else if ( ad < 117 - 1 )  mtrLevel = 3;  //4000
     else if ( ad < 117 + 1 )  mtrLevel = mtrLevel < 4 ? 3 : 4;
     else if ( ad < 137 - 1 )  mtrLevel = 4;
     else if ( ad < 137 + 1 )  mtrLevel = mtrLevel < 5 ? 4 : 5;
@@ -49,16 +50,17 @@ void CAL_MtrLevel( void )
     else if ( ad < 209 + 1 )  mtrLevel = mtrLevel < 8 ? 7 : 8;
     else if ( ad < 240 - 1 )  mtrLevel = 8;
     else if ( ad < 240 + 1 )  mtrLevel = mtrLevel < 9 ? 8 : 9;
-    else                      mtrLevel = 9;
+    else                      mtrLevel = 9;  //Max, 13500
   }
 
-void CAL_TuneValue( void )
+//calibrate variable resistor
+void CAL_TuneValue( void )  
   {
     static XRAM U8 state = 0;
     static XRAM U16 time = 0;
     static XRAM U8 min = 0;
     static XRAM U8 max = 0;
-    if ( time ) time--;
+    if ( time ) time--;   //10ms each time
     switch ( state )
       {
         case 0:
@@ -69,7 +71,7 @@ void CAL_TuneValue( void )
               }
             break;
         case 1:
-            if ( !time )
+            if ( !time )  //60ms
               {
                 if ( mtrLevel == 10 )
                   {
@@ -85,7 +87,7 @@ void CAL_TuneValue( void )
             if ( mtrLevel == 1 )
               {
                 state++;
-                time = 300;
+                time = 300;  //stop at fold, hold 3s
               }
             break;
         case 3:
@@ -93,7 +95,7 @@ void CAL_TuneValue( void )
               {
                 state = 255;
               }
-            else if ( time >= 100 )
+            else if ( time >= 100 )  //3s-1s=2s
               {
                 min = adVrs;
                 max = adVrs;
@@ -104,7 +106,7 @@ void CAL_TuneValue( void )
                 if ( adVrs > max ) max = adVrs;
                 if ( !time )
                   {
-                    if ( min < 10 || max >= 30 )
+                    if ( min < 10 || max >= 30 )   //default 20
                       {
                         state = 255;
                       }
@@ -116,7 +118,7 @@ void CAL_TuneValue( void )
               }
             break;
         case 4:
-            SVC_SetTuneValue( ( min + max ) >> 1 );
+            SVC_SetTuneValue( ( min + max ) >> 1 );  //average
             state = 255;
             break;
         default:
@@ -126,8 +128,8 @@ void CAL_TuneValue( void )
 
 void SYS_Init( void )
   {
-    sysStatus = E_SYS_INIT;
-    sysLevel  = E_LVL_STOP;
+    sysStatus = E_SYS_INIT;  //0
+    sysLevel  = E_LVL_STOP;  //0
     sysFault  = 0;
     mtrLevel  = 0;
   }
@@ -143,7 +145,7 @@ void SYS_Ctrl( void )
         case E_SYS_INIT:
             mtrSpeedRef = 0;
             sysStatus = E_SYS_PREPARE;
-            time = SECOND*5;
+            time = SECOND*5;   //500*10ms=5s
             break;
         case E_SYS_PREPARE:
             mtrSpeedRef = 0;
@@ -151,12 +153,12 @@ void SYS_Ctrl( void )
               {
                 sysFault = mtrError;
                 sysStatus = E_SYS_TURN_OFF;
-                time = SECOND/2;
+                time = SECOND/2;  //50
               }
             else if ( idrTest0 == 0xFF && idrTest1 == 0xFF && mtrTemp >= 0 )
               {
                 sysStatus = E_SYS_RUN;
-                time = MINUTE*30;
+                time = MINUTE*30;  //100*60*30
               }
             break;
         case E_SYS_RUN:
@@ -165,13 +167,13 @@ void SYS_Ctrl( void )
                 mtrSpeedRef = 0;
                 sysFault = mtrError;
                 sysStatus = E_SYS_TURN_OFF;
-                time = SECOND/2;
+                time = SECOND/2;  //50
               }
             else switch ( mtrLevel )
               {
-                default:    // Stop
+                default:    // 0 Stop
                     sysLevel = E_LVL_STOP;
-                    mtrSpeedRef = 0;
+                    mtrSpeedRef = 0;  //speed goal
                     break;
                 case 1:     // Fold
                     sysLevel = E_LVL_1;
@@ -215,7 +217,7 @@ void SYS_Ctrl( void )
                     break;
               }
             break;
-        default:
+        default:  //E_SYS_TURN_OFF, E_SYS_OFF
             mtrSpeedRef = 0;
             if ( !time ) sysStatus = E_SYS_OFF;
             break;

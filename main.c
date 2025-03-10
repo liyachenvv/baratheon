@@ -19,20 +19,20 @@ void main( void )
       {
         __EI( );
         __WDTC( );
-        if ( sysTicks >= 100 )
+        if ( sysTicks >= 100 )    //10ms  
           {
-            sysTicks -= 100;
+            sysTicks -= 100;  //sysTicks every 100us inc 1.  100us*100=10ms
             MCU_Refresh( );
             COM_Ctrl( );
             MTR_Ctrl( );
             SYS_Ctrl( );
             SVC_Ctrl( );
-            if ( sysStatus != E_SYS_OFF || e2pWrFlags )
+            if ( sysStatus != E_SYS_OFF || e2pWrFlags )  // normal status
               {
-                offTime = 5;
+                offTime = 5;  //every 10ms refresh offtime. 
                 SYS_RELAY_ON( );
               }
-            else if ( --offTime == 0 )
+            else if ( --offTime == 0 )  //E_SYS_off longer than 50ms
               {
                 offTime = 1;
                 SYS_RELAY_OFF( );

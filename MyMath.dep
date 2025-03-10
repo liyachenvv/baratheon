@@ -1,9 +1,9 @@
-C:\Program Files\HI-TECH Software\PICC\9.83\include\pic16f1829.h
-E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A17\MyMath.h
-E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A17\PicTypes.h
-C:\Program Files\HI-TECH Software\PICC\9.83\include\htc.h
-E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A17\Globals.h
-C:\Program Files\HI-TECH Software\PICC\9.83\include\eeprom_routines.h
-C:\Program Files\HI-TECH Software\PICC\9.83\include\chip_select.h
-C:\Program Files\HI-TECH Software\PICC\9.83\include\pic.h
-E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A17\Hardware.h
+c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f1829.h
+D:\project\baratheon\baratheon\Hardware.h
+c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\htc.h
+c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\eeprom_routines.h
+c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\chip_select.h
+D:\project\baratheon\baratheon\Globals.h
+c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic.h
+D:\project\baratheon\baratheon\PicTypes.h
+D:\project\baratheon\baratheon\MyMath.h
