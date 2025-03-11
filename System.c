@@ -10,6 +10,7 @@
 #include "System.h"
 #include "Motor.h"
 #include "Service.h"
+#include "COM.h"
 
 #define SECOND  100UL
 #define MINUTE  SECOND*60
@@ -34,7 +35,7 @@ void CAL_MtrLevel( void )
       }
     if      ( !acCycleHalf )  mtrLevel = 0;   //no ac power,no zero across, stop
     else if ( ad <  12     )  mtrLevel = 10;  //pulse 13501 rps, &1 to distinguish max.
-    else if ( ad <  42 - 1 )  mtrLevel = 1;  //2500 fold
+    else if ( ad <  42 - 1 )  mtrLevel = 1;  //2500 fold  -->off
     else if ( ad <  42 + 1 )  mtrLevel = mtrLevel < 2 ? 1 : 2;
     else if ( ad <  94 - 1 )  mtrLevel = 2;  //3000 min
     else if ( ad <  94 + 1 )  mtrLevel = mtrLevel < 3 ? 2 : 3;
@@ -137,6 +138,23 @@ void SYS_Init( void )
 void SYS_Ctrl( void )
   {
     static XRAM U32 time = 0;
+    static XRAM U8 checkCount=0;
+    static XRAM U8  preAdvalue=20;
+    U8  ofs;
+    U8  ad;
+    ofs = SVC_GetTuneValue( );
+    if ( ofs < 20 )  //20 is TUNE_VALUE_DEFAULT
+      {
+        ofs = 20 - ofs;
+        ad = adVrs + ofs;
+        if ( ad < adVrs ) ad = 255;   //? x
+      }
+    else
+      {
+        ofs = ofs - 20;
+        ad = adVrs - ofs;
+        if ( ad > adVrs ) ad = 0;  //?  x
+      }
     CAL_MtrLevel( );
     CAL_TuneValue( );
     if ( time ) time--;
@@ -144,22 +162,58 @@ void SYS_Ctrl( void )
       {
         case E_SYS_INIT:
             mtrSpeedRef = 0;
-            sysStatus = E_SYS_PREPARE;
-            time = SECOND*5;   //500*10ms=5s
+            //preAdvalue=20;
+            //if(preStatus==0) {
+              if((preAdvalue>=ad) && (ad >10) && (ad <40) && (mtrLevel<3))
+              {
+                COM_Print(0x64);
+                COM_Print(preAdvalue);
+                COM_Print(0x63);
+                COM_Print(ad);
+                COM_Print(0x62);
+                COM_Print(mtrLevel);
+                sysStatus = E_SYS_PREPARE;
+                time=50;
+                //time = SECOND*5;   //500*10ms=5s
+                preStatus=1;
+              }
+              preAdvalue=ad;
+            //}
+            //else {
+            //  sysStatus = E_SYS_PREPARE;
+            //  time=100;
+              //time = SECOND*5;   //500*10ms=5s
+            //}
             break;
         case E_SYS_PREPARE:
             mtrSpeedRef = 0;
-            if ( mtrError || !time )
+            //if ( mtrError || !time )
+            //  {
+            //    sysFault = mtrError;
+            //    sysStatus = E_SYS_TURN_OFF;
+            //    time = SECOND/2;  //50
+            //  }
+            //else 
+            
+            if ( idrTest0 == 0xFF && idrTest1 == 0xFF && mtrTemp >= 0 )
               {
-                sysFault = mtrError;
-                sysStatus = E_SYS_TURN_OFF;
-                time = SECOND/2;  //50
+                if(preAdvalue>50 && preAdvalue<ad && mtrLevel<3)
+                {
+                  COM_Print(0x50);
+                  COM_Print(preAdvalue);
+                  sysStatus = E_SYS_RUN;
+                  time = MINUTE*30;  //100*60*30
+                }
+                else if(mtrLevel<3 && ad< 64) {
+                  sysStatus = E_SYS_RUN;
+                  time = MINUTE*30;  //100*60*30
+                  COM_Print(0x3c);
+                }
+                else {
+                  COM_Print(0x14);
+                }
               }
-            else if ( idrTest0 == 0xFF && idrTest1 == 0xFF && mtrTemp >= 0 )
-              {
-                sysStatus = E_SYS_RUN;
-                time = MINUTE*30;  //100*60*30
-              }
+            preAdvalue=ad;
             break;
         case E_SYS_RUN:
             if ( mtrError || !time )
@@ -175,9 +229,9 @@ void SYS_Ctrl( void )
                     sysLevel = E_LVL_STOP;
                     mtrSpeedRef = 0;  //speed goal
                     break;
-                case 1:     // Fold
-                    sysLevel = E_LVL_1;
-                    mtrSpeedRef = 2500;
+                case 1:     // Fold  ->off
+                    sysLevel = E_LVL_STOP;
+                    mtrSpeedRef = 0;
                     break;
                 case 2:     // Min
                     sysLevel = E_LVL_1;

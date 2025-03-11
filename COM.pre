@@ -2895,6 +2895,7 @@ extern U8 E2P_ReadByte( U8 addr );
 extern  U8 sysStatus;
 
 extern  U8 sysFault;
+extern U8 preStatus;
 
 # 37
 extern  U8 sysLevel;
@@ -2925,6 +2926,7 @@ extern U8 SRL_Puts( U8 * s, U8 n );
 # 20 "D:\project\baratheon\baratheon\COM.h"
  void COM_Init( void );
  void COM_Ctrl( void );
+ void COM_Print( U16 n );
 
 # 15 "D:\project\baratheon\baratheon\COM.c"
 void COM_Print( U16 n )
@@ -2981,6 +2983,11 @@ SRL_Putc( ',' );
 COM_Print( ( U16 )mtrTemp );
 SRL_Putc( ',' );
 COM_Print( ( U16 )E2P_ReadByte( 0xFE ) );
+SRL_Putc( ',' );
+COM_Print( sysFault );
+SRL_Putc( ',' );
+COM_Print( sysStatus );
+
 SRL_Putc( '\r' );
 SRL_Putc( '\n' );
 }

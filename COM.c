@@ -48,7 +48,7 @@ void COM_Init( void )
 void COM_Ctrl( void )
   {
     static XRAM U8 t = 0;
-    if ( ++t >= 50 )
+    if ( ++t >= 50 )   //500ms
       {
         t = 0;   //totally 25 Bytes
         COM_Print( ( U16 )mtrLevel );  //2
@@ -66,6 +66,11 @@ void COM_Ctrl( void )
         COM_Print( ( U16 )mtrTemp );//2
         SRL_Putc( ',' );//1
         COM_Print( ( U16 )E2P_ReadByte( 0xFE ) );//2
+        SRL_Putc( ',' );//1
+        COM_Print( sysFault );
+        SRL_Putc( ',' );//1
+        COM_Print( sysStatus );
+
         SRL_Putc( '\r' );//1
         SRL_Putc( '\n' );//1
       }

@@ -2075,6 +2075,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _mtrTemp `c  0 e ]
 "101 D:\project\baratheon\baratheon\Hardware.h
 [v _E2P_ReadByte `(uc  0 ef1`uc ]
+"27 D:\project\baratheon\baratheon\System.h
+[v _sysFault `uc  0 e ]
+"25 D:\project\baratheon\baratheon\System.h
+[v _sysStatus `uc  0 e ]
 [; ;pic16f1829.h: 132: volatile unsigned char INDF0 @ 0x000;
 [; ;pic16f1829.h: 136: volatile unsigned char INDF1 @ 0x001;
 [; ;pic16f1829.h: 140: volatile unsigned char PCL @ 0x002;
@@ -4109,6 +4113,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Hardware.h: 101: extern U8 E2P_ReadByte( U8 addr );
 [; ;System.h: 25: extern  U8 sysStatus;
 [; ;System.h: 27: extern  U8 sysFault;
+[; ;System.h: 28: extern U8 preStatus;
 [; ;System.h: 37: extern  U8 sysLevel;
 [; ;System.h: 39: extern  U8 mtrLevel;
 [; ;System.h: 41: extern void SYS_Init( void );
@@ -4126,6 +4131,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Uart.h: 23: extern U8 SRL_Puts( U8 * s, U8 n );
 [; ;COM.h: 20: void COM_Init( void );
 [; ;COM.h: 21: void COM_Ctrl( void );
+[; ;COM.h: 22: void COM_Print( U16 n );
 "16 D:\project\baratheon\baratheon\COM.c
 [v _COM_Print `(v  1 ef1`us ]
 {
@@ -4237,20 +4243,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _COM_Ctrl ]
 [f ]
 "50
-[v F2599 `uc  1 s t ]
-[i F2599
+[v F2601 `uc  1 s t ]
+[i F2601
 -> -> 0 `i `uc
 ]
 [; ;COM.c: 50: static  U8 t = 0;
 [; ;COM.c: 51: if ( ++t >= 50 )
 "51
-[e $ ! >= -> =+ F2599 -> -> 1 `i `uc `i -> 50 `i 267  ]
+[e $ ! >= -> =+ F2601 -> -> 1 `i `uc `i -> 50 `i 267  ]
 [; ;COM.c: 52: {
 "52
 {
 [; ;COM.c: 53: t = 0;
 "53
-[e = F2599 -> -> 0 `i `uc ]
+[e = F2601 -> -> 0 `i `uc ]
 [; ;COM.c: 54: COM_Print( ( U16 )mtrLevel );
 "54
 [e ( _COM_Print (1 -> _mtrLevel `us ]
@@ -4296,17 +4302,29 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;COM.c: 68: COM_Print( ( U16 )E2P_ReadByte( 0xFE ) );
 "68
 [e ( _COM_Print (1 -> ( _E2P_ReadByte (1 -> -> 254 `i `uc `us ]
-[; ;COM.c: 69: SRL_Putc( '\r' );
+[; ;COM.c: 69: SRL_Putc( ',' );
 "69
-[e ( _SRL_Putc (1 -> -> 13 `ui `uc ]
-[; ;COM.c: 70: SRL_Putc( '\n' );
+[e ( _SRL_Putc (1 -> -> 44 `ui `uc ]
+[; ;COM.c: 70: COM_Print( sysFault );
 "70
-[e ( _SRL_Putc (1 -> -> 10 `ui `uc ]
+[e ( _COM_Print (1 -> _sysFault `us ]
+[; ;COM.c: 71: SRL_Putc( ',' );
 "71
+[e ( _SRL_Putc (1 -> -> 44 `ui `uc ]
+[; ;COM.c: 72: COM_Print( sysStatus );
+"72
+[e ( _COM_Print (1 -> _sysStatus `us ]
+[; ;COM.c: 74: SRL_Putc( '\r' );
+"74
+[e ( _SRL_Putc (1 -> -> 13 `ui `uc ]
+[; ;COM.c: 75: SRL_Putc( '\n' );
+"75
+[e ( _SRL_Putc (1 -> -> 10 `ui `uc ]
+"76
 }
 [e :U 267 ]
-[; ;COM.c: 71: }
-[; ;COM.c: 72: }
-"72
+[; ;COM.c: 76: }
+[; ;COM.c: 77: }
+"77
 [e :UE 266 ]
 }

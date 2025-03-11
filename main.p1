@@ -4118,6 +4118,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Hardware.h: 101: extern U8 E2P_ReadByte( U8 addr );
 [; ;COM.h: 20: extern void COM_Init( void );
 [; ;COM.h: 21: extern void COM_Ctrl( void );
+[; ;COM.h: 22: extern void COM_Print( U16 n );
 [; ;Motor.h: 36: extern  U16 mtrSpeedRef;
 [; ;Motor.h: 37: extern  U16 mtrSpeed;
 [; ;Motor.h: 38: extern  U16 mtrCurrent;
@@ -4127,6 +4128,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Motor.h: 50: extern void MTR_Ctrl( void );
 [; ;System.h: 25: extern  U8 sysStatus;
 [; ;System.h: 27: extern  U8 sysFault;
+[; ;System.h: 28: extern U8 preStatus;
 [; ;System.h: 37: extern  U8 sysLevel;
 [; ;System.h: 39: extern  U8 mtrLevel;
 [; ;System.h: 41: extern void SYS_Init( void );
@@ -4144,8 +4146,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _main ]
 [f ]
 "11
-[v F2591 `uc  1 s offTime ]
-[i F2591
+[v F2594 `uc  1 s offTime ]
+[i F2594
 -> -> 0 `i `uc
 ]
 [; ;main.c: 11: static U8 offTime = 0;
@@ -4211,7 +4213,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;main.c: 32: offTime = 5;
 "32
-[e = F2591 -> -> 5 `i `uc ]
+[e = F2594 -> -> 5 `i `uc ]
 [; ;main.c: 33: LATB6 = 1;
 "33
 [e = _LATB6 -> -> 1 `i `b ]
@@ -4222,13 +4224,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 "35
 [e :U 265 ]
 [; ;main.c: 35: else if ( --offTime == 0 )
-[e $ ! == -> =- F2591 -> -> 1 `i `uc `i -> 0 `i 267  ]
+[e $ ! == -> =- F2594 -> -> 1 `i `uc `i -> 0 `i 267  ]
 [; ;main.c: 36: {
 "36
 {
 [; ;main.c: 37: offTime = 1;
 "37
-[e = F2591 -> -> 1 `i `uc ]
+[e = F2594 -> -> 1 `i `uc ]
 [; ;main.c: 38: LATB6 = 0;
 "38
 [e = _LATB6 -> -> 0 `i `b ]

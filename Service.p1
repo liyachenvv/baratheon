@@ -4166,6 +4166,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Service.h: 78: void SVC_SetTuneValue( U8 value );
 [; ;System.h: 25: extern  U8 sysStatus;
 [; ;System.h: 27: extern  U8 sysFault;
+[; ;System.h: 28: extern U8 preStatus;
 [; ;System.h: 37: extern  U8 sysLevel;
 [; ;System.h: 39: extern  U8 mtrLevel;
 [; ;System.h: 41: extern void SYS_Init( void );
@@ -5085,20 +5086,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _SVC_Timer ]
 [f ]
 "383
-[v F2709 `uc  1 s tmSEC ]
-[i F2709
+[v F2710 `uc  1 s tmSEC ]
+[i F2710
 -> -> 0 `i `uc
 ]
 [; ;Service.c: 383: static  U8 tmSEC = 0;
 [; ;Service.c: 384: if ( ++tmSEC >= 100 )
 "384
-[e $ ! >= -> =+ F2709 -> -> 1 `i `uc `i -> 100 `i 322  ]
+[e $ ! >= -> =+ F2710 -> -> 1 `i `uc `i -> 100 `i 322  ]
 [; ;Service.c: 385: {
 "385
 {
 [; ;Service.c: 386: tmSEC = 0;
 "386
-[e = F2709 -> -> 0 `i `uc ]
+[e = F2710 -> -> 0 `i `uc ]
 [; ;Service.c: 387: if ( ++powerOnTime.s >= 60 )
 "387
 [e $ ! >= -> =+ . _powerOnTime 0 -> -> 1 `i `uc `i -> 60 `i 323  ]
@@ -5148,23 +5149,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _REC_SpeedWorking ]
 [f ]
 "402
-[v F2715 `uc  1 s level ]
-[i F2715
--> -> 0 `i `uc
-]
-"403
-[v F2716 `uc  1 s lsLvl ]
+[v F2716 `uc  1 s level ]
 [i F2716
 -> -> 0 `i `uc
 ]
-"404
-[v F2717 `uc  1 s cnLvl ]
+"403
+[v F2717 `uc  1 s lsLvl ]
 [i F2717
 -> -> 0 `i `uc
 ]
-"405
-[v F2718 `S261  1 s tmLvl ]
+"404
+[v F2718 `uc  1 s cnLvl ]
 [i F2718
+-> -> 0 `i `uc
+]
+"405
+[v F2719 `S261  1 s tmLvl ]
+[i F2719
 :U ..
 :U ..
 -> -> 0 `i `uc
@@ -5179,19 +5180,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Service.c: 405: static  H1M1S1 tmLvl = { 0, 0, 0 };
 [; ;Service.c: 406: H1M1S1_ADD( &tmLvl, 1 );
 "406
-[e ( _H1M1S1_ADD (2 , &U F2718 -> -> 1 `i `uc ]
+[e ( _H1M1S1_ADD (2 , &U F2719 -> -> 1 `i `uc ]
 [; ;Service.c: 407: if ( sysLevel != lsLvl )
 "407
-[e $ ! != -> _sysLevel `i -> F2716 `i 325  ]
+[e $ ! != -> _sysLevel `i -> F2717 `i 325  ]
 [; ;Service.c: 408: {
 "408
 {
 [; ;Service.c: 409: lsLvl = sysLevel;
 "409
-[e = F2716 _sysLevel ]
+[e = F2717 _sysLevel ]
 [; ;Service.c: 410: cnLvl = 0;
 "410
-[e = F2717 -> -> 0 `i `uc ]
+[e = F2718 -> -> 0 `i `uc ]
 "411
 }
 [; ;Service.c: 411: }
@@ -5199,13 +5200,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 "412
 [e :U 325 ]
 [; ;Service.c: 412: else if ( cnLvl < 2 )
-[e $ ! < -> F2717 `i -> 2 `i 327  ]
+[e $ ! < -> F2718 `i -> 2 `i 327  ]
 [; ;Service.c: 413: {
 "413
 {
 [; ;Service.c: 414: cnLvl++;
 "414
-[e ++ F2717 -> -> 1 `i `uc ]
+[e ++ F2718 -> -> 1 `i `uc ]
 "415
 }
 [; ;Service.c: 415: }
@@ -5213,31 +5214,31 @@ Version 3.2 HI-TECH Software Intermediate Code
 "416
 [e :U 327 ]
 [; ;Service.c: 416: else if ( sysLevel != level )
-[e $ ! != -> _sysLevel `i -> F2715 `i 329  ]
+[e $ ! != -> _sysLevel `i -> F2716 `i 329  ]
 [; ;Service.c: 417: {
 "417
 {
 [; ;Service.c: 418: H1M1S1_SUB( &tmLvl, 3 );
 "418
-[e ( _H1M1S1_SUB (2 , &U F2718 -> -> 3 `i `uc ]
+[e ( _H1M1S1_SUB (2 , &U F2719 -> -> 3 `i `uc ]
 [; ;Service.c: 419: if ( level && level < 8 )
 "419
-[e $ ! && != -> F2715 `i -> -> -> 0 `i `uc `i < -> F2715 `i -> 8 `i 330  ]
+[e $ ! && != -> F2716 `i -> -> -> 0 `i `uc `i < -> F2716 `i -> 8 `i 330  ]
 [; ;Service.c: 420: {
 "420
 {
 [; ;Service.c: 421: MEM_Cpy( ( U8* )&lastSpeedWorkingTime[ 0 ], ( U8* )&tmLvl, sizeof( H1M1S1 ) );
 "421
-[e ( _MEM_Cpy (3 , , -> &U *U + &U _lastSpeedWorkingTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _lastSpeedWorkingTime `ui `ux `*uc -> &U F2718 `*uc -> -> # `S261 `ui `uc ]
+[e ( _MEM_Cpy (3 , , -> &U *U + &U _lastSpeedWorkingTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _lastSpeedWorkingTime `ui `ux `*uc -> &U F2719 `*uc -> -> # `S261 `ui `uc ]
 [; ;Service.c: 422: if ( tmLvl.s < 30 )
 "422
-[e $ ! < -> . F2718 0 `i -> 30 `i 331  ]
+[e $ ! < -> . F2719 0 `i -> 30 `i 331  ]
 [; ;Service.c: 423: {
 "423
 {
 [; ;Service.c: 424: H2M1S1_ADD( &totalSpeedWorkingTime[ level - 1 ], tmLvl.s );
 "424
-[e ( _H2M1S1_ADD (2 , &U *U + &U _totalSpeedWorkingTime * -> -> - -> F2715 `i -> 1 `i `ui `ux -> -> # *U &U _totalSpeedWorkingTime `ui `ux . F2718 0 ]
+[e ( _H2M1S1_ADD (2 , &U *U + &U _totalSpeedWorkingTime * -> -> - -> F2716 `i -> 1 `i `ui `ux -> -> # *U &U _totalSpeedWorkingTime `ui `ux . F2719 0 ]
 "425
 }
 [; ;Service.c: 425: }
@@ -5250,7 +5251,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;Service.c: 428: H2M1S1_ADD( &totalSpeedWorkingTime[ level - 1 ], tmLvl.s - 30 );
 "428
-[e ( _H2M1S1_ADD (2 , &U *U + &U _totalSpeedWorkingTime * -> -> - -> F2715 `i -> 1 `i `ui `ux -> -> # *U &U _totalSpeedWorkingTime `ui `ux -> - -> . F2718 0 `i -> 30 `i `uc ]
+[e ( _H2M1S1_ADD (2 , &U *U + &U _totalSpeedWorkingTime * -> -> - -> F2716 `i -> 1 `i `ui `ux -> -> # *U &U _totalSpeedWorkingTime `ui `ux -> - -> . F2719 0 `i -> 30 `i `uc ]
 "429
 }
 [e :U 332 ]
@@ -5264,19 +5265,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Service.c: 431: }
 [; ;Service.c: 432: level = sysLevel;
 "432
-[e = F2715 _sysLevel ]
+[e = F2716 _sysLevel ]
 [; ;Service.c: 433: tmLvl.s = 3;
 "433
-[e = . F2718 0 -> -> 3 `i `uc ]
+[e = . F2719 0 -> -> 3 `i `uc ]
 [; ;Service.c: 434: tmLvl.m = 0;
 "434
-[e = . F2718 1 -> -> 0 `i `uc ]
+[e = . F2719 1 -> -> 0 `i `uc ]
 [; ;Service.c: 435: tmLvl.h = 0;
 "435
-[e = . F2718 2 -> -> 0 `i `uc ]
+[e = . F2719 2 -> -> 0 `i `uc ]
 [; ;Service.c: 436: if ( level && level < 8 )
 "436
-[e $ ! && != -> F2715 `i -> -> -> 0 `i `uc `i < -> F2715 `i -> 8 `i 333  ]
+[e $ ! && != -> F2716 `i -> -> -> 0 `i `uc `i < -> F2716 `i -> 8 `i 333  ]
 [; ;Service.c: 437: {
 "437
 {
@@ -5300,7 +5301,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _lastSpeedSetting * -> -> -> 1 `i `ui `ux -> -> # *U &U _lastSpeedSetting `ui `ux *U + &U _lastSpeedSetting * -> -> -> 0 `i `ui `ux -> -> # *U &U _lastSpeedSetting `ui `ux ]
 [; ;Service.c: 444: lastSpeedSetting[ 0 ] = 0XF0 + level;
 "444
-[e = *U + &U _lastSpeedSetting * -> -> -> 0 `i `ui `ux -> -> # *U &U _lastSpeedSetting `ui `ux -> + -> 240 `i -> F2715 `i `uc ]
+[e = *U + &U _lastSpeedSetting * -> -> -> 0 `i `ui `ux -> -> # *U &U _lastSpeedSetting `ui `ux -> + -> 240 `i -> F2716 `i `uc ]
 [; ;Service.c: 445: MEM_Cpy( ( U8* )&lastSpeedWorkingTime[ 6 ], ( U8* )&lastSpeedWorkingTime[ 5 ], sizeof( H1M1S1 ) );
 "445
 [e ( _MEM_Cpy (3 , , -> &U *U + &U _lastSpeedWorkingTime * -> -> -> 6 `i `ui `ux -> -> # *U &U _lastSpeedWorkingTime `ui `ux `*uc -> &U *U + &U _lastSpeedWorkingTime * -> -> -> 5 `i `ui `ux -> -> # *U &U _lastSpeedWorkingTime `ui `ux `*uc -> -> # `S261 `ui `uc ]
@@ -5321,10 +5322,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _MEM_Cpy (3 , , -> &U *U + &U _lastSpeedWorkingTime * -> -> -> 1 `i `ui `ux -> -> # *U &U _lastSpeedWorkingTime `ui `ux `*uc -> &U *U + &U _lastSpeedWorkingTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _lastSpeedWorkingTime `ui `ux `*uc -> -> # `S261 `ui `uc ]
 [; ;Service.c: 451: MEM_Cpy( ( U8* )&lastSpeedWorkingTime[ 0 ], ( U8* )&tmLvl, sizeof( H1M1S1 ) );
 "451
-[e ( _MEM_Cpy (3 , , -> &U *U + &U _lastSpeedWorkingTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _lastSpeedWorkingTime `ui `ux `*uc -> &U F2718 `*uc -> -> # `S261 `ui `uc ]
+[e ( _MEM_Cpy (3 , , -> &U *U + &U _lastSpeedWorkingTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _lastSpeedWorkingTime `ui `ux `*uc -> &U F2719 `*uc -> -> # `S261 `ui `uc ]
 [; ;Service.c: 452: H2M1S1_ADD( &totalSpeedWorkingTime[ level - 1 ], 3 );
 "452
-[e ( _H2M1S1_ADD (2 , &U *U + &U _totalSpeedWorkingTime * -> -> - -> F2715 `i -> 1 `i `ui `ux -> -> # *U &U _totalSpeedWorkingTime `ui `ux -> -> 3 `i `uc ]
+[e ( _H2M1S1_ADD (2 , &U *U + &U _totalSpeedWorkingTime * -> -> - -> F2716 `i -> 1 `i `ui `ux -> -> # *U &U _totalSpeedWorkingTime `ui `ux -> -> 3 `i `uc ]
 [; ;Service.c: 453: e2pWrFlags |= 0X01;
 "453
 [e =| _e2pWrFlags -> -> 1 `i `uc ]
@@ -5344,22 +5345,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;Service.c: 458: if ( level && level < 8 && ( tmLvl.s == 0 || tmLvl.s == 30 ) )
 "458
-[e $ ! && && != -> F2715 `i -> -> -> 0 `i `uc `i < -> F2715 `i -> 8 `i || == -> . F2718 0 `i -> 0 `i == -> . F2718 0 `i -> 30 `i 335  ]
+[e $ ! && && != -> F2716 `i -> -> -> 0 `i `uc `i < -> F2716 `i -> 8 `i || == -> . F2719 0 `i -> 0 `i == -> . F2719 0 `i -> 30 `i 335  ]
 [; ;Service.c: 459: {
 "459
 {
 [; ;Service.c: 460: MEM_Cpy( ( U8* )&lastSpeedWorkingTime[ 0 ], ( U8* )&tmLvl, sizeof( H1M1S1 ) );
 "460
-[e ( _MEM_Cpy (3 , , -> &U *U + &U _lastSpeedWorkingTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _lastSpeedWorkingTime `ui `ux `*uc -> &U F2718 `*uc -> -> # `S261 `ui `uc ]
+[e ( _MEM_Cpy (3 , , -> &U *U + &U _lastSpeedWorkingTime * -> -> -> 0 `i `ui `ux -> -> # *U &U _lastSpeedWorkingTime `ui `ux `*uc -> &U F2719 `*uc -> -> # `S261 `ui `uc ]
 [; ;Service.c: 461: if ( tmLvl.h == 0 && tmLvl.m == 0 && tmLvl.s == 30 )
 "461
-[e $ ! && && == -> . F2718 2 `i -> 0 `i == -> . F2718 1 `i -> 0 `i == -> . F2718 0 `i -> 30 `i 336  ]
+[e $ ! && && == -> . F2719 2 `i -> 0 `i == -> . F2719 1 `i -> 0 `i == -> . F2719 0 `i -> 30 `i 336  ]
 [; ;Service.c: 462: {
 "462
 {
 [; ;Service.c: 463: H2M1S1_ADD( &totalSpeedWorkingTime[ level - 1 ], 27 );
 "463
-[e ( _H2M1S1_ADD (2 , &U *U + &U _totalSpeedWorkingTime * -> -> - -> F2715 `i -> 1 `i `ui `ux -> -> # *U &U _totalSpeedWorkingTime `ui `ux -> -> 27 `i `uc ]
+[e ( _H2M1S1_ADD (2 , &U *U + &U _totalSpeedWorkingTime * -> -> - -> F2716 `i -> 1 `i `ui `ux -> -> # *U &U _totalSpeedWorkingTime `ui `ux -> -> 27 `i `uc ]
 "464
 }
 [; ;Service.c: 464: }
@@ -5372,7 +5373,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;Service.c: 467: H2M1S1_ADD( &totalSpeedWorkingTime[ level - 1 ], 30 );
 "467
-[e ( _H2M1S1_ADD (2 , &U *U + &U _totalSpeedWorkingTime * -> -> - -> F2715 `i -> 1 `i `ui `ux -> -> # *U &U _totalSpeedWorkingTime `ui `ux -> -> 30 `i `uc ]
+[e ( _H2M1S1_ADD (2 , &U *U + &U _totalSpeedWorkingTime * -> -> - -> F2716 `i -> 1 `i `ui `ux -> -> # *U &U _totalSpeedWorkingTime `ui `ux -> -> 30 `i `uc ]
 "468
 }
 [e :U 337 ]
@@ -5413,13 +5414,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _REC_WorkingTemp ]
 [f ]
 "480
-[v F2750 `c  1 s temp ]
-[i F2750
+[v F2751 `c  1 s temp ]
+[i F2751
 -> -> 0 `i `c
 ]
 "481
-[v F2751 `uc  1 s next ]
-[i F2751
+[v F2752 `uc  1 s next ]
+[i F2752
 -> -> 0 `i `uc
 ]
 [; ;Service.c: 480: static  S8 temp = 0;
@@ -5432,10 +5433,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;Service.c: 484: next = 0;
 "484
-[e = F2751 -> -> 0 `i `uc ]
+[e = F2752 -> -> 0 `i `uc ]
 [; ;Service.c: 485: temp = mtrTemp;
 "485
-[e = F2750 _mtrTemp ]
+[e = F2751 _mtrTemp ]
 "486
 }
 [; ;Service.c: 486: }
@@ -5464,13 +5465,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Service.c: 493: }
 [; ;Service.c: 494: if ( temp < mtrTemp )
 "494
-[e $ ! < -> F2750 `i -> _mtrTemp `i 343  ]
+[e $ ! < -> F2751 `i -> _mtrTemp `i 343  ]
 [; ;Service.c: 495: {
 "495
 {
 [; ;Service.c: 496: temp = mtrTemp;
 "496
-[e = F2750 _mtrTemp ]
+[e = F2751 _mtrTemp ]
 "497
 }
 [e :U 343 ]
@@ -5483,13 +5484,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;Service.c: 500: if ( next == 0 )
 "500
-[e $ ! == -> F2751 `i -> 0 `i 345  ]
+[e $ ! == -> F2752 `i -> 0 `i 345  ]
 [; ;Service.c: 501: {
 "501
 {
 [; ;Service.c: 502: next = 1;
 "502
-[e = F2751 -> -> 1 `i `uc ]
+[e = F2752 -> -> 1 `i `uc ]
 [; ;Service.c: 503: lastUseMaxMotorTemp[ 6 ] = lastUseMaxMotorTemp[ 5 ];
 "503
 [e = *U + &U _lastUseMaxMotorTemp * -> -> -> 6 `i `ui `ux -> -> # *U &U _lastUseMaxMotorTemp `ui `ux *U + &U _lastUseMaxMotorTemp * -> -> -> 5 `i `ui `ux -> -> # *U &U _lastUseMaxMotorTemp `ui `ux ]
@@ -5514,7 +5515,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Service.c: 509: }
 [; ;Service.c: 510: lastUseMaxMotorTemp[ 0 ] = temp;
 "510
-[e = *U + &U _lastUseMaxMotorTemp * -> -> -> 0 `i `ui `ux -> -> # *U &U _lastUseMaxMotorTemp `ui `ux -> F2750 `uc ]
+[e = *U + &U _lastUseMaxMotorTemp * -> -> -> 0 `i `ui `ux -> -> # *U &U _lastUseMaxMotorTemp `ui `ux -> F2751 `uc ]
 [; ;Service.c: 511: e2pWrFlags |= 0X08;
 "511
 [e =| _e2pWrFlags -> -> 8 `i `uc ]
@@ -5538,8 +5539,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _REC_Faults ]
 [f ]
 "518
-[v F2754 `uc  1 s fault ]
-[i F2754
+[v F2755 `uc  1 s fault ]
+[i F2755
 -> -> 0 `i `uc
 ]
 [; ;Service.c: 518: static  U8 fault = 0;
@@ -5551,7 +5552,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;Service.c: 521: fault = 0;
 "521
-[e = F2754 -> -> 0 `i `uc ]
+[e = F2755 -> -> 0 `i `uc ]
 "522
 }
 [; ;Service.c: 522: }
@@ -5559,13 +5560,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 "523
 [e :U 347 ]
 [; ;Service.c: 523: else if ( fault != sysFault )
-[e $ ! != -> F2754 `i -> _sysFault `i 349  ]
+[e $ ! != -> F2755 `i -> _sysFault `i 349  ]
 [; ;Service.c: 524: {
 "524
 {
 [; ;Service.c: 525: fault = sysFault;
 "525
-[e = F2754 _sysFault ]
+[e = F2755 _sysFault ]
 [; ;Service.c: 526: faultCode[ 6 ] = faultCode[ 5 ];
 "526
 [e = *U + &U _faultCode * -> -> -> 6 `i `ui `ux -> -> # *U &U _faultCode `ui `ux *U + &U _faultCode * -> -> -> 5 `i `ui `ux -> -> # *U &U _faultCode `ui `ux ]

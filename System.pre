@@ -2895,6 +2895,7 @@ extern U8 E2P_ReadByte( U8 addr );
   U8 sysStatus;
 
   U8 sysFault;
+ U8 preStatus;
 
 # 37
   U8 sysLevel;
@@ -2924,7 +2925,12 @@ extern void SVC_Ctrl( void );
 extern U8 SVC_GetTuneValue( void );
 extern void SVC_SetTuneValue( U8 value );
 
-# 18 "D:\project\baratheon\baratheon\System.c"
+# 20 "D:\project\baratheon\baratheon\COM.h"
+extern void COM_Init( void );
+extern void COM_Ctrl( void );
+extern void COM_Print( U16 n );
+
+# 19 "D:\project\baratheon\baratheon\System.c"
 void CAL_MtrLevel( void )
 {
 U8 ofs;
@@ -3047,6 +3053,23 @@ mtrLevel = 0;
 void SYS_Ctrl( void )
 {
 static  U32 time = 0;
+static  U8 checkCount=0;
+static  U8 preAdvalue=20;
+U8 ofs;
+U8 ad;
+ofs = SVC_GetTuneValue( );
+if ( ofs < 20 )
+{
+ofs = 20 - ofs;
+ad = adVrs + ofs;
+if ( ad < adVrs ) ad = 255;
+}
+else
+{
+ofs = ofs - 20;
+ad = adVrs - ofs;
+if ( ad > adVrs ) ad = 0;
+}
 CAL_MtrLevel( );
 CAL_TuneValue( );
 if ( time ) time--;
@@ -3054,22 +3077,48 @@ switch ( sysStatus )
 {
 case 0:
 mtrSpeedRef = 0;
+
+
+if((preAdvalue>=ad) && (ad >10) && (ad <50) && (mtrLevel<3))
+{
+COM_Print(0x64);
+COM_Print(preAdvalue);
+COM_Print(0x63);
+COM_Print(ad);
+COM_Print(0x62);
+COM_Print(mtrLevel);
 sysStatus = 1;
-time = 100UL*5;
+time=50;
+
+preStatus=1;
+}
+preAdvalue=ad;
+
+# 187
 break;
 case 1:
 mtrSpeedRef = 0;
-if ( mtrError || !time )
+
+# 198
+if ( idrTest0 == 0xFF && idrTest1 == 0xFF && mtrTemp >= 0 )
 {
-sysFault = mtrError;
-sysStatus = 3;
-time = 100UL/2;
-}
-else if ( idrTest0 == 0xFF && idrTest1 == 0xFF && mtrTemp >= 0 )
+if(preAdvalue>50 && preAdvalue<ad && mtrLevel<3)
 {
+COM_Print(0x50);
+COM_Print(preAdvalue);
 sysStatus = 2;
 time = 100UL*60*30;
 }
+else if(mtrLevel<3 && ad< 64) {
+sysStatus = 2;
+time = 100UL*60*30;
+COM_Print(0x3c);
+}
+else {
+COM_Print(0x14);
+}
+}
+preAdvalue=ad;
 break;
 case 2:
 if ( mtrError || !time )
@@ -3086,8 +3135,8 @@ sysLevel = 0;
 mtrSpeedRef = 0;
 break;
 case 1:
-sysLevel = 2;
-mtrSpeedRef = 2500;
+sysLevel = 0;
+mtrSpeedRef = 0;
 break;
 case 2:
 sysLevel = 2;

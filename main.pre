@@ -2894,6 +2894,7 @@ extern U8 E2P_ReadByte( U8 addr );
 # 20 "D:\project\baratheon\baratheon\COM.h"
 extern void COM_Init( void );
 extern void COM_Ctrl( void );
+extern void COM_Print( U16 n );
 
 # 36 "D:\project\baratheon\baratheon\Motor.h"
 extern  U16 mtrSpeedRef;
@@ -2911,6 +2912,7 @@ extern void MTR_Ctrl( void );
 extern  U8 sysStatus;
 
 extern  U8 sysFault;
+extern U8 preStatus;
 
 # 37
 extern  U8 sysLevel;

@@ -25,7 +25,7 @@
 EXTERN XRAM U8  sysStatus;
 
 EXTERN XRAM U8  sysFault;
-
+EXTERN U8  preStatus;
 #define E_LVL_STOP      0
 #define E_LVL_PULSE     1
 #define E_LVL_1         2
