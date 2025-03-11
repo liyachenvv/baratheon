@@ -4166,7 +4166,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Service.h: 78: void SVC_SetTuneValue( U8 value );
 [; ;System.h: 25: extern  U8 sysStatus;
 [; ;System.h: 27: extern  U8 sysFault;
-[; ;System.h: 28: extern U8 preStatus;
+[; ;System.h: 28: extern  U8 preStatus;
 [; ;System.h: 37: extern  U8 sysLevel;
 [; ;System.h: 39: extern  U8 mtrLevel;
 [; ;System.h: 41: extern void SYS_Init( void );

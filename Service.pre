@@ -2903,7 +2903,7 @@ extern U8 E2P_ReadByte( U8 addr );
 extern  U8 sysStatus;
 
 extern  U8 sysFault;
-extern U8 preStatus;
+extern  U8 preStatus;
 
 # 37
 extern  U8 sysLevel;

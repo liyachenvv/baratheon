@@ -2895,7 +2895,7 @@ extern U8 E2P_ReadByte( U8 addr );
   U8 sysStatus;
 
   U8 sysFault;
- U8 preStatus;
+  U8 preStatus;
 
 # 37
   U8 sysLevel;
@@ -2930,8 +2930,14 @@ extern void COM_Init( void );
 extern void COM_Ctrl( void );
 extern void COM_Print( U16 n );
 
-# 19 "D:\project\baratheon\baratheon\System.c"
-void CAL_MtrLevel( void )
+# 20 "D:\project\baratheon\baratheon\Uart.h"
+extern U8 SRL_Getc( U8 *c );
+extern U8 SRL_Gets( U8 * s );
+extern U8 SRL_Putc( U8 c );
+extern U8 SRL_Puts( U8 * s, U8 n );
+
+# 20 "D:\project\baratheon\baratheon\System.c"
+U8 CAL_MtrLevel( void )
 {
 U8 ofs;
 U8 ad;
@@ -2967,6 +2973,7 @@ else if ( ad < 209 + 1 ) mtrLevel = mtrLevel < 8 ? 7 : 8;
 else if ( ad < 240 - 1 ) mtrLevel = 8;
 else if ( ad < 240 + 1 ) mtrLevel = mtrLevel < 9 ? 8 : 9;
 else mtrLevel = 9;
+return ad;
 }
 
 
@@ -3054,73 +3061,127 @@ void SYS_Ctrl( void )
 {
 static  U32 time = 0;
 static  U8 checkCount=0;
-static  U8 preAdvalue=20;
-U8 ofs;
+static  U8 preAdvalue;
 U8 ad;
-ofs = SVC_GetTuneValue( );
-if ( ofs < 20 )
-{
-ofs = 20 - ofs;
-ad = adVrs + ofs;
-if ( ad < adVrs ) ad = 255;
-}
-else
-{
-ofs = ofs - 20;
-ad = adVrs - ofs;
-if ( ad > adVrs ) ad = 0;
-}
-CAL_MtrLevel( );
+static  U8 min;
+ad=CAL_MtrLevel( );
 CAL_TuneValue( );
 if ( time ) time--;
 switch ( sysStatus )
 {
 case 0:
 mtrSpeedRef = 0;
+if(min<12)
+min=68;
 
 
-if((preAdvalue>=ad) && (ad >10) && (ad <50) && (mtrLevel<3))
+
+if(checkCount==0 && acCycleHalf) {
+
+if((ad >12) && (ad<min)) min=ad;
+SRL_Putc('+');
+COM_Print(min);
+SRL_Putc('+');
+if((ad >12) && (ad <68) && (mtrLevel<3))
 {
+SRL_Putc('*');
 COM_Print(0x64);
 COM_Print(preAdvalue);
 COM_Print(0x63);
 COM_Print(ad);
 COM_Print(0x62);
 COM_Print(mtrLevel);
+SRL_Putc('*');
 sysStatus = 1;
 time=50;
 
 preStatus=1;
 }
+
+else if((ad >10) && (ad <94) && (preAdvalue >(ad+2))) {
+COM_Print(0x5a);
+COM_Print(preAdvalue);
+COM_Print(0x59);
+COM_Print(ad);
+COM_Print(0x58);
+COM_Print(mtrLevel);
+sysStatus = 1;
+time=50;
+preStatus=2;
+}
+
+else if((ad >43) && (preAdvalue >(ad+2))) {
+SRL_Putc('a');
+COM_Print(0x50);
+COM_Print(preAdvalue);
+COM_Print(0x4f);
+COM_Print(ad);
+COM_Print(0x4e);
+COM_Print(mtrLevel);
+SRL_Putc('a');
+sysStatus = 1;
+time=50;
+preStatus=3;
+}
+
+else if((ad > 12) && (ad <43) && (preAdvalue ==0) && (mtrLevel==1 || mtrLevel==2) ) {
+SRL_Putc('(');
+COM_Print(0x46);
+COM_Print(preAdvalue);
+COM_Print(0x45);
+COM_Print(ad);
+COM_Print(0x44);
+COM_Print(mtrLevel);
+SRL_Putc(')');
+
+
+sysStatus = 1;
+time=50;
+preStatus=4;
+
+}
 preAdvalue=ad;
 
-# 187
+}
+else if(checkCount!=0){
+sysStatus = 1;
+time=10;
+
+}
 break;
 case 1:
 mtrSpeedRef = 0;
+checkCount=1;
 
-# 198
+# 242
+if((ad >12) && (ad<min)) min=ad;
+SRL_Putc('+');
+COM_Print(min);
+SRL_Putc('+');
 if ( idrTest0 == 0xFF && idrTest1 == 0xFF && mtrTemp >= 0 )
 {
-if(preAdvalue>50 && preAdvalue<ad && mtrLevel<3)
+if(preStatus>0) {
+if(preAdvalue>68 && (preAdvalue+2)<ad)
+
 {
-COM_Print(0x50);
+SRL_Putc('=');
 COM_Print(preAdvalue);
+COM_Print(ad);
 sysStatus = 2;
 time = 100UL*60*30;
 }
-else if(mtrLevel<3 && ad< 64) {
-sysStatus = 2;
-time = 100UL*60*30;
-COM_Print(0x3c);
 }
 else {
+sysStatus = 2;
+time = 100UL*60*30;
 COM_Print(0x14);
+SRL_Putc(';');
 }
 }
 preAdvalue=ad;
 break;
 case 2:
+preStatus=0;
 if ( mtrError || !time )
 {
 mtrSpeedRef = 0;

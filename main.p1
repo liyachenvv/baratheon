@@ -4128,7 +4128,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Motor.h: 50: extern void MTR_Ctrl( void );
 [; ;System.h: 25: extern  U8 sysStatus;
 [; ;System.h: 27: extern  U8 sysFault;
-[; ;System.h: 28: extern U8 preStatus;
+[; ;System.h: 28: extern  U8 preStatus;
 [; ;System.h: 37: extern  U8 sysLevel;
 [; ;System.h: 39: extern  U8 mtrLevel;
 [; ;System.h: 41: extern void SYS_Init( void );
@@ -4169,88 +4169,88 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 17: SVC_Init( );
 "17
 [e ( _SVC_Init ..  ]
-[; ;main.c: 18: while ( 1 )
-"18
-[e :U 262 ]
-[; ;main.c: 19: {
+[; ;main.c: 19: while ( 1 )
 "19
-{
-[; ;main.c: 20: GIE = 1;
+[e :U 262 ]
+[; ;main.c: 20: {
 "20
-[e = _GIE -> -> 1 `i `b ]
-[; ;main.c: 21: asm(" CLRWDT        ");
+{
+[; ;main.c: 21: GIE = 1;
 "21
-[;  CLRWDT         ;#
-[; ;main.c: 22: if ( sysTicks >= 100 )
+[e = _GIE -> -> 1 `i `b ]
+[; ;main.c: 22: asm(" CLRWDT        ");
 "22
-[e $ ! >= -> _sysTicks `i -> 100 `i 264  ]
-[; ;main.c: 23: {
+[;  CLRWDT         ;#
+[; ;main.c: 23: if ( sysTicks >= 100 )
 "23
-{
-[; ;main.c: 24: sysTicks -= 100;
+[e $ ! >= -> _sysTicks `i -> 100 `i 264  ]
+[; ;main.c: 24: {
 "24
-[e =- _sysTicks -> -> 100 `i `uc ]
-[; ;main.c: 25: MCU_Refresh( );
+{
+[; ;main.c: 25: sysTicks -= 100;
 "25
-[e ( _MCU_Refresh ..  ]
-[; ;main.c: 26: COM_Ctrl( );
+[e =- _sysTicks -> -> 100 `i `uc ]
+[; ;main.c: 26: MCU_Refresh( );
 "26
-[e ( _COM_Ctrl ..  ]
-[; ;main.c: 27: MTR_Ctrl( );
+[e ( _MCU_Refresh ..  ]
+[; ;main.c: 27: COM_Ctrl( );
 "27
-[e ( _MTR_Ctrl ..  ]
-[; ;main.c: 28: SYS_Ctrl( );
+[e ( _COM_Ctrl ..  ]
+[; ;main.c: 28: MTR_Ctrl( );
 "28
-[e ( _SYS_Ctrl ..  ]
-[; ;main.c: 29: SVC_Ctrl( );
+[e ( _MTR_Ctrl ..  ]
+[; ;main.c: 29: SYS_Ctrl( );
 "29
-[e ( _SVC_Ctrl ..  ]
-[; ;main.c: 30: if ( sysStatus != 4 || e2pWrFlags )
+[e ( _SYS_Ctrl ..  ]
+[; ;main.c: 30: SVC_Ctrl( );
 "30
-[e $ ! || != -> _sysStatus `i -> 4 `i != -> _e2pWrFlags `i -> -> -> 0 `i `uc `i 265  ]
-[; ;main.c: 31: {
+[e ( _SVC_Ctrl ..  ]
+[; ;main.c: 31: if ( sysStatus != 4 || e2pWrFlags )
 "31
-{
-[; ;main.c: 32: offTime = 5;
+[e $ ! || != -> _sysStatus `i -> 4 `i != -> _e2pWrFlags `i -> -> -> 0 `i `uc `i 265  ]
+[; ;main.c: 32: {
 "32
-[e = F2594 -> -> 5 `i `uc ]
-[; ;main.c: 33: LATB6 = 1;
-"33
-[e = _LATB6 -> -> 1 `i `b ]
-"34
-}
-[; ;main.c: 34: }
-[e $U 266  ]
-"35
-[e :U 265 ]
-[; ;main.c: 35: else if ( --offTime == 0 )
-[e $ ! == -> =- F2594 -> -> 1 `i `uc `i -> 0 `i 267  ]
-[; ;main.c: 36: {
-"36
 {
-[; ;main.c: 37: offTime = 1;
+[; ;main.c: 33: offTime = 5;
+"33
+[e = F2594 -> -> 5 `i `uc ]
+[; ;main.c: 34: LATB6 = 1;
+"34
+[e = _LATB6 -> -> 1 `i `b ]
+"35
+}
+[; ;main.c: 35: }
+[e $U 266  ]
+"36
+[e :U 265 ]
+[; ;main.c: 36: else if ( --offTime == 0 )
+[e $ ! == -> =- F2594 -> -> 1 `i `uc `i -> 0 `i 267  ]
+[; ;main.c: 37: {
 "37
-[e = F2594 -> -> 1 `i `uc ]
-[; ;main.c: 38: LATB6 = 0;
+{
+[; ;main.c: 38: offTime = 1;
 "38
-[e = _LATB6 -> -> 0 `i `b ]
+[e = F2594 -> -> 1 `i `uc ]
+[; ;main.c: 39: LATB6 = 0;
 "39
+[e = _LATB6 -> -> 0 `i `b ]
+"40
 }
 [e :U 267 ]
-"40
+"41
 [e :U 266 ]
 }
 [e :U 264 ]
-"41
+"42
 }
 [e :U 261 ]
-"18
+"19
 [e $U 262  ]
 [e :U 263 ]
-[; ;main.c: 39: }
 [; ;main.c: 40: }
 [; ;main.c: 41: }
 [; ;main.c: 42: }
-"42
+[; ;main.c: 43: }
+"43
 [e :UE 260 ]
 }

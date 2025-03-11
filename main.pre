@@ -2912,7 +2912,7 @@ extern void MTR_Ctrl( void );
 extern  U8 sysStatus;
 
 extern  U8 sysFault;
-extern U8 preStatus;
+extern  U8 preStatus;
 
 # 37
 extern  U8 sysLevel;
@@ -2940,6 +2940,7 @@ COM_Init( );
 MTR_Init( );
 SYS_Init( );
 SVC_Init( );
+
 while ( 1 )
 {
 GIE = 1;

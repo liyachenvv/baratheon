@@ -11,12 +11,13 @@
 #include "Motor.h"
 #include "Service.h"
 #include "COM.h"
+#include "Uart.h"
 
 #define SECOND  100UL
 #define MINUTE  SECOND*60
 
 //ad variable resistor,-> speed level
-void CAL_MtrLevel( void )   
+U8 CAL_MtrLevel( void )   
   {
     U8  ofs;
     U8  ad;
@@ -24,14 +25,14 @@ void CAL_MtrLevel( void )
     if ( ofs < 20 )  //20 is TUNE_VALUE_DEFAULT
       {
         ofs = 20 - ofs;
-        ad = adVrs + ofs;
-        if ( ad < adVrs ) ad = 255;   //? x
+        ad = adVrs + ofs;  //if ad bigger than 255, discard bit8, lead to ad smaller.
+        if ( ad < adVrs ) ad = 255;   //if ofs=10,adVrs=250,ad=260=>4. ad<adVrs
       }
     else
       {
         ofs = ofs - 20;
-        ad = adVrs - ofs;
-        if ( ad > adVrs ) ad = 0;  //?  x
+        ad = adVrs - ofs;  //if ad<0, complement, negative value bigger than 127.
+        if ( ad > adVrs ) ad = 0;  //if ofs=40,adVrs=18,ad=18-20=-2=>254, ad>adVrs
       }
     if      ( !acCycleHalf )  mtrLevel = 0;   //no ac power,no zero across, stop
     else if ( ad <  12     )  mtrLevel = 10;  //pulse 13501 rps, &1 to distinguish max.
@@ -52,6 +53,7 @@ void CAL_MtrLevel( void )
     else if ( ad < 240 - 1 )  mtrLevel = 8;
     else if ( ad < 240 + 1 )  mtrLevel = mtrLevel < 9 ? 8 : 9;
     else                      mtrLevel = 9;  //Max, 13500
+    return ad;
   }
 
 //calibrate variable resistor
@@ -139,83 +141,132 @@ void SYS_Ctrl( void )
   {
     static XRAM U32 time = 0;
     static XRAM U8 checkCount=0;
-    static XRAM U8  preAdvalue=20;
-    U8  ofs;
+    static XRAM U8  preAdvalue;
     U8  ad;
-    ofs = SVC_GetTuneValue( );
-    if ( ofs < 20 )  //20 is TUNE_VALUE_DEFAULT
-      {
-        ofs = 20 - ofs;
-        ad = adVrs + ofs;
-        if ( ad < adVrs ) ad = 255;   //? x
-      }
-    else
-      {
-        ofs = ofs - 20;
-        ad = adVrs - ofs;
-        if ( ad > adVrs ) ad = 0;  //?  x
-      }
-    CAL_MtrLevel( );
+    static XRAM U8 min;
+    ad=CAL_MtrLevel( );
     CAL_TuneValue( );
     if ( time ) time--;
     switch ( sysStatus )
       {
         case E_SYS_INIT:
             mtrSpeedRef = 0;
-            //preAdvalue=20;
-            //if(preStatus==0) {
-              if((preAdvalue>=ad) && (ad >10) && (ad <40) && (mtrLevel<3))
+            if(min<12)
+              min=68;
+            //SRL_Putc('<');
+            //COM_Print(acCycleHalf);  //acCycleHalf=0.   50
+            //SRL_Putc('>');
+            if(checkCount==0 && acCycleHalf) {
+              //postion min
+              if((ad >12) && (ad<min)) min=ad;
+              SRL_Putc('+');
+              COM_Print(min);
+              SRL_Putc('+');
+              if((ad >12) && (ad <68) && (mtrLevel<3))
               {
-                COM_Print(0x64);
+                SRL_Putc('*');
+                COM_Print(0x64);  //100
                 COM_Print(preAdvalue);
                 COM_Print(0x63);
                 COM_Print(ad);
                 COM_Print(0x62);
                 COM_Print(mtrLevel);
+                SRL_Putc('*');
                 sysStatus = E_SYS_PREPARE;
                 time=50;
-                //time = SECOND*5;   //500*10ms=5s
+                //time = SECOND*5;   //500*10ms=5s 
                 preStatus=1;
               }
+              //postion 1-max
+              else if((ad >10) && (ad <94) && (preAdvalue >(ad+2))) {
+                COM_Print(0x5a);  //90
+                COM_Print(preAdvalue);
+                COM_Print(0x59);
+                COM_Print(ad);
+                COM_Print(0x58);
+                COM_Print(mtrLevel);
+                sysStatus = E_SYS_PREPARE;
+                time=50;
+                preStatus=2;
+              }
+              //rapid rotate dial. this should not allow to go further. must start from a low ad.
+              //else if((ad >43)  && (preAdvalue >(ad+2))) {
+              //  SRL_Putc('a');
+              //  COM_Print(0x50);  //80
+              //  COM_Print(preAdvalue);
+              //  COM_Print(0x4f);
+              //  COM_Print(ad);
+              //  COM_Print(0x4e);
+              //  COM_Print(mtrLevel);
+              //  SRL_Putc('a');
+              //  sysStatus = E_SYS_PREPARE;
+              //  time=50;
+              //  preStatus=3;
+              //} 
+              //postion off
+              else if((ad > 12) && (ad <43)  && (preAdvalue ==0) && (mtrLevel==1 || mtrLevel==2) ) {
+                SRL_Putc('(');
+                COM_Print(0x46);  //70
+                COM_Print(preAdvalue);
+                COM_Print(0x45);
+                COM_Print(ad);
+                COM_Print(0x44);
+                COM_Print(mtrLevel);
+                SRL_Putc(')');
+                //if(mtrLevel==1 || mtrLevel==2) {
+                
+                sysStatus = E_SYS_PREPARE;
+                time=50;
+                preStatus=4;
+                //}
+              }                           
               preAdvalue=ad;
-            //}
-            //else {
-            //  sysStatus = E_SYS_PREPARE;
-            //  time=100;
+
+            }
+            else if(checkCount!=0){
+              sysStatus = E_SYS_PREPARE;
+              time=10;
               //time = SECOND*5;   //500*10ms=5s
-            //}
+            }
             break;
         case E_SYS_PREPARE:
             mtrSpeedRef = 0;
-            //if ( mtrError || !time )
+            checkCount=1;
+            //if ( mtrError || !time )  //5s, motor not run.
             //  {
             //    sysFault = mtrError;
             //    sysStatus = E_SYS_TURN_OFF;
             //    time = SECOND/2;  //50
             //  }
             //else 
-            
+            if((ad >12) && (ad<min)) min=ad;
+            SRL_Putc('+');
+            COM_Print(min);
+            SRL_Putc('+');            
             if ( idrTest0 == 0xFF && idrTest1 == 0xFF && mtrTemp >= 0 )
               {
-                if(preAdvalue>50 && preAdvalue<ad && mtrLevel<3)
-                {
-                  COM_Print(0x50);
-                  COM_Print(preAdvalue);
-                  sysStatus = E_SYS_RUN;
-                  time = MINUTE*30;  //100*60*30
+                if(preStatus>0) {
+                  if(preAdvalue>68 && (preAdvalue+2)<ad)
+                  //if(min>43 && (preAdvalue+2)<ad)
+                  {
+                    SRL_Putc('=');  //
+                    COM_Print(preAdvalue);
+                    COM_Print(ad);
+                    sysStatus = E_SYS_RUN;
+                    time = MINUTE*30;  //100*60*30                   
+                  }
                 }
-                else if(mtrLevel<3 && ad< 64) {
+                else {  //preStatus==0
                   sysStatus = E_SYS_RUN;
-                  time = MINUTE*30;  //100*60*30
-                  COM_Print(0x3c);
-                }
-                else {
-                  COM_Print(0x14);
+                  time = MINUTE*30;  //100*60*30                     
+                  COM_Print(0x14);  //20
+                  SRL_Putc(';');
                 }
               }
             preAdvalue=ad;
             break;
         case E_SYS_RUN:
+            preStatus=0;  
             if ( mtrError || !time )
               {
                 mtrSpeedRef = 0;

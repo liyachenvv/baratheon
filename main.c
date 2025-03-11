@@ -15,6 +15,7 @@ void main( void )
     MTR_Init( );
     SYS_Init( );
     SVC_Init( );
+    //check zero cross
     while ( 1 )
       {
         __EI( );

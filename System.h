@@ -23,9 +23,9 @@
 #define E_SYS_TURN_OFF  3
 #define E_SYS_OFF       4
 EXTERN XRAM U8  sysStatus;
-
+//EXTERN XRAM U8  preAdvalue;
 EXTERN XRAM U8  sysFault;
-EXTERN U8  preStatus;
+EXTERN XRAM U8  preStatus;
 #define E_LVL_STOP      0
 #define E_LVL_PULSE     1
 #define E_LVL_1         2
