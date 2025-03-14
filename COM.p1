@@ -2057,23 +2057,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S251 . . ]
 "3028 c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f1829.h
 [v _TOSHbits `VS251  1 e@4079 ]
-"22 D:\project\baratheon\baratheon\Uart.h
+"22 D:\project\baratheon-winnie\baratheon\Uart.h
 [v _SRL_Putc `(uc  0 ef1`uc ]
-"39 D:\project\baratheon\baratheon\System.h
+"39 D:\project\baratheon-winnie\baratheon\System.h
 [v _mtrLevel `uc  0 e ]
-"66 D:\project\baratheon\baratheon\Hardware.h
+"66 D:\project\baratheon-winnie\baratheon\Hardware.h
 [v _adVrs `Xuc  0 e ]
-"67 D:\project\baratheon\baratheon\Hardware.h
+"67 D:\project\baratheon-winnie\baratheon\Hardware.h
 [v _adNtc `Xuc  0 e ]
-"36 D:\project\baratheon\baratheon\Motor.h
+"36 D:\project\baratheon-winnie\baratheon\Motor.h
 [v _mtrSpeedRef `us  0 e ]
-"37 D:\project\baratheon\baratheon\Motor.h
+"37 D:\project\baratheon-winnie\baratheon\Motor.h
 [v _mtrSpeed `us  0 e ]
-"38 D:\project\baratheon\baratheon\Motor.h
+"38 D:\project\baratheon-winnie\baratheon\Motor.h
 [v _mtrCurrent `us  0 e ]
-"39 D:\project\baratheon\baratheon\Motor.h
+"39 D:\project\baratheon-winnie\baratheon\Motor.h
 [v _mtrTemp `c  0 e ]
-"101 D:\project\baratheon\baratheon\Hardware.h
+"101 D:\project\baratheon-winnie\baratheon\Hardware.h
 [v _E2P_ReadByte `(uc  0 ef1`uc ]
 [; ;pic16f1829.h: 132: volatile unsigned char INDF0 @ 0x000;
 [; ;pic16f1829.h: 136: volatile unsigned char INDF1 @ 0x001;
@@ -4126,7 +4126,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Uart.h: 23: extern U8 SRL_Puts( U8 * s, U8 n );
 [; ;COM.h: 20: void COM_Init( void );
 [; ;COM.h: 21: void COM_Ctrl( void );
-"16 D:\project\baratheon\baratheon\COM.c
+"16 D:\project\baratheon-winnie\baratheon\COM.c
 [v _COM_Print `(v  1 ef1`us ]
 {
 [; ;COM.c: 15: void COM_Print( U16 n )

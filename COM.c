@@ -48,7 +48,7 @@ void COM_Init( void )
 void COM_Ctrl( void )
   {
     static XRAM U8 t = 0;
-    if ( ++t >= 50 )
+    if ( ++t >= 50 )   //500ms
       {
         t = 0;   //totally 25 Bytes
         COM_Print( ( U16 )mtrLevel );  //2

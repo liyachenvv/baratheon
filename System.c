@@ -23,17 +23,17 @@ void CAL_MtrLevel( void )
     if ( ofs < 20 )  //20 is TUNE_VALUE_DEFAULT
       {
         ofs = 20 - ofs;
-        ad = adVrs + ofs;
-        if ( ad < adVrs ) ad = 255;   //? x
+        ad = adVrs + ofs;  //if ad bigger than 255, discard bit8, lead to ad smaller.
+        if ( ad < adVrs ) ad = 255;   //if ofs=10,adVrs=250,ad=260=>4. ad<adVrs
       }
     else
       {
         ofs = ofs - 20;
-        ad = adVrs - ofs;
-        if ( ad > adVrs ) ad = 0;  //?  x
+        ad = adVrs - ofs;  //if ad<0, complement, negative value bigger than 127.
+        if ( ad > adVrs ) ad = 0;  //if ofs=40,adVrs=18,ad=18-20=-2=>254, ad>adVrs
       }
     if      ( !acCycleHalf )  mtrLevel = 0;   //no ac power,no zero across, stop
-    else if ( ad <  12     )  mtrLevel = 10;  //pulse 13501 rps, &1 to distinguish max.
+    if ( ad <  12     )  mtrLevel = 10;  //pulse 13501 rps, &1 to distinguish max.
     else if ( ad <  42 - 1 )  mtrLevel = 1;  //2500 fold
     else if ( ad <  42 + 1 )  mtrLevel = mtrLevel < 2 ? 1 : 2;
     else if ( ad <  94 - 1 )  mtrLevel = 2;  //3000 min

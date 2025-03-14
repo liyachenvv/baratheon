@@ -1,5 +1,5 @@
 
-# 1 "D:\project\baratheon\baratheon\main.c"
+# 1 "D:\project\baratheon-winnie\baratheon\main.c"
 
 # 132 "c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f1829.h"
 volatile unsigned char INDF0 @ 0x000;
@@ -2797,7 +2797,7 @@ extern void memcpyee(eeprom unsigned char *to, const unsigned char *from, unsign
 #pragma inline(_delay)
 extern void _delay(unsigned long);
 
-# 15 "D:\project\baratheon\baratheon\PicTypes.h"
+# 15 "D:\project\baratheon-winnie\baratheon\PicTypes.h"
 typedef unsigned char U8;
 typedef unsigned short U16;
 typedef unsigned long U32;
@@ -2848,7 +2848,7 @@ U8 T;
 } B;
 } DWORD;
 
-# 61 "D:\project\baratheon\baratheon\Hardware.h"
+# 61 "D:\project\baratheon-winnie\baratheon\Hardware.h"
 extern bank1 U8 sysTicks;
 
 extern bank1 U32 adCur2;
@@ -2891,11 +2891,11 @@ extern void MCU_Refresh( void );
 extern void E2P_WriteByte( U8 addr, U8 byte );
 extern U8 E2P_ReadByte( U8 addr );
 
-# 20 "D:\project\baratheon\baratheon\COM.h"
+# 20 "D:\project\baratheon-winnie\baratheon\COM.h"
 extern void COM_Init( void );
 extern void COM_Ctrl( void );
 
-# 36 "D:\project\baratheon\baratheon\Motor.h"
+# 36 "D:\project\baratheon-winnie\baratheon\Motor.h"
 extern  U16 mtrSpeedRef;
 extern  U16 mtrSpeed;
 extern  U16 mtrCurrent;
@@ -2907,7 +2907,7 @@ extern  U8 mtrError;
 extern void MTR_Init( void );
 extern void MTR_Ctrl( void );
 
-# 25 "D:\project\baratheon\baratheon\System.h"
+# 25 "D:\project\baratheon-winnie\baratheon\System.h"
 extern  U8 sysStatus;
 
 extern  U8 sysFault;
@@ -2920,7 +2920,7 @@ extern  U8 mtrLevel;
 extern void SYS_Init( void );
 extern void SYS_Ctrl( void );
 
-# 73 "D:\project\baratheon\baratheon\Service.h"
+# 73 "D:\project\baratheon-winnie\baratheon\Service.h"
 extern  U8 e2pWrFlags;
 
 extern void SVC_Init( void );
@@ -2928,7 +2928,7 @@ extern void SVC_Ctrl( void );
 extern U8 SVC_GetTuneValue( void );
 extern void SVC_SetTuneValue( U8 value );
 
-# 9 "D:\project\baratheon\baratheon\main.c"
+# 9 "D:\project\baratheon-winnie\baratheon\main.c"
 void main( void )
 {
 static U8 offTime = 0;

@@ -1,5 +1,5 @@
 
-# 1 "D:\project\baratheon\baratheon\System.c"
+# 1 "D:\project\baratheon-winnie\baratheon\System.c"
 
 # 132 "c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f1829.h"
 volatile unsigned char INDF0 @ 0x000;
@@ -2797,7 +2797,7 @@ extern void memcpyee(eeprom unsigned char *to, const unsigned char *from, unsign
 #pragma inline(_delay)
 extern void _delay(unsigned long);
 
-# 15 "D:\project\baratheon\baratheon\PicTypes.h"
+# 15 "D:\project\baratheon-winnie\baratheon\PicTypes.h"
 typedef unsigned char U8;
 typedef unsigned short U16;
 typedef unsigned long U32;
@@ -2848,7 +2848,7 @@ U8 T;
 } B;
 } DWORD;
 
-# 61 "D:\project\baratheon\baratheon\Hardware.h"
+# 61 "D:\project\baratheon-winnie\baratheon\Hardware.h"
 extern bank1 U8 sysTicks;
 
 extern bank1 U32 adCur2;
@@ -2891,7 +2891,7 @@ extern void MCU_Refresh( void );
 extern void E2P_WriteByte( U8 addr, U8 byte );
 extern U8 E2P_ReadByte( U8 addr );
 
-# 25 "D:\project\baratheon\baratheon\System.h"
+# 25 "D:\project\baratheon-winnie\baratheon\System.h"
   U8 sysStatus;
 
   U8 sysFault;
@@ -2904,7 +2904,7 @@ extern U8 E2P_ReadByte( U8 addr );
  void SYS_Init( void );
  void SYS_Ctrl( void );
 
-# 36 "D:\project\baratheon\baratheon\Motor.h"
+# 36 "D:\project\baratheon-winnie\baratheon\Motor.h"
 extern  U16 mtrSpeedRef;
 extern  U16 mtrSpeed;
 extern  U16 mtrCurrent;
@@ -2916,7 +2916,7 @@ extern  U8 mtrError;
 extern void MTR_Init( void );
 extern void MTR_Ctrl( void );
 
-# 73 "D:\project\baratheon\baratheon\Service.h"
+# 73 "D:\project\baratheon-winnie\baratheon\Service.h"
 extern  U8 e2pWrFlags;
 
 extern void SVC_Init( void );
@@ -2924,7 +2924,7 @@ extern void SVC_Ctrl( void );
 extern U8 SVC_GetTuneValue( void );
 extern void SVC_SetTuneValue( U8 value );
 
-# 18 "D:\project\baratheon\baratheon\System.c"
+# 18 "D:\project\baratheon-winnie\baratheon\System.c"
 void CAL_MtrLevel( void )
 {
 U8 ofs;
@@ -2943,7 +2943,7 @@ ad = adVrs - ofs;
 if ( ad > adVrs ) ad = 0;
 }
 if ( !acCycleHalf ) mtrLevel = 0;
-else if ( ad < 12 ) mtrLevel = 10;
+if ( ad < 12 ) mtrLevel = 10;
 else if ( ad < 42 - 1 ) mtrLevel = 1;
 else if ( ad < 42 + 1 ) mtrLevel = mtrLevel < 2 ? 1 : 2;
 else if ( ad < 94 - 1 ) mtrLevel = 2;
