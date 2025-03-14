@@ -35,7 +35,7 @@ U8 CAL_MtrLevel( void )
         if ( ad > adVrs ) ad = 0;  //if ofs=40,adVrs=18,ad=18-20=-2=>254, ad>adVrs
       }
     if      ( !acCycleHalf )  mtrLevel = 0;   //no ac power,no zero across, stop
-    else if ( ad <  12     )  mtrLevel = 10;  //pulse 13501 rps, &1 to distinguish max.
+    if ( ad <  12     )  mtrLevel = 10;  //pulse 13501 rps, &1 to distinguish max.
     else if ( ad <  42 - 1 )  mtrLevel = 1;  //2500 fold  -->off
     else if ( ad <  42 + 1 )  mtrLevel = mtrLevel < 2 ? 1 : 2;
     else if ( ad <  94 - 1 )  mtrLevel = 2;  //3000 min
@@ -143,50 +143,65 @@ void SYS_Ctrl( void )
     static XRAM U8 checkCount=0;
     static XRAM U8  preAdvalue;
     U8  ad;
+    static XRAM U16 timingGrade = 0;
     static XRAM U8 min;
     ad=CAL_MtrLevel( );
     CAL_TuneValue( );
     if ( time ) time--;
+    timingGrade++;
     switch ( sysStatus )
       {
         case E_SYS_INIT:
             mtrSpeedRef = 0;
             if(min<12)
               min=68;
+            //timingGrade=0;  
             //SRL_Putc('<');
             //COM_Print(acCycleHalf);  //acCycleHalf=0.   50
             //SRL_Putc('>');
-            if(checkCount==0 && acCycleHalf) {
+            //if dial in off, power off, all start from beginning. CheckCount=0
+            //if(checkCount==0 && acCycleHalf) {
+            if(checkCount==0 ) {
               //postion min
-              if((ad >12) && (ad<min)) min=ad;
-              SRL_Putc('+');
-              COM_Print(min);
-              SRL_Putc('+');
-              if((ad >12) && (ad <68) && (mtrLevel<3))
+              SRL_Putc('h');
+              COM_Print(timingGrade);
+              SRL_Putc('j');     
+              COM_Print(preAdvalue);
+              SRL_Putc('k');     
+              COM_Print(ad);
+              SRL_Putc('m');
+              COM_Print(mtrLevel);
+              SRL_Putc('n');
+              SRL_Putc('\n');    
+              if((ad >12) && (ad<=min)) 
               {
-                SRL_Putc('*');
-                COM_Print(0x64);  //100
-                COM_Print(preAdvalue);
-                COM_Print(0x63);
-                COM_Print(ad);
-                COM_Print(0x62);
-                COM_Print(mtrLevel);
-                SRL_Putc('*');
-                sysStatus = E_SYS_PREPARE;
-                time=50;
-                //time = SECOND*5;   //500*10ms=5s 
-                preStatus=1;
+                min=ad;
+                SRL_Putc('+');
+                SRL_Putc('+');
+                COM_Print(min);
+                SRL_Putc('+');
+                SRL_Putc('+');
               }
-              //postion 1-max
-              else if((ad >10) && (ad <94) && (preAdvalue >(ad+2))) {
-                COM_Print(0x5a);  //90
-                COM_Print(preAdvalue);
-                COM_Print(0x59);
-                COM_Print(ad);
-                COM_Print(0x58);
-                COM_Print(mtrLevel);
+              
+
+              if((ad >12) && (ad <68) && (preAdvalue !=0) && (mtrLevel<3))
+              {
+                //rotate right. if rotate left, meaning turn off.
+                if((preAdvalue+2)<ad) {
+                  SRL_Putc('*');
+                  SRL_Putc('*');
+                  sysStatus = E_SYS_PREPARE;
+                  //time=10;
+                  //time = SECOND*5;   //500*10ms=5s 
+                  preStatus=1;
+                }
+              }
+              //postion 1-max, rotate left
+              else if((ad >12) && (ad <68) && (preAdvalue >(ad+2))) {
+                SRL_Putc('c');
+                SRL_Putc('c');
                 sysStatus = E_SYS_PREPARE;
-                time=50;
+                //time=50;
                 preStatus=2;
               }
               //rapid rotate dial. this should not allow to go further. must start from a low ad.
@@ -204,22 +219,30 @@ void SYS_Ctrl( void )
               //  preStatus=3;
               //} 
               //postion off
-              else if((ad > 12) && (ad <43)  && (preAdvalue ==0) && (mtrLevel==1 || mtrLevel==2) ) {
-                SRL_Putc('(');
-                COM_Print(0x46);  //70
-                COM_Print(preAdvalue);
-                COM_Print(0x45);
-                COM_Print(ad);
-                COM_Print(0x44);
-                COM_Print(mtrLevel);
-                SRL_Putc(')');
-                //if(mtrLevel==1 || mtrLevel==2) {
-                
+              else if((ad>=0)  && (preAdvalue ==0) && (mtrLevel==1 || mtrLevel==2) ) {
+                SRL_Putc('t');
+                SRL_Putc('t');
                 sysStatus = E_SYS_PREPARE;
-                time=50;
+                //time=50;
                 preStatus=4;
                 //}
-              }                           
+              }      
+              else if( (ad>=0)  && (preAdvalue ==0) && (mtrLevel>2) && (mtrLevel<10) && (timingGrade==0)) {
+                SRL_Putc('k');
+                SRL_Putc('k');
+                sysStatus = E_SYS_PREPARE;
+                //time=50;
+                preStatus=5;
+                //}
+              }   
+              else if( (ad>=0)  && (mtrLevel>1) && (mtrLevel<10) ) {
+                SRL_Putc('y');
+                SRL_Putc('y');
+                sysStatus = E_SYS_PREPARE;
+                //time=50;
+                preStatus=6;
+                //}
+              }   
               preAdvalue=ad;
 
             }
@@ -239,21 +262,52 @@ void SYS_Ctrl( void )
             //    time = SECOND/2;  //50
             //  }
             //else 
-            if((ad >12) && (ad<min)) min=ad;
-            SRL_Putc('+');
-            COM_Print(min);
-            SRL_Putc('+');            
+            if((ad >12) && (ad<=min)) {
+              min=ad;
+              SRL_Putc('+');
+              SRL_Putc('+');
+              COM_Print(min);
+              SRL_Putc('+');    
+              SRL_Putc('+');
+            }        
             if ( idrTest0 == 0xFF && idrTest1 == 0xFF && mtrTemp >= 0 )
               {
                 if(preStatus>0) {
-                  if(preAdvalue>68 && (preAdvalue+2)<ad)
-                  //if(min>43 && (preAdvalue+2)<ad)
+                  SRL_Putc('j');
+                  COM_Print(min);
+                  SRL_Putc('t');  
+                  COM_Print(timingGrade);   
+                  SRL_Putc('p');  
+                  COM_Print(preAdvalue); 
+                  SRL_Putc('q');   
+                  SRL_Putc('\n');              
+                  //if(preAdvalue>68 && (preAdvalue+2)<ad)
+                  //direct start from off position
+                  if((min==68) && (preAdvalue+2)<ad)
+                  {          
+                    if(timingGrade < 200) {
+                      SRL_Putc('m');  
+                      sysStatus = E_SYS_RUN;
+                      time = MINUTE*30;  //100*60*30    
+                    }                 
+                  }
+                  else if((min<68) && (preAdvalue+2)<ad)   //off and rotate right
                   {
-                    SRL_Putc('=');  //
-                    COM_Print(preAdvalue);
-                    COM_Print(ad);
+                    SRL_Putc('=');  
                     sysStatus = E_SYS_RUN;
                     time = MINUTE*30;  //100*60*30                   
+                  }
+                  else if(preAdvalue>(ad+2))  //rotate left
+                  {
+                    if((ad >12) && (ad<min)) min=ad;
+
+                    if(min <68) {
+                      SRL_Putc('-');  
+                      if(preStatus!=5) {
+                        sysStatus = E_SYS_RUN;
+                        time = MINUTE*30;  //100*60*30  
+                      }
+                    }
                   }
                 }
                 else {  //preStatus==0
@@ -267,6 +321,8 @@ void SYS_Ctrl( void )
             break;
         case E_SYS_RUN:
             preStatus=0;  
+            timingGrade=0;
+            SRL_Putc('s');
             if ( mtrError || !time )
               {
                 mtrSpeedRef = 0;
@@ -276,6 +332,7 @@ void SYS_Ctrl( void )
               }
             else switch ( mtrLevel )
               {
+                
                 default:    // 0 Stop
                     sysLevel = E_LVL_STOP;
                     mtrSpeedRef = 0;  //speed goal
@@ -324,6 +381,7 @@ void SYS_Ctrl( void )
             break;
         default:  //E_SYS_TURN_OFF, E_SYS_OFF
             mtrSpeedRef = 0;
+            SRL_Putc('q');
             if ( !time ) sysStatus = E_SYS_OFF;
             break;
       }

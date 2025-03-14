@@ -2955,7 +2955,7 @@ ad = adVrs - ofs;
 if ( ad > adVrs ) ad = 0;
 }
 if ( !acCycleHalf ) mtrLevel = 0;
-else if ( ad < 12 ) mtrLevel = 10;
+if ( ad < 12 ) mtrLevel = 10;
 else if ( ad < 42 - 1 ) mtrLevel = 1;
 else if ( ad < 42 + 1 ) mtrLevel = mtrLevel < 2 ? 1 : 2;
 else if ( ad < 94 - 1 ) mtrLevel = 2;
@@ -3063,10 +3063,12 @@ static  U32 time = 0;
 static  U8 checkCount=0;
 static  U8 preAdvalue;
 U8 ad;
+static  U16 timingGrade = 0;
 static  U8 min;
 ad=CAL_MtrLevel( );
 CAL_TuneValue( );
 if ( time ) time--;
+timingGrade++;
 switch ( sysStatus )
 {
 case 0:
@@ -3074,70 +3076,74 @@ mtrSpeedRef = 0;
 if(min<12)
 min=68;
 
+# 164
+if(checkCount==0 ) {
 
+SRL_Putc('h');
+COM_Print(timingGrade);
+SRL_Putc('h');
+COM_Print(preAdvalue);
+SRL_Putc('h');
+COM_Print(ad);
+SRL_Putc('h');
+COM_Print(mtrLevel);
+SRL_Putc('h');
 
-if(checkCount==0 && acCycleHalf) {
-
-if((ad >12) && (ad<min)) min=ad;
+if((ad >12) && (ad<=min))
+{
+min=ad;
+SRL_Putc('+');
 SRL_Putc('+');
 COM_Print(min);
 SRL_Putc('+');
-if((ad >12) && (ad <68) && (mtrLevel<3))
+SRL_Putc('+');
+}
+
+
+if((ad >12) && (ad <68) && (preAdvalue !=0) && (mtrLevel<3))
 {
+
+if((preAdvalue+2)<ad) {
 SRL_Putc('*');
-COM_Print(0x64);
-COM_Print(preAdvalue);
-COM_Print(0x63);
-COM_Print(ad);
-COM_Print(0x62);
-COM_Print(mtrLevel);
 SRL_Putc('*');
 sysStatus = 1;
-time=50;
+
 
 preStatus=1;
 }
+}
 
-else if((ad >10) && (ad <94) && (preAdvalue >(ad+2))) {
-COM_Print(0x5a);
-COM_Print(preAdvalue);
-COM_Print(0x59);
-COM_Print(ad);
-COM_Print(0x58);
-COM_Print(mtrLevel);
+else if((ad >12) && (ad <68) && (preAdvalue >(ad+2))) {
+SRL_Putc('c');
+SRL_Putc('c');
 sysStatus = 1;
-time=50;
+
 preStatus=2;
 }
 
-else if((ad >43) && (preAdvalue >(ad+2))) {
-SRL_Putc('a');
-COM_Print(0x50);
-COM_Print(preAdvalue);
-COM_Print(0x4f);
-COM_Print(ad);
-COM_Print(0x4e);
-COM_Print(mtrLevel);
-SRL_Putc('a');
+# 222
+else if((ad>=0) && (preAdvalue ==0) && (mtrLevel==1 || mtrLevel==2) ) {
+SRL_Putc('t');
+SRL_Putc('t');
 sysStatus = 1;
-time=50;
-preStatus=3;
-}
 
-else if((ad > 12) && (ad <43) && (preAdvalue ==0) && (mtrLevel==1 || mtrLevel==2) ) {
-SRL_Putc('(');
-COM_Print(0x46);
-COM_Print(preAdvalue);
-COM_Print(0x45);
-COM_Print(ad);
-COM_Print(0x44);
-COM_Print(mtrLevel);
-SRL_Putc(')');
-
-
-sysStatus = 1;
-time=50;
 preStatus=4;
+
+}
+else if( (ad>=0) && (preAdvalue ==0) && (mtrLevel>2) && (mtrLevel<10) && (timingGrade==0)) {
+SRL_Putc('k');
+SRL_Putc('k');
+sysStatus = 1;
+
+preStatus=5;
+
+}
+else if( (ad>=0) && (mtrLevel>1) && (mtrLevel<10) ) {
+SRL_Putc('y');
+SRL_Putc('y');
+sysStatus = 1;
+
+preStatus=6;
 
 }
 preAdvalue=ad;
@@ -3153,22 +3159,52 @@ case 1:
 mtrSpeedRef = 0;
 checkCount=1;
 
-# 242
-if((ad >12) && (ad<min)) min=ad;
+# 265
+if((ad >12) && (ad<=min)) {
+min=ad;
+SRL_Putc('+');
 SRL_Putc('+');
 COM_Print(min);
 SRL_Putc('+');
+SRL_Putc('+');
+}
 if ( idrTest0 == 0xFF && idrTest1 == 0xFF && mtrTemp >= 0 )
 {
 if(preStatus>0) {
-if(preAdvalue>68 && (preAdvalue+2)<ad)
-
-{
-SRL_Putc('=');
+SRL_Putc('j');
+COM_Print(min);
+SRL_Putc('j');
+COM_Print(timingGrade);
+SRL_Putc('j');
 COM_Print(preAdvalue);
-COM_Print(ad);
+SRL_Putc('j');
+
+
+if((min==68) && (preAdvalue+2)<ad)
+{
+if(timingGrade < 200) {
+SRL_Putc('m');
 sysStatus = 2;
 time = 100UL*60*30;
+}
+}
+else if((min<68) && (preAdvalue+2)<ad)
+{
+SRL_Putc('=');
+sysStatus = 2;
+time = 100UL*60*30;
+}
+else if(preAdvalue>(ad+2))
+{
+if((ad >12) && (ad<min)) min=ad;
+
+if(min <68) {
+SRL_Putc('-');
+if(preStatus!=5) {
+sysStatus = 2;
+time = 100UL*60*30;
+}
+}
 }
 }
 else {
@@ -3182,6 +3218,8 @@ preAdvalue=ad;
 break;
 case 2:
 preStatus=0;
+timingGrade=0;
+SRL_Putc('s');
 if ( mtrError || !time )
 {
 mtrSpeedRef = 0;
@@ -3191,6 +3229,7 @@ time = 100UL/2;
 }
 else switch ( mtrLevel )
 {
+
 default:
 sysLevel = 0;
 mtrSpeedRef = 0;
@@ -3239,6 +3278,7 @@ break;
 break;
 default:
 mtrSpeedRef = 0;
+SRL_Putc('q');
 if ( !time ) sysStatus = 4;
 break;
 }
