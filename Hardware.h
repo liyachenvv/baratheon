@@ -69,35 +69,35 @@ EXTERN bank1 U8  adVac;
 EXTERN bank1 U8  idrTest0;
 EXTERN bank1 U8  idrTest1;
 
-EXTERN bank3 U8  txCNT;
-EXTERN bank3 U8  txWRP;
-EXTERN bank3 U8  txRDP;
-EXTERN bank3 U8  txTIM;
-EXTERN bank3 U8  txFIFO[ 32 ];
-EXTERN bank3 U8  rxCNT;
-EXTERN bank3 U8  rxWRP;
-EXTERN bank3 U8  rxRDP;
-EXTERN bank3 U8  rxTIM;
-EXTERN bank3 U8  rxFIFO[ 32 ];
-
-EXTERN bank2 U16 mtrHallTime[ 32 ];
+EXTERN XRAM  U16 mtrHallTime[ 32 ]  @ 0x320;
 EXTERN bank1 U8  mtrHallIndex;
 EXTERN bank1 U8  mtrHallEvent;
 EXTERN bank1 U8  mtrHallWDT;
 
-EXTERN bank2 U16 acCrossTime[ 8 ];
+EXTERN XRAM  U16 acCrossTime[ 8 ]   @ 0x360;
 EXTERN bank1 U8  acCrossIndex;
 EXTERN bank1 U8  acCrossEvent;
 EXTERN bank1 U8  acCrossWDT;
-
 EXTERN bank1 U16 acCycle;
 EXTERN bank1 U8  acCycleHalf;
 EXTERN bank1 U8  acCycleFlag;
-
 EXTERN bank1 U16 tmTriac;
+
+EXTERN bank3 U8  txCNT;
+EXTERN bank3 U8  txWRP;
+EXTERN bank3 U8  txRDP;
+EXTERN bank3 U8  txTIM;
+EXTERN XRAM  U8  txFIFO[ 32 ]       @ 0x3A0;
+EXTERN bank3 U8  rxCNT;
+EXTERN bank3 U8  rxWRP;
+EXTERN bank3 U8  rxRDP;
+EXTERN bank3 U8  rxTIM;
+EXTERN XRAM  U8  rxFIFO[ 32 ]       @ 0x3C0;
 
 EXTERN void MCU_Init( void );
 EXTERN void MCU_Refresh( void );
+EXTERN void E2P_WriteByte( U8 addr, U8 byte );
+EXTERN U8   E2P_ReadByte( U8 addr );
 
 #endif
 

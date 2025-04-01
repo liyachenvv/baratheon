@@ -1,7 +1,7 @@
 
-# 1 "D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\COM.c"
+# 1 "E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\COM.c"
 
-# 132 "c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f1829.h"
+# 132 "C:\Program Files\HI-TECH Software\PICC\9.83\include\pic16f1829.h"
 volatile unsigned char INDF0 @ 0x000;
 
 
@@ -2779,25 +2779,25 @@ unsigned TOSH : 7;
 } TOSHbits @ 0xFEF;
 
 
-# 27 "c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic.h"
+# 27 "C:\Program Files\HI-TECH Software\PICC\9.83\include\pic.h"
 #pragma inline(_nop)
 extern void _nop(void);
 
 # 80
 extern unsigned int flash_read(unsigned short addr);
 
-# 41 "c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\eeprom_routines.h"
+# 41 "C:\Program Files\HI-TECH Software\PICC\9.83\include\eeprom_routines.h"
 extern unsigned char eeprom_write(unsigned char addr, unsigned char value);
 extern unsigned char eeprom_read(unsigned char addr);
 extern void eecpymem(volatile unsigned char *to, eeprom unsigned char *from, unsigned char size);
 extern void memcpyee(eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 
 
-# 153 "c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic.h"
+# 153 "C:\Program Files\HI-TECH Software\PICC\9.83\include\pic.h"
 #pragma inline(_delay)
 extern void _delay(unsigned long);
 
-# 11 "D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\PicTypes.h"
+# 15 "E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\PicTypes.h"
 typedef unsigned char U8;
 typedef unsigned short U16;
 typedef unsigned long U32;
@@ -2839,9 +2839,16 @@ struct
 U16 L;
 U16 H;
 } W;
+struct
+{
+U8 L;
+U8 H;
+U8 M;
+U8 T;
+} B;
 } DWORD;
 
-# 60 "D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h"
+# 60 "E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\Hardware.h"
 extern bank1 U8 sysTicks;
 
 extern bank1 U32 adCur2;
@@ -2854,67 +2861,72 @@ extern bank1 U8 adVac;
 extern bank1 U8 idrTest0;
 extern bank1 U8 idrTest1;
 
-extern bank3 U8 txCNT;
-extern bank3 U8 txWRP;
-extern bank3 U8 txRDP;
-extern bank3 U8 txTIM;
-extern bank3 U8 txFIFO[ 32 ];
-extern bank3 U8 rxCNT;
-extern bank3 U8 rxWRP;
-extern bank3 U8 rxRDP;
-extern bank3 U8 rxTIM;
-extern bank3 U8 rxFIFO[ 32 ];
-
-extern bank2 U16 mtrHallTime[ 32 ];
+extern  U16 mtrHallTime[ 32 ] @ 0x320;
 extern bank1 U8 mtrHallIndex;
 extern bank1 U8 mtrHallEvent;
 extern bank1 U8 mtrHallWDT;
 
-extern bank2 U16 acCrossTime[ 8 ];
+extern  U16 acCrossTime[ 8 ] @ 0x360;
 extern bank1 U8 acCrossIndex;
 extern bank1 U8 acCrossEvent;
 extern bank1 U8 acCrossWDT;
-
 extern bank1 U16 acCycle;
 extern bank1 U8 acCycleHalf;
 extern bank1 U8 acCycleFlag;
-
 extern bank1 U16 tmTriac;
+
+extern bank3 U8 txCNT;
+extern bank3 U8 txWRP;
+extern bank3 U8 txRDP;
+extern bank3 U8 txTIM;
+extern  U8 txFIFO[ 32 ] @ 0x3A0;
+extern bank3 U8 rxCNT;
+extern bank3 U8 rxWRP;
+extern bank3 U8 rxRDP;
+extern bank3 U8 rxTIM;
+extern  U8 rxFIFO[ 32 ] @ 0x3C0;
 
 extern void MCU_Init( void );
 extern void MCU_Refresh( void );
+extern void E2P_WriteByte( U8 addr, U8 byte );
+extern U8 E2P_ReadByte( U8 addr );
 
-# 24 "D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\System.h"
-extern U8 sysStatus;
+# 25 "E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\System.h"
+extern  U8 sysStatus;
 
-extern U8 sysLevel;
-extern U8 sysError;
+extern  U8 sysFault;
+
+# 37
+extern  U8 sysLevel;
+
+extern  U8 mtrLevel;
 
 extern void SYS_Init( void );
 extern void SYS_Ctrl( void );
 
-# 25 "D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Motor.h"
-extern U16 mtrSpeedRef;
-extern U16 mtrSpeed;
-extern U16 mtrCurrent;
+# 36 "E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\Motor.h"
+extern  U16 mtrSpeedRef;
+extern  U16 mtrSpeed;
+extern  U16 mtrCurrent;
+extern  S8 mtrTemp;
 
-# 33
-extern U8 mtrError;
+# 47
+extern  U8 mtrError;
 
 extern void MTR_Init( void );
 extern void MTR_Ctrl( void );
 
-# 20 "D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Uart.h"
+# 20 "E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\Uart.h"
 extern U8 SRL_Getc( U8 *c );
 extern U8 SRL_Gets( U8 * s );
 extern U8 SRL_Putc( U8 c );
 extern U8 SRL_Puts( U8 * s, U8 n );
 
-# 20 "D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\COM.h"
+# 20 "E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\COM.h"
  void COM_Init( void );
  void COM_Ctrl( void );
 
-# 15 "D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\COM.c"
+# 15 "E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\COM.c"
 void COM_Print( U16 n )
 {
 U8 f = 0;
@@ -2950,21 +2962,25 @@ void COM_Init( void )
 
 void COM_Ctrl( void )
 {
-static U8 t = 0;
+static  U8 t = 0;
 if ( ++t >= 50 )
 {
 t = 0;
-COM_Print( ( U16 )adNtc );
+COM_Print( ( U16 )mtrLevel );
 SRL_Putc( ',' );
 COM_Print( ( U16 )adVrs );
 SRL_Putc( ',' );
-COM_Print( ( U16 )sysLevel );
+COM_Print( ( U16 )adNtc );
 SRL_Putc( ',' );
 COM_Print( mtrSpeedRef );
 SRL_Putc( ',' );
 COM_Print( mtrSpeed );
 SRL_Putc( ',' );
 COM_Print( mtrCurrent );
+SRL_Putc( ',' );
+COM_Print( ( U16 )mtrTemp );
+SRL_Putc( ',' );
+COM_Print( ( U16 )E2P_ReadByte( 0xFE ) );
 SRL_Putc( '\r' );
 SRL_Putc( '\n' );
 }

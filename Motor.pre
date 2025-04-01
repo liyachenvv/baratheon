@@ -1,7 +1,7 @@
 
-# 1 "D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Motor.c"
+# 1 "E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\Motor.c"
 
-# 132 "c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f1829.h"
+# 132 "C:\Program Files\HI-TECH Software\PICC\9.83\include\pic16f1829.h"
 volatile unsigned char INDF0 @ 0x000;
 
 
@@ -2779,25 +2779,25 @@ unsigned TOSH : 7;
 } TOSHbits @ 0xFEF;
 
 
-# 27 "c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic.h"
+# 27 "C:\Program Files\HI-TECH Software\PICC\9.83\include\pic.h"
 #pragma inline(_nop)
 extern void _nop(void);
 
 # 80
 extern unsigned int flash_read(unsigned short addr);
 
-# 41 "c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\eeprom_routines.h"
+# 41 "C:\Program Files\HI-TECH Software\PICC\9.83\include\eeprom_routines.h"
 extern unsigned char eeprom_write(unsigned char addr, unsigned char value);
 extern unsigned char eeprom_read(unsigned char addr);
 extern void eecpymem(volatile unsigned char *to, eeprom unsigned char *from, unsigned char size);
 extern void memcpyee(eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 
 
-# 153 "c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic.h"
+# 153 "C:\Program Files\HI-TECH Software\PICC\9.83\include\pic.h"
 #pragma inline(_delay)
 extern void _delay(unsigned long);
 
-# 11 "D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\PicTypes.h"
+# 15 "E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\PicTypes.h"
 typedef unsigned char U8;
 typedef unsigned short U16;
 typedef unsigned long U32;
@@ -2839,9 +2839,16 @@ struct
 U16 L;
 U16 H;
 } W;
+struct
+{
+U8 L;
+U8 H;
+U8 M;
+U8 T;
+} B;
 } DWORD;
 
-# 60 "D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Hardware.h"
+# 60 "E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\Hardware.h"
 extern bank1 U8 sysTicks;
 
 extern bank1 U32 adCur2;
@@ -2854,48 +2861,49 @@ extern bank1 U8 adVac;
 extern bank1 U8 idrTest0;
 extern bank1 U8 idrTest1;
 
-extern bank3 U8 txCNT;
-extern bank3 U8 txWRP;
-extern bank3 U8 txRDP;
-extern bank3 U8 txTIM;
-extern bank3 U8 txFIFO[ 32 ];
-extern bank3 U8 rxCNT;
-extern bank3 U8 rxWRP;
-extern bank3 U8 rxRDP;
-extern bank3 U8 rxTIM;
-extern bank3 U8 rxFIFO[ 32 ];
-
-extern bank2 U16 mtrHallTime[ 32 ];
+extern  U16 mtrHallTime[ 32 ] @ 0x320;
 extern bank1 U8 mtrHallIndex;
 extern bank1 U8 mtrHallEvent;
 extern bank1 U8 mtrHallWDT;
 
-extern bank2 U16 acCrossTime[ 8 ];
+extern  U16 acCrossTime[ 8 ] @ 0x360;
 extern bank1 U8 acCrossIndex;
 extern bank1 U8 acCrossEvent;
 extern bank1 U8 acCrossWDT;
-
 extern bank1 U16 acCycle;
 extern bank1 U8 acCycleHalf;
 extern bank1 U8 acCycleFlag;
-
 extern bank1 U16 tmTriac;
+
+extern bank3 U8 txCNT;
+extern bank3 U8 txWRP;
+extern bank3 U8 txRDP;
+extern bank3 U8 txTIM;
+extern  U8 txFIFO[ 32 ] @ 0x3A0;
+extern bank3 U8 rxCNT;
+extern bank3 U8 rxWRP;
+extern bank3 U8 rxRDP;
+extern bank3 U8 rxTIM;
+extern  U8 rxFIFO[ 32 ] @ 0x3C0;
 
 extern void MCU_Init( void );
 extern void MCU_Refresh( void );
+extern void E2P_WriteByte( U8 addr, U8 byte );
+extern U8 E2P_ReadByte( U8 addr );
 
-# 25 "D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Motor.h"
- U16 mtrSpeedRef;
- U16 mtrSpeed;
- U16 mtrCurrent;
+# 36 "E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\Motor.h"
+  U16 mtrSpeedRef;
+  U16 mtrSpeed;
+  U16 mtrCurrent;
+  S8 mtrTemp;
 
-# 33
- U8 mtrError;
+# 47
+  U8 mtrError;
 
  void MTR_Init( void );
  void MTR_Ctrl( void );
 
-# 20 "D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\MyMath.h"
+# 20 "E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\MyMath.h"
 typedef union
 {
 S32 D;
@@ -2906,41 +2914,125 @@ typedef struct
 {
 S16 kp;
 S16 ki;
+S16 kd;
+S16 e1;
 SDW ri;
 SDW ro;
-} PI_t;
+} PID_t;
+
+
+
 
 extern U16 SQRT32( U32 a );
-extern S16 PI_CAL( PI_t * p, S16 err );
-extern S16 PI_LIM( PI_t * p, S16 min, S16 max );
+extern S16 PID_CAL( PID_t * p, S16 err );
+extern S16 PID_LIM( PID_t * p, S16 min, S16 max );
 
-# 15 "D:\project\baratheon\Baratheon_V0.0.8_Checksum_0xF78A_20170119\Motor.c"
-void CAL_AcPeriod( void )
+# 16 "E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\Motor.c"
+const U8 ad2tpr[ 256 ] =
 {
-U8 i;
-U16 t;
-if ( ++acCrossWDT >= 5 )
+127, 127, 127, 127, 127, 127, 127, 127,
+127, 127, 127, 127, 127, 127, 127, 127,
+127, 127, 127, 127, 127, 127, 127, 127,
+127, 127, 127, 127, 127, 127, 127, 127,
+127, 127, 127, 127, 127, 127, 127, 127,
+127, 127, 127, 127, 127, 127, 127, 127,
+127, 127, 127, 127, 127, 127, 127, 127,
+127, 127, 127, 127, 127, 127, 127, 127,
+126, 125, 124, 123, 122, 122, 121, 120,
+119, 119, 118, 117, 117, 116, 115, 115,
+114, 113, 113, 112, 111, 111, 110, 109,
+109, 108, 107, 107, 106, 106, 105, 104,
+104, 103, 103, 102, 102, 101, 100, 100,
+99, 99, 98, 98, 97, 97, 96, 96,
+95, 94, 94, 93, 93, 92, 92, 91,
+91, 90, 90, 89, 89, 88, 88, 87,
+87, 86, 86, 85, 85, 84, 84, 83,
+83, 82, 82, 81, 81, 80, 80, 79,
+79, 78, 78, 77, 77, 76, 76, 75,
+75, 74, 74, 73, 73, 72, 72, 71,
+71, 70, 70, 69, 69, 68, 68, 67,
+67, 66, 66, 65, 65, 64, 64, 63,
+63, 62, 62, 61, 61, 60, 60, 59,
+59, 58, 58, 57, 56, 56, 55, 55,
+54, 54, 53, 53, 52, 51, 51, 50,
+50, 49, 48, 48, 47, 46, 46, 45,
+45, 44, 43, 42, 42, 41, 40, 40,
+39, 38, 37, 37, 36, 35, 34, 33,
+33, 32, 31, 30, 29, 28, 27, 26,
+25, 24, 23, 21, 20, 19, 18, 16,
+15, 13, 12, 10, 8, 6, 4, 2,
+0, 0, 0, 0, 0, 0, 0, 0
+};
+
+void CAL_MtrTemp( void )
 {
-acCrossWDT = 5;
-acCrossEvent = 0;
-acCycleHalf = 0;
-acCycle = 0;
+static  U16 sum = 0;
+static  U8 err = 0;
+static  U8 er1 = 0;
+static  U8 cnt = 0;
+if ( !acCycleHalf )
+{
+sum = 0;
+err = 0;
+er1 = 0;
+cnt = 0;
 }
-else if ( acCrossEvent >= 5 )
+else if ( acCycleFlag )
 {
-acCrossEvent = 5;
-i = acCrossIndex - 1;
-t = ( acCrossTime[ i & 7 ] - acCrossTime[ i - 4 & 7 ] ) >> 3;
-if ( 300 < t && t < 500 )
+sum += ( U16 )adNtc;
+if ( adNtc < 2 || adNtc >= 254 ) err++;
+if ( ++cnt >= 4 )
 {
-acCycle = t;
-acCycleHalf = t >> 3;
+if ( !err )
+{
+er1 = 0;
+mtrTemp = ad2tpr[ sum >> 2 ];
+if ( mtrTemp >= 104 )
+{
+do { if ( !mtrError ) mtrError = 2; } while(0);
 }
+}
+else if ( ++er1 >= 10 )
+{
+do { if ( !mtrError ) mtrError = 2; } while(0);
+}
+sum = 0;
+err = 0;
+cnt = 0;
+}
+}
+}
+
+void CAL_MtrCurrent( void )
+{
+static  U16 tmOVC = 0;
+U32 s, n;
+if ( !acCycleHalf )
+{
+mtrCurrent = 0;
+}
+else if ( acCycleFlag && adCurN != 0 )
+{
+s = adCur2 << 1;
+n = ( U32 )adCurN;
+adCurN = 0;
+s = ( U32 )SQRT32( s );
+n = ( U32 )SQRT32( n << 16 );
+mtrCurrent = ( U16 )( ( 25600UL*4800UL/50UL/1023UL ) * s / n );
+}
+if ( mtrCurrent < 1000 )
+{
+tmOVC = 0;
+}
+else if ( ++tmOVC >= 600 )
+{
+do { if ( !mtrError ) mtrError = 8; } while(0);
 }
 }
 
 void CAL_MtrSpeed( void )
 {
+static  U16 tmZSP = 0;
 U8 n, i, j;
 U16 t;
 if ( ++mtrHallWDT >= 50 )
@@ -2970,72 +3062,63 @@ if ( t >= 1600 ) break;
 }
 mtrSpeed = ( U16 )( 600000UL * ( U32 )j / ( U32 )t );
 }
+if ( tmTriac <= ( U16 )( acCycleHalf ) || mtrSpeed >= 300 )
+{
+tmZSP = 0;
+}
+else if ( ++tmZSP >= 300 )
+{
+do { if ( !mtrError ) mtrError = mtrError = 7; } while(0);
+}
 }
 
-void CAL_MtrCurrent( void )
+void CAL_AcPeriod( void )
 {
-U32 s, n;
-if ( acCrossEvent < 5 )
+static U16 tmCRS = 0;
+U8 i;
+U16 t;
+if ( ++acCrossWDT >= 5 )
 {
-mtrCurrent = 0;
+acCrossWDT = 5;
+acCrossEvent = 0;
+acCycleHalf = 0;
+acCycle = 0;
 }
-else if ( acCycleFlag && adCurN != 0 )
+else if ( acCrossEvent >= 5 )
 {
-s = adCur2 << 1;
-n = ( U32 )adCurN;
-adCurN = 0;
-s = ( U32 )SQRT32( s );
-n = ( U32 )SQRT32( n << 16 );
-mtrCurrent = ( U16 )( ( 25600UL*4800UL/50UL/1023UL ) * s / n );
+acCrossEvent = 5;
+i = acCrossIndex - 1;
+t = ( acCrossTime[ i & 7 ] - acCrossTime[ i - 4 & 7 ] ) >> 3;
+if ( 300 < t && t < 500 )
+{
+acCycle = t;
+acCycleHalf = t >> 3;
+}
+}
+if ( acCycleHalf != 0 )
+{
+tmCRS = 0;
+}
+else if ( ++tmCRS >= 300 )
+{
+do { if ( !mtrError ) mtrError = mtrError = 10; } while(0);
 }
 }
 
 void CAL_MtrError( void )
 {
-static U8 tmErr1 = 0;
-static U16 tmErr2 = 0;
-static U16 tmErr3 = 0;
-static U8 tmErr4 = 0;
-if ( acCycleHalf != 0 )
-{
-tmErr1 = 0;
-}
-else if ( ++tmErr1 >= 100 )
-{
-mtrError = 1;
-}
-if ( mtrSpeedRef == 0 || mtrSpeed >= 500 )
-{
-tmErr2 = 0;
-}
-else if ( ++tmErr2 >= 500 )
-{
-mtrError = 2;
-}
-if ( mtrCurrent < 760 )
-{
-tmErr3 = 0;
-}
-else if ( ++tmErr3 >= 1500 )
-{
-mtrError = 3;
-}
-if ( adNtc >= 95 && adNtc < 254 )
-{
-tmErr4 = 0;
-}
-else if ( ++tmErr4 >= 200 )
-{
-mtrError = 4;
-}
 }
 
 void MTR_Driver( void )
 {
-static U8 state = 0;
-static PI_t IREG;
-static PI_t SREG;
+static  U8 state = 0;
+static  U16 sref = 0;
+static  U8 time = 0;
+static  SDW OLIM;
+static  PID_t SREG;
 S16 max;
+S16 err;
+if ( time ) time--;
 if ( mtrSpeedRef == 0 || !acCycleHalf )
 {
 state = 0;
@@ -3047,36 +3130,55 @@ case 0:
 do { GIE = 0; tmTriac = 0; GIE = 1; } while(0);
 if ( acCycle )
 {
-SREG.kp = 1000;
+sref = mtrSpeedRef;
+OLIM.W.H = 80;
+OLIM.W.L = 0;
+SREG.kp = 2000;
 SREG.ki = 50;
-SREG.ri.W.H = 40;
+SREG.kd = 500;
+SREG.e1 = 0;
+SREG.ri.W.H = 60;
 SREG.ri.W.L = 0;
-SREG.ro.W.H = 40;
-SREG.ro.W.L = 40;
-IREG.kp = 8000;
-IREG.ki = 2000;
-IREG.ri.W.H = acCycle >> 1;
-IREG.ri.W.L = 0;
-IREG.ro.W.H = SREG.ri.W.H;
-IREG.ro.W.L = SREG.ri.W.H;
+SREG.ro.W.H = SREG.ri.W.H;
+SREG.ro.W.L = SREG.ri.W.H;
 state++;
+time = 200;
 }
 break;
 case 1:
 if ( acCycleFlag )
 {
-max = ( S16 )( acCycle*56>>6 );
-PI_CAL( &SREG, mtrSpeedRef - mtrSpeed );
-PI_LIM( &SREG, 40, max );
-PI_CAL( &IREG, 800 - mtrCurrent );
-PI_LIM( &IREG, 40, max );
-if ( SREG.ro.W.H < IREG.ro.W.H )
+if ( sref != mtrSpeedRef )
 {
-IREG.ro.W.H = SREG.ro.W.H;
+if ( sref < mtrSpeedRef ) time = 200;
+sref = mtrSpeedRef;
+OLIM.W.H = SREG.ro.W.H;
+}
+if ( mtrSpeedRef >= 13000 )
+{
+if ( time >= 25 ) time = 25;
+if ( mtrSpeedRef & 1 ) time = 0;
+}
+max = ( S16 )( acCycle*54>>6 );
+OLIM.D += (400UL<<16)/25;
+if ( OLIM.W.H >= max ) OLIM.W.H = max;
+err = ( S16 )( mtrSpeedRef - mtrSpeed );
+if ( time || err < 0 )
+{
+SREG.kp = 500;
 }
 else
 {
-SREG.ro.W.H = IREG.ro.W.H;
+SREG.kp = 2000;
+}
+PID_CAL( &SREG, err );
+if ( mtrSpeedRef & 1 )
+{
+PID_LIM( &SREG, 40, max );
+}
+else
+{
+PID_LIM( &SREG, 40, OLIM.W.H );
 }
 do { GIE = 0; tmTriac = SREG.ro.W.H; GIE = 1; } while(0);
 }
@@ -3086,17 +3188,29 @@ break;
 
 void MTR_Init( void )
 {
+acCrossIndex = 0;
+acCrossEvent = 0;
+acCrossWDT = 0;
+acCycle = 0;
+acCycleHalf = 0;
+acCycleFlag = 0;
+mtrHallIndex = 0;
+mtrHallEvent = 0;
+mtrHallWDT = 0;
+tmTriac = 0;
 mtrSpeedRef = 0;
 mtrSpeed = 0;
 mtrCurrent = 0;
 mtrError = 0;
+mtrTemp = -1;
 }
 
 void MTR_Ctrl( void )
 {
-CAL_AcPeriod( );
-CAL_MtrSpeed( );
+CAL_MtrTemp( );
 CAL_MtrCurrent( );
+CAL_MtrSpeed( );
+CAL_AcPeriod( );
 CAL_MtrError( );
 MTR_Driver( );
 acCycleFlag = 0;

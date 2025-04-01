@@ -27,13 +27,18 @@ typedef struct
   {
     S16  kp;
     S16  ki;
+    S16  kd;
+    S16  e1;
     SDW  ri;
     SDW  ro;
-  } PI_t;
+  } PID_t;
+
+#define MULU32( a, b )  ( ( U32 )a * ( U32 )b )
+#define MULS32( a, b )  ( ( S32 )a * ( S32 )b )
   
 EXTERN U16  SQRT32( U32 a );
-EXTERN S16  PI_CAL( PI_t * p, S16 err );
-EXTERN S16  PI_LIM( PI_t * p, S16 min, S16 max );
+EXTERN S16  PID_CAL( PID_t * p, S16 err );
+EXTERN S16  PID_LIM( PID_t * p, S16 min, S16 max );
 
 #endif
 

@@ -1,5 +1,5 @@
 
-# 1 "E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\MyMath.c"
+# 1 "E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\Service.c"
 
 # 132 "C:\Program Files\HI-TECH Software\PICC\9.83\include\pic16f1829.h"
 volatile unsigned char INDF0 @ 0x000;
@@ -2891,81 +2891,637 @@ extern void MCU_Refresh( void );
 extern void E2P_WriteByte( U8 addr, U8 byte );
 extern U8 E2P_ReadByte( U8 addr );
 
-# 20 "E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\MyMath.h"
-typedef union
+# 73 "E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\Service.h"
+  U8 e2pWrFlags;
+
+ void SVC_Init( void );
+ void SVC_Ctrl( void );
+ U8 SVC_GetTuneValue( void );
+ void SVC_SetTuneValue( U8 value );
+
+# 25 "E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\System.h"
+extern  U8 sysStatus;
+
+extern  U8 sysFault;
+
+# 37
+extern  U8 sysLevel;
+
+extern  U8 mtrLevel;
+
+extern void SYS_Init( void );
+extern void SYS_Ctrl( void );
+
+# 36 "E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\Motor.h"
+extern  U16 mtrSpeedRef;
+extern  U16 mtrSpeed;
+extern  U16 mtrCurrent;
+extern  S8 mtrTemp;
+
+# 47
+extern  U8 mtrError;
+
+extern void MTR_Init( void );
+extern void MTR_Ctrl( void );
+
+# 14 "E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\Service.c"
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "'B'" "," "'A'" "," "'R'" "," "220>>8" "," "220&255" "," "0X00" "," "0X00" "," "0X01");
+
+# 23
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "0X49" "," "0X05" "," "0X96" "," "0X2D" "," "0X00" "," "0X00" "," "0X01" "," "0X49");
+
+# 32
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "0X05" "," "0X96" "," "0X2D" "," "0" "," "'.'" "," "2" "," "'.'" "," "5");
+
+# 41
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0");
+
+# 50
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "20" "," "0");
+
+# 96
+typedef struct { U8 s; U8 m; } M1S1;
+typedef struct { U8 s; U8 m; U8 h; } H1M1S1;
+typedef struct { U8 s; U8 m; U8 h; U8 h1; } H2M1S1;
+typedef struct { U8 m; U8 h; U8 h1; U8 h2; } H3M1;
+typedef struct { U8 s; H3M1 h3m1; } H3M1S1;
+typedef struct { U8 l; U8 h; } COUNT;
+
+
+static  U8 lastSpeedSetting[ 7 ] @ 0X420;
+
+static  H1M1S1 lastSpeedWorkingTime[ 7 ] @ 0X428;
+
+static  H2M1S1 totalSpeedWorkingTime[ 7 ] @ 0X440;
+
+
+static  U8 lastUseMaxPower[ 7 ] @ 0X4A0;
+
+static  U8 lastUseAvePower[ 7 ] @ 0X4A8;
+
+static  M1S1 lastUseReadyTime[ 7 ] @ 0X4B0;
+
+
+static  U8 faultCode[ 7 ] @ 0X520;
+
+static  U8 faultTotalCount[ 9 ] @ 0X527;
+
+static  H3M1 faultTimeStamp[ 7 ] @ 0X530;
+
+
+static  U8 maxMcuTemp[ 7 ] @ 0X550;
+
+static  U8 maxMotorHistoryTemp @ 0X557;
+
+static  U8 lastUseMaxMotorTemp[ 7 ] @ 0X558;
+
+
+static  H3M1 totalPowerOnTime @ 0X5A0;
+
+static  H3M1 totalStandbyTime @ 0X5A4;
+
+static  H3M1 totalWorkingTime @ 0X5A8;
+
+
+static  H2M1S1 autoWorkingTime @ 0X620;
+
+static  H2M1S1 keyWorkingTime[ 9 ] @ 0X624;
+
+static  COUNT totalAutoPressedCount @ 0X650;
+
+static  COUNT totalKeyPressedCount[ 9 ] @ 0X654;
+
+
+static  H3M1 totalNoInterlockTime @ 0X658;
+
+static  COUNT totalInterlockOpenCount @ 0X65C;
+
+
+static  U8 tuneValue;
+
+static  H3M1S1 powerOnTime;
+
+void E2P_RD( U8 addr, U8 * p, U8 n )
 {
-S32 D;
-struct { S16 L; S16 H; } W;
-} SDW;
-
-typedef struct
+while ( n-- )
 {
-S16 kp;
-S16 ki;
-S16 kd;
-S16 e1;
-SDW ri;
-SDW ro;
-} PID_t;
-
-
-
-
- U16 SQRT32( U32 a );
- S16 PID_CAL( PID_t * p, S16 err );
- S16 PID_LIM( PID_t * p, S16 min, S16 max );
-
-# 12 "E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\MyMath.c"
-U16 SQRT32( U32 a )
-{
-U32 root = 0;
-U32 divisor = 0;
-U32 remainder = 0;
-U8 i = 16;
-do{
-root <<= 1;
-remainder <<= 1;
-if ( a & 0x80000000 ) remainder |= 1;
-a <<= 1;
-remainder <<= 1;
-if ( a & 0x80000000 ) remainder |= 1;
-a <<= 1;
-divisor = ( root << 1 ) | 1;
-if ( remainder >= divisor )
-{
-remainder -= divisor;
-root |= 1;
+*p = E2P_ReadByte( addr++ );
+p++;
 }
-} while( --i );
-return ( ( U16 )root );
 }
 
-S16 PID_CAL( PID_t * p, S16 err )
+U8 E2P_WR( U8 addr, U8 * p, U8 n )
 {
-if ( !( p->ro.W.H < p->ro.W.L && err >= 0 )
-&& !( p->ro.W.L < p->ro.W.H && err < 0 ) )
+while ( n )
 {
-p->ri.D += ( ( S32 )p->ki * ( S32 )err );
+n--;
+if ( *p == E2P_ReadByte( addr ) )
+{
+addr++;
+p++;
 }
-p->ro.D = ( ( S32 )p->kp * ( S32 )err ) + ( ( S32 )p->kd * ( S32 )err - p->e1 ) + p->ri.D;
-p->ro.W.L = p->ro.W.H;
-p->e1 = err;
-return p->ro.W.H;
+else
+{
+E2P_WriteByte( addr, *p );
+break;
+}
+}
+if ( n ) return 0;
+return 1;
 }
 
-S16 PID_LIM( PID_t * p, S16 min, S16 max )
+void MEM_Clr( U8 * p, U8 n )
 {
-if ( min < max )
+while ( n-- )
 {
-if ( p->ro.W.H > max )
-{
-p->ro.W.H = max;
-}
-else if ( p->ro.W.H < min )
-{
-p->ro.W.H = min;
+*p = 0;
+p++;
 }
 }
-return p->ro.W.H;
+
+void MEM_Cpy( U8 * p1, U8 * p2, U8 n )
+{
+while ( n-- )
+{
+*p1 = *p2;
+p1++;
+p2++;
+}
+}
+
+S8 MEM_Cmp( U8 * p1, U8 * p2, U8 n )
+{
+while ( n )
+{
+n--;
+if ( p1[ n ] < p2[ n ] ) return -1;
+if ( p2[ n ] < p1[ n ] ) return 1;
+}
+return 0;
+}
+
+void M1S1_ADD( M1S1 * p, U8 s )
+{
+p->s += s;
+if ( p->s >= 60 )
+{
+p->s -= 60;
+p->m += 1;
+}
+}
+
+void M1S1_SUB( M1S1 * p, U8 s )
+{
+p->s -= s;
+if ( p->s >= 60 )
+{
+p->s += 60;
+p->m -= 1;
+}
+}
+
+void H1M1S1_ADD( H1M1S1 * p, U8 s )
+{
+p->s += s;
+if ( p->s >= 60 )
+{
+p->s -= 60;
+p->m += 1;
+if ( p->m >= 60 )
+{
+p->m -= 60;
+p->h += 1;
+}
+}
+}
+
+void H1M1S1_SUB( H1M1S1 * p, U8 s )
+{
+p->s -= s;
+if ( p->s >= 60 )
+{
+p->s += 60;
+p->m -= 1;
+if ( p->m >= 60 )
+{
+p->m += 60;
+p->h -= 1;
+}
+}
+}
+
+void H2M1S1_ADD( H2M1S1 * p, U8 s )
+{
+p->s += s;
+if ( p->s >= 60 )
+{
+p->s -= 60;
+p->m += 1;
+if ( p->m >= 60 )
+{
+p->m -= 60;
+p->h += 1;
+if ( p->h == 0 ) p->h1 += 1;
+}
+}
+}
+
+void H2M1S1_SUB( H2M1S1 * p, U8 s )
+{
+p->s -= s;
+if ( p->s >= 60 )
+{
+p->s += 60;
+p->m -= 1;
+if ( p->m >= 60 )
+{
+p->m += 60;
+p->h -= 1;
+if ( p->h == 255 ) p->h1 -= 1;
+}
+}
+}
+
+void H3M1_ADD( H3M1 * p, U8 m )
+{
+p->m += m;
+if ( p->m >= 60 )
+{
+p->m -= 60;
+p->h += 1;
+if ( p->h == 0 )
+{
+p->h1 += 1;
+if ( p->h1 == 0 ) p->h2 += 1;
+}
+}
+}
+
+void H3M1_SUB( H3M1 * p, U8 m )
+{
+p->m -= m;
+if ( p->m >= 60 )
+{
+p->m += 60;
+p->h -= 1;
+if ( p->h == 255 )
+{
+p->h1 -= 1;
+if ( p->h1 == 255 ) p->h2 -= 1;
+}
+}
+}
+
+
+
+
+void SVC_Init( void )
+{
+S8 cmp;
+e2pWrFlags = 0x00;
+powerOnTime.s = 30;
+powerOnTime.h3m1.m = 0;
+powerOnTime.h3m1.h = 0;
+powerOnTime.h3m1.h1 = 0;
+powerOnTime.h3m1.h2 = 0;
+E2P_RD( 0X23, ( U8* )&lastSpeedSetting, sizeof( lastSpeedSetting ) );
+E2P_RD( 0X38, ( U8* )&lastSpeedWorkingTime, sizeof( lastSpeedWorkingTime ) );
+E2P_RD( 0X8F, ( U8* )&totalSpeedWorkingTime, sizeof( totalSpeedWorkingTime ) );
+E2P_RD( 0X2A, ( U8* )&lastUseMaxPower, sizeof( lastUseMaxPower ) );
+E2P_RD( 0X31, ( U8* )&lastUseAvePower, sizeof( lastUseAvePower ) );
+E2P_RD( 0X54, ( U8* )&lastUseReadyTime, sizeof( lastUseReadyTime ) );
+E2P_RD( 0X1C, ( U8* )&faultCode, sizeof( faultCode ) );
+E2P_RD( 0X86, ( U8* )&faultTotalCount, sizeof( faultTotalCount ) );
+E2P_RD( 0X62, ( U8* )&faultTimeStamp, sizeof( faultTimeStamp ) );
+E2P_RD( 0X7E, ( U8* )&maxMcuTemp, sizeof( maxMcuTemp ) );
+E2P_RD( 0X85, ( U8* )&maxMotorHistoryTemp, sizeof( maxMotorHistoryTemp ) );
+E2P_RD( 0X4D, ( U8* )&lastUseMaxMotorTemp, sizeof( lastUseMaxMotorTemp ) );
+E2P_RD( 0XD7, ( U8* )&totalPowerOnTime, sizeof( totalPowerOnTime ) );
+E2P_RD( 0XDF, ( U8* )&totalStandbyTime, sizeof( totalStandbyTime ) );
+E2P_RD( 0XD3, ( U8* )&totalWorkingTime, sizeof( totalWorkingTime ) );
+E2P_RD( 0XAB, ( U8* )&autoWorkingTime, sizeof( autoWorkingTime ) );
+E2P_RD( 0XAF, ( U8* )&keyWorkingTime, sizeof( keyWorkingTime ) );
+E2P_RD( 0XE5, ( U8* )&totalAutoPressedCount, sizeof( totalAutoPressedCount ) );
+E2P_RD( 0XE7, ( U8* )&totalKeyPressedCount, sizeof( totalKeyPressedCount ) );
+E2P_RD( 0XDB, ( U8* )&totalNoInterlockTime, sizeof( totalNoInterlockTime ) );
+E2P_RD( 0XE3, ( U8* )&totalInterlockOpenCount, sizeof( totalInterlockOpenCount ) );
+E2P_RD( 0XFE, ( U8* )&tuneValue, sizeof( tuneValue ) );
+cmp = MEM_Cmp( ( U8* )&totalPowerOnTime, ( U8* )&totalWorkingTime, sizeof( H3M1 ) );
+if ( cmp < 0 )
+{
+totalPowerOnTime.h2 = totalWorkingTime.h2;
+totalPowerOnTime.h1 = totalWorkingTime.h1;
+totalPowerOnTime.h = totalWorkingTime.h;
+totalPowerOnTime.m = totalWorkingTime.m;
+e2pWrFlags |= 0X10;
+}
+else if ( cmp > 0 )
+{
+totalWorkingTime.h2 = totalPowerOnTime.h2;
+totalWorkingTime.h1 = totalPowerOnTime.h1;
+totalWorkingTime.h = totalPowerOnTime.h;
+totalWorkingTime.m = totalPowerOnTime.m;
+e2pWrFlags |= 0X10;
+}
+}
+
+U8 SVC_Timer( void )
+{
+static  U8 tmSEC = 0;
+if ( ++tmSEC >= 100 )
+{
+tmSEC = 0;
+if ( ++powerOnTime.s >= 60 )
+{
+powerOnTime.s = 0;
+H3M1_ADD( &powerOnTime.h3m1, 1 );
+H3M1_ADD( &totalPowerOnTime, 1 );
+MEM_Cpy( ( U8* )&totalWorkingTime, ( U8* )&totalPowerOnTime, sizeof( H3M1 ) );
+e2pWrFlags |= 0X10;
+}
+return 1;
+}
+return 0;
+}
+
+void REC_SpeedWorking( void )
+{
+static  U8 level = 0;
+static  U8 lsLvl = 0;
+static  U8 cnLvl = 0;
+static  H1M1S1 tmLvl = { 0, 0, 0 };
+H1M1S1_ADD( &tmLvl, 1 );
+if ( sysLevel != lsLvl )
+{
+lsLvl = sysLevel;
+cnLvl = 0;
+}
+else if ( cnLvl < 2 )
+{
+cnLvl++;
+}
+else if ( sysLevel != level )
+{
+H1M1S1_SUB( &tmLvl, 3 );
+if ( level && level < 8 )
+{
+MEM_Cpy( ( U8* )&lastSpeedWorkingTime[ 0 ], ( U8* )&tmLvl, sizeof( H1M1S1 ) );
+if ( tmLvl.s < 30 )
+{
+H2M1S1_ADD( &totalSpeedWorkingTime[ level - 1 ], tmLvl.s );
+}
+else
+{
+H2M1S1_ADD( &totalSpeedWorkingTime[ level - 1 ], tmLvl.s - 30 );
+}
+e2pWrFlags |= 0X01;
+}
+level = sysLevel;
+tmLvl.s = 3;
+tmLvl.m = 0;
+tmLvl.h = 0;
+if ( level && level < 8 )
+{
+lastSpeedSetting[ 6 ] = lastSpeedSetting[ 5 ];
+lastSpeedSetting[ 5 ] = lastSpeedSetting[ 4 ];
+lastSpeedSetting[ 4 ] = lastSpeedSetting[ 3 ];
+lastSpeedSetting[ 3 ] = lastSpeedSetting[ 2 ];
+lastSpeedSetting[ 2 ] = lastSpeedSetting[ 1 ];
+lastSpeedSetting[ 1 ] = lastSpeedSetting[ 0 ];
+lastSpeedSetting[ 0 ] = 0XF0 + level;
+MEM_Cpy( ( U8* )&lastSpeedWorkingTime[ 6 ], ( U8* )&lastSpeedWorkingTime[ 5 ], sizeof( H1M1S1 ) );
+MEM_Cpy( ( U8* )&lastSpeedWorkingTime[ 5 ], ( U8* )&lastSpeedWorkingTime[ 4 ], sizeof( H1M1S1 ) );
+MEM_Cpy( ( U8* )&lastSpeedWorkingTime[ 4 ], ( U8* )&lastSpeedWorkingTime[ 3 ], sizeof( H1M1S1 ) );
+MEM_Cpy( ( U8* )&lastSpeedWorkingTime[ 3 ], ( U8* )&lastSpeedWorkingTime[ 2 ], sizeof( H1M1S1 ) );
+MEM_Cpy( ( U8* )&lastSpeedWorkingTime[ 2 ], ( U8* )&lastSpeedWorkingTime[ 1 ], sizeof( H1M1S1 ) );
+MEM_Cpy( ( U8* )&lastSpeedWorkingTime[ 1 ], ( U8* )&lastSpeedWorkingTime[ 0 ], sizeof( H1M1S1 ) );
+MEM_Cpy( ( U8* )&lastSpeedWorkingTime[ 0 ], ( U8* )&tmLvl, sizeof( H1M1S1 ) );
+H2M1S1_ADD( &totalSpeedWorkingTime[ level - 1 ], 3 );
+e2pWrFlags |= 0X01;
+}
+}
+else
+{
+if ( level && level < 8 && ( tmLvl.s == 0 || tmLvl.s == 30 ) )
+{
+MEM_Cpy( ( U8* )&lastSpeedWorkingTime[ 0 ], ( U8* )&tmLvl, sizeof( H1M1S1 ) );
+if ( tmLvl.h == 0 && tmLvl.m == 0 && tmLvl.s == 30 )
+{
+H2M1S1_ADD( &totalSpeedWorkingTime[ level - 1 ], 27 );
+}
+else
+{
+H2M1S1_ADD( &totalSpeedWorkingTime[ level - 1 ], 30 );
+}
+e2pWrFlags |= 0X01;
+}
+}
+}
+
+void REC_WorkingPower( void )
+{
+}
+
+void REC_WorkingTemp( void )
+{
+static  S8 temp = 0;
+static  U8 next = 0;
+if ( sysLevel == 0 )
+{
+next = 0;
+temp = mtrTemp;
+}
+else
+{
+if ( maxMotorHistoryTemp < mtrTemp )
+{
+maxMotorHistoryTemp = mtrTemp;
+e2pWrFlags |= 0X08;
+}
+if ( temp < mtrTemp )
+{
+temp = mtrTemp;
+}
+if ( powerOnTime.s == 0 )
+{
+if ( next == 0 )
+{
+next = 1;
+lastUseMaxMotorTemp[ 6 ] = lastUseMaxMotorTemp[ 5 ];
+lastUseMaxMotorTemp[ 5 ] = lastUseMaxMotorTemp[ 4 ];
+lastUseMaxMotorTemp[ 4 ] = lastUseMaxMotorTemp[ 3 ];
+lastUseMaxMotorTemp[ 3 ] = lastUseMaxMotorTemp[ 2 ];
+lastUseMaxMotorTemp[ 2 ] = lastUseMaxMotorTemp[ 1 ];
+lastUseMaxMotorTemp[ 1 ] = lastUseMaxMotorTemp[ 0 ];
+}
+lastUseMaxMotorTemp[ 0 ] = temp;
+e2pWrFlags |= 0X08;
+}
+}
+}
+
+void REC_Faults( void )
+{
+static  U8 fault = 0;
+if ( !sysFault || sysFault >= 10 )
+{
+fault = 0;
+}
+else if ( fault != sysFault )
+{
+fault = sysFault;
+faultCode[ 6 ] = faultCode[ 5 ];
+faultCode[ 5 ] = faultCode[ 4 ];
+faultCode[ 4 ] = faultCode[ 3 ];
+faultCode[ 3 ] = faultCode[ 2 ];
+faultCode[ 2 ] = faultCode[ 1 ];
+faultCode[ 1 ] = faultCode[ 0 ];
+faultCode[ 0 ] = 0xE0 + sysFault;
+faultTotalCount[ sysFault - 1 ]++;
+MEM_Cpy( ( U8* )&faultTimeStamp[ 6 ], ( U8* )&faultTimeStamp[ 5 ], sizeof( H3M1 ) );
+MEM_Cpy( ( U8* )&faultTimeStamp[ 5 ], ( U8* )&faultTimeStamp[ 4 ], sizeof( H3M1 ) );
+MEM_Cpy( ( U8* )&faultTimeStamp[ 4 ], ( U8* )&faultTimeStamp[ 3 ], sizeof( H3M1 ) );
+MEM_Cpy( ( U8* )&faultTimeStamp[ 3 ], ( U8* )&faultTimeStamp[ 2 ], sizeof( H3M1 ) );
+MEM_Cpy( ( U8* )&faultTimeStamp[ 2 ], ( U8* )&faultTimeStamp[ 1 ], sizeof( H3M1 ) );
+MEM_Cpy( ( U8* )&faultTimeStamp[ 1 ], ( U8* )&faultTimeStamp[ 0 ], sizeof( H3M1 ) );
+MEM_Cpy( ( U8* )&faultTimeStamp[ 0 ], ( U8* )&powerOnTime.h3m1, sizeof( H3M1 ) );
+e2pWrFlags |= 0X04;
+}
+}
+
+void SVC_Ctrl( void )
+{
+
+if ( SVC_Timer( ) )
+{
+REC_SpeedWorking( );
+REC_WorkingPower( );
+REC_WorkingTemp( );
+}
+REC_Faults( );
+
+if ( e2pWrFlags & 0X01 )
+{
+if ( E2P_WR( 0X23, ( U8* )&lastSpeedSetting, sizeof( lastSpeedSetting ) ) )
+if ( E2P_WR( 0X38, ( U8* )&lastSpeedWorkingTime, sizeof( lastSpeedWorkingTime ) ) )
+if ( E2P_WR( 0X8F, ( U8* )&totalSpeedWorkingTime, sizeof( totalSpeedWorkingTime ) ) )
+{
+e2pWrFlags &= ~0X01;
+}
+}
+
+else if ( e2pWrFlags & 0X02 )
+{
+if ( E2P_WR( 0X2A, ( U8* )&lastUseMaxPower, sizeof( lastUseMaxPower ) ) )
+if ( E2P_WR( 0X31, ( U8* )&lastUseAvePower, sizeof( lastUseAvePower ) ) )
+if ( E2P_WR( 0X54, ( U8* )&lastUseReadyTime, sizeof( lastUseReadyTime ) ) )
+{
+e2pWrFlags &= ~0X02;
+}
+}
+
+else if ( e2pWrFlags & 0X04 )
+{
+if ( E2P_WR( 0X1C, ( U8* )&faultCode, sizeof( faultCode ) ) )
+if ( E2P_WR( 0X86, ( U8* )&faultTotalCount, sizeof( faultTotalCount ) ) )
+if ( E2P_WR( 0X62, ( U8* )&faultTimeStamp, sizeof( faultTimeStamp ) ) )
+{
+e2pWrFlags &= ~0X04;
+}
+}
+
+else if ( e2pWrFlags & 0X08 )
+{
+if ( E2P_WR( 0X7E, ( U8* )&maxMcuTemp, sizeof( maxMcuTemp ) ) )
+if ( E2P_WR( 0X85, ( U8* )&maxMotorHistoryTemp, sizeof( maxMotorHistoryTemp ) ) )
+if ( E2P_WR( 0X4D, ( U8* )&lastUseMaxMotorTemp, sizeof( lastUseMaxMotorTemp ) ) )
+{
+e2pWrFlags &= ~0X08;
+}
+}
+
+else if ( e2pWrFlags & 0X10 )
+{
+if ( E2P_WR( 0XD7, ( U8* )&totalPowerOnTime, sizeof( totalPowerOnTime ) ) )
+if ( E2P_WR( 0XDF, ( U8* )&totalStandbyTime, sizeof( totalStandbyTime ) ) )
+if ( E2P_WR( 0XD3, ( U8* )&totalWorkingTime, sizeof( totalWorkingTime ) ) )
+{
+e2pWrFlags &= ~0X10;
+}
+}
+
+else if ( e2pWrFlags & 0X20 )
+{
+if ( E2P_WR( 0XAB, ( U8* )&autoWorkingTime, sizeof( autoWorkingTime ) ) )
+if ( E2P_WR( 0XAF, ( U8* )&keyWorkingTime, sizeof( keyWorkingTime ) ) )
+if ( E2P_WR( 0XE5, ( U8* )&totalAutoPressedCount, sizeof( totalAutoPressedCount ) ) )
+if ( E2P_WR( 0XE7, ( U8* )&totalKeyPressedCount, sizeof( totalKeyPressedCount ) ) )
+{
+e2pWrFlags &= ~0X20;
+}
+}
+
+else if ( e2pWrFlags & 0X40 )
+{
+if ( E2P_WR( 0XDB, ( U8* )&totalNoInterlockTime, sizeof( totalNoInterlockTime ) ) )
+if ( E2P_WR( 0XE3, ( U8* )&totalInterlockOpenCount, sizeof( totalInterlockOpenCount ) ) )
+{
+e2pWrFlags &= ~0X40;
+}
+}
+
+else if ( e2pWrFlags & 0X80 )
+{
+if ( E2P_WR( 0XFE, ( U8* )&tuneValue, sizeof( tuneValue ) ) )
+{
+e2pWrFlags &= ~0X80;
+}
+}
+
+else
+{
+e2pWrFlags = 0x00;
+}
+}
+
+U8 SVC_GetTuneValue( void )
+{
+return tuneValue;
+}
+
+void SVC_SetTuneValue( U8 value )
+{
+if ( tuneValue != value )
+{
+tuneValue = value;
+e2pWrFlags |= 0X80;
+}
 }
 

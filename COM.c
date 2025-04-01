@@ -47,21 +47,25 @@ void COM_Init( void )
 
 void COM_Ctrl( void )
   {
-    static U8 t = 0;
+    static XRAM U8 t = 0;
     if ( ++t >= 50 )
       {
         t = 0;
-        COM_Print( ( U16 )adNtc );
+        COM_Print( ( U16 )mtrLevel );
         SRL_Putc( ',' );
         COM_Print( ( U16 )adVrs );
         SRL_Putc( ',' );
-        COM_Print( ( U16 )sysLevel );
+        COM_Print( ( U16 )adNtc );
         SRL_Putc( ',' );
         COM_Print( mtrSpeedRef );
         SRL_Putc( ',' );
         COM_Print( mtrSpeed );
         SRL_Putc( ',' );
         COM_Print( mtrCurrent );
+        SRL_Putc( ',' );
+        COM_Print( ( U16 )mtrTemp );
+        SRL_Putc( ',' );
+        COM_Print( ( U16 )E2P_ReadByte( 0xFE ) );
         SRL_Putc( '\r' );
         SRL_Putc( '\n' );
       }

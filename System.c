@@ -9,145 +9,216 @@
 #include "Globals.h"
 #include "System.h"
 #include "Motor.h"
+#include "Service.h"
+
+#define SECOND  100UL
+#define MINUTE  SECOND*60
+
+void CAL_MtrLevel( void )
+  {
+    U8  ofs;
+    U8  ad;
+    ofs = SVC_GetTuneValue( );
+    if ( ofs < 20 )
+      {
+        ofs = 20 - ofs;
+        ad = adVrs + ofs;
+        if ( ad < adVrs ) ad = 255;
+      }
+    else
+      {
+        ofs = ofs - 20;
+        ad = adVrs - ofs;
+        if ( ad > adVrs ) ad = 0;
+      }
+    if      ( !acCycleHalf )  mtrLevel = 0;
+    else if ( ad <  12     )  mtrLevel = 10;
+    else if ( ad <  42 - 1 )  mtrLevel = 1;
+    else if ( ad <  42 + 1 )  mtrLevel = mtrLevel < 2 ? 1 : 2;
+    else if ( ad <  94 - 1 )  mtrLevel = 2;
+    else if ( ad <  94 + 1 )  mtrLevel = mtrLevel < 3 ? 2 : 3;
+    else if ( ad < 117 - 1 )  mtrLevel = 3;
+    else if ( ad < 117 + 1 )  mtrLevel = mtrLevel < 4 ? 3 : 4;
+    else if ( ad < 137 - 1 )  mtrLevel = 4;
+    else if ( ad < 137 + 1 )  mtrLevel = mtrLevel < 5 ? 4 : 5;
+    else if ( ad < 158 - 1 )  mtrLevel = 5;
+    else if ( ad < 158 + 1 )  mtrLevel = mtrLevel < 6 ? 5 : 6;
+    else if ( ad < 184 - 1 )  mtrLevel = 6;
+    else if ( ad < 184 + 1 )  mtrLevel = mtrLevel < 7 ? 6 : 7;
+    else if ( ad < 209 - 1 )  mtrLevel = 7;
+    else if ( ad < 209 + 1 )  mtrLevel = mtrLevel < 8 ? 7 : 8;
+    else if ( ad < 240 - 1 )  mtrLevel = 8;
+    else if ( ad < 240 + 1 )  mtrLevel = mtrLevel < 9 ? 8 : 9;
+    else                      mtrLevel = 9;
+  }
+
+void CAL_TuneValue( void )
+  {
+    static XRAM U8 state = 0;
+    static XRAM U16 time = 0;
+    static XRAM U8 min = 0;
+    static XRAM U8 max = 0;
+    if ( time ) time--;
+    switch ( state )
+      {
+        case 0:
+            if ( acCycleHalf )
+              {
+                state++;
+                time = 6;
+              }
+            break;
+        case 1:
+            if ( !time )
+              {
+                if ( mtrLevel == 10 )
+                  {
+                    state++;
+                  }
+                else
+                  {
+                    state = 255;
+                  }
+              }
+            break;
+        case 2:
+            if ( mtrLevel == 1 )
+              {
+                state++;
+                time = 300;
+              }
+            break;
+        case 3:
+            if ( mtrLevel != 1 )
+              {
+                state = 255;
+              }
+            else if ( time >= 100 )
+              {
+                min = adVrs;
+                max = adVrs;
+              }
+            else
+              {
+                if ( adVrs < min ) min = adVrs;
+                if ( adVrs > max ) max = adVrs;
+                if ( !time )
+                  {
+                    if ( min < 10 || max >= 30 )
+                      {
+                        state = 255;
+                      }
+                    else
+                      {
+                        state++;
+                      }
+                  }
+              }
+            break;
+        case 4:
+            SVC_SetTuneValue( ( min + max ) >> 1 );
+            state = 255;
+            break;
+        default:
+            break;
+      }
+  }
 
 void SYS_Init( void )
   {
     sysStatus = E_SYS_INIT;
-    sysLevel = 0;
-    sysError = 0;
+    sysLevel  = E_LVL_STOP;
+    sysFault  = 0;
+    mtrLevel  = 0;
   }
 
 void SYS_Ctrl( void )
   {
-    static U8 time = 0;
+    static XRAM U32 time = 0;
+    CAL_MtrLevel( );
+    CAL_TuneValue( );
     if ( time ) time--;
     switch ( sysStatus )
       {
-        default:
-            sysStatus = E_SYS_INIT;
         case E_SYS_INIT:
-            SYS_RELAY_ON( );
-            sysLevel = 0;
+            mtrSpeedRef = 0;
             sysStatus = E_SYS_PREPARE;
-            time = 200;
+            time = SECOND*5;
             break;
         case E_SYS_PREPARE:
-            SYS_RELAY_ON( );
-            sysLevel = 0;
-            if ( idrTest0 == 0xFF
-              && idrTest1 == 0xFF
-              && adNtc < 254
-              && adNtc >= 2 )
+            mtrSpeedRef = 0;
+            if ( mtrError || !time )
+              {
+                sysFault = mtrError;
+                sysStatus = E_SYS_TURN_OFF;
+                time = SECOND/2;
+              }
+            else if ( idrTest0 == 0xFF && idrTest1 == 0xFF && mtrTemp >= 0 )
               {
                 sysStatus = E_SYS_RUN;
-              }
-            else if ( !time )
-              {
-                sysStatus = E_SYS_TURN_OFF;
+                time = MINUTE*30;
               }
             break;
         case E_SYS_RUN:
-            SYS_RELAY_ON( );
-            if ( mtrError )
+            if ( mtrError || !time )
               {
-                sysLevel = 0;
+                mtrSpeedRef = 0;
+                sysFault = mtrError;
                 sysStatus = E_SYS_TURN_OFF;
-                time = 20;
+                time = SECOND/2;
               }
-            else if ( adVrs < 10 )
+            else switch ( mtrLevel )
               {
-                sysLevel = 10;
-              }
-            else if ( adVrs < 40 - 1 )
-              {
-                sysLevel = 1;
-              }
-            else if ( adVrs < 40 + 1 )
-              {
-                sysLevel = sysLevel < 2 ? 1 : 2;
-              }
-            else if ( adVrs < 92 - 1 )
-              {
-                sysLevel = 2;
-              }
-            else if ( adVrs < 92 + 1 )
-              {
-                sysLevel = sysLevel < 3 ? 2 : 3;
-              }
-            else if ( adVrs < 117 - 1 )
-              {
-                sysLevel = 3;
-              }
-            else if ( adVrs < 117 + 1 )
-              {
-                sysLevel = sysLevel < 4 ? 3 : 4;
-              }
-            else if ( adVrs < 139 - 1 )
-              {
-                sysLevel = 4;
-              }
-            else if ( adVrs < 139 + 1 )
-              {
-                sysLevel = sysLevel < 5 ? 4 : 5;
-              }
-            else if ( adVrs < 162 - 1 )
-              {
-                sysLevel = 5;
-              }
-            else if ( adVrs < 162 + 1 )
-              {
-                sysLevel = sysLevel < 6 ? 5 : 6;
-              }
-            else if ( adVrs < 187 - 1 )
-              {
-                sysLevel = 6;
-              }
-            else if ( adVrs < 187 + 1 )
-              {
-                sysLevel = sysLevel < 7 ? 6 : 7;
-              }
-            else if ( adVrs < 214 - 1 )
-              {
-                sysLevel = 7;
-              }
-            else if ( adVrs < 214 + 1 )
-              {
-                sysLevel = sysLevel < 8 ? 7 : 8;
-              }
-            else if ( adVrs < 241 - 1 )
-              {
-                sysLevel = 8;
-              }
-            else if ( adVrs < 241 + 1 )
-              {
-                sysLevel = sysLevel < 9 ? 8 : 9;
-              }
-            else
-              {
-                sysLevel = 9;
+                default:    // Stop
+                    sysLevel = E_LVL_STOP;
+                    mtrSpeedRef = 0;
+                    break;
+                case 1:     // Fold
+                    sysLevel = E_LVL_1;
+                    mtrSpeedRef = 2500;
+                    break;
+                case 2:     // Min
+                    sysLevel = E_LVL_1;
+                    mtrSpeedRef = 3000;
+                    break;
+                case 3:     // 1
+                    sysLevel = E_LVL_1;
+                    mtrSpeedRef = 4000;
+                    break;
+                case 4:     // 2
+                    sysLevel = E_LVL_2;
+                    mtrSpeedRef = 6000;
+                    break;
+                case 5:     // 3
+                    sysLevel = E_LVL_3;
+                    mtrSpeedRef = 8000;
+                    break;
+                case 6:     // 4
+                    sysLevel = E_LVL_4;
+                    mtrSpeedRef = 9500;
+                    break;
+                case 7:     // 5
+                    sysLevel = E_LVL_5;
+                    mtrSpeedRef = 10500;
+                    break;
+                case 8:     // 6
+                    sysLevel = E_LVL_6;
+                    mtrSpeedRef = 12000;
+                    break;
+                case 9:     // Max
+                    sysLevel = E_LVL_6;
+                    mtrSpeedRef = 13500;
+                    break;
+                case 10:    // Pulse
+                    sysLevel = E_LVL_PULSE;
+                    mtrSpeedRef = 13501;
+                    break;
               }
             break;
-        case E_SYS_TURN_OFF:
-            sysLevel = 0;
-            if ( !time )
-              {
-                SYS_RELAY_OFF( );
-              }
+        default:
+            mtrSpeedRef = 0;
+            if ( !time ) sysStatus = E_SYS_OFF;
             break;
-      }
-    switch ( sysLevel )
-      {
-        default:  mtrSpeedRef = 0;       break;
-        case 1:   mtrSpeedRef = 2500;    break;  // Fold
-        case 2:   mtrSpeedRef = 3000;    break;  // Min
-        case 3:   mtrSpeedRef = 5000;    break;  // 1
-        case 4:   mtrSpeedRef = 6500;    break;  // 2
-        case 5:   mtrSpeedRef = 8000;    break;  // 3
-        case 6:   mtrSpeedRef = 9500;    break;  // 4
-        case 7:   mtrSpeedRef = 10500;   break;  // 5
-        case 8:   mtrSpeedRef = 12000;   break;  // 6
-        case 9:   mtrSpeedRef = 13500;   break;  // Max
-        case 10:  mtrSpeedRef = 13501;   break;  // Pulse
       }
   }
   

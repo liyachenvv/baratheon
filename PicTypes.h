@@ -8,6 +8,10 @@
 #ifndef _PIC_TYPES_H_
 #define _PIC_TYPES_H_
 
+#define SRAM
+#define XRAM
+#define CROM  const
+
 typedef unsigned char   U8;
 typedef unsigned short  U16;
 typedef unsigned long   U32;
@@ -49,6 +53,13 @@ typedef union
         U16 L;
         U16 H;
       } W;
+    struct
+      {
+        U8  L;
+        U8  H;
+        U8  M;
+        U8  T;
+      } B;
   } DWORD;
 
 #define BIT7  0X80
