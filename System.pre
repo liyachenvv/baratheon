@@ -1,7 +1,7 @@
 
-# 1 "E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\System.c"
+# 1 "D:\project\baratheon-winnie\baratheon\System.c"
 
-# 132 "C:\Program Files\HI-TECH Software\PICC\9.83\include\pic16f1829.h"
+# 132 "c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f1829.h"
 volatile unsigned char INDF0 @ 0x000;
 
 
@@ -2779,25 +2779,25 @@ unsigned TOSH : 7;
 } TOSHbits @ 0xFEF;
 
 
-# 27 "C:\Program Files\HI-TECH Software\PICC\9.83\include\pic.h"
+# 27 "c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic.h"
 #pragma inline(_nop)
 extern void _nop(void);
 
 # 80
 extern unsigned int flash_read(unsigned short addr);
 
-# 41 "C:\Program Files\HI-TECH Software\PICC\9.83\include\eeprom_routines.h"
+# 41 "c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\eeprom_routines.h"
 extern unsigned char eeprom_write(unsigned char addr, unsigned char value);
 extern unsigned char eeprom_read(unsigned char addr);
 extern void eecpymem(volatile unsigned char *to, eeprom unsigned char *from, unsigned char size);
 extern void memcpyee(eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 
 
-# 153 "C:\Program Files\HI-TECH Software\PICC\9.83\include\pic.h"
+# 153 "c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic.h"
 #pragma inline(_delay)
 extern void _delay(unsigned long);
 
-# 15 "E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\PicTypes.h"
+# 15 "D:\project\baratheon-winnie\baratheon\PicTypes.h"
 typedef unsigned char U8;
 typedef unsigned short U16;
 typedef unsigned long U32;
@@ -2848,7 +2848,7 @@ U8 T;
 } B;
 } DWORD;
 
-# 60 "E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\Hardware.h"
+# 60 "D:\project\baratheon-winnie\baratheon\Hardware.h"
 extern bank1 U8 sysTicks;
 
 extern bank1 U32 adCur2;
@@ -2891,7 +2891,7 @@ extern void MCU_Refresh( void );
 extern void E2P_WriteByte( U8 addr, U8 byte );
 extern U8 E2P_ReadByte( U8 addr );
 
-# 25 "E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\System.h"
+# 25 "D:\project\baratheon-winnie\baratheon\System.h"
   U8 sysStatus;
 
   U8 sysFault;
@@ -2904,7 +2904,7 @@ extern U8 E2P_ReadByte( U8 addr );
  void SYS_Init( void );
  void SYS_Ctrl( void );
 
-# 36 "E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\Motor.h"
+# 36 "D:\project\baratheon-winnie\baratheon\Motor.h"
 extern  U16 mtrSpeedRef;
 extern  U16 mtrSpeed;
 extern  U16 mtrCurrent;
@@ -2916,7 +2916,7 @@ extern  U8 mtrError;
 extern void MTR_Init( void );
 extern void MTR_Ctrl( void );
 
-# 73 "E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\Service.h"
+# 73 "D:\project\baratheon-winnie\baratheon\Service.h"
 extern  U8 e2pWrFlags;
 
 extern void SVC_Init( void );
@@ -2924,7 +2924,7 @@ extern void SVC_Ctrl( void );
 extern U8 SVC_GetTuneValue( void );
 extern void SVC_SetTuneValue( U8 value );
 
-# 17 "E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\System.c"
+# 17 "D:\project\baratheon-winnie\baratheon\System.c"
 void CAL_MtrLevel( void )
 {
 U8 ofs;
@@ -3067,13 +3067,13 @@ time = 100UL/2;
 else if ( idrTest0 == 0xFF && idrTest1 == 0xFF && mtrTemp >= 0 )
 {
 sysStatus = 2;
-time = 100UL*60*30;
+time = 100UL*60*45;
 }
 break;
 case 2:
 if ( mtrError || !time )
 {
-mtrSpeedRef = 0;
+mtrSpeedRef = 1500;
 sysFault = mtrError;
 sysStatus = 3;
 time = 100UL/2;
@@ -3085,16 +3085,16 @@ sysLevel = 0;
 mtrSpeedRef = 0;
 break;
 case 1:
-sysLevel = 2;
-mtrSpeedRef = 2500;
+sysLevel = 0;
+mtrSpeedRef = 0;
 break;
 case 2:
 sysLevel = 2;
-mtrSpeedRef = 3000;
+mtrSpeedRef = 2500;
 break;
 case 3:
 sysLevel = 2;
-mtrSpeedRef = 4000;
+mtrSpeedRef = 5000;
 break;
 case 4:
 sysLevel = 3;
@@ -3127,7 +3127,7 @@ break;
 }
 break;
 default:
-mtrSpeedRef = 0;
+mtrSpeedRef = 1500;
 if ( !time ) sysStatus = 4;
 break;
 }

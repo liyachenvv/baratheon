@@ -156,13 +156,13 @@ void SYS_Ctrl( void )
             else if ( idrTest0 == 0xFF && idrTest1 == 0xFF && mtrTemp >= 0 )
               {
                 sysStatus = E_SYS_RUN;
-                time = MINUTE*30;
+                time = MINUTE*45;
               }
             break;
         case E_SYS_RUN:
             if ( mtrError || !time )
               {
-                mtrSpeedRef = 0;
+                mtrSpeedRef = 1500;
                 sysFault = mtrError;
                 sysStatus = E_SYS_TURN_OFF;
                 time = SECOND/2;
@@ -173,17 +173,17 @@ void SYS_Ctrl( void )
                     sysLevel = E_LVL_STOP;
                     mtrSpeedRef = 0;
                     break;
-                case 1:     // Fold
-                    sysLevel = E_LVL_1;
-                    mtrSpeedRef = 2500;
+                case 1:     // Fold->Off 
+                    sysLevel = E_LVL_STOP;
+                    mtrSpeedRef = 0;
                     break;
                 case 2:     // Min
                     sysLevel = E_LVL_1;
-                    mtrSpeedRef = 3000;
+                    mtrSpeedRef = 2500;
                     break;
                 case 3:     // 1
                     sysLevel = E_LVL_1;
-                    mtrSpeedRef = 4000;
+                    mtrSpeedRef = 5000;
                     break;
                 case 4:     // 2
                     sysLevel = E_LVL_2;
@@ -216,7 +216,7 @@ void SYS_Ctrl( void )
               }
             break;
         default:
-            mtrSpeedRef = 0;
+            mtrSpeedRef = 1500;
             if ( !time ) sysStatus = E_SYS_OFF;
             break;
       }

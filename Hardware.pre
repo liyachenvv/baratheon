@@ -1,7 +1,7 @@
 
-# 1 "E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\Hardware.c"
+# 1 "D:\project\baratheon-winnie\baratheon\Hardware.c"
 
-# 132 "C:\Program Files\HI-TECH Software\PICC\9.83\include\pic16f1829.h"
+# 132 "c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f1829.h"
 volatile unsigned char INDF0 @ 0x000;
 
 
@@ -2779,25 +2779,25 @@ unsigned TOSH : 7;
 } TOSHbits @ 0xFEF;
 
 
-# 27 "C:\Program Files\HI-TECH Software\PICC\9.83\include\pic.h"
+# 27 "c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic.h"
 #pragma inline(_nop)
 extern void _nop(void);
 
 # 80
 extern unsigned int flash_read(unsigned short addr);
 
-# 41 "C:\Program Files\HI-TECH Software\PICC\9.83\include\eeprom_routines.h"
+# 41 "c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\eeprom_routines.h"
 extern unsigned char eeprom_write(unsigned char addr, unsigned char value);
 extern unsigned char eeprom_read(unsigned char addr);
 extern void eecpymem(volatile unsigned char *to, eeprom unsigned char *from, unsigned char size);
 extern void memcpyee(eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 
 
-# 153 "C:\Program Files\HI-TECH Software\PICC\9.83\include\pic.h"
+# 153 "c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic.h"
 #pragma inline(_delay)
 extern void _delay(unsigned long);
 
-# 15 "E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\PicTypes.h"
+# 15 "D:\project\baratheon-winnie\baratheon\PicTypes.h"
 typedef unsigned char U8;
 typedef unsigned short U16;
 typedef unsigned long U32;
@@ -2848,7 +2848,7 @@ U8 T;
 } B;
 } DWORD;
 
-# 60 "E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\Hardware.h"
+# 60 "D:\project\baratheon-winnie\baratheon\Hardware.h"
  bank1 U8 sysTicks;
 
  bank1 U32 adCur2;
@@ -2891,7 +2891,7 @@ U8 T;
  void E2P_WriteByte( U8 addr, U8 byte );
  U8 E2P_ReadByte( U8 addr );
 
-# 12 "E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\Hardware.c"
+# 12 "D:\project\baratheon-winnie\baratheon\Hardware.c"
 asm("\tpsect config,class=CONFIG,delta=2"); asm("\tdw ""0X0F9C");
 asm("\tpsect config,class=CONFIG,delta=2"); asm("\tdw ""0X3FFC");
 

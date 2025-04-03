@@ -2,12 +2,12 @@
 MagicCookie={0b13fe8c-dfe0-40eb-8900-6712719559a7}
 Version=1.0
 [File000]
-Location=E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\COM.p1
+Location=D:\project\baratheon-winnie\baratheon\COM.p1
 Folder=Intermediary
 DeviceName=PIC16F1829
 LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
 LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
-LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC\9.83\bin\picc.exe
+LanguageToolLocation=c:\Program Files (x86)\HI-TECH Software\PICC\9.83\bin\picc.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|COM.c|Hardware.c|main.c|Motor.c|System.c|Uart.c|MyMath.c|Service.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
@@ -15,12 +15,12 @@ ToolArgsString=C6=31 DB=9 DC=9 DF=0 DD=1 C2=1 C3=0 DE=1 D7=1 11E=2 121=0 122=0 1
 TraceCmdString=
 DebugOptions=
 [File001]
-Location=E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\Hardware.p1
+Location=D:\project\baratheon-winnie\baratheon\Hardware.p1
 Folder=Intermediary
 DeviceName=PIC16F1829
 LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
 LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
-LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC\9.83\bin\picc.exe
+LanguageToolLocation=c:\Program Files (x86)\HI-TECH Software\PICC\9.83\bin\picc.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|COM.c|Hardware.c|main.c|Motor.c|System.c|Uart.c|MyMath.c|Service.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
@@ -28,12 +28,12 @@ ToolArgsString=C6=31 DB=9 DC=9 DF=0 DD=1 C2=1 C3=0 DE=1 D7=1 11E=2 121=0 122=0 1
 TraceCmdString=
 DebugOptions=
 [File002]
-Location=E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\main.p1
+Location=D:\project\baratheon-winnie\baratheon\main.p1
 Folder=Intermediary
 DeviceName=PIC16F1829
 LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
 LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
-LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC\9.83\bin\picc.exe
+LanguageToolLocation=c:\Program Files (x86)\HI-TECH Software\PICC\9.83\bin\picc.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|COM.c|Hardware.c|main.c|Motor.c|System.c|Uart.c|MyMath.c|Service.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
@@ -41,12 +41,12 @@ ToolArgsString=C6=31 DB=9 DC=9 DF=0 DD=1 C2=1 C3=0 DE=1 D7=1 11E=2 121=0 122=0 1
 TraceCmdString=
 DebugOptions=
 [File003]
-Location=E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\Motor.p1
+Location=D:\project\baratheon-winnie\baratheon\Motor.p1
 Folder=Intermediary
 DeviceName=PIC16F1829
 LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
 LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
-LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC\9.83\bin\picc.exe
+LanguageToolLocation=c:\Program Files (x86)\HI-TECH Software\PICC\9.83\bin\picc.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|COM.c|Hardware.c|main.c|Motor.c|System.c|Uart.c|MyMath.c|Service.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
@@ -54,12 +54,12 @@ ToolArgsString=C6=31 DB=9 DC=9 DF=0 DD=1 C2=1 C3=0 DE=1 D7=1 11E=2 121=0 122=0 1
 TraceCmdString=
 DebugOptions=
 [File004]
-Location=E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\System.p1
+Location=D:\project\baratheon-winnie\baratheon\System.p1
 Folder=Intermediary
 DeviceName=PIC16F1829
 LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
 LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
-LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC\9.83\bin\picc.exe
+LanguageToolLocation=c:\Program Files (x86)\HI-TECH Software\PICC\9.83\bin\picc.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|COM.c|Hardware.c|main.c|Motor.c|System.c|Uart.c|MyMath.c|Service.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
@@ -67,12 +67,12 @@ ToolArgsString=C6=31 DB=9 DC=9 DF=0 DD=1 C2=1 C3=0 DE=1 D7=1 11E=2 121=0 122=0 1
 TraceCmdString=
 DebugOptions=
 [File005]
-Location=E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\Uart.p1
+Location=D:\project\baratheon-winnie\baratheon\Uart.p1
 Folder=Intermediary
 DeviceName=PIC16F1829
 LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
 LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
-LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC\9.83\bin\picc.exe
+LanguageToolLocation=c:\Program Files (x86)\HI-TECH Software\PICC\9.83\bin\picc.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|COM.c|Hardware.c|main.c|Motor.c|System.c|Uart.c|MyMath.c|Service.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
@@ -80,12 +80,12 @@ ToolArgsString=C6=31 DB=9 DC=9 DF=0 DD=1 C2=1 C3=0 DE=1 D7=1 11E=2 121=0 122=0 1
 TraceCmdString=
 DebugOptions=
 [File006]
-Location=E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\MyMath.p1
+Location=D:\project\baratheon-winnie\baratheon\MyMath.p1
 Folder=Intermediary
 DeviceName=PIC16F1829
 LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
 LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
-LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC\9.83\bin\picc.exe
+LanguageToolLocation=c:\Program Files (x86)\HI-TECH Software\PICC\9.83\bin\picc.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|COM.c|Hardware.c|main.c|Motor.c|System.c|Uart.c|MyMath.c|Service.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
@@ -93,12 +93,12 @@ ToolArgsString=C6=31 DB=9 DC=9 DF=0 DD=1 C2=1 C3=0 DE=1 D7=1 11E=2 121=0 122=0 1
 TraceCmdString=
 DebugOptions=
 [File007]
-Location=E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\Service.p1
+Location=D:\project\baratheon-winnie\baratheon\Service.p1
 Folder=Intermediary
 DeviceName=PIC16F1829
 LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
 LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
-LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC\9.83\bin\picc.exe
+LanguageToolLocation=c:\Program Files (x86)\HI-TECH Software\PICC\9.83\bin\picc.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|COM.c|Hardware.c|main.c|Motor.c|System.c|Uart.c|MyMath.c|Service.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
@@ -106,12 +106,12 @@ ToolArgsString=C6=31 DB=9 DC=9 DF=0 DD=1 C2=1 C3=0 DE=1 D7=1 11E=2 121=0 122=0 1
 TraceCmdString=
 DebugOptions=
 [File008]
-Location=E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\_PrgPIC16F.cof
+Location=D:\project\baratheon-winnie\baratheon\_PrgPIC16F.cof
 Folder=Output
 DeviceName=PIC16F1829
 LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
 LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
-LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC\9.83\bin\picc.exe
+LanguageToolLocation=c:\Program Files (x86)\HI-TECH Software\PICC\9.83\bin\picc.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|COM.c|Hardware.c|main.c|Motor.c|System.c|Uart.c|MyMath.c|Service.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
@@ -119,12 +119,12 @@ ToolArgsString=C6=31 DB=9 DC=9 DF=0 DD=1 C2=1 C3=0 DE=1 D7=1 11E=2 121=0 122=0 1
 TraceCmdString=
 DebugOptions=
 [File009]
-Location=E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\_PrgPIC16F.hex
+Location=D:\project\baratheon-winnie\baratheon\_PrgPIC16F.hex
 Folder=Output
 DeviceName=PIC16F1829
 LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
 LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
-LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC\9.83\bin\picc.exe
+LanguageToolLocation=c:\Program Files (x86)\HI-TECH Software\PICC\9.83\bin\picc.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|COM.c|Hardware.c|main.c|Motor.c|System.c|Uart.c|MyMath.c|Service.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
@@ -132,12 +132,12 @@ ToolArgsString=C6=31 DB=9 DC=9 DF=0 DD=1 C2=1 C3=0 DE=1 D7=1 11E=2 121=0 122=0 1
 TraceCmdString=
 DebugOptions=
 [File010]
-Location=E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\_PrgPIC16F.sym
+Location=D:\project\baratheon-winnie\baratheon\_PrgPIC16F.sym
 Folder=Output
 DeviceName=PIC16F1829
 LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
 LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
-LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC\9.83\bin\picc.exe
+LanguageToolLocation=c:\Program Files (x86)\HI-TECH Software\PICC\9.83\bin\picc.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|COM.c|Hardware.c|main.c|Motor.c|System.c|Uart.c|MyMath.c|Service.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
@@ -145,12 +145,12 @@ ToolArgsString=C6=31 DB=9 DC=9 DF=0 DD=1 C2=1 C3=0 DE=1 D7=1 11E=2 121=0 122=0 1
 TraceCmdString=
 DebugOptions=
 [File011]
-Location=E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\_PrgPIC16F.map
+Location=D:\project\baratheon-winnie\baratheon\_PrgPIC16F.map
 Folder=Output
 DeviceName=PIC16F1829
 LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
 LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
-LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC\9.83\bin\picc.exe
+LanguageToolLocation=c:\Program Files (x86)\HI-TECH Software\PICC\9.83\bin\picc.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|COM.c|Hardware.c|main.c|Motor.c|System.c|Uart.c|MyMath.c|Service.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
@@ -158,12 +158,12 @@ ToolArgsString=C6=31 DB=9 DC=9 DF=0 DD=1 C2=1 C3=0 DE=1 D7=1 11E=2 121=0 122=0 1
 TraceCmdString=
 DebugOptions=
 [File012]
-Location=E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\_PrgPIC16F.hxl
+Location=D:\project\baratheon-winnie\baratheon\_PrgPIC16F.hxl
 Folder=Output
 DeviceName=PIC16F1829
 LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
 LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
-LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC\9.83\bin\picc.exe
+LanguageToolLocation=c:\Program Files (x86)\HI-TECH Software\PICC\9.83\bin\picc.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|COM.c|Hardware.c|main.c|Motor.c|System.c|Uart.c|MyMath.c|Service.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
@@ -171,12 +171,12 @@ ToolArgsString=C6=31 DB=9 DC=9 DF=0 DD=1 C2=1 C3=0 DE=1 D7=1 11E=2 121=0 122=0 1
 TraceCmdString=
 DebugOptions=
 [File013]
-Location=E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\startup.lst
+Location=D:\project\baratheon-winnie\baratheon\startup.lst
 Folder=Output
 DeviceName=PIC16F1829
 LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
 LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
-LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC\9.83\bin\picc.exe
+LanguageToolLocation=c:\Program Files (x86)\HI-TECH Software\PICC\9.83\bin\picc.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|COM.c|Hardware.c|main.c|Motor.c|System.c|Uart.c|MyMath.c|Service.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
@@ -184,12 +184,12 @@ ToolArgsString=C6=31 DB=9 DC=9 DF=0 DD=1 C2=1 C3=0 DE=1 D7=1 11E=2 121=0 122=0 1
 TraceCmdString=
 DebugOptions=
 [File014]
-Location=E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\startup.rlf
+Location=D:\project\baratheon-winnie\baratheon\startup.rlf
 Folder=Output
 DeviceName=PIC16F1829
 LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
 LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
-LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC\9.83\bin\picc.exe
+LanguageToolLocation=c:\Program Files (x86)\HI-TECH Software\PICC\9.83\bin\picc.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|COM.c|Hardware.c|main.c|Motor.c|System.c|Uart.c|MyMath.c|Service.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
@@ -197,12 +197,12 @@ ToolArgsString=C6=31 DB=9 DC=9 DF=0 DD=1 C2=1 C3=0 DE=1 D7=1 11E=2 121=0 122=0 1
 TraceCmdString=
 DebugOptions=
 [File015]
-Location=E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\doprnt.p1
+Location=D:\project\baratheon-winnie\baratheon\doprnt.p1
 Folder=Output
 DeviceName=PIC16F1829
 LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
 LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
-LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC\9.83\bin\picc.exe
+LanguageToolLocation=c:\Program Files (x86)\HI-TECH Software\PICC\9.83\bin\picc.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|COM.c|Hardware.c|main.c|Motor.c|System.c|Uart.c|MyMath.c|Service.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
@@ -210,12 +210,12 @@ ToolArgsString=C6=31 DB=9 DC=9 DF=0 DD=1 C2=1 C3=0 DE=1 D7=1 11E=2 121=0 122=0 1
 TraceCmdString=
 DebugOptions=
 [File016]
-Location=E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\doprnt.pre
+Location=D:\project\baratheon-winnie\baratheon\doprnt.pre
 Folder=Output
 DeviceName=PIC16F1829
 LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
 LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
-LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC\9.83\bin\picc.exe
+LanguageToolLocation=c:\Program Files (x86)\HI-TECH Software\PICC\9.83\bin\picc.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|COM.c|Hardware.c|main.c|Motor.c|System.c|Uart.c|MyMath.c|Service.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
@@ -223,12 +223,12 @@ ToolArgsString=C6=31 DB=9 DC=9 DF=0 DD=1 C2=1 C3=0 DE=1 D7=1 11E=2 121=0 122=0 1
 TraceCmdString=
 DebugOptions=
 [File017]
-Location=E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\_PrgPIC16F.obj
+Location=D:\project\baratheon-winnie\baratheon\_PrgPIC16F.obj
 Folder=Output
 DeviceName=PIC16F1829
 LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
 LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
-LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC\9.83\bin\picc.exe
+LanguageToolLocation=c:\Program Files (x86)\HI-TECH Software\PICC\9.83\bin\picc.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|COM.c|Hardware.c|main.c|Motor.c|System.c|Uart.c|MyMath.c|Service.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
@@ -236,12 +236,12 @@ ToolArgsString=C6=31 DB=9 DC=9 DF=0 DD=1 C2=1 C3=0 DE=1 D7=1 11E=2 121=0 122=0 1
 TraceCmdString=
 DebugOptions=
 [File018]
-Location=E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\_PrgPIC16F.lst
+Location=D:\project\baratheon-winnie\baratheon\_PrgPIC16F.lst
 Folder=Output
 DeviceName=PIC16F1829
 LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
 LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
-LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC\9.83\bin\picc.exe
+LanguageToolLocation=c:\Program Files (x86)\HI-TECH Software\PICC\9.83\bin\picc.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|COM.c|Hardware.c|main.c|Motor.c|System.c|Uart.c|MyMath.c|Service.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
@@ -249,12 +249,12 @@ ToolArgsString=C6=31 DB=9 DC=9 DF=0 DD=1 C2=1 C3=0 DE=1 D7=1 11E=2 121=0 122=0 1
 TraceCmdString=
 DebugOptions=
 [File019]
-Location=E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\_PrgPIC16F.rlf
+Location=D:\project\baratheon-winnie\baratheon\_PrgPIC16F.rlf
 Folder=Output
 DeviceName=PIC16F1829
 LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
 LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
-LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC\9.83\bin\picc.exe
+LanguageToolLocation=c:\Program Files (x86)\HI-TECH Software\PICC\9.83\bin\picc.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|COM.c|Hardware.c|main.c|Motor.c|System.c|Uart.c|MyMath.c|Service.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=
@@ -262,12 +262,12 @@ ToolArgsString=C6=31 DB=9 DC=9 DF=0 DD=1 C2=1 C3=0 DE=1 D7=1 11E=2 121=0 122=0 1
 TraceCmdString=
 DebugOptions=
 [File020]
-Location=E:\SZZB\KenWood\Baratheon\PRG\220V\BARATHEON-A18\_PrgPIC16F.sdb
+Location=D:\project\baratheon-winnie\baratheon\_PrgPIC16F.sdb
 Folder=Output
 DeviceName=PIC16F1829
 LanguageToolSuiteID={507D93FD-16F1-4270-980F-0C7C0207E6D3}
 LanguageToolID={0F51667C-2BAF-4EF8-A2C9-AB83788A793D}
-LanguageToolLocation=C:\Program Files\HI-TECH Software\PICC\9.83\bin\picc.exe
+LanguageToolLocation=c:\Program Files (x86)\HI-TECH Software\PICC\9.83\bin\picc.exe
 PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)||$(LIBDIR)||$(LKRDIR)||
 SOLK=<src>|COM.c|Hardware.c|main.c|Motor.c|System.c|Uart.c|MyMath.c|Service.c||<obj>||<lib>||<lkr>||
 SuiteArgsString=

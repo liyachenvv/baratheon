@@ -40,5 +40,6 @@ EXTERN U16  SQRT32( U32 a );
 EXTERN S16  PID_CAL( PID_t * p, S16 err );
 EXTERN S16  PID_LIM( PID_t * p, S16 min, S16 max );
 
+U32 pidKp;   //,pidKi;  //,pidKd;
 #endif
 

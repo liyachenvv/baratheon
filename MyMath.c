@@ -35,12 +35,32 @@ U16  SQRT32( U32 a )
 
 S16  PID_CAL( PID_t * p, S16 err )
   {
+    S32 tempp;  //,tempi; //,tempd;
     if ( !( p->ro.W.H < p->ro.W.L && err >= 0 )
       && !( p->ro.W.L < p->ro.W.H && err < 0 ) )
       {
         p->ri.D += MULS32( p->ki, err );
       }
-    p->ro.D = MULS32( p->kp, err ) + MULS32( p->kd, err - p->e1 ) + p->ri.D;
+
+    tempp=MULS32( p->kp, err );
+    //tempi=p->ri.D;
+    //tempd=MULS32( p->kd, err - p->e1 );
+    //p->ro.D=tempp+tempi+MULS32( p->kd, err - p->e1 ); //tempd;
+    p->ro.D = tempp + MULS32( p->kd, err - p->e1 ) + p->ri.D;    
+    if(tempp<0)
+    {    pidKp=-tempp;    }
+    else
+    {    pidKp=tempp;     }
+    //if(tempi<0)
+    //{    pidKi=-tempi;    }
+    //else
+    //{    pidKi=tempi;     }
+    //if(tempd<0)
+    //{    pidKd=-tempd;    }
+    //else
+    //{    pidKd=tempd;     }
+    
+    //p->ro.D = MULS32( p->kp, err ) + MULS32( p->kd, err - p->e1 ) + p->ri.D;
     p->ro.W.L = p->ro.W.H;
     p->e1 = err;
     return p->ro.W.H;
