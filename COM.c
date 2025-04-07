@@ -12,6 +12,8 @@
 #include "Uart.h"
 #include "COM.h"
 #include "MyMath.h"
+#include "Hardware.h"
+
 void COM_Print( U16 n )
   {
     U8  f = 0;
@@ -48,38 +50,59 @@ void COM_Init( void )
 void COM_Ctrl( void )
   {
     static XRAM U8 t = 0;
-    if ( ++t >= 50 )
+    if ( ++t >= 100 )
       {
         t = 0;
-        COM_Print( ( U16 )mtrLevel );
-        SRL_Putc( ',' );
-        COM_Print( ( U16 )adVrs );
-        SRL_Putc( ',' );
-        COM_Print( ( U16 )adNtc );
-        SRL_Putc( ',' );
-        COM_Print( mtrSpeedRef );
-        SRL_Putc( ',' );
+        //COM_Print( ( U16 )mtrLevel );
+        //SRL_Putc( ',' ); 
+        //COM_Print( ( U16 )adVrs );
+        //SRL_Putc( ',' );
+        //COM_Print( ( U16 )adNtc );
+        //SRL_Putc( ',' );
+        //COM_Print( mtrSpeedRef );
+        //SRL_Putc( ',' );
         COM_Print( mtrSpeed );
         SRL_Putc( ',' );
-        COM_Print( mtrCurrent );
-        SRL_Putc( ',' );
+        COM_Print( mtrError );
+        SRL_Putc( ',' );       
+        //COM_Print( mtrCurrent );
+        //SRL_Putc( ',' );
         COM_Print( ( U16 )tmTriac );
-        SRL_Putc( ',' );
-        //COM_Print( ( U16 )E2P_ReadByte( 0xFE ) );
-        COM_Print( ( U16 )(pidKp>>16) );
-        SRL_Putc( ',' );
-        COM_Print( ( U16 )( pidKp&0xFFFF ));
-        SRL_Putc( ',' );
-        //COM_Print( ( U16 )(pidKi>>16) );
-        //SRL_Putc( ',' );
-        //COM_Print( ( U16 )( pidKi&0xFFFF ));
-        //SRL_Putc( ',' );
-        //COM_Print( ( U16 )(pidKd>>16) );
-        //SRL_Putc( ',' );
-        //COM_Print( ( U16 )( pidKd&0xFFFF ));
+        SRL_Putc( ',' );      
+        //COM_Print( mtrHallWDT );
         //SRL_Putc( ',' );        
+        //COM_Print( ( U16 )E2P_ReadByte( 0xFE ) );            
         SRL_Putc( '\r' );
         SRL_Putc( '\n' );
       }
   }
+  void COM_Ctrl2( void )
+  {
+    static XRAM U8 t2 = 0;
+    if ( ++t2 >= 100 )
+      {
+        t2 = 0;
+        COM_Print( ( U16 )mtrLevel );
+        //SRL_Putc( ',' );
+        SRL_Putc( 'P' );
+        //SRL_Putc( ',' );
+        COM_Print( ( U16 )( pidKp&0x0000FFFF) );
+        SRL_Putc( ',' );
+        COM_Print( ( U16 )( pidKp>>16 ));
+        //SRL_Putc( ',' );
+        SRL_Putc( 'I' );
+        //SRL_Putc( ',' );
+        COM_Print( ( U16 )( pidKi&0x0000FFFF ) );
+        SRL_Putc( ',' );
+        COM_Print( ( U16 )( pidKi>>16 ));
+        //SRL_Putc( ',' );
+        SRL_Putc( 'D' );
+        //SRL_Putc( ',' );
+        COM_Print( ( U16 )( pidKd&0x0000FFFF ) );
+        SRL_Putc( ',' );
+        COM_Print( ( U16 )( pidKd>>16 ));
+        SRL_Putc( ',' );    
+      }
+  }
+
 

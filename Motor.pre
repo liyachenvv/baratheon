@@ -1,5 +1,5 @@
 
-# 1 "D:\project\baratheon-winnie\baratheon\Motor.c"
+# 1 "D:\project\baratheon-winnie\baratheon-mplab\Motor.c"
 
 # 132 "c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f1829.h"
 volatile unsigned char INDF0 @ 0x000;
@@ -2797,7 +2797,7 @@ extern void memcpyee(eeprom unsigned char *to, const unsigned char *from, unsign
 #pragma inline(_delay)
 extern void _delay(unsigned long);
 
-# 15 "D:\project\baratheon-winnie\baratheon\PicTypes.h"
+# 15 "D:\project\baratheon-winnie\baratheon-mplab\PicTypes.h"
 typedef unsigned char U8;
 typedef unsigned short U16;
 typedef unsigned long U32;
@@ -2848,7 +2848,7 @@ U8 T;
 } B;
 } DWORD;
 
-# 60 "D:\project\baratheon-winnie\baratheon\Hardware.h"
+# 60 "D:\project\baratheon-winnie\baratheon-mplab\Hardware.h"
 extern bank1 U8 sysTicks;
 
 extern bank1 U32 adCur2;
@@ -2891,19 +2891,19 @@ extern void MCU_Refresh( void );
 extern void E2P_WriteByte( U8 addr, U8 byte );
 extern U8 E2P_ReadByte( U8 addr );
 
-# 36 "D:\project\baratheon-winnie\baratheon\Motor.h"
+# 36 "D:\project\baratheon-winnie\baratheon-mplab\Motor.h"
   U16 mtrSpeedRef;
   U16 mtrSpeed;
   U16 mtrCurrent;
   S8 mtrTemp;
 
-# 47
+# 48
   U8 mtrError;
 
  void MTR_Init( void );
  void MTR_Ctrl( void );
 
-# 20 "D:\project\baratheon-winnie\baratheon\MyMath.h"
+# 20 "D:\project\baratheon-winnie\baratheon-mplab\MyMath.h"
 typedef union
 {
 S32 D;
@@ -2927,9 +2927,11 @@ extern U16 SQRT32( U32 a );
 extern S16 PID_CAL( PID_t * p, S16 err );
 extern S16 PID_LIM( PID_t * p, S16 min, S16 max );
 
-U32 pidKp @0x0120;
+bank3 U32 pidKp;
+bank3 U32 pidKi;
+bank3 U32 pidKd;
 
-# 16 "D:\project\baratheon-winnie\baratheon\Motor.c"
+# 16 "D:\project\baratheon-winnie\baratheon-mplab\Motor.c"
 const U8 ad2tpr[ 256 ] =
 {
 127, 127, 127, 127, 127, 127, 127, 127,
@@ -3041,7 +3043,8 @@ if ( ++mtrHallWDT >= 50 )
 {
 mtrHallWDT = 50;
 mtrHallEvent = 0;
-mtrSpeed = 0;
+
+tmTriac = 100;
 }
 else if ( mtrHallEvent >= 3 )
 {
@@ -3064,7 +3067,7 @@ if ( t >= 1600 ) break;
 }
 mtrSpeed = ( U16 )( 600000UL * ( U32 )j / ( U32 )t );
 }
-if ( tmTriac <= ( U16 )( acCycleHalf ) || mtrSpeed >= 300 )
+if ( tmTriac <= ( U16 )( acCycleHalf ) || (mtrSpeed >= 300 && mtrHallEvent))
 {
 tmZSP = 0;
 }
@@ -3214,7 +3217,12 @@ CAL_MtrCurrent( );
 CAL_MtrSpeed( );
 CAL_AcPeriod( );
 CAL_MtrError( );
+if(!mtrError) {
 MTR_Driver( );
+}
+else {
+do { GIE = 0; tmTriac = 100; GIE = 1; } while(0);
+}
 acCycleFlag = 0;
 }
 

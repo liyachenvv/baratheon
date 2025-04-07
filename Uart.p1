@@ -2057,21 +2057,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S251 . . ]
 "3028 c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f1829.h
 [v _TOSHbits `VS251  1 e@4079 ]
-"91 D:\project\baratheon-winnie\baratheon\Hardware.h
+"91 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
 [v _rxCNT `Zuc  0 e ]
-"95 D:\project\baratheon-winnie\baratheon\Hardware.h
+"95 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
 [v _rxFIFO `uc  -> 0 `x e@960 ]
-"93 D:\project\baratheon-winnie\baratheon\Hardware.h
+"93 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
 [v _rxRDP `Zuc  0 e ]
-"94 D:\project\baratheon-winnie\baratheon\Hardware.h
+"94 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
 [v _rxTIM `Zuc  0 e ]
-"86 D:\project\baratheon-winnie\baratheon\Hardware.h
+"86 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
 [v _txCNT `Zuc  0 e ]
-"90 D:\project\baratheon-winnie\baratheon\Hardware.h
+"90 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
 [v _txFIFO `uc  -> 0 `x e@928 ]
-"87 D:\project\baratheon-winnie\baratheon\Hardware.h
+"87 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
 [v _txWRP `Zuc  0 e ]
-"89 D:\project\baratheon-winnie\baratheon\Hardware.h
+"89 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
 [v _txTIM `Zuc  0 e ]
 [; ;pic16f1829.h: 132: volatile unsigned char INDF0 @ 0x000;
 [; ;pic16f1829.h: 136: volatile unsigned char INDF1 @ 0x001;
@@ -4109,7 +4109,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Uart.h: 21: U8 SRL_Gets( U8 * s );
 [; ;Uart.h: 22: U8 SRL_Putc( U8 c );
 [; ;Uart.h: 23: U8 SRL_Puts( U8 * s, U8 n );
-"13 D:\project\baratheon-winnie\baratheon\Uart.c
+"13 D:\project\baratheon-winnie\baratheon-mplab\Uart.c
 [v _SRL_Getc `(uc  1 ef1`*uc ]
 {
 [; ;Uart.c: 12: U8 SRL_Getc( U8 * c )

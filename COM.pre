@@ -1,5 +1,5 @@
 
-# 1 "D:\project\baratheon-winnie\baratheon\COM.c"
+# 1 "D:\project\baratheon-winnie\baratheon-mplab\COM.c"
 
 # 132 "c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f1829.h"
 volatile unsigned char INDF0 @ 0x000;
@@ -2797,7 +2797,7 @@ extern void memcpyee(eeprom unsigned char *to, const unsigned char *from, unsign
 #pragma inline(_delay)
 extern void _delay(unsigned long);
 
-# 15 "D:\project\baratheon-winnie\baratheon\PicTypes.h"
+# 15 "D:\project\baratheon-winnie\baratheon-mplab\PicTypes.h"
 typedef unsigned char U8;
 typedef unsigned short U16;
 typedef unsigned long U32;
@@ -2848,7 +2848,7 @@ U8 T;
 } B;
 } DWORD;
 
-# 60 "D:\project\baratheon-winnie\baratheon\Hardware.h"
+# 60 "D:\project\baratheon-winnie\baratheon-mplab\Hardware.h"
 extern bank1 U8 sysTicks;
 
 extern bank1 U32 adCur2;
@@ -2891,7 +2891,7 @@ extern void MCU_Refresh( void );
 extern void E2P_WriteByte( U8 addr, U8 byte );
 extern U8 E2P_ReadByte( U8 addr );
 
-# 25 "D:\project\baratheon-winnie\baratheon\System.h"
+# 25 "D:\project\baratheon-winnie\baratheon-mplab\System.h"
 extern  U8 sysStatus;
 
 extern  U8 sysFault;
@@ -2904,29 +2904,30 @@ extern  U8 mtrLevel;
 extern void SYS_Init( void );
 extern void SYS_Ctrl( void );
 
-# 36 "D:\project\baratheon-winnie\baratheon\Motor.h"
+# 36 "D:\project\baratheon-winnie\baratheon-mplab\Motor.h"
 extern  U16 mtrSpeedRef;
 extern  U16 mtrSpeed;
 extern  U16 mtrCurrent;
 extern  S8 mtrTemp;
 
-# 47
+# 48
 extern  U8 mtrError;
 
 extern void MTR_Init( void );
 extern void MTR_Ctrl( void );
 
-# 20 "D:\project\baratheon-winnie\baratheon\Uart.h"
+# 20 "D:\project\baratheon-winnie\baratheon-mplab\Uart.h"
 extern U8 SRL_Getc( U8 *c );
 extern U8 SRL_Gets( U8 * s );
 extern U8 SRL_Putc( U8 c );
 extern U8 SRL_Puts( U8 * s, U8 n );
 
-# 20 "D:\project\baratheon-winnie\baratheon\COM.h"
+# 20 "D:\project\baratheon-winnie\baratheon-mplab\COM.h"
  void COM_Init( void );
  void COM_Ctrl( void );
+ void COM_Ctrl2( void );
 
-# 20 "D:\project\baratheon-winnie\baratheon\MyMath.h"
+# 20 "D:\project\baratheon-winnie\baratheon-mplab\MyMath.h"
 typedef union
 {
 S32 D;
@@ -2950,9 +2951,11 @@ extern U16 SQRT32( U32 a );
 extern S16 PID_CAL( PID_t * p, S16 err );
 extern S16 PID_LIM( PID_t * p, S16 min, S16 max );
 
-U32 pidKp @0x0120;
+bank3 U32 pidKp;
+bank3 U32 pidKi;
+bank3 U32 pidKd;
 
-# 15 "D:\project\baratheon-winnie\baratheon\COM.c"
+# 17 "D:\project\baratheon-winnie\baratheon-mplab\COM.c"
 void COM_Print( U16 n )
 {
 U8 f = 0;
@@ -2989,32 +2992,52 @@ void COM_Init( void )
 void COM_Ctrl( void )
 {
 static  U8 t = 0;
-if ( ++t >= 50 )
+if ( ++t >= 100 )
 {
 t = 0;
-COM_Print( ( U16 )mtrLevel );
-SRL_Putc( ',' );
-COM_Print( ( U16 )adVrs );
-SRL_Putc( ',' );
-COM_Print( ( U16 )adNtc );
-SRL_Putc( ',' );
-COM_Print( mtrSpeedRef );
-SRL_Putc( ',' );
+
+# 64
 COM_Print( mtrSpeed );
 SRL_Putc( ',' );
-COM_Print( mtrCurrent );
+COM_Print( mtrError );
 SRL_Putc( ',' );
+
+
 COM_Print( ( U16 )tmTriac );
 SRL_Putc( ',' );
 
-COM_Print( ( U16 )(pidKp>>16) );
-SRL_Putc( ',' );
-COM_Print( ( U16 )( pidKp&0xFFFF ));
-SRL_Putc( ',' );
 
-# 81
+
 SRL_Putc( '\r' );
 SRL_Putc( '\n' );
+}
+}
+void COM_Ctrl2( void )
+{
+static  U8 t2 = 0;
+if ( ++t2 >= 100 )
+{
+t2 = 0;
+COM_Print( ( U16 )mtrLevel );
+
+SRL_Putc( 'P' );
+
+COM_Print( ( U16 )( pidKp&0x0000FFFF) );
+SRL_Putc( ',' );
+COM_Print( ( U16 )( pidKp>>16 ));
+
+SRL_Putc( 'I' );
+
+COM_Print( ( U16 )( pidKi&0x0000FFFF ) );
+SRL_Putc( ',' );
+COM_Print( ( U16 )( pidKi>>16 ));
+
+SRL_Putc( 'D' );
+
+COM_Print( ( U16 )( pidKd&0x0000FFFF ) );
+SRL_Putc( ',' );
+COM_Print( ( U16 )( pidKd>>16 ));
+SRL_Putc( ',' );
 }
 }
 

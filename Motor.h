@@ -41,6 +41,7 @@ EXTERN XRAM S8  mtrTemp;
 #define E_ERR_NTC_FAULT     2
 #define E_ERR_OVER_HEAT     2
 #define E_ERR_BAD_TRIAC     3
+#define E_ERR_OVER_TIME     4
 #define E_ERR_ZERO_SPEED    7
 #define E_ERR_OVER_CURRENT  8
 #define E_ERR_NO_CROSS      10

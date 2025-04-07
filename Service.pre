@@ -1,5 +1,5 @@
 
-# 1 "D:\project\baratheon-winnie\baratheon\Service.c"
+# 1 "D:\project\baratheon-winnie\baratheon-mplab\Service.c"
 
 # 132 "c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f1829.h"
 volatile unsigned char INDF0 @ 0x000;
@@ -2797,7 +2797,7 @@ extern void memcpyee(eeprom unsigned char *to, const unsigned char *from, unsign
 #pragma inline(_delay)
 extern void _delay(unsigned long);
 
-# 15 "D:\project\baratheon-winnie\baratheon\PicTypes.h"
+# 15 "D:\project\baratheon-winnie\baratheon-mplab\PicTypes.h"
 typedef unsigned char U8;
 typedef unsigned short U16;
 typedef unsigned long U32;
@@ -2848,7 +2848,7 @@ U8 T;
 } B;
 } DWORD;
 
-# 60 "D:\project\baratheon-winnie\baratheon\Hardware.h"
+# 60 "D:\project\baratheon-winnie\baratheon-mplab\Hardware.h"
 extern bank1 U8 sysTicks;
 
 extern bank1 U32 adCur2;
@@ -2891,7 +2891,7 @@ extern void MCU_Refresh( void );
 extern void E2P_WriteByte( U8 addr, U8 byte );
 extern U8 E2P_ReadByte( U8 addr );
 
-# 73 "D:\project\baratheon-winnie\baratheon\Service.h"
+# 73 "D:\project\baratheon-winnie\baratheon-mplab\Service.h"
   U8 e2pWrFlags;
 
  void SVC_Init( void );
@@ -2899,7 +2899,7 @@ extern U8 E2P_ReadByte( U8 addr );
  U8 SVC_GetTuneValue( void );
  void SVC_SetTuneValue( U8 value );
 
-# 25 "D:\project\baratheon-winnie\baratheon\System.h"
+# 25 "D:\project\baratheon-winnie\baratheon-mplab\System.h"
 extern  U8 sysStatus;
 
 extern  U8 sysFault;
@@ -2912,19 +2912,19 @@ extern  U8 mtrLevel;
 extern void SYS_Init( void );
 extern void SYS_Ctrl( void );
 
-# 36 "D:\project\baratheon-winnie\baratheon\Motor.h"
+# 36 "D:\project\baratheon-winnie\baratheon-mplab\Motor.h"
 extern  U16 mtrSpeedRef;
 extern  U16 mtrSpeed;
 extern  U16 mtrCurrent;
 extern  S8 mtrTemp;
 
-# 47
+# 48
 extern  U8 mtrError;
 
 extern void MTR_Init( void );
 extern void MTR_Ctrl( void );
 
-# 14 "D:\project\baratheon-winnie\baratheon\Service.c"
+# 14 "D:\project\baratheon-winnie\baratheon-mplab\Service.c"
 asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "'B'" "," "'A'" "," "'R'" "," "220>>8" "," "220&255" "," "0X00" "," "0X00" "," "0X01");
 
 # 23

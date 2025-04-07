@@ -2058,32 +2058,36 @@ Version 3.2 HI-TECH Software Intermediate Code
 "3028 c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f1829.h
 [v _TOSHbits `VS251  1 e@4079 ]
 [p mainexit ]
-"97 D:\project\baratheon-winnie\baratheon\Hardware.h
+"97 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
 [v _MCU_Init `(v  0 ef ]
-"20 D:\project\baratheon-winnie\baratheon\COM.h
+"20 D:\project\baratheon-winnie\baratheon-mplab\COM.h
 [v _COM_Init `(v  0 ef ]
-"49 D:\project\baratheon-winnie\baratheon\Motor.h
+"50 D:\project\baratheon-winnie\baratheon-mplab\Motor.h
 [v _MTR_Init `(v  0 ef ]
-"41 D:\project\baratheon-winnie\baratheon\System.h
+"41 D:\project\baratheon-winnie\baratheon-mplab\System.h
 [v _SYS_Init `(v  0 ef ]
-"75 D:\project\baratheon-winnie\baratheon\Service.h
+"75 D:\project\baratheon-winnie\baratheon-mplab\Service.h
 [v _SVC_Init `(v  0 ef ]
-"60 D:\project\baratheon-winnie\baratheon\Hardware.h
+"60 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
 [v _sysTicks `Xuc  0 e ]
-"98 D:\project\baratheon-winnie\baratheon\Hardware.h
+"98 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
 [v _MCU_Refresh `(v  0 ef ]
-"21 D:\project\baratheon-winnie\baratheon\COM.h
+"22 D:\project\baratheon-winnie\baratheon-mplab\COM.h
+[v _COM_Ctrl2 `(v  0 ef ]
+"21 D:\project\baratheon-winnie\baratheon-mplab\COM.h
 [v _COM_Ctrl `(v  0 ef ]
-"50 D:\project\baratheon-winnie\baratheon\Motor.h
+"51 D:\project\baratheon-winnie\baratheon-mplab\Motor.h
 [v _MTR_Ctrl `(v  0 ef ]
-"42 D:\project\baratheon-winnie\baratheon\System.h
+"42 D:\project\baratheon-winnie\baratheon-mplab\System.h
 [v _SYS_Ctrl `(v  0 ef ]
-"76 D:\project\baratheon-winnie\baratheon\Service.h
+"76 D:\project\baratheon-winnie\baratheon-mplab\Service.h
 [v _SVC_Ctrl `(v  0 ef ]
-"25 D:\project\baratheon-winnie\baratheon\System.h
+"25 D:\project\baratheon-winnie\baratheon-mplab\System.h
 [v _sysStatus `uc  0 e ]
-"73 D:\project\baratheon-winnie\baratheon\Service.h
+"73 D:\project\baratheon-winnie\baratheon-mplab\Service.h
 [v _e2pWrFlags `uc  0 e ]
+"84 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+[v _tmTriac `Xus  0 e ]
 [; ;pic16f1829.h: 132: volatile unsigned char INDF0 @ 0x000;
 [; ;pic16f1829.h: 136: volatile unsigned char INDF1 @ 0x001;
 [; ;pic16f1829.h: 140: volatile unsigned char PCL @ 0x002;
@@ -4118,13 +4122,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Hardware.h: 100: extern U8 E2P_ReadByte( U8 addr );
 [; ;COM.h: 20: extern void COM_Init( void );
 [; ;COM.h: 21: extern void COM_Ctrl( void );
+[; ;COM.h: 22: extern void COM_Ctrl2( void );
 [; ;Motor.h: 36: extern  U16 mtrSpeedRef;
 [; ;Motor.h: 37: extern  U16 mtrSpeed;
 [; ;Motor.h: 38: extern  U16 mtrCurrent;
 [; ;Motor.h: 39: extern  S8 mtrTemp;
-[; ;Motor.h: 47: extern  U8 mtrError;
-[; ;Motor.h: 49: extern void MTR_Init( void );
-[; ;Motor.h: 50: extern void MTR_Ctrl( void );
+[; ;Motor.h: 48: extern  U8 mtrError;
+[; ;Motor.h: 50: extern void MTR_Init( void );
+[; ;Motor.h: 51: extern void MTR_Ctrl( void );
 [; ;System.h: 25: extern  U8 sysStatus;
 [; ;System.h: 27: extern  U8 sysFault;
 [; ;System.h: 37: extern  U8 sysLevel;
@@ -4136,7 +4141,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Service.h: 76: extern void SVC_Ctrl( void );
 [; ;Service.h: 77: extern U8 SVC_GetTuneValue( void );
 [; ;Service.h: 78: extern void SVC_SetTuneValue( U8 value );
-"10 D:\project\baratheon-winnie\baratheon\main.c
+"10 D:\project\baratheon-winnie\baratheon-mplab\main.c
 [v _main `(v  1 ef ]
 {
 [; ;main.c: 9: void main( void )
@@ -4144,11 +4149,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _main ]
 [f ]
 "11
-[v F2591 `uc  1 s offTime ]
-[i F2591
--> -> 0 `i `uc
+[v F2593 `uc  1 s offTime ]
+[i F2593
+-> -> 1 `i `uc
 ]
-[; ;main.c: 11: static U8 offTime = 0;
+[; ;main.c: 11: static U8 offTime = 1;
 [; ;main.c: 12: GIE = 0;
 "12
 [e = _GIE -> -> 0 `i `b ]
@@ -4191,58 +4196,64 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 25: MCU_Refresh( );
 "25
 [e ( _MCU_Refresh ..  ]
-[; ;main.c: 26: COM_Ctrl( );
+[; ;main.c: 26: COM_Ctrl2( );
 "26
-[e ( _COM_Ctrl ..  ]
-[; ;main.c: 27: MTR_Ctrl( );
+[e ( _COM_Ctrl2 ..  ]
+[; ;main.c: 27: COM_Ctrl( );
 "27
-[e ( _MTR_Ctrl ..  ]
-[; ;main.c: 28: SYS_Ctrl( );
+[e ( _COM_Ctrl ..  ]
+[; ;main.c: 28: MTR_Ctrl( );
 "28
-[e ( _SYS_Ctrl ..  ]
-[; ;main.c: 29: SVC_Ctrl( );
+[e ( _MTR_Ctrl ..  ]
+[; ;main.c: 29: SYS_Ctrl( );
 "29
-[e ( _SVC_Ctrl ..  ]
-[; ;main.c: 30: if ( sysStatus != 4 || e2pWrFlags )
+[e ( _SYS_Ctrl ..  ]
+[; ;main.c: 30: SVC_Ctrl( );
 "30
-[e $ ! || != -> _sysStatus `i -> 4 `i != -> _e2pWrFlags `i -> -> -> 0 `i `uc `i 265  ]
-[; ;main.c: 31: {
+[e ( _SVC_Ctrl ..  ]
+[; ;main.c: 31: if ( sysStatus != 4 || e2pWrFlags )
 "31
-{
-[; ;main.c: 32: offTime = 5;
+[e $ ! || != -> _sysStatus `i -> 4 `i != -> _e2pWrFlags `i -> -> -> 0 `i `uc `i 265  ]
+[; ;main.c: 32: {
 "32
-[e = F2591 -> -> 5 `i `uc ]
-"34
-}
-[; ;main.c: 34: }
-[e $U 266  ]
-"35
-[e :U 265 ]
-[; ;main.c: 35: else if ( --offTime == 0 )
-[e $ ! == -> =- F2591 -> -> 1 `i `uc `i -> 0 `i 267  ]
-[; ;main.c: 36: {
-"36
 {
-[; ;main.c: 37: offTime = 1;
+[; ;main.c: 33: offTime = 5;
+"33
+[e = F2593 -> -> 5 `i `uc ]
+"35
+}
+[; ;main.c: 35: }
+[e $U 266  ]
+"36
+[e :U 265 ]
+[; ;main.c: 36: else if ( --offTime == 0 )
+[e $ ! == -> =- F2593 -> -> 1 `i `uc `i -> 0 `i 267  ]
+[; ;main.c: 37: {
 "37
-[e = F2591 -> -> 1 `i `uc ]
-"40
+{
+[; ;main.c: 38: offTime = 1;
+"38
+[e = F2593 -> -> 1 `i `uc ]
+[; ;main.c: 39: tmTriac=100;
+"39
+[e = _tmTriac -> -> 100 `i `us ]
+"41
 }
 [e :U 267 ]
-"41
+"42
 [e :U 266 ]
 }
 [e :U 264 ]
-"42
+"43
 }
 [e :U 261 ]
 "18
 [e $U 262  ]
 [e :U 263 ]
-[; ;main.c: 40: }
 [; ;main.c: 41: }
 [; ;main.c: 42: }
 [; ;main.c: 43: }
-"43
+[; ;main.c: 44: }
+"44
 [e :UE 260 ]
 }

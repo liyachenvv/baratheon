@@ -2057,8 +2057,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S251 . . ]
 "3028 c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f1829.h
 [v _TOSHbits `VS251  1 e@4079 ]
-"43 D:\project\baratheon-winnie\baratheon\MyMath.h
-[v _pidKp `ul  1 e@288 ]
+"43 D:\project\baratheon-winnie\baratheon-mplab\MyMath.h
+[v _pidKp `Zul  1 e ]
+"44 D:\project\baratheon-winnie\baratheon-mplab\MyMath.h
+[v _pidKi `Zul  1 e ]
+"45 D:\project\baratheon-winnie\baratheon-mplab\MyMath.h
+[v _pidKd `Zul  1 e ]
 [s S261 `s 1 `s 1 ]
 [n S261 . L H ]
 [u S260 `l 1 `S261 1 ]
@@ -4114,8 +4118,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MyMath.h: 39: U16 SQRT32( U32 a );
 [; ;MyMath.h: 40: S16 PID_CAL( PID_t * p, S16 err );
 [; ;MyMath.h: 41: S16 PID_LIM( PID_t * p, S16 min, S16 max );
-[; ;MyMath.h: 43: U32 pidKp @0x0120;
-"13 D:\project\baratheon-winnie\baratheon\MyMath.c
+[; ;MyMath.h: 43: bank3 U32 pidKp;
+[; ;MyMath.h: 44: bank3 U32 pidKi;
+[; ;MyMath.h: 45: bank3 U32 pidKd;
+"13 D:\project\baratheon-winnie\baratheon-mplab\MyMath.c
 [v _SQRT32 `(us  1 ef1`ul ]
 {
 [; ;MyMath.c: 12: U16 SQRT32( U32 a )
@@ -4211,7 +4217,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 "38
 [v _tempp `l  1 a ]
-[; ;MyMath.c: 38: S32 tempp;
+[v _tempi `l  1 a ]
+[v _tempd `l  1 a ]
+[; ;MyMath.c: 38: S32 tempp,tempi,tempd;
 [; ;MyMath.c: 39: if ( !( p->ro.W.H < p->ro.W.L && err >= 0 )
 [; ;MyMath.c: 40: && !( p->ro.W.L < p->ro.W.H && err < 0 ) )
 "40
@@ -4229,9 +4237,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MyMath.c: 45: tempp=( ( S32 )p->kp * ( S32 )err );
 "45
 [e = _tempp * -> . *U _p 0 `l -> _err `l ]
-[; ;MyMath.c: 49: p->ro.D = tempp + ( ( S32 )p->kd * ( S32 )err - p->e1 ) + p->ri.D;
+[; ;MyMath.c: 46: tempi=p->ri.D;
+"46
+[e = _tempi . . *U _p 4 0 ]
+[; ;MyMath.c: 47: tempd=( ( S32 )p->kd * ( S32 )err - p->e1 );
+"47
+[e = _tempd - * -> . *U _p 2 `l -> _err `l -> . *U _p 3 `l ]
+[; ;MyMath.c: 49: p->ro.D = tempp + tempi + tempd;
 "49
-[e = . . *U _p 5 0 + + _tempp - * -> . *U _p 2 `l -> _err `l -> . *U _p 3 `l . . *U _p 4 0 ]
+[e = . . *U _p 5 0 + + _tempp _tempi _tempd ]
 [; ;MyMath.c: 50: if(tempp<0)
 "50
 [e $ ! < _tempp -> -> 0 `i `l 272  ]
@@ -4250,6 +4264,42 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _pidKp -> _tempp `ul ]
 }
 [e :U 273 ]
+[; ;MyMath.c: 54: if(tempi<0)
+"54
+[e $ ! < _tempi -> -> 0 `i `l 274  ]
+[; ;MyMath.c: 55: { pidKi=-tempi; }
+"55
+{
+[e = _pidKi -> -U _tempi `ul ]
+}
+[e $U 275  ]
+"56
+[e :U 274 ]
+[; ;MyMath.c: 56: else
+[; ;MyMath.c: 57: { pidKi=tempi; }
+"57
+{
+[e = _pidKi -> _tempi `ul ]
+}
+[e :U 275 ]
+[; ;MyMath.c: 58: if(tempd<0)
+"58
+[e $ ! < _tempd -> -> 0 `i `l 276  ]
+[; ;MyMath.c: 59: { pidKd=-tempd; }
+"59
+{
+[e = _pidKd -> -U _tempd `ul ]
+}
+[e $U 277  ]
+"60
+[e :U 276 ]
+[; ;MyMath.c: 60: else
+[; ;MyMath.c: 61: { pidKd=tempd; }
+"61
+{
+[e = _pidKd -> _tempd `ul ]
+}
+[e :U 277 ]
 [; ;MyMath.c: 64: p->ro.W.L = p->ro.W.H;
 "64
 [e = . . . *U _p 5 1 0 . . . *U _p 5 1 1 ]
@@ -4276,13 +4326,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;MyMath.c: 71: if ( min < max )
 "71
-[e $ ! < -> _min `i -> _max `i 275  ]
+[e $ ! < -> _min `i -> _max `i 279  ]
 [; ;MyMath.c: 72: {
 "72
 {
 [; ;MyMath.c: 73: if ( p->ro.W.H > max )
 "73
-[e $ ! > -> . . . *U _p 5 1 1 `i -> _max `i 276  ]
+[e $ ! > -> . . . *U _p 5 1 1 `i -> _max `i 280  ]
 [; ;MyMath.c: 74: {
 "74
 {
@@ -4292,11 +4342,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 "76
 }
 [; ;MyMath.c: 76: }
-[e $U 277  ]
+[e $U 281  ]
 "77
-[e :U 276 ]
+[e :U 280 ]
 [; ;MyMath.c: 77: else if ( p->ro.W.H < min )
-[e $ ! < -> . . . *U _p 5 1 1 `i -> _min `i 278  ]
+[e $ ! < -> . . . *U _p 5 1 1 `i -> _min `i 282  ]
 [; ;MyMath.c: 78: {
 "78
 {
@@ -4305,18 +4355,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . . *U _p 5 1 1 _min ]
 "80
 }
-[e :U 278 ]
+[e :U 282 ]
 "81
-[e :U 277 ]
+[e :U 281 ]
 }
-[e :U 275 ]
+[e :U 279 ]
 [; ;MyMath.c: 80: }
 [; ;MyMath.c: 81: }
 [; ;MyMath.c: 82: return p->ro.W.H;
 "82
 [e ) . . . *U _p 5 1 1 ]
-[e $UE 274  ]
+[e $UE 278  ]
 [; ;MyMath.c: 83: }
 "83
-[e :UE 274 ]
+[e :UE 278 ]
 }

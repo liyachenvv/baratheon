@@ -8,7 +8,7 @@
 
 void main( void )
   {
-    static U8 offTime = 0;
+    static U8 offTime = 1;
     __DI( );
     MCU_Init( );
     COM_Init( );
@@ -23,7 +23,8 @@ void main( void )
           {
             sysTicks -= 100;
             MCU_Refresh( );
-            COM_Ctrl( );
+            COM_Ctrl2( );
+            COM_Ctrl( );      
             MTR_Ctrl( );
             SYS_Ctrl( );
             SVC_Ctrl( );
@@ -35,6 +36,7 @@ void main( void )
             else if ( --offTime == 0 )
               {
                 offTime = 1;
+                tmTriac=FAULTPOWER;
                 //SYS_RELAY_OFF( );
               }
           }

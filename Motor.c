@@ -124,7 +124,8 @@ void CAL_MtrSpeed( void )
       {
         mtrHallWDT = 50;
         mtrHallEvent = 0;
-        mtrSpeed = 0;
+        //mtrSpeed = 0;
+        tmTriac = FAULTPOWER;
       }
     else if ( mtrHallEvent >= 3 )
       {
@@ -147,7 +148,7 @@ void CAL_MtrSpeed( void )
           }
         mtrSpeed = ( U16 )( 600000UL * ( U32 )j / ( U32 )t );
       }
-    if ( tmTriac <= ( U16 )( acCycleHalf ) || mtrSpeed >= 300 )
+    if ( tmTriac <= ( U16 )( acCycleHalf ) || (mtrSpeed >= 300 && mtrHallEvent))
       {
         tmZSP = 0;
       }
@@ -297,7 +298,12 @@ void MTR_Ctrl( void )
     CAL_MtrSpeed( );
     CAL_AcPeriod( );
     CAL_MtrError( );
-    MTR_Driver( );
+    if(!mtrError) {
+      MTR_Driver( );   
+    }
+    else {  
+      TRIAC_TIME_SET(FAULTPOWER);   
+    }   
     acCycleFlag = 0;
   }
 

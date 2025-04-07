@@ -156,16 +156,21 @@ void SYS_Ctrl( void )
             else if ( idrTest0 == 0xFF && idrTest1 == 0xFF && mtrTemp >= 0 )
               {
                 sysStatus = E_SYS_RUN;
-                time = MINUTE*45;
+                time = MINUTE*5;  //for test
               }
             break;
         case E_SYS_RUN:
             if ( mtrError || !time )
               {
-                mtrSpeedRef = 1500;
+                if(!time) {
+                  if ( !mtrError ) 
+                    mtrError = E_ERR_OVER_TIME;
+                }
+                tmTriac=FAULTPOWER;
                 sysFault = mtrError;
                 sysStatus = E_SYS_TURN_OFF;
-                time = SECOND/2;
+                //time = SECOND/2;
+                time = 1;
               }
             else switch ( mtrLevel )
               {
@@ -216,7 +221,7 @@ void SYS_Ctrl( void )
               }
             break;
         default:
-            mtrSpeedRef = 1500;
+            tmTriac=FAULTPOWER;
             if ( !time ) sysStatus = E_SYS_OFF;
             break;
       }

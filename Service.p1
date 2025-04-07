@@ -2057,75 +2057,75 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S251 . . ]
 "3028 c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f1829.h
 [v _TOSHbits `VS251  1 e@4079 ]
-"73 D:\project\baratheon-winnie\baratheon\Service.h
+"73 D:\project\baratheon-winnie\baratheon-mplab\Service.h
 [v _e2pWrFlags `uc  1 e ]
-"104 D:\project\baratheon-winnie\baratheon\Service.c
+"104 D:\project\baratheon-winnie\baratheon-mplab\Service.c
 [v _lastSpeedSetting `uc  -> 7 `i s@1056 ]
 [s S261 `uc 1 `uc 1 `uc 1 ]
 [n S261 . s m h ]
-"106 D:\project\baratheon-winnie\baratheon\Service.c
+"106 D:\project\baratheon-winnie\baratheon-mplab\Service.c
 [v _lastSpeedWorkingTime `S261  -> 7 `i s@1064 ]
 [s S262 `uc 1 `uc 1 `uc 1 `uc 1 ]
 [n S262 . s m h h1 ]
-"108 D:\project\baratheon-winnie\baratheon\Service.c
+"108 D:\project\baratheon-winnie\baratheon-mplab\Service.c
 [v _totalSpeedWorkingTime `S262  -> 7 `i s@1088 ]
-"111 D:\project\baratheon-winnie\baratheon\Service.c
+"111 D:\project\baratheon-winnie\baratheon-mplab\Service.c
 [v _lastUseMaxPower `uc  -> 7 `i s@1184 ]
-"113 D:\project\baratheon-winnie\baratheon\Service.c
+"113 D:\project\baratheon-winnie\baratheon-mplab\Service.c
 [v _lastUseAvePower `uc  -> 7 `i s@1192 ]
 [s S260 `uc 1 `uc 1 ]
 [n S260 . s m ]
-"115 D:\project\baratheon-winnie\baratheon\Service.c
+"115 D:\project\baratheon-winnie\baratheon-mplab\Service.c
 [v _lastUseReadyTime `S260  -> 7 `i s@1200 ]
-"118 D:\project\baratheon-winnie\baratheon\Service.c
+"118 D:\project\baratheon-winnie\baratheon-mplab\Service.c
 [v _faultCode `uc  -> 7 `i s@1312 ]
-"120 D:\project\baratheon-winnie\baratheon\Service.c
+"120 D:\project\baratheon-winnie\baratheon-mplab\Service.c
 [v _faultTotalCount `uc  -> 9 `i s@1319 ]
 [s S263 `uc 1 `uc 1 `uc 1 `uc 1 ]
 [n S263 . m h h1 h2 ]
-"122 D:\project\baratheon-winnie\baratheon\Service.c
+"122 D:\project\baratheon-winnie\baratheon-mplab\Service.c
 [v _faultTimeStamp `S263  -> 7 `i s@1328 ]
-"125 D:\project\baratheon-winnie\baratheon\Service.c
+"125 D:\project\baratheon-winnie\baratheon-mplab\Service.c
 [v _maxMcuTemp `uc  -> 7 `i s@1360 ]
-"127 D:\project\baratheon-winnie\baratheon\Service.c
+"127 D:\project\baratheon-winnie\baratheon-mplab\Service.c
 [v _maxMotorHistoryTemp `uc  1 s@1367 ]
-"129 D:\project\baratheon-winnie\baratheon\Service.c
+"129 D:\project\baratheon-winnie\baratheon-mplab\Service.c
 [v _lastUseMaxMotorTemp `uc  -> 7 `i s@1368 ]
-"132 D:\project\baratheon-winnie\baratheon\Service.c
+"132 D:\project\baratheon-winnie\baratheon-mplab\Service.c
 [v _totalPowerOnTime `S263  1 s@1440 ]
-"134 D:\project\baratheon-winnie\baratheon\Service.c
+"134 D:\project\baratheon-winnie\baratheon-mplab\Service.c
 [v _totalStandbyTime `S263  1 s@1444 ]
-"136 D:\project\baratheon-winnie\baratheon\Service.c
+"136 D:\project\baratheon-winnie\baratheon-mplab\Service.c
 [v _totalWorkingTime `S263  1 s@1448 ]
-"139 D:\project\baratheon-winnie\baratheon\Service.c
+"139 D:\project\baratheon-winnie\baratheon-mplab\Service.c
 [v _autoWorkingTime `S262  1 s@1568 ]
-"141 D:\project\baratheon-winnie\baratheon\Service.c
+"141 D:\project\baratheon-winnie\baratheon-mplab\Service.c
 [v _keyWorkingTime `S262  -> 9 `i s@1572 ]
 [s S265 `uc 1 `uc 1 ]
 [n S265 . l h ]
-"143 D:\project\baratheon-winnie\baratheon\Service.c
+"143 D:\project\baratheon-winnie\baratheon-mplab\Service.c
 [v _totalAutoPressedCount `S265  1 s@1616 ]
-"145 D:\project\baratheon-winnie\baratheon\Service.c
+"145 D:\project\baratheon-winnie\baratheon-mplab\Service.c
 [v _totalKeyPressedCount `S265  -> 9 `i s@1620 ]
-"148 D:\project\baratheon-winnie\baratheon\Service.c
+"148 D:\project\baratheon-winnie\baratheon-mplab\Service.c
 [v _totalNoInterlockTime `S263  1 s@1624 ]
-"150 D:\project\baratheon-winnie\baratheon\Service.c
+"150 D:\project\baratheon-winnie\baratheon-mplab\Service.c
 [v _totalInterlockOpenCount `S265  1 s@1628 ]
-"153 D:\project\baratheon-winnie\baratheon\Service.c
+"153 D:\project\baratheon-winnie\baratheon-mplab\Service.c
 [v _tuneValue `uc  1 s ]
 [s S264 `uc 1 `S263 1 ]
 [n S264 . s h3m1 ]
-"155 D:\project\baratheon-winnie\baratheon\Service.c
+"155 D:\project\baratheon-winnie\baratheon-mplab\Service.c
 [v _powerOnTime `S264  1 s ]
-"100 D:\project\baratheon-winnie\baratheon\Hardware.h
+"100 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
 [v _E2P_ReadByte `(uc  0 ef1`uc ]
-"99 D:\project\baratheon-winnie\baratheon\Hardware.h
+"99 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
 [v _E2P_WriteByte `(v  0 ef2`uc`uc ]
-"37 D:\project\baratheon-winnie\baratheon\System.h
+"37 D:\project\baratheon-winnie\baratheon-mplab\System.h
 [v _sysLevel `uc  0 e ]
-"39 D:\project\baratheon-winnie\baratheon\Motor.h
+"39 D:\project\baratheon-winnie\baratheon-mplab\Motor.h
 [v _mtrTemp `c  0 e ]
-"27 D:\project\baratheon-winnie\baratheon\System.h
+"27 D:\project\baratheon-winnie\baratheon-mplab\System.h
 [v _sysFault `uc  0 e ]
 [; ;pic16f1829.h: 132: volatile unsigned char INDF0 @ 0x000;
 [; ;pic16f1829.h: 136: volatile unsigned char INDF1 @ 0x001;
@@ -4174,10 +4174,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Motor.h: 37: extern  U16 mtrSpeed;
 [; ;Motor.h: 38: extern  U16 mtrCurrent;
 [; ;Motor.h: 39: extern  S8 mtrTemp;
-[; ;Motor.h: 47: extern  U8 mtrError;
-[; ;Motor.h: 49: extern void MTR_Init( void );
-[; ;Motor.h: 50: extern void MTR_Ctrl( void );
-"14 D:\project\baratheon-winnie\baratheon\Service.c
+[; ;Motor.h: 48: extern  U8 mtrError;
+[; ;Motor.h: 50: extern void MTR_Init( void );
+[; ;Motor.h: 51: extern void MTR_Ctrl( void );
+"14 D:\project\baratheon-winnie\baratheon-mplab\Service.c
 [; ;Service.c: 14: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "'B'" "," "'A'" "," "'R'" "," "220>>8" "," "220&255" "," "0X00" "," "0X00" "," "0X01");
 [; 	psect eeprom_data,class=EEDATA,delta=2,space=2 ;#
 [; 	db	'B','A','R',220>>8,220&255,0X00,0X00,0X01 ;#

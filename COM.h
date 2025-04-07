@@ -19,6 +19,6 @@
 
 EXTERN void COM_Init( void );
 EXTERN void COM_Ctrl( void );
-
+EXTERN void COM_Ctrl2( void );
 #endif
 
