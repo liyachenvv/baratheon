@@ -4686,9 +4686,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;System.c: 158: sysStatus = 2;
 "158
 [e = _sysStatus -> -> 2 `i `uc ]
-[; ;System.c: 159: time = 100UL*60*5;
+[; ;System.c: 159: time = 100UL*60*2;
 "159
-[e = F2597 * * -> 100 `ul -> -> -> 60 `i `l `ul -> -> -> 5 `i `l `ul ]
+[e = F2597 * * -> 100 `ul -> -> -> 60 `i `l `ul -> -> -> 2 `i `l `ul ]
 "160
 }
 [e :U 334 ]

@@ -156,7 +156,7 @@ void SYS_Ctrl( void )
             else if ( idrTest0 == 0xFF && idrTest1 == 0xFF && mtrTemp >= 0 )
               {
                 sysStatus = E_SYS_RUN;
-                time = MINUTE*5;  //for test
+                time = MINUTE*2;  //for test
               }
             break;
         case E_SYS_RUN:

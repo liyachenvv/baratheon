@@ -3067,7 +3067,7 @@ time = 100UL/2;
 else if ( idrTest0 == 0xFF && idrTest1 == 0xFF && mtrTemp >= 0 )
 {
 sysStatus = 2;
-time = 100UL*60*5;
+time = 100UL*60*2;
 }
 break;
 case 2:

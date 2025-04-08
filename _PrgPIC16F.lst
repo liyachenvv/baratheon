@@ -1,7 +1,7 @@
 
 
 HI-TECH Software PIC LITE Macro Assembler V9.83 build 10920 
-                                                                                               Mon Apr 07 16:11:29 2025
+                                                                                               Mon Apr 07 16:21:49 2025
 
 HI-TECH Software Omniscient Code Generator (Lite mode) build 10920
      1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 10920"
@@ -1973,7 +1973,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 10920
   1903  0557                     _maxMotorHistoryTemp	set	1367
   1904                           	DABS	1,1367,1	;_maxMotorHistoryTemp
   1905                           
-  1906                           	file	"C:\Users\liyachen\AppData\Local\Temp\sp3c."
+  1906                           	file	"C:\Users\liyachen\AppData\Local\Temp\s4lo."
   1907                           	line	#
   1908                           psect cinit,class=CODE,delta=2
   1909                           global start_initialization
@@ -5569,14 +5569,14 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 10920
   5448  0C55  0875               	movf	(??_SYS_Ctrl+0)+0,w
   5449  0C56  00CB               	movwf	(_sysStatus)
   5450                           	line	159
-  5451                           ;System.c: 159: time = 100UL*60*5;
+  5451                           ;System.c: 159: time = 100UL*60*2;
   5452  0C57  3000               	movlw	0
   5453  0C58  00A7               	movwf	(SYS_Ctrl@time+3)
   5454  0C59  3000               	movlw	0
   5455  0C5A  00A6               	movwf	(SYS_Ctrl@time+2)
-  5456  0C5B  3075               	movlw	075h
+  5456  0C5B  302E               	movlw	02Eh
   5457  0C5C  00A5               	movwf	(SYS_Ctrl@time+1)
-  5458  0C5D  3030               	movlw	030h
+  5458  0C5D  30E0               	movlw	0E0h
   5459  0C5E  00A4               	movwf	(SYS_Ctrl@time)
   5460                           
   5461  0C5F  2D22               	goto	l8336
@@ -18211,7 +18211,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 10920
 
 
 HI-TECH Software PICC Macro Assembler V9.83 build 10920 
-Symbol Table                                                                                   Mon Apr 07 16:11:29 2025
+Symbol Table                                                                                   Mon Apr 07 16:21:49 2025
 
                          C 0000                           Z 0002       __end_of_CAL_MtrLevel 068A  
      __end_of_CAL_MtrError 0003                          pc 0002       __end_of_CAL_MtrSpeed 0BF1  
