@@ -2960,7 +2960,6 @@ offTime = 5;
 else if ( --offTime == 0 )
 {
 offTime = 1;
-tmTriac=100;
 
 }
 }

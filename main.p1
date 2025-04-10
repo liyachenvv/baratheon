@@ -2086,8 +2086,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _sysStatus `uc  0 e ]
 "73 D:\project\baratheon-winnie\baratheon-mplab\Service.h
 [v _e2pWrFlags `uc  0 e ]
-"84 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
-[v _tmTriac `Xus  0 e ]
 [; ;pic16f1829.h: 132: volatile unsigned char INDF0 @ 0x000;
 [; ;pic16f1829.h: 136: volatile unsigned char INDF1 @ 0x001;
 [; ;pic16f1829.h: 140: volatile unsigned char PCL @ 0x002;
@@ -4234,26 +4232,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 38: offTime = 1;
 "38
 [e = F2593 -> -> 1 `i `uc ]
-[; ;main.c: 39: tmTriac=100;
-"39
-[e = _tmTriac -> -> 100 `i `us ]
-"41
+"40
 }
 [e :U 267 ]
-"42
+"41
 [e :U 266 ]
 }
 [e :U 264 ]
-"43
+"42
 }
 [e :U 261 ]
 "18
 [e $U 262  ]
 [e :U 263 ]
+[; ;main.c: 40: }
 [; ;main.c: 41: }
 [; ;main.c: 42: }
 [; ;main.c: 43: }
-[; ;main.c: 44: }
-"44
+"43
 [e :UE 260 ]
 }

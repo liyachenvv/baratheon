@@ -99,5 +99,11 @@ EXTERN void MCU_Refresh( void );
 EXTERN void E2P_WriteByte( U8 addr, U8 byte );
 EXTERN U8   E2P_ReadByte( U8 addr );
 
+//EXTERN bank1 U8  scnHall;
+//EXTERN bank1 U8  scnZero;
+//EXTERN bank1 U8  scnTest;
+//EXTERN bank1 U16 sysTimer;
+//EXTERN bank1 U16 tmTriacOn;
+//EXTERN bank1 U16 tmTriacOff;
 #endif
 

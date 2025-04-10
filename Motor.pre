@@ -2927,10 +2927,6 @@ extern U16 SQRT32( U32 a );
 extern S16 PID_CAL( PID_t * p, S16 err );
 extern S16 PID_LIM( PID_t * p, S16 min, S16 max );
 
-bank3 U32 pidKp;
-bank3 U32 pidKi;
-bank3 U32 pidKd;
-
 # 16 "D:\project\baratheon-winnie\baratheon-mplab\Motor.c"
 const U8 ad2tpr[ 256 ] =
 {
@@ -3044,7 +3040,6 @@ if ( ++mtrHallWDT >= 50 )
 mtrHallWDT = 50;
 mtrHallEvent = 0;
 
-tmTriac = 100;
 }
 else if ( mtrHallEvent >= 3 )
 {
@@ -3151,7 +3146,7 @@ time = 200;
 }
 break;
 case 1:
-if ( acCycleFlag )
+if ( acCycleFlag && !mtrError)
 {
 if ( sref != mtrSpeedRef )
 {
@@ -3187,6 +3182,10 @@ PID_LIM( &SREG, 40, OLIM.W.H );
 }
 do { GIE = 0; tmTriac = SREG.ro.W.H; GIE = 1; } while(0);
 }
+else if(mtrError)
+{
+do { GIE = 0; tmTriac = 100; GIE = 1; } while(0);
+}
 break;
 }
 }
@@ -3217,12 +3216,7 @@ CAL_MtrCurrent( );
 CAL_MtrSpeed( );
 CAL_AcPeriod( );
 CAL_MtrError( );
-if(!mtrError) {
 MTR_Driver( );
-}
-else {
-do { GIE = 0; tmTriac = 100; GIE = 1; } while(0);
-}
 acCycleFlag = 0;
 }
 

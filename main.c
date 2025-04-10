@@ -36,7 +36,6 @@ void main( void )
             else if ( --offTime == 0 )
               {
                 offTime = 1;
-                tmTriac=FAULTPOWER;
                 //SYS_RELAY_OFF( );
               }
           }

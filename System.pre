@@ -3049,6 +3049,7 @@ static  U32 time = 0;
 CAL_MtrLevel( );
 CAL_TuneValue( );
 if ( time ) time--;
+
 switch ( sysStatus )
 {
 case 0:
@@ -3067,7 +3068,7 @@ time = 100UL/2;
 else if ( idrTest0 == 0xFF && idrTest1 == 0xFF && mtrTemp >= 0 )
 {
 sysStatus = 2;
-time = 100UL*60*2;
+time = 100UL*60*45;
 }
 break;
 case 2:
@@ -3077,11 +3078,10 @@ if(!time) {
 if ( !mtrError )
 mtrError = 4;
 }
-tmTriac=100;
 sysFault = mtrError;
 sysStatus = 3;
 
-time = 1;
+time = 5;
 }
 else switch ( mtrLevel )
 {
@@ -3132,7 +3132,6 @@ break;
 }
 break;
 default:
-tmTriac=100;
 if ( !time ) sysStatus = 4;
 break;
 }

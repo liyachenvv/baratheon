@@ -2951,10 +2951,6 @@ extern U16 SQRT32( U32 a );
 extern S16 PID_CAL( PID_t * p, S16 err );
 extern S16 PID_LIM( PID_t * p, S16 min, S16 max );
 
-bank3 U32 pidKp;
-bank3 U32 pidKi;
-bank3 U32 pidKd;
-
 # 17 "D:\project\baratheon-winnie\baratheon-mplab\COM.c"
 void COM_Print( U16 n )
 {
@@ -2995,49 +2991,30 @@ static  U8 t = 0;
 if ( ++t >= 100 )
 {
 t = 0;
-
-# 64
+COM_Print( ( U16 )mtrLevel );
+SRL_Putc( ',' );
+COM_Print( ( U16 )adVrs );
+SRL_Putc( ',' );
+COM_Print( ( U16 )adNtc );
+SRL_Putc( ',' );
+COM_Print( mtrSpeedRef );
+SRL_Putc( ',' );
 COM_Print( mtrSpeed );
 SRL_Putc( ',' );
-COM_Print( mtrError );
+COM_Print( mtrCurrent );
 SRL_Putc( ',' );
-
-
-COM_Print( ( U16 )tmTriac );
+COM_Print( ( U16 )mtrTemp );
 SRL_Putc( ',' );
+COM_Print( ( U16 )E2P_ReadByte( 0xFE ) );
 
-
-
+# 108
 SRL_Putc( '\r' );
 SRL_Putc( '\n' );
 }
 }
 void COM_Ctrl2( void )
 {
-static  U8 t2 = 0;
-if ( ++t2 >= 100 )
-{
-t2 = 0;
-COM_Print( ( U16 )mtrLevel );
 
-SRL_Putc( 'P' );
-
-COM_Print( ( U16 )( pidKp&0x0000FFFF) );
-SRL_Putc( ',' );
-COM_Print( ( U16 )( pidKp>>16 ));
-
-SRL_Putc( 'I' );
-
-COM_Print( ( U16 )( pidKi&0x0000FFFF ) );
-SRL_Putc( ',' );
-COM_Print( ( U16 )( pidKi>>16 ));
-
-SRL_Putc( 'D' );
-
-COM_Print( ( U16 )( pidKd&0x0000FFFF ) );
-SRL_Putc( ',' );
-COM_Print( ( U16 )( pidKd>>16 ));
-SRL_Putc( ',' );
-}
+# 141
 }
 

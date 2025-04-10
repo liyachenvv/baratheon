@@ -138,6 +138,7 @@ void SYS_Ctrl( void )
     CAL_MtrLevel( );
     CAL_TuneValue( );
     if ( time ) time--;
+    //timetemp= (U16) time;
     switch ( sysStatus )
       {
         case E_SYS_INIT:
@@ -156,7 +157,7 @@ void SYS_Ctrl( void )
             else if ( idrTest0 == 0xFF && idrTest1 == 0xFF && mtrTemp >= 0 )
               {
                 sysStatus = E_SYS_RUN;
-                time = MINUTE*2;  //for test
+                time = MINUTE*45;
               }
             break;
         case E_SYS_RUN:
@@ -166,11 +167,10 @@ void SYS_Ctrl( void )
                   if ( !mtrError ) 
                     mtrError = E_ERR_OVER_TIME;
                 }
-                tmTriac=FAULTPOWER;
                 sysFault = mtrError;
                 sysStatus = E_SYS_TURN_OFF;
                 //time = SECOND/2;
-                time = 1;
+                time = 5;
               }
             else switch ( mtrLevel )
               {
@@ -221,7 +221,6 @@ void SYS_Ctrl( void )
               }
             break;
         default:
-            tmTriac=FAULTPOWER;
             if ( !time ) sysStatus = E_SYS_OFF;
             break;
       }

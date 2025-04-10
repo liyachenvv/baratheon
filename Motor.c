@@ -125,7 +125,6 @@ void CAL_MtrSpeed( void )
         mtrHallWDT = 50;
         mtrHallEvent = 0;
         //mtrSpeed = 0;
-        tmTriac = FAULTPOWER;
       }
     else if ( mtrHallEvent >= 3 )
       {
@@ -232,7 +231,7 @@ void MTR_Driver( void )
               }
             break;
         case 1:
-            if ( acCycleFlag )
+            if ( acCycleFlag && !mtrError)
               {
                 if ( sref != mtrSpeedRef )
                   {
@@ -268,6 +267,10 @@ void MTR_Driver( void )
                   }
                 TRIAC_TIME_SET( SREG.ro.W.H );
               }
+              else if(mtrError)
+              {
+                TRIAC_TIME_SET(FAULTPOWER);
+              }
             break;
       }
   }
@@ -298,12 +301,7 @@ void MTR_Ctrl( void )
     CAL_MtrSpeed( );
     CAL_AcPeriod( );
     CAL_MtrError( );
-    if(!mtrError) {
-      MTR_Driver( );   
-    }
-    else {  
-      TRIAC_TIME_SET(FAULTPOWER);   
-    }   
+    MTR_Driver( );
     acCycleFlag = 0;
   }
 

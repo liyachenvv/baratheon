@@ -2057,22 +2057,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S251 . . ]
 "3028 c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f1829.h
 [v _TOSHbits `VS251  1 e@4079 ]
-"43 D:\project\baratheon-winnie\baratheon-mplab\MyMath.h
-[v _pidKp `Zul  1 e ]
-"44 D:\project\baratheon-winnie\baratheon-mplab\MyMath.h
-[v _pidKi `Zul  1 e ]
-"45 D:\project\baratheon-winnie\baratheon-mplab\MyMath.h
-[v _pidKd `Zul  1 e ]
 "22 D:\project\baratheon-winnie\baratheon-mplab\Uart.h
 [v _SRL_Putc `(uc  0 ef1`uc ]
-"37 D:\project\baratheon-winnie\baratheon-mplab\Motor.h
-[v _mtrSpeed `us  0 e ]
-"48 D:\project\baratheon-winnie\baratheon-mplab\Motor.h
-[v _mtrError `uc  0 e ]
-"84 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
-[v _tmTriac `Xus  0 e ]
 "39 D:\project\baratheon-winnie\baratheon-mplab\System.h
 [v _mtrLevel `uc  0 e ]
+"65 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+[v _adVrs `Xuc  0 e ]
+"66 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+[v _adNtc `Xuc  0 e ]
+"36 D:\project\baratheon-winnie\baratheon-mplab\Motor.h
+[v _mtrSpeedRef `us  0 e ]
+"37 D:\project\baratheon-winnie\baratheon-mplab\Motor.h
+[v _mtrSpeed `us  0 e ]
+"38 D:\project\baratheon-winnie\baratheon-mplab\Motor.h
+[v _mtrCurrent `us  0 e ]
+"39 D:\project\baratheon-winnie\baratheon-mplab\Motor.h
+[v _mtrTemp `c  0 e ]
+"100 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+[v _E2P_ReadByte `(uc  0 ef1`uc ]
 [; ;pic16f1829.h: 132: volatile unsigned char INDF0 @ 0x000;
 [; ;pic16f1829.h: 136: volatile unsigned char INDF1 @ 0x001;
 [; ;pic16f1829.h: 140: volatile unsigned char PCL @ 0x002;
@@ -4142,9 +4144,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MyMath.h: 39: extern U16 SQRT32( U32 a );
 [; ;MyMath.h: 40: extern S16 PID_CAL( PID_t * p, S16 err );
 [; ;MyMath.h: 41: extern S16 PID_LIM( PID_t * p, S16 min, S16 max );
-[; ;MyMath.h: 43: bank3 U32 pidKp;
-[; ;MyMath.h: 44: bank3 U32 pidKi;
-[; ;MyMath.h: 45: bank3 U32 pidKd;
 "18 D:\project\baratheon-winnie\baratheon-mplab\COM.c
 [v _COM_Print `(v  1 ef1`us ]
 {
@@ -4256,121 +4255,87 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _COM_Ctrl ]
 [f ]
 "52
-[v F2628 `uc  1 s t ]
-[i F2628
+[v F2625 `uc  1 s t ]
+[i F2625
 -> -> 0 `i `uc
 ]
 [; ;COM.c: 52: static  U8 t = 0;
 [; ;COM.c: 53: if ( ++t >= 100 )
 "53
-[e $ ! >= -> =+ F2628 -> -> 1 `i `uc `i -> 100 `i 270  ]
+[e $ ! >= -> =+ F2625 -> -> 1 `i `uc `i -> 100 `i 270  ]
 [; ;COM.c: 54: {
 "54
 {
 [; ;COM.c: 55: t = 0;
 "55
-[e = F2628 -> -> 0 `i `uc ]
+[e = F2625 -> -> 0 `i `uc ]
+[; ;COM.c: 56: COM_Print( ( U16 )mtrLevel );
+"56
+[e ( _COM_Print (1 -> _mtrLevel `us ]
+[; ;COM.c: 57: SRL_Putc( ',' );
+"57
+[e ( _SRL_Putc (1 -> -> 44 `ui `uc ]
+[; ;COM.c: 58: COM_Print( ( U16 )adVrs );
+"58
+[e ( _COM_Print (1 -> _adVrs `us ]
+[; ;COM.c: 59: SRL_Putc( ',' );
+"59
+[e ( _SRL_Putc (1 -> -> 44 `ui `uc ]
+[; ;COM.c: 60: COM_Print( ( U16 )adNtc );
+"60
+[e ( _COM_Print (1 -> _adNtc `us ]
+[; ;COM.c: 61: SRL_Putc( ',' );
+"61
+[e ( _SRL_Putc (1 -> -> 44 `ui `uc ]
+[; ;COM.c: 62: COM_Print( mtrSpeedRef );
+"62
+[e ( _COM_Print (1 _mtrSpeedRef ]
+[; ;COM.c: 63: SRL_Putc( ',' );
+"63
+[e ( _SRL_Putc (1 -> -> 44 `ui `uc ]
 [; ;COM.c: 64: COM_Print( mtrSpeed );
 "64
 [e ( _COM_Print (1 _mtrSpeed ]
 [; ;COM.c: 65: SRL_Putc( ',' );
 "65
 [e ( _SRL_Putc (1 -> -> 44 `ui `uc ]
-[; ;COM.c: 66: COM_Print( mtrError );
+[; ;COM.c: 66: COM_Print( mtrCurrent );
 "66
-[e ( _COM_Print (1 -> _mtrError `us ]
+[e ( _COM_Print (1 _mtrCurrent ]
 [; ;COM.c: 67: SRL_Putc( ',' );
 "67
 [e ( _SRL_Putc (1 -> -> 44 `ui `uc ]
-[; ;COM.c: 70: COM_Print( ( U16 )tmTriac );
-"70
-[e ( _COM_Print (1 _tmTriac ]
-[; ;COM.c: 71: SRL_Putc( ',' );
-"71
+[; ;COM.c: 68: COM_Print( ( U16 )mtrTemp );
+"68
+[e ( _COM_Print (1 -> _mtrTemp `us ]
+[; ;COM.c: 69: SRL_Putc( ',' );
+"69
 [e ( _SRL_Putc (1 -> -> 44 `ui `uc ]
-[; ;COM.c: 75: SRL_Putc( '\r' );
-"75
+[; ;COM.c: 70: COM_Print( ( U16 )E2P_ReadByte( 0xFE ) );
+"70
+[e ( _COM_Print (1 -> ( _E2P_ReadByte (1 -> -> 254 `i `uc `us ]
+[; ;COM.c: 108: SRL_Putc( '\r' );
+"108
 [e ( _SRL_Putc (1 -> -> 13 `ui `uc ]
-[; ;COM.c: 76: SRL_Putc( '\n' );
-"76
+[; ;COM.c: 109: SRL_Putc( '\n' );
+"109
 [e ( _SRL_Putc (1 -> -> 10 `ui `uc ]
-"77
+"110
 }
 [e :U 270 ]
-[; ;COM.c: 77: }
-[; ;COM.c: 78: }
-"78
+[; ;COM.c: 110: }
+[; ;COM.c: 111: }
+"111
 [e :UE 269 ]
 }
-"80
+"113
 [v _COM_Ctrl2 `(v  1 ef ]
 {
-[; ;COM.c: 79: void COM_Ctrl2( void )
-[; ;COM.c: 80: {
+[; ;COM.c: 112: void COM_Ctrl2( void )
+[; ;COM.c: 113: {
 [e :U _COM_Ctrl2 ]
 [f ]
-"81
-[v F2631 `uc  1 s t2 ]
-[i F2631
--> -> 0 `i `uc
-]
-[; ;COM.c: 81: static  U8 t2 = 0;
-[; ;COM.c: 82: if ( ++t2 >= 100 )
-"82
-[e $ ! >= -> =+ F2631 -> -> 1 `i `uc `i -> 100 `i 272  ]
-[; ;COM.c: 83: {
-"83
-{
-[; ;COM.c: 84: t2 = 0;
-"84
-[e = F2631 -> -> 0 `i `uc ]
-[; ;COM.c: 85: COM_Print( ( U16 )mtrLevel );
-"85
-[e ( _COM_Print (1 -> _mtrLevel `us ]
-[; ;COM.c: 87: SRL_Putc( 'P' );
-"87
-[e ( _SRL_Putc (1 -> -> 80 `ui `uc ]
-[; ;COM.c: 89: COM_Print( ( U16 )( pidKp&0x0000FFFF) );
-"89
-[e ( _COM_Print (1 -> & _pidKp -> -> 65535 `ui `ul `us ]
-[; ;COM.c: 90: SRL_Putc( ',' );
-"90
-[e ( _SRL_Putc (1 -> -> 44 `ui `uc ]
-[; ;COM.c: 91: COM_Print( ( U16 )( pidKp>>16 ));
-"91
-[e ( _COM_Print (1 -> >> _pidKp -> 16 `i `us ]
-[; ;COM.c: 93: SRL_Putc( 'I' );
-"93
-[e ( _SRL_Putc (1 -> -> 73 `ui `uc ]
-[; ;COM.c: 95: COM_Print( ( U16 )( pidKi&0x0000FFFF ) );
-"95
-[e ( _COM_Print (1 -> & _pidKi -> -> 65535 `ui `ul `us ]
-[; ;COM.c: 96: SRL_Putc( ',' );
-"96
-[e ( _SRL_Putc (1 -> -> 44 `ui `uc ]
-[; ;COM.c: 97: COM_Print( ( U16 )( pidKi>>16 ));
-"97
-[e ( _COM_Print (1 -> >> _pidKi -> 16 `i `us ]
-[; ;COM.c: 99: SRL_Putc( 'D' );
-"99
-[e ( _SRL_Putc (1 -> -> 68 `ui `uc ]
-[; ;COM.c: 101: COM_Print( ( U16 )( pidKd&0x0000FFFF ) );
-"101
-[e ( _COM_Print (1 -> & _pidKd -> -> 65535 `ui `ul `us ]
-[; ;COM.c: 102: SRL_Putc( ',' );
-"102
-[e ( _SRL_Putc (1 -> -> 44 `ui `uc ]
-[; ;COM.c: 103: COM_Print( ( U16 )( pidKd>>16 ));
-"103
-[e ( _COM_Print (1 -> >> _pidKd -> 16 `i `us ]
-[; ;COM.c: 104: SRL_Putc( ',' );
-"104
-[e ( _SRL_Putc (1 -> -> 44 `ui `uc ]
-"105
-}
-[e :U 272 ]
-[; ;COM.c: 105: }
-[; ;COM.c: 106: }
-"106
+[; ;COM.c: 141: }
+"141
 [e :UE 271 ]
 }

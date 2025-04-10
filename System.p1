@@ -2083,8 +2083,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _idrTest1 `Xuc  0 e ]
 "39 D:\project\baratheon-winnie\baratheon-mplab\Motor.h
 [v _mtrTemp `c  0 e ]
-"84 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
-[v _tmTriac `Xus  0 e ]
 [; ;pic16f1829.h: 132: volatile unsigned char INDF0 @ 0x000;
 [; ;pic16f1829.h: 136: volatile unsigned char INDF1 @ 0x001;
 [; ;pic16f1829.h: 140: volatile unsigned char PCL @ 0x002;
@@ -4630,109 +4628,106 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ ! != F2597 -> -> 0 `i `ul 327  ]
 [e -- F2597 -> -> -> 1 `i `l `ul ]
 [e :U 327 ]
-[; ;System.c: 141: switch ( sysStatus )
-"141
-[e $U 329  ]
-[; ;System.c: 142: {
+[; ;System.c: 142: switch ( sysStatus )
 "142
-{
-[; ;System.c: 143: case 0:
+[e $U 329  ]
+[; ;System.c: 143: {
 "143
-[e :U 330 ]
-[; ;System.c: 144: mtrSpeedRef = 0;
+{
+[; ;System.c: 144: case 0:
 "144
-[e = _mtrSpeedRef -> -> 0 `i `us ]
-[; ;System.c: 145: sysStatus = 1;
+[e :U 330 ]
+[; ;System.c: 145: mtrSpeedRef = 0;
 "145
-[e = _sysStatus -> -> 1 `i `uc ]
-[; ;System.c: 146: time = 100UL*5;
-"146
-[e = F2597 * -> 100 `ul -> -> -> 5 `i `l `ul ]
-[; ;System.c: 147: break;
-"147
-[e $U 328  ]
-[; ;System.c: 148: case 1:
-"148
-[e :U 331 ]
-[; ;System.c: 149: mtrSpeedRef = 0;
-"149
 [e = _mtrSpeedRef -> -> 0 `i `us ]
-[; ;System.c: 150: if ( mtrError || !time )
+[; ;System.c: 146: sysStatus = 1;
+"146
+[e = _sysStatus -> -> 1 `i `uc ]
+[; ;System.c: 147: time = 100UL*5;
+"147
+[e = F2597 * -> 100 `ul -> -> -> 5 `i `l `ul ]
+[; ;System.c: 148: break;
+"148
+[e $U 328  ]
+[; ;System.c: 149: case 1:
+"149
+[e :U 331 ]
+[; ;System.c: 150: mtrSpeedRef = 0;
 "150
-[e $ ! || != -> _mtrError `i -> -> -> 0 `i `uc `i ! != F2597 -> -> 0 `i `ul 332  ]
-[; ;System.c: 151: {
+[e = _mtrSpeedRef -> -> 0 `i `us ]
+[; ;System.c: 151: if ( mtrError || !time )
 "151
-{
-[; ;System.c: 152: sysFault = mtrError;
+[e $ ! || != -> _mtrError `i -> -> -> 0 `i `uc `i ! != F2597 -> -> 0 `i `ul 332  ]
+[; ;System.c: 152: {
 "152
-[e = _sysFault _mtrError ]
-[; ;System.c: 153: sysStatus = 3;
-"153
-[e = _sysStatus -> -> 3 `i `uc ]
-[; ;System.c: 154: time = 100UL/2;
-"154
-[e = F2597 / -> 100 `ul -> -> -> 2 `i `l `ul ]
-"155
-}
-[; ;System.c: 155: }
-[e $U 333  ]
-"156
-[e :U 332 ]
-[; ;System.c: 156: else if ( idrTest0 == 0xFF && idrTest1 == 0xFF && mtrTemp >= 0 )
-[e $ ! && && == -> _idrTest0 `i -> 255 `i == -> _idrTest1 `i -> 255 `i >= -> _mtrTemp `i -> 0 `i 334  ]
-[; ;System.c: 157: {
-"157
 {
-[; ;System.c: 158: sysStatus = 2;
+[; ;System.c: 153: sysFault = mtrError;
+"153
+[e = _sysFault _mtrError ]
+[; ;System.c: 154: sysStatus = 3;
+"154
+[e = _sysStatus -> -> 3 `i `uc ]
+[; ;System.c: 155: time = 100UL/2;
+"155
+[e = F2597 / -> 100 `ul -> -> -> 2 `i `l `ul ]
+"156
+}
+[; ;System.c: 156: }
+[e $U 333  ]
+"157
+[e :U 332 ]
+[; ;System.c: 157: else if ( idrTest0 == 0xFF && idrTest1 == 0xFF && mtrTemp >= 0 )
+[e $ ! && && == -> _idrTest0 `i -> 255 `i == -> _idrTest1 `i -> 255 `i >= -> _mtrTemp `i -> 0 `i 334  ]
+[; ;System.c: 158: {
 "158
-[e = _sysStatus -> -> 2 `i `uc ]
-[; ;System.c: 159: time = 100UL*60*2;
+{
+[; ;System.c: 159: sysStatus = 2;
 "159
-[e = F2597 * * -> 100 `ul -> -> -> 60 `i `l `ul -> -> -> 2 `i `l `ul ]
+[e = _sysStatus -> -> 2 `i `uc ]
+[; ;System.c: 160: time = 100UL*60*45;
 "160
+[e = F2597 * * -> 100 `ul -> -> -> 60 `i `l `ul -> -> -> 45 `i `l `ul ]
+"161
 }
 [e :U 334 ]
-"161
-[e :U 333 ]
-[; ;System.c: 160: }
-[; ;System.c: 161: break;
-[e $U 328  ]
-[; ;System.c: 162: case 2:
 "162
-[e :U 335 ]
-[; ;System.c: 163: if ( mtrError || !time )
+[e :U 333 ]
+[; ;System.c: 161: }
+[; ;System.c: 162: break;
+[e $U 328  ]
+[; ;System.c: 163: case 2:
 "163
-[e $ ! || != -> _mtrError `i -> -> -> 0 `i `uc `i ! != F2597 -> -> 0 `i `ul 336  ]
-[; ;System.c: 164: {
+[e :U 335 ]
+[; ;System.c: 164: if ( mtrError || !time )
 "164
-{
-[; ;System.c: 165: if(!time) {
+[e $ ! || != -> _mtrError `i -> -> -> 0 `i `uc `i ! != F2597 -> -> 0 `i `ul 336  ]
+[; ;System.c: 165: {
 "165
+{
+[; ;System.c: 166: if(!time) {
+"166
 [e $ ! ! != F2597 -> -> 0 `i `ul 337  ]
 {
-[; ;System.c: 166: if ( !mtrError )
-"166
-[e $ ! ! != -> _mtrError `i -> -> -> 0 `i `uc `i 338  ]
-[; ;System.c: 167: mtrError = 4;
+[; ;System.c: 167: if ( !mtrError )
 "167
+[e $ ! ! != -> _mtrError `i -> -> -> 0 `i `uc `i 338  ]
+[; ;System.c: 168: mtrError = 4;
+"168
 [e = _mtrError -> -> 4 `i `uc ]
 [e :U 338 ]
-"168
+"169
 }
 [e :U 337 ]
-[; ;System.c: 168: }
-[; ;System.c: 169: tmTriac=100;
-"169
-[e = _tmTriac -> -> 100 `i `us ]
+[; ;System.c: 169: }
 [; ;System.c: 170: sysFault = mtrError;
 "170
 [e = _sysFault _mtrError ]
 [; ;System.c: 171: sysStatus = 3;
 "171
 [e = _sysStatus -> -> 3 `i `uc ]
-[; ;System.c: 173: time = 1;
+[; ;System.c: 173: time = 5;
 "173
-[e = F2597 -> -> -> 1 `i `l `ul ]
+[e = F2597 -> -> -> 5 `i `l `ul ]
 "174
 }
 [; ;System.c: 174: }
@@ -4902,30 +4897,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;System.c: 223: default:
 "223
 [e :U 353 ]
-[; ;System.c: 224: tmTriac=100;
+[; ;System.c: 224: if ( !time ) sysStatus = 4;
 "224
-[e = _tmTriac -> -> 100 `i `us ]
-[; ;System.c: 225: if ( !time ) sysStatus = 4;
-"225
 [e $ ! ! != F2597 -> -> 0 `i `ul 354  ]
 [e = _sysStatus -> -> 4 `i `uc ]
 [e :U 354 ]
-[; ;System.c: 226: break;
+[; ;System.c: 225: break;
+"225
+[e $U 328  ]
 "226
-[e $U 328  ]
-"227
 }
-[; ;System.c: 227: }
+[; ;System.c: 226: }
 [e $U 328  ]
-"141
+"142
 [e :U 329 ]
 [e [\ _sysStatus , $ -> -> 0 `i `uc 330
  , $ -> -> 1 `i `uc 331
  , $ -> -> 2 `i `uc 335
  353 ]
-"227
+"226
 [e :U 328 ]
-[; ;System.c: 228: }
-"228
+[; ;System.c: 227: }
+"227
 [e :UE 326 ]
 }
