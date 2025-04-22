@@ -2058,33 +2058,33 @@ Version 3.2 HI-TECH Software Intermediate Code
 "3028 c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f1829.h
 [v _TOSHbits `VS251  1 e@4079 ]
 [p mainexit ]
-"97 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"97 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
 [v _MCU_Init `(v  0 ef ]
-"20 D:\project\baratheon-winnie\baratheon-mplab\COM.h
+"20 D:\project\baratheon-winnie\baratheon-mplab-for-production\COM.h
 [v _COM_Init `(v  0 ef ]
-"50 D:\project\baratheon-winnie\baratheon-mplab\Motor.h
+"50 D:\project\baratheon-winnie\baratheon-mplab-for-production\Motor.h
 [v _MTR_Init `(v  0 ef ]
-"41 D:\project\baratheon-winnie\baratheon-mplab\System.h
+"41 D:\project\baratheon-winnie\baratheon-mplab-for-production\System.h
 [v _SYS_Init `(v  0 ef ]
-"75 D:\project\baratheon-winnie\baratheon-mplab\Service.h
+"75 D:\project\baratheon-winnie\baratheon-mplab-for-production\Service.h
 [v _SVC_Init `(v  0 ef ]
-"60 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"60 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
 [v _sysTicks `Xuc  0 e ]
-"98 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"98 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
 [v _MCU_Refresh `(v  0 ef ]
-"22 D:\project\baratheon-winnie\baratheon-mplab\COM.h
+"22 D:\project\baratheon-winnie\baratheon-mplab-for-production\COM.h
 [v _COM_Ctrl2 `(v  0 ef ]
-"21 D:\project\baratheon-winnie\baratheon-mplab\COM.h
+"21 D:\project\baratheon-winnie\baratheon-mplab-for-production\COM.h
 [v _COM_Ctrl `(v  0 ef ]
-"51 D:\project\baratheon-winnie\baratheon-mplab\Motor.h
+"51 D:\project\baratheon-winnie\baratheon-mplab-for-production\Motor.h
 [v _MTR_Ctrl `(v  0 ef ]
-"42 D:\project\baratheon-winnie\baratheon-mplab\System.h
+"42 D:\project\baratheon-winnie\baratheon-mplab-for-production\System.h
 [v _SYS_Ctrl `(v  0 ef ]
-"76 D:\project\baratheon-winnie\baratheon-mplab\Service.h
+"76 D:\project\baratheon-winnie\baratheon-mplab-for-production\Service.h
 [v _SVC_Ctrl `(v  0 ef ]
-"25 D:\project\baratheon-winnie\baratheon-mplab\System.h
+"25 D:\project\baratheon-winnie\baratheon-mplab-for-production\System.h
 [v _sysStatus `uc  0 e ]
-"73 D:\project\baratheon-winnie\baratheon-mplab\Service.h
+"73 D:\project\baratheon-winnie\baratheon-mplab-for-production\Service.h
 [v _e2pWrFlags `uc  0 e ]
 [; ;pic16f1829.h: 132: volatile unsigned char INDF0 @ 0x000;
 [; ;pic16f1829.h: 136: volatile unsigned char INDF1 @ 0x001;
@@ -4139,7 +4139,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Service.h: 76: extern void SVC_Ctrl( void );
 [; ;Service.h: 77: extern U8 SVC_GetTuneValue( void );
 [; ;Service.h: 78: extern void SVC_SetTuneValue( U8 value );
-"10 D:\project\baratheon-winnie\baratheon-mplab\main.c
+"10 D:\project\baratheon-winnie\baratheon-mplab-for-production\main.c
 [v _main `(v  1 ef ]
 {
 [; ;main.c: 9: void main( void )

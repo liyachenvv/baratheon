@@ -2057,99 +2057,99 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S251 . . ]
 "3028 c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f1829.h
 [v _TOSHbits `VS251  1 e@4079 ]
-"60 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"60 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
 [v _sysTicks `Xuc  1 e ]
-"62 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"62 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
 [v _adCur2 `Xul  1 e ]
-"63 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"63 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
 [v _adCurN `Xuc  1 e ]
-"65 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"65 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
 [v _adVrs `Xuc  1 e ]
-"66 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"66 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
 [v _adNtc `Xuc  1 e ]
-"67 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"67 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
 [v _adVac `Xuc  1 e ]
-"69 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"69 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
 [v _idrTest0 `Xuc  1 e ]
-"70 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"70 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
 [v _idrTest1 `Xuc  1 e ]
-"72 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"72 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
 [v _mtrHallTime `us  -> 32 `i e@800 ]
-"73 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"73 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
 [v _mtrHallIndex `Xuc  1 e ]
-"74 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"74 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
 [v _mtrHallEvent `Xuc  1 e ]
-"75 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"75 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
 [v _mtrHallWDT `Xuc  1 e ]
-"77 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"77 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
 [v _acCrossTime `us  -> 8 `i e@864 ]
-"78 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"78 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
 [v _acCrossIndex `Xuc  1 e ]
-"79 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"79 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
 [v _acCrossEvent `Xuc  1 e ]
-"80 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"80 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
 [v _acCrossWDT `Xuc  1 e ]
-"81 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"81 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
 [v _acCycle `Xus  1 e ]
-"82 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"82 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
 [v _acCycleHalf `Xuc  1 e ]
-"83 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"83 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
 [v _acCycleFlag `Xuc  1 e ]
-"84 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"84 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
 [v _tmTriac `Xus  1 e ]
-"86 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"86 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
 [v _txCNT `Zuc  1 e ]
-"87 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"87 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
 [v _txWRP `Zuc  1 e ]
-"88 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"88 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
 [v _txRDP `Zuc  1 e ]
-"89 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"89 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
 [v _txTIM `Zuc  1 e ]
-"90 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"90 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
 [v _txFIFO `uc  -> 32 `i e@928 ]
-"91 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"91 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
 [v _rxCNT `Zuc  1 e ]
-"92 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"92 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
 [v _rxWRP `Zuc  1 e ]
-"93 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"93 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
 [v _rxRDP `Zuc  1 e ]
-"94 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"94 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
 [v _rxTIM `Zuc  1 e ]
-"95 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"95 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
 [v _rxFIFO `uc  -> 32 `i e@960 ]
-"15 D:\project\baratheon-winnie\baratheon-mplab\Hardware.c
+"15 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.c
 [v _ODRA `Xuc  1 s ]
-"16 D:\project\baratheon-winnie\baratheon-mplab\Hardware.c
+"16 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.c
 [v _scnHall `Xuc  1 s ]
-"17 D:\project\baratheon-winnie\baratheon-mplab\Hardware.c
+"17 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.c
 [v _scnZero `Xuc  1 s ]
-"18 D:\project\baratheon-winnie\baratheon-mplab\Hardware.c
+"18 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.c
 [v _scnTest `Xuc  1 s ]
-"19 D:\project\baratheon-winnie\baratheon-mplab\Hardware.c
+"19 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.c
 [v _enADC `Xuc  1 s ]
-"20 D:\project\baratheon-winnie\baratheon-mplab\Hardware.c
+"20 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.c
 [v _tmADVAC `Xuc  1 s ]
-"21 D:\project\baratheon-winnie\baratheon-mplab\Hardware.c
+"21 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.c
 [v _tmADVRS `Xuc  1 s ]
-"22 D:\project\baratheon-winnie\baratheon-mplab\Hardware.c
+"22 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.c
 [v _tmADNTC `Xuc  1 s ]
-"23 D:\project\baratheon-winnie\baratheon-mplab\Hardware.c
+"23 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.c
 [v _tmTST0 `Xuc  1 s ]
-"24 D:\project\baratheon-winnie\baratheon-mplab\Hardware.c
+"24 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.c
 [v _tmTST1 `Xuc  1 s ]
-"25 D:\project\baratheon-winnie\baratheon-mplab\Hardware.c
+"25 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.c
 [v _sysTimer `Xus  1 s ]
-"26 D:\project\baratheon-winnie\baratheon-mplab\Hardware.c
+"26 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.c
 [v _tmTriacOn `Xus  1 s ]
-"27 D:\project\baratheon-winnie\baratheon-mplab\Hardware.c
+"27 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.c
 [v _tmTriacOff `Xus  1 s ]
-"28 D:\project\baratheon-winnie\baratheon-mplab\Hardware.c
+"28 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.c
 [v _adCur2Buf `Xul  1 s ]
-"29 D:\project\baratheon-winnie\baratheon-mplab\Hardware.c
+"29 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.c
 [v _adCurNBuf `Xuc  1 s ]
-"31 D:\project\baratheon-winnie\baratheon-mplab\Hardware.c
+"31 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.c
 [v _FLT `Cuc  -> 256 `i e@7424 ]
-"67 D:\project\baratheon-winnie\baratheon-mplab\Hardware.c
+"67 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.c
 [v _SQ8 `Cus  -> 256 `i e@7680 ]
 [; ;pic16f1829.h: 132: volatile unsigned char INDF0 @ 0x000;
 [; ;pic16f1829.h: 136: volatile unsigned char INDF1 @ 0x001;
@@ -4183,7 +4183,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Hardware.h: 98: void MCU_Refresh( void );
 [; ;Hardware.h: 99: void E2P_WriteByte( U8 addr, U8 byte );
 [; ;Hardware.h: 100: U8 E2P_ReadByte( U8 addr );
-"12 D:\project\baratheon-winnie\baratheon-mplab\Hardware.c
+"12 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.c
 [; ;Hardware.c: 12: asm("\tpsect config,class=CONFIG,delta=2"); asm("\tdw ""0X0F9C");
 [; 	psect config,class=CONFIG,delta=2 ;#
 [; 	dw 0X0F9C ;#
