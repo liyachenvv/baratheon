@@ -2057,49 +2057,49 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S251 . . ]
 "3028 c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f1829.h
 [v _TOSHbits `VS251  1 e@4079 ]
-"36 D:\project\baratheon-winnie\baratheon-mplab\Motor.h
+"36 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Motor.h
 [v _mtrSpeedRef `us  1 e ]
-"37 D:\project\baratheon-winnie\baratheon-mplab\Motor.h
+"37 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Motor.h
 [v _mtrSpeed `us  1 e ]
-"38 D:\project\baratheon-winnie\baratheon-mplab\Motor.h
+"38 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Motor.h
 [v _mtrCurrent `us  1 e ]
-"39 D:\project\baratheon-winnie\baratheon-mplab\Motor.h
+"39 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Motor.h
 [v _mtrTemp `c  1 e ]
-"48 D:\project\baratheon-winnie\baratheon-mplab\Motor.h
+"48 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Motor.h
 [v _mtrError `uc  1 e ]
-"16 D:\project\baratheon-winnie\baratheon-mplab\Motor.c
+"16 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Motor.c
 [v _ad2tpr `Cuc  -> 256 `i e ]
-"82 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"82 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Hardware.h
 [v _acCycleHalf `Xuc  0 e ]
-"83 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"83 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Hardware.h
 [v _acCycleFlag `Xuc  0 e ]
-"66 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"66 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Hardware.h
 [v _adNtc `Xuc  0 e ]
-"63 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"63 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Hardware.h
 [v _adCurN `Xuc  0 e ]
-"62 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"62 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Hardware.h
 [v _adCur2 `Xul  0 e ]
-"39 D:\project\baratheon-winnie\baratheon-mplab\MyMath.h
+"39 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\MyMath.h
 [v _SQRT32 `(us  0 ef1`ul ]
-"75 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"75 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Hardware.h
 [v _mtrHallWDT `Xuc  0 e ]
-"74 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"74 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Hardware.h
 [v _mtrHallEvent `Xuc  0 e ]
-"73 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"73 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Hardware.h
 [v _mtrHallIndex `Xuc  0 e ]
-"72 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"72 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Hardware.h
 [v _mtrHallTime `us  -> 0 `x e@800 ]
-"84 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"84 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Hardware.h
 [v _tmTriac `Xus  0 e ]
-"80 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"80 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Hardware.h
 [v _acCrossWDT `Xuc  0 e ]
-"79 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"79 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Hardware.h
 [v _acCrossEvent `Xuc  0 e ]
-"81 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"81 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Hardware.h
 [v _acCycle `Xus  0 e ]
-"78 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"78 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Hardware.h
 [v _acCrossIndex `Xuc  0 e ]
-"77 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"77 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Hardware.h
 [v _acCrossTime `us  -> 0 `x e@864 ]
 [s S261 `s 1 `s 1 ]
 [n S261 . L H ]
@@ -2107,9 +2107,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S260 . D W ]
 [s S262 `s 1 `s 1 `s 1 `s 1 `S260 1 `S260 1 ]
 [n S262 . kp ki kd e1 ri ro ]
-"40 D:\project\baratheon-winnie\baratheon-mplab\MyMath.h
+"40 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\MyMath.h
 [v _PID_CAL `(s  0 ef2`*S262`s ]
-"41 D:\project\baratheon-winnie\baratheon-mplab\MyMath.h
+"41 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\MyMath.h
 [v _PID_LIM `(s  0 ef3`*S262`s`s ]
 [; ;pic16f1829.h: 132: volatile unsigned char INDF0 @ 0x000;
 [; ;pic16f1829.h: 136: volatile unsigned char INDF1 @ 0x001;
@@ -4167,7 +4167,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MyMath.h: 39: extern U16 SQRT32( U32 a );
 [; ;MyMath.h: 40: extern S16 PID_CAL( PID_t * p, S16 err );
 [; ;MyMath.h: 41: extern S16 PID_LIM( PID_t * p, S16 min, S16 max );
-"16 D:\project\baratheon-winnie\baratheon-mplab\Motor.c
+"16 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Motor.c
 [i _ad2tpr
 :U ..
 "18
@@ -5302,124 +5302,153 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Motor.c: 271: {
 "271
 {
-[; ;Motor.c: 272: do { GIE = 0; tmTriac = 100; GIE = 1; } while(0);
-"272
-[e :U 357 ]
+[; ;Motor.c: 273: if(acCycle>363)
+"273
+[e $ ! > -> _acCycle `ui -> -> 363 `i `ui 355  ]
+[; ;Motor.c: 274: {
+"274
+{
+[; ;Motor.c: 275: do { GIE = 0; tmTriac = 103; GIE = 1; } while(0);
+"275
+[e :U 358 ]
 {
 [e = _GIE -> -> 0 `i `b ]
-[e = _tmTriac -> -> 100 `i `us ]
+[e = _tmTriac -> -> 103 `i `us ]
 [e = _GIE -> -> 1 `i `b ]
 }
-[e :U 356 ]
-"273
+[e :U 357 ]
+"276
+}
+[; ;Motor.c: 276: }
+[e $U 359  ]
+"277
+[e :U 355 ]
+[; ;Motor.c: 277: else
+[; ;Motor.c: 278: {
+"278
+{
+[; ;Motor.c: 279: do { GIE = 0; tmTriac = 103-10; GIE = 1; } while(0);
+"279
+[e :U 362 ]
+{
+[e = _GIE -> -> 0 `i `b ]
+[e = _tmTriac -> - -> 103 `i -> 10 `i `us ]
+[e = _GIE -> -> 1 `i `b ]
+}
+[e :U 361 ]
+"280
+}
+[e :U 359 ]
+"281
 }
 [e :U 354 ]
-"274
+"282
 [e :U 353 ]
-[; ;Motor.c: 273: }
-[; ;Motor.c: 274: break;
+[; ;Motor.c: 280: }
+[; ;Motor.c: 281: }
+[; ;Motor.c: 282: break;
 [e $U 331  ]
-"275
+"283
 }
-[; ;Motor.c: 275: }
+[; ;Motor.c: 283: }
 [e $U 331  ]
 "212
 [e :U 332 ]
 [e [\ F2629 , $ -> -> 0 `i `uc 333
  , $ -> -> 1 `i `uc 338
  331 ]
-"275
+"283
 [e :U 331 ]
 [e :U 330 ]
-[; ;Motor.c: 276: }
-"276
+[; ;Motor.c: 284: }
+"284
 [e :UE 324 ]
 }
-"279
+"287
 [v _MTR_Init `(v  1 ef ]
 {
-[; ;Motor.c: 278: void MTR_Init( void )
-[; ;Motor.c: 279: {
+[; ;Motor.c: 286: void MTR_Init( void )
+[; ;Motor.c: 287: {
 [e :U _MTR_Init ]
 [f ]
-[; ;Motor.c: 280: acCrossIndex = 0;
-"280
-[e = _acCrossIndex -> -> 0 `i `uc ]
-[; ;Motor.c: 281: acCrossEvent = 0;
-"281
-[e = _acCrossEvent -> -> 0 `i `uc ]
-[; ;Motor.c: 282: acCrossWDT = 0;
-"282
-[e = _acCrossWDT -> -> 0 `i `uc ]
-[; ;Motor.c: 283: acCycle = 0;
-"283
-[e = _acCycle -> -> 0 `i `us ]
-[; ;Motor.c: 284: acCycleHalf = 0;
-"284
-[e = _acCycleHalf -> -> 0 `i `uc ]
-[; ;Motor.c: 285: acCycleFlag = 0;
-"285
-[e = _acCycleFlag -> -> 0 `i `uc ]
-[; ;Motor.c: 286: mtrHallIndex = 0;
-"286
-[e = _mtrHallIndex -> -> 0 `i `uc ]
-[; ;Motor.c: 287: mtrHallEvent = 0;
-"287
-[e = _mtrHallEvent -> -> 0 `i `uc ]
-[; ;Motor.c: 288: mtrHallWDT = 0;
+[; ;Motor.c: 288: acCrossIndex = 0;
 "288
-[e = _mtrHallWDT -> -> 0 `i `uc ]
-[; ;Motor.c: 289: tmTriac = 0;
+[e = _acCrossIndex -> -> 0 `i `uc ]
+[; ;Motor.c: 289: acCrossEvent = 0;
 "289
-[e = _tmTriac -> -> 0 `i `us ]
-[; ;Motor.c: 290: mtrSpeedRef = 0;
+[e = _acCrossEvent -> -> 0 `i `uc ]
+[; ;Motor.c: 290: acCrossWDT = 0;
 "290
-[e = _mtrSpeedRef -> -> 0 `i `us ]
-[; ;Motor.c: 291: mtrSpeed = 0;
+[e = _acCrossWDT -> -> 0 `i `uc ]
+[; ;Motor.c: 291: acCycle = 0;
 "291
-[e = _mtrSpeed -> -> 0 `i `us ]
-[; ;Motor.c: 292: mtrCurrent = 0;
+[e = _acCycle -> -> 0 `i `us ]
+[; ;Motor.c: 292: acCycleHalf = 0;
 "292
-[e = _mtrCurrent -> -> 0 `i `us ]
-[; ;Motor.c: 293: mtrError = 0;
+[e = _acCycleHalf -> -> 0 `i `uc ]
+[; ;Motor.c: 293: acCycleFlag = 0;
 "293
-[e = _mtrError -> -> 0 `i `uc ]
-[; ;Motor.c: 294: mtrTemp = -1;
+[e = _acCycleFlag -> -> 0 `i `uc ]
+[; ;Motor.c: 294: mtrHallIndex = 0;
 "294
-[e = _mtrTemp -> -U -> 1 `i `c ]
-[; ;Motor.c: 295: }
+[e = _mtrHallIndex -> -> 0 `i `uc ]
+[; ;Motor.c: 295: mtrHallEvent = 0;
 "295
-[e :UE 358 ]
-}
+[e = _mtrHallEvent -> -> 0 `i `uc ]
+[; ;Motor.c: 296: mtrHallWDT = 0;
+"296
+[e = _mtrHallWDT -> -> 0 `i `uc ]
+[; ;Motor.c: 297: tmTriac = 0;
+"297
+[e = _tmTriac -> -> 0 `i `us ]
+[; ;Motor.c: 298: mtrSpeedRef = 0;
 "298
+[e = _mtrSpeedRef -> -> 0 `i `us ]
+[; ;Motor.c: 299: mtrSpeed = 0;
+"299
+[e = _mtrSpeed -> -> 0 `i `us ]
+[; ;Motor.c: 300: mtrCurrent = 0;
+"300
+[e = _mtrCurrent -> -> 0 `i `us ]
+[; ;Motor.c: 301: mtrError = 0;
+"301
+[e = _mtrError -> -> 0 `i `uc ]
+[; ;Motor.c: 302: mtrTemp = -1;
+"302
+[e = _mtrTemp -> -U -> 1 `i `c ]
+[; ;Motor.c: 303: }
+"303
+[e :UE 363 ]
+}
+"306
 [v _MTR_Ctrl `(v  1 ef ]
 {
-[; ;Motor.c: 297: void MTR_Ctrl( void )
-[; ;Motor.c: 298: {
+[; ;Motor.c: 305: void MTR_Ctrl( void )
+[; ;Motor.c: 306: {
 [e :U _MTR_Ctrl ]
 [f ]
-[; ;Motor.c: 299: CAL_MtrTemp( );
-"299
+[; ;Motor.c: 307: CAL_MtrTemp( );
+"307
 [e ( _CAL_MtrTemp ..  ]
-[; ;Motor.c: 300: CAL_MtrCurrent( );
-"300
+[; ;Motor.c: 308: CAL_MtrCurrent( );
+"308
 [e ( _CAL_MtrCurrent ..  ]
-[; ;Motor.c: 301: CAL_MtrSpeed( );
-"301
+[; ;Motor.c: 309: CAL_MtrSpeed( );
+"309
 [e ( _CAL_MtrSpeed ..  ]
-[; ;Motor.c: 302: CAL_AcPeriod( );
-"302
+[; ;Motor.c: 310: CAL_AcPeriod( );
+"310
 [e ( _CAL_AcPeriod ..  ]
-[; ;Motor.c: 303: CAL_MtrError( );
-"303
+[; ;Motor.c: 311: CAL_MtrError( );
+"311
 [e ( _CAL_MtrError ..  ]
-[; ;Motor.c: 304: MTR_Driver( );
-"304
+[; ;Motor.c: 312: MTR_Driver( );
+"312
 [e ( _MTR_Driver ..  ]
-[; ;Motor.c: 305: acCycleFlag = 0;
-"305
+[; ;Motor.c: 313: acCycleFlag = 0;
+"313
 [e = _acCycleFlag -> -> 0 `i `uc ]
-[; ;Motor.c: 306: }
-"306
-[e :UE 359 ]
+[; ;Motor.c: 314: }
+"314
+[e :UE 364 ]
 }

@@ -1,5 +1,5 @@
 
-# 1 "D:\project\baratheon-winnie\baratheon-mplab\Uart.c"
+# 1 "D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Uart.c"
 
 # 132 "c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f1829.h"
 volatile unsigned char INDF0 @ 0x000;
@@ -2797,7 +2797,7 @@ extern void memcpyee(eeprom unsigned char *to, const unsigned char *from, unsign
 #pragma inline(_delay)
 extern void _delay(unsigned long);
 
-# 15 "D:\project\baratheon-winnie\baratheon-mplab\PicTypes.h"
+# 15 "D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\PicTypes.h"
 typedef unsigned char U8;
 typedef unsigned short U16;
 typedef unsigned long U32;
@@ -2848,7 +2848,7 @@ U8 T;
 } B;
 } DWORD;
 
-# 60 "D:\project\baratheon-winnie\baratheon-mplab\Hardware.h"
+# 60 "D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Hardware.h"
 extern bank1 U8 sysTicks;
 
 extern bank1 U32 adCur2;
@@ -2891,13 +2891,13 @@ extern void MCU_Refresh( void );
 extern void E2P_WriteByte( U8 addr, U8 byte );
 extern U8 E2P_ReadByte( U8 addr );
 
-# 20 "D:\project\baratheon-winnie\baratheon-mplab\Uart.h"
+# 20 "D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Uart.h"
  U8 SRL_Getc( U8 *c );
  U8 SRL_Gets( U8 * s );
  U8 SRL_Putc( U8 c );
  U8 SRL_Puts( U8 * s, U8 n );
 
-# 12 "D:\project\baratheon-winnie\baratheon-mplab\Uart.c"
+# 12 "D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Uart.c"
 U8 SRL_Getc( U8 * c )
 {
 if ( !rxCNT ) return 0;

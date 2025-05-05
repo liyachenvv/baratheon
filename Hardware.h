@@ -24,7 +24,7 @@
 #define CFG_APFCON1   0X00
 
 #define CFG_PORTA     0X04
-#define CFG_TRISA     0X1B
+#define CFG_TRISA     0X19
 #define CFG_ANSELA    0X11
 #define CFG_WPUA      0X00
 #define CFG_INLVLA    0X00

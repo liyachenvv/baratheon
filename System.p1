@@ -2057,31 +2057,31 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S251 . . ]
 "3028 c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f1829.h
 [v _TOSHbits `VS251  1 e@4079 ]
-"25 D:\project\baratheon-winnie\baratheon-mplab\System.h
+"25 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\System.h
 [v _sysStatus `uc  1 e ]
-"27 D:\project\baratheon-winnie\baratheon-mplab\System.h
+"27 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\System.h
 [v _sysFault `uc  1 e ]
-"37 D:\project\baratheon-winnie\baratheon-mplab\System.h
+"37 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\System.h
 [v _sysLevel `uc  1 e ]
-"39 D:\project\baratheon-winnie\baratheon-mplab\System.h
+"39 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\System.h
 [v _mtrLevel `uc  1 e ]
-"77 D:\project\baratheon-winnie\baratheon-mplab\Service.h
+"77 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Service.h
 [v _SVC_GetTuneValue `(uc  0 ef ]
-"65 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"65 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Hardware.h
 [v _adVrs `Xuc  0 e ]
-"82 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"82 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Hardware.h
 [v _acCycleHalf `Xuc  0 e ]
-"78 D:\project\baratheon-winnie\baratheon-mplab\Service.h
+"78 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Service.h
 [v _SVC_SetTuneValue `(v  0 ef1`uc ]
-"36 D:\project\baratheon-winnie\baratheon-mplab\Motor.h
+"36 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Motor.h
 [v _mtrSpeedRef `us  0 e ]
-"48 D:\project\baratheon-winnie\baratheon-mplab\Motor.h
+"48 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Motor.h
 [v _mtrError `uc  0 e ]
-"69 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"69 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Hardware.h
 [v _idrTest0 `Xuc  0 e ]
-"70 D:\project\baratheon-winnie\baratheon-mplab\Hardware.h
+"70 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Hardware.h
 [v _idrTest1 `Xuc  0 e ]
-"39 D:\project\baratheon-winnie\baratheon-mplab\Motor.h
+"39 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Motor.h
 [v _mtrTemp `c  0 e ]
 [; ;pic16f1829.h: 132: volatile unsigned char INDF0 @ 0x000;
 [; ;pic16f1829.h: 136: volatile unsigned char INDF1 @ 0x001;
@@ -4133,7 +4133,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Service.h: 76: extern void SVC_Ctrl( void );
 [; ;Service.h: 77: extern U8 SVC_GetTuneValue( void );
 [; ;Service.h: 78: extern void SVC_SetTuneValue( U8 value );
-"18 D:\project\baratheon-winnie\baratheon-mplab\System.c
+"18 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\System.c
 [v _CAL_MtrLevel `(v  1 ef ]
 {
 [; ;System.c: 17: void CAL_MtrLevel( void )
@@ -4684,9 +4684,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;System.c: 159: sysStatus = 2;
 "159
 [e = _sysStatus -> -> 2 `i `uc ]
-[; ;System.c: 160: time = 100UL*60*45;
+[; ;System.c: 160: time = 100UL*60*1;
 "160
-[e = F2597 * * -> 100 `ul -> -> -> 60 `i `l `ul -> -> -> 45 `i `l `ul ]
+[e = F2597 * * -> 100 `ul -> -> -> 60 `i `l `ul -> -> -> 1 `i `l `ul ]
 "161
 }
 [e :U 334 ]

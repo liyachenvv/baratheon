@@ -269,7 +269,15 @@ void MTR_Driver( void )
               }
               else if(mtrError)
               {
-                TRIAC_TIME_SET(FAULTPOWER);
+                //TRIAC_TIME_SET(FAULTPOWER);
+	            if(acCycle>363)
+	            {  
+                  TRIAC_TIME_SET(FAULTPOWER);
+                }
+                else
+                {
+                  TRIAC_TIME_SET(FAULTPOWER-10);
+                }
               }
             break;
       }

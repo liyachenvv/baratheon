@@ -8,6 +8,7 @@
 #define _HARDWARE_SRC_
 #include "Globals.h"
 #include "Hardware.h"
+#include "Motor.h"
 
 __CONFIG( 0X0F9C );
 __CONFIG( 0X3FFC );
@@ -27,6 +28,8 @@ static bank1 U16 tmTriacOn;
 static bank1 U16 tmTriacOff;
 static bank1 U32 adCur2Buf;
 static bank1 U8  adCurNBuf;
+static bank1 U16 prevTrig;
+static bank1 U8  trigFlag;
 
 CROM U8  FLT[ 256 ] @ 0X1D00 =
   {
@@ -190,8 +193,10 @@ void MCU_Init( void )
     scnHall = 0;
     scnZero = 0;
     scnTest = 0;
-    tmTriacOn = 0;
-    tmTriacOff = 0;
+    tmTriacOn = 0; //0XFED4;  //-300  //0;
+    tmTriacOff = 0; //0XFECF;  //-305  //0;
+    prevTrig=0;
+    trigFlag=0;
   }
 
 void MCU_Refresh( void )
@@ -365,16 +370,29 @@ void interrupt INTSR( void )
             TM_TRIAC    EQU         (127&_tmTriac)
             TMR_ON      EQU         (127&_tmTriacOn)
             TMR_OFF     EQU         (127&_tmTriacOff)
+            MTRERR      EQU         (127&_mtrError)   
+            PREV_TRIG   EQU         (127&_prevTrig)
+            TRIG_FLAG    EQU         (127&_trigFlag)
+    
+			SUB16       macro       alb, ahb, blb, bhb
+			            movf       alb,W
+			            subwf       blb
+			            movf       ahb,W
+			            skpc
+			            incfsz      ahb,        W
+			            subwf       bhb
+			            endm 
             ;++++++++++++++++++++++++++++++++++++++++++++++
            ;MOVLP       0
             MOVLB       1
+            BCF         TRISA,      1    ;RA1=0            
             BTFSC       EN_ADC,     0
             BSF         ADCON0,     1
             BSF         ODRA,       2
             MOVF        ODRA,       W
             MOVLB       2
             XORWF       LATA,       W
-            ANDLW       0X24
+            ANDLW       0X26
             XORWF       LATA,       F
             MOVLB       0
             BCF         PIR3,       TMR6IF      ; 12
@@ -396,6 +414,15 @@ void interrupt INTSR( void )
             SCAN_ZERO:
             MOVF        AC_SCAN,    W
             MOVLB       2
+            ;BTFSS       CMOUT,      1
+	      		;GOTO        ZERO_UPDATE
+			      ;MOVLB       1
+            ;BTFSC       TRIG_FLAG,   0
+            ;GOTO        ZERO_UPDATE
+            ;MOVLB       2
+            ;IORLW       1     
+            ;ZERO_UPDATE:                
+            ;MOVLB       2
             BTFSC       CMOUT,      1
             IORLW       1
             MOVWF       FSR0L
@@ -432,10 +459,25 @@ void interrupt INTSR( void )
             HALL_CHECK_E:
             ;++++++++++++++++++++++++++++++++++++++++++++++
             ZERO_CHECK:
+            BTFSS       TRIG_FLAG,   0
             BCF         ODR_TRIAC,  PIN_TRIAC
             BTFSC       AC_SCAN,    nEDGE
             GOTO        ZERO_EDGE               ; 4
             ZERO_TRIG:
+            ;MOVLB       2
+            ;MOVF        LATA,    w
+            ;ANDLW       0XFD
+            ;MOVWF       LATA
+            ;MOVLB       1
+            MOVLB       1
+            BCF         ODRA,       1
+            MOVF        ODRA,       W
+            MOVLB       2
+            XORWF       LATA,       W
+            ANDLW       0X26
+            XORWF       LATA,       F
+            MOVLB       1
+            
             BTFSS       TMR_OFF+1,  7
             GOTO        ZERO_CHECK_E            ; 6
             INCFSZ      TMR_OFF,    F
@@ -446,9 +488,40 @@ void interrupt INTSR( void )
             INCF        TMR_ON+1,   F
             BTFSC       TMR_ON+1,   7
             GOTO        ZERO_CHECK_E            ; 14
-            BSF         ODR_TRIAC,  PIN_TRIAC
-            GOTO        ZERO_CHECK_E            ; 16
+            ;MOVLB       1
+            BSF         TRIG_FLAG,   0 
+            SUB16       SYS_TIMER,SYS_TIMER+1,PREV_TRIG,PREV_TRIG+1
+            ;300=0X12C 200=0XC8 240=0XF0
+            MOVLW       0XC8
+            SUBWF       PREV_TRIG,   W
+            MOVLW       0X00
+            SUBWFB      PREV_TRIG+1, W
+            BTFSC       STATUS,     C  
+            BSF         ODR_TRIAC,  PIN_TRIAC       
+            MOVF        TMR_ON,   W
+            SUBLW       5
+            BTFSS       STATUS,    Z
+            GOTO        ZERO_CHECK_E            ; 16            
+            MOVF        SYS_TIMER,    W
+            MOVWF       PREV_TRIG
+            MOVF        SYS_TIMER+1,   W
+            MOVWF       PREV_TRIG+1
+            ;MOVLB       1
+            BCF         TRIG_FLAG,   0
             ZERO_EDGE:
+            ;MOVLB       2
+            ;MOVF        LATA,    w
+            ;IORLW       0x02
+            ;MOVWF       LATA
+            ;MOVLB       1            
+            ;MOVLB       1
+            BSF         ODRA,       1
+            MOVF        ODRA,       W
+            MOVLB       2
+            XORWF       LATA,       W
+            ANDLW       0X26
+            XORWF       LATA,       F
+            MOVLB       1        
             CLRF        TMR_OFF+1
             MOVF        AC_CYCLE_2, W
             BTFSC       STATUS,     Z
@@ -469,7 +542,7 @@ void interrupt INTSR( void )
             MOVF        AC_CYCLE+1, W
             SUBWFB      TM_TRIAC+1, W
             MOVWF       TMR_ON+1
-            MOVLW       255
+            MOVLW       240
             BTFSC       STATUS,     C
             MOVWF       TMR_ON
             BTFSC       STATUS,     C
