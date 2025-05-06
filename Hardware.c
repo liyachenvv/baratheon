@@ -415,8 +415,8 @@ void interrupt INTSR( void )
             MOVF        AC_SCAN,    W
             MOVLB       2
             ;BTFSS       CMOUT,      1
-	      		;GOTO        ZERO_UPDATE
-			      ;MOVLB       1
+	      	;GOTO        ZERO_UPDATE
+			;MOVLB       1
             ;BTFSC       TRIG_FLAG,   0
             ;GOTO        ZERO_UPDATE
             ;MOVLB       2
@@ -491,6 +491,12 @@ void interrupt INTSR( void )
             ;MOVLB       1
             BSF         TRIG_FLAG,   0 
             SUB16       SYS_TIMER,SYS_TIMER+1,PREV_TRIG,PREV_TRIG+1
+            BTFSS       PREV_TRIG+1,7
+			GOTO        POS_MINUS
+            COMF        PREV_TRIG
+            COMF        PREV_TRIG+1		
+            INCF        PREV_TRIG	        
+            POS_MINUS:
             ;300=0X12C 200=0XC8 240=0XF0
             MOVLW       0XC8
             SUBWF       PREV_TRIG,   W
@@ -499,13 +505,15 @@ void interrupt INTSR( void )
             BTFSC       STATUS,     C  
             BSF         ODR_TRIAC,  PIN_TRIAC       
             MOVF        TMR_ON,   W
-            SUBLW       5
+            SUBLW       20                      ;5->20
             BTFSS       STATUS,    Z
             GOTO        ZERO_CHECK_E            ; 16            
             MOVF        SYS_TIMER,    W
             MOVWF       PREV_TRIG
             MOVF        SYS_TIMER+1,   W
             MOVWF       PREV_TRIG+1
+            MOVF        TMR_ON+1,  W
+            IORWF       0XFF,     F
             ;MOVLB       1
             BCF         TRIG_FLAG,   0
             ZERO_EDGE:
@@ -530,7 +538,7 @@ void interrupt INTSR( void )
             MOVWF       TM_TST0
             ADDLW       10
             MOVWF       TM_TST1
-            MOVLW       40
+            MOVLW       55                      ;40->55
             SUBWF       TM_TRIAC,   W
             MOVLW       0
             SUBWFB      TM_TRIAC+1, W
@@ -553,7 +561,7 @@ void interrupt INTSR( void )
             MOVF        AC_CYCLE+1, W
             SUBWFB      TMR_OFF+1,  W
             MOVWF       FSR0H
-            MOVLW       5;98
+            MOVLW       20                    ;5->20       
             SUBWF       TMR_ON,     W
             MOVWF       TMR_OFF
             MOVLW       0

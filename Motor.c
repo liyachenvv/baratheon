@@ -10,7 +10,7 @@
 #include "Motor.h"
 #include "MyMath.h"
 
-#define TRIAC_TIME_SET( t )   do { __DI( ); tmTriac  = t;   __EI( ); } while(0)
+#define TRIAC_TIME_SET( t )   do { __DI( ); tmTriac  = (t);   __EI( ); } while(0)
 #define MOTOR_ERROR_SET( e )  do { if ( !mtrError ) mtrError = e; } while(0)
 
 CROM U8 ad2tpr[ 256 ] =
@@ -65,7 +65,16 @@ void CAL_MtrTemp( void )
     else if ( acCycleFlag )
       {
         sum += ( U16 )adNtc;
-        if ( adNtc < 2 || adNtc >= 254 ) err++;
+        if ( adNtc < 2 )
+        {
+        	err++;
+        	mtrTemp=127;
+        }
+        if( adNtc >= 254 ) 
+        {
+	        err++;
+	        mtrTemp=0;
+	    }
         if ( ++cnt >= 4 )
           {
             if ( !err )
