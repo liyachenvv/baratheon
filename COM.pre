@@ -1,5 +1,5 @@
 
-# 1 "D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\COM.c"
+# 1 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\COM.c"
 
 # 132 "c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f1829.h"
 volatile unsigned char INDF0 @ 0x000;
@@ -2797,7 +2797,7 @@ extern void memcpyee(eeprom unsigned char *to, const unsigned char *from, unsign
 #pragma inline(_delay)
 extern void _delay(unsigned long);
 
-# 15 "D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\PicTypes.h"
+# 15 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\PicTypes.h"
 typedef unsigned char U8;
 typedef unsigned short U16;
 typedef unsigned long U32;
@@ -2848,7 +2848,7 @@ U8 T;
 } B;
 } DWORD;
 
-# 60 "D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Hardware.h"
+# 60 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.h"
 extern bank1 U8 sysTicks;
 
 extern bank1 U32 adCur2;
@@ -2891,7 +2891,7 @@ extern void MCU_Refresh( void );
 extern void E2P_WriteByte( U8 addr, U8 byte );
 extern U8 E2P_ReadByte( U8 addr );
 
-# 25 "D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\System.h"
+# 25 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\System.h"
 extern  U8 sysStatus;
 
 extern  U8 sysFault;
@@ -2904,7 +2904,7 @@ extern  U8 mtrLevel;
 extern void SYS_Init( void );
 extern void SYS_Ctrl( void );
 
-# 36 "D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Motor.h"
+# 36 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Motor.h"
 extern  U16 mtrSpeedRef;
 extern  U16 mtrSpeed;
 extern  U16 mtrCurrent;
@@ -2916,18 +2916,18 @@ extern  U8 mtrError;
 extern void MTR_Init( void );
 extern void MTR_Ctrl( void );
 
-# 20 "D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Uart.h"
+# 20 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Uart.h"
 extern U8 SRL_Getc( U8 *c );
 extern U8 SRL_Gets( U8 * s );
 extern U8 SRL_Putc( U8 c );
 extern U8 SRL_Puts( U8 * s, U8 n );
 
-# 20 "D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\COM.h"
+# 20 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\COM.h"
  void COM_Init( void );
  void COM_Ctrl( void );
  void COM_Ctrl2( void );
 
-# 20 "D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\MyMath.h"
+# 20 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\MyMath.h"
 typedef union
 {
 S32 D;
@@ -2951,7 +2951,7 @@ extern U16 SQRT32( U32 a );
 extern S16 PID_CAL( PID_t * p, S16 err );
 extern S16 PID_LIM( PID_t * p, S16 min, S16 max );
 
-# 17 "D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\COM.c"
+# 17 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\COM.c"
 void COM_Print( U16 n )
 {
 U8 f = 0;

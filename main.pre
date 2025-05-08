@@ -1,5 +1,5 @@
 
-# 1 "D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\main.c"
+# 1 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\main.c"
 
 # 132 "c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f1829.h"
 volatile unsigned char INDF0 @ 0x000;
@@ -2797,7 +2797,7 @@ extern void memcpyee(eeprom unsigned char *to, const unsigned char *from, unsign
 #pragma inline(_delay)
 extern void _delay(unsigned long);
 
-# 15 "D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\PicTypes.h"
+# 15 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\PicTypes.h"
 typedef unsigned char U8;
 typedef unsigned short U16;
 typedef unsigned long U32;
@@ -2848,7 +2848,7 @@ U8 T;
 } B;
 } DWORD;
 
-# 60 "D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Hardware.h"
+# 60 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.h"
 extern bank1 U8 sysTicks;
 
 extern bank1 U32 adCur2;
@@ -2891,12 +2891,12 @@ extern void MCU_Refresh( void );
 extern void E2P_WriteByte( U8 addr, U8 byte );
 extern U8 E2P_ReadByte( U8 addr );
 
-# 20 "D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\COM.h"
+# 20 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\COM.h"
 extern void COM_Init( void );
 extern void COM_Ctrl( void );
 extern void COM_Ctrl2( void );
 
-# 36 "D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Motor.h"
+# 36 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Motor.h"
 extern  U16 mtrSpeedRef;
 extern  U16 mtrSpeed;
 extern  U16 mtrCurrent;
@@ -2908,7 +2908,7 @@ extern  U8 mtrError;
 extern void MTR_Init( void );
 extern void MTR_Ctrl( void );
 
-# 25 "D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\System.h"
+# 25 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\System.h"
 extern  U8 sysStatus;
 
 extern  U8 sysFault;
@@ -2921,7 +2921,7 @@ extern  U8 mtrLevel;
 extern void SYS_Init( void );
 extern void SYS_Ctrl( void );
 
-# 73 "D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Service.h"
+# 73 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Service.h"
 extern  U8 e2pWrFlags;
 
 extern void SVC_Init( void );
@@ -2929,7 +2929,7 @@ extern void SVC_Ctrl( void );
 extern U8 SVC_GetTuneValue( void );
 extern void SVC_SetTuneValue( U8 value );
 
-# 9 "D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\main.c"
+# 9 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\main.c"
 void main( void )
 {
 static U8 offTime = 1;

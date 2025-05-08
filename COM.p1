@@ -2057,23 +2057,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S251 . . ]
 "3028 c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f1829.h
 [v _TOSHbits `VS251  1 e@4079 ]
-"22 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Uart.h
+"22 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Uart.h
 [v _SRL_Putc `(uc  0 ef1`uc ]
-"39 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\System.h
+"39 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\System.h
 [v _mtrLevel `uc  0 e ]
-"65 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Hardware.h
+"65 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.h
 [v _adVrs `Xuc  0 e ]
-"66 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Hardware.h
+"66 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.h
 [v _adNtc `Xuc  0 e ]
-"36 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Motor.h
+"36 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Motor.h
 [v _mtrSpeedRef `us  0 e ]
-"37 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Motor.h
+"37 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Motor.h
 [v _mtrSpeed `us  0 e ]
-"38 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Motor.h
+"38 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Motor.h
 [v _mtrCurrent `us  0 e ]
-"39 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Motor.h
+"39 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Motor.h
 [v _mtrTemp `c  0 e ]
-"100 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Hardware.h
+"100 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.h
 [v _E2P_ReadByte `(uc  0 ef1`uc ]
 [; ;pic16f1829.h: 132: volatile unsigned char INDF0 @ 0x000;
 [; ;pic16f1829.h: 136: volatile unsigned char INDF1 @ 0x001;
@@ -4144,7 +4144,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MyMath.h: 39: extern U16 SQRT32( U32 a );
 [; ;MyMath.h: 40: extern S16 PID_CAL( PID_t * p, S16 err );
 [; ;MyMath.h: 41: extern S16 PID_LIM( PID_t * p, S16 min, S16 max );
-"18 D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\COM.c
+"18 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\COM.c
 [v _COM_Print `(v  1 ef1`us ]
 {
 [; ;COM.c: 17: void COM_Print( U16 n )

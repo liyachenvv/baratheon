@@ -1,5 +1,5 @@
 
-# 1 "D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Motor.c"
+# 1 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Motor.c"
 
 # 132 "c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f1829.h"
 volatile unsigned char INDF0 @ 0x000;
@@ -2797,7 +2797,7 @@ extern void memcpyee(eeprom unsigned char *to, const unsigned char *from, unsign
 #pragma inline(_delay)
 extern void _delay(unsigned long);
 
-# 15 "D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\PicTypes.h"
+# 15 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\PicTypes.h"
 typedef unsigned char U8;
 typedef unsigned short U16;
 typedef unsigned long U32;
@@ -2848,7 +2848,7 @@ U8 T;
 } B;
 } DWORD;
 
-# 60 "D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Hardware.h"
+# 60 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.h"
 extern bank1 U8 sysTicks;
 
 extern bank1 U32 adCur2;
@@ -2891,7 +2891,7 @@ extern void MCU_Refresh( void );
 extern void E2P_WriteByte( U8 addr, U8 byte );
 extern U8 E2P_ReadByte( U8 addr );
 
-# 36 "D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Motor.h"
+# 36 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Motor.h"
   U16 mtrSpeedRef;
   U16 mtrSpeed;
   U16 mtrCurrent;
@@ -2903,7 +2903,7 @@ extern U8 E2P_ReadByte( U8 addr );
  void MTR_Init( void );
  void MTR_Ctrl( void );
 
-# 20 "D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\MyMath.h"
+# 20 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\MyMath.h"
 typedef union
 {
 S32 D;
@@ -2927,7 +2927,7 @@ extern U16 SQRT32( U32 a );
 extern S16 PID_CAL( PID_t * p, S16 err );
 extern S16 PID_LIM( PID_t * p, S16 min, S16 max );
 
-# 16 "D:\project\baratheon-winnie\baratheon-mplab-restrict-trig\Motor.c"
+# 16 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Motor.c"
 const U8 ad2tpr[ 256 ] =
 {
 127, 127, 127, 127, 127, 127, 127, 127,
@@ -2980,7 +2980,16 @@ cnt = 0;
 else if ( acCycleFlag )
 {
 sum += ( U16 )adNtc;
-if ( adNtc < 2 || adNtc >= 254 ) err++;
+if ( adNtc < 2 )
+{
+err++;
+mtrTemp=127;
+}
+if( adNtc >= 254 )
+{
+err++;
+mtrTemp=0;
+}
 if ( ++cnt >= 4 )
 {
 if ( !err )
@@ -3122,12 +3131,12 @@ if ( time ) time--;
 if ( mtrSpeedRef == 0 || !acCycleHalf )
 {
 state = 0;
-do { GIE = 0; tmTriac = 0; GIE = 1; } while(0);
+do { GIE = 0; tmTriac = (0); GIE = 1; } while(0);
 }
 else switch ( state )
 {
 case 0:
-do { GIE = 0; tmTriac = 0; GIE = 1; } while(0);
+do { GIE = 0; tmTriac = (0); GIE = 1; } while(0);
 if ( acCycle )
 {
 sref = mtrSpeedRef;
@@ -3180,18 +3189,18 @@ else
 {
 PID_LIM( &SREG, 40, OLIM.W.H );
 }
-do { GIE = 0; tmTriac = SREG.ro.W.H; GIE = 1; } while(0);
+do { GIE = 0; tmTriac = (SREG.ro.W.H); GIE = 1; } while(0);
 }
 else if(mtrError)
 {
 
 if(acCycle>363)
 {
-do { GIE = 0; tmTriac = 103; GIE = 1; } while(0);
+do { GIE = 0; tmTriac = (103); GIE = 1; } while(0);
 }
 else
 {
-do { GIE = 0; tmTriac = 103-10; GIE = 1; } while(0);
+do { GIE = 0; tmTriac = (103-10); GIE = 1; } while(0);
 }
 }
 break;

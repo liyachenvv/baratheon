@@ -374,14 +374,14 @@ void interrupt INTSR( void )
             PREV_TRIG   EQU         (127&_prevTrig)
             TRIG_FLAG    EQU         (127&_trigFlag)
     
-			SUB16       macro       alb, ahb, blb, bhb
-			            movf       alb,W
-			            subwf       blb
-			            movf       ahb,W
-			            skpc
-			            incfsz      ahb,        W
-			            subwf       bhb
-			            endm 
+            SUB16       macro       alb, ahb, blb, bhb
+                        movf       alb,W
+                        subwf       blb
+                        movf       ahb,W
+                        skpc
+                        incfsz      ahb,        W
+                        subwf       bhb
+                        endm 
             ;++++++++++++++++++++++++++++++++++++++++++++++
            ;MOVLP       0
             MOVLB       1
@@ -415,8 +415,8 @@ void interrupt INTSR( void )
             MOVF        AC_SCAN,    W
             MOVLB       2
             ;BTFSS       CMOUT,      1
-	      	;GOTO        ZERO_UPDATE
-			;MOVLB       1
+            ;GOTO        ZERO_UPDATE
+            ;MOVLB       1
             ;BTFSC       TRIG_FLAG,   0
             ;GOTO        ZERO_UPDATE
             ;MOVLB       2
@@ -489,33 +489,56 @@ void interrupt INTSR( void )
             BTFSC       TMR_ON+1,   7
             GOTO        ZERO_CHECK_E            ; 14
             ;MOVLB       1
+            
             BSF         TRIG_FLAG,   0 
-            SUB16       SYS_TIMER,SYS_TIMER+1,PREV_TRIG,PREV_TRIG+1
-            BTFSS       PREV_TRIG+1,7
-			GOTO        POS_MINUS
-            COMF        PREV_TRIG
-            COMF        PREV_TRIG+1		
-            INCF        PREV_TRIG	        
+            MOVLW       PREV_TRIG
+            MOVWF       FSR1L
+            MOVLW       PREV_TRIG+1
+            MOVWF       FSR1H
+            SUB16       SYS_TIMER,SYS_TIMER+1,FSR1L,FSR1H
+            BTFSS       FSR1H,7
+            GOTO        POS_MINUS
+            COMF        FSR1L
+            COMF        FSR1H       
+            INCF        FSR1L      
+            ;SUB16       SYS_TIMER,SYS_TIMER+1,PREV_TRIG,PREV_TRIG+1
+            ;BTFSS       PREV_TRIG+1,7
+            ;GOTO        POS_MINUS
+            ;COMF        PREV_TRIG
+            ;COMF        PREV_TRIG+1        
+            ;INCF        PREV_TRIG              
             POS_MINUS:
             ;300=0X12C 200=0XC8 240=0XF0
             MOVLW       0XC8
-            SUBWF       PREV_TRIG,   W
+            SUBWF       FSR1L,   W
             MOVLW       0X00
-            SUBWFB      PREV_TRIG+1, W
+            SUBWFB      FSR1H, W
+            ;MOVLW       0XC8
+            ;SUBWF       PREV_TRIG,   W
+            ;MOVLW       0X00
+            ;SUBWFB      PREV_TRIG+1, W         
+
             BTFSC       STATUS,     C  
             BSF         ODR_TRIAC,  PIN_TRIAC       
             MOVF        TMR_ON,   W
             SUBLW       20                      ;5->20
             BTFSS       STATUS,    Z
+            ;BTFSC       STATUS,     C   ;yes,here. it is wondrous.
+            ;if use this one, the speed will surge, pulsed.
             GOTO        ZERO_CHECK_E            ; 16            
             MOVF        SYS_TIMER,    W
             MOVWF       PREV_TRIG
             MOVF        SYS_TIMER+1,   W
             MOVWF       PREV_TRIG+1
-            MOVF        TMR_ON+1,  W
-            IORWF       0XFF,     F
+            MOVLW       0XD4
+            MOVWF       TMR_ON
+            MOVLW        0XFE
+            MOVWF       TMR_ON+1          ; //0XFED4;  //-300
+            ;MOVF        TMR_ON+1,  W
+            ;IORWF       0XFF,     F
             ;MOVLB       1
             BCF         TRIG_FLAG,   0
+            GOTO        ZERO_CHECK_E
             ZERO_EDGE:
             ;MOVLB       2
             ;MOVF        LATA,    w
