@@ -452,9 +452,11 @@ void interrupt INTSR( void )
             HALL_CHECK_E:
             ;++++++++++++++++++++++++++++++++++++++++++++++
             ZERO_CHECK:
-            ;BTFSS       TRIG_FLAG,   0
+
             BTFSS       TRIGGERING,   0
             BCF         ODR_TRIAC,  PIN_TRIAC
+            BTFSC       TRIG_FLAG,   0	
+			BCF         ODR_TRIAC,  PIN_TRIAC
             BTFSC       AC_SCAN,    nEDGE
             GOTO        ZERO_EDGE               ; 4
             ZERO_TRIG:
@@ -482,9 +484,9 @@ void interrupt INTSR( void )
             INCF        TMR_ON+1,   F
             BTFSC       TMR_ON+1,   7
             GOTO        ZERO_CHECK_E            ; 14
-            ;MOVLB       1
-            
-            ;BSF         TRIG_FLAG,   0 
+
+            BTFSC       TRIG_FLAG,  0
+			GOTO        ZERO_CHECK_E
             MOVLW       PREV_TRIG
             MOVWF       FSR1L
             MOVLW       PREV_TRIG+1
@@ -515,7 +517,7 @@ void interrupt INTSR( void )
             BTFSS       STATUS,     C  
             GOTO        TIMING_TRIG           
             BSF         ODR_TRIAC,  PIN_TRIAC  
-            BSF         TRIG_FLAG,   0        
+            BCF         TRIG_FLAG,   0        
             BSF         TRIGGERING,  0
             TIMING_TRIG:             
             MOVF        TMR_ON,   W
@@ -532,13 +534,13 @@ void interrupt INTSR( void )
             MOVWF       TMR_ON
             MOVLW       0XF0
             MOVWF       TMR_ON+1          ; //0XFED4=-300,0xF0F0=-3856
-            MOVLW       0XF0
+            MOVLW       0X0F
             MOVWF       TMR_OFF
-            MOVLW       0XF0
+            MOVLW       0X0F
             MOVWF       TMR_OFF+1          ; //0XFED4=-300,0xF0F0=-3856
            
             ;MOVLB       1
-            BCF         TRIG_FLAG,   0
+            BSF         TRIG_FLAG,   0
             BCF         TRIGGERING,  0
             GOTO        ZERO_CHECK_E
             ZERO_EDGE:
@@ -554,7 +556,9 @@ void interrupt INTSR( void )
             XORWF       LATA,       W
             ANDLW       0X26
             XORWF       LATA,       F
-            MOVLB       1        
+            MOVLB       1      
+			BCF         TRIG_FLAG,  0
+			BCF         TRIGGERING,  0
             CLRF        TMR_OFF+1
             MOVF        AC_CYCLE_2, W
             BTFSC       STATUS,     Z
