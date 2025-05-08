@@ -1,7 +1,7 @@
 
 
 HI-TECH Software PIC LITE Macro Assembler V9.83 build 10920 
-                                                                                               Thu May 08 14:55:06 2025
+                                                                                               Thu May 08 17:15:32 2025
 
 HI-TECH Software Omniscient Code Generator (Lite mode) build 10920
      1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 10920"
@@ -1698,7 +1698,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 10920
   1628                           	global	_scnTest
   1629                           	global	_scnZero
   1630                           	global	_sysTicks
-  1631                           	global	_trigFlag
+  1631                           	global	_trigDone
   1632                           	global	_triggering
   1633                           	global	REC_SpeedWorking@tmLvl
   1634                           	global	_tuneValue
@@ -1971,7 +1971,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 10920
   1901  0557                     _maxMotorHistoryTemp	set	1367
   1902                           	DABS	1,1367,1	;_maxMotorHistoryTemp
   1903                           
-  1904                           	file	"C:\Users\liyachen\AppData\Local\Temp\sbq0."
+  1904                           	file	"C:\Users\liyachen\AppData\Local\Temp\sibs."
   1905                           	line	#
   1906                           psect cinit,class=CODE,delta=2
   1907                           global start_initialization
@@ -2180,7 +2180,7 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 10920
   2110  00C8                     _sysTicks:
   2111  00C8                            ds      1
   2112                           
-  2113  00C9                     _trigFlag:
+  2113  00C9                     _trigDone:
   2114  00C9                            ds      1
   2115                           
   2116  00CA                     _triggering:
@@ -16065,8 +16065,8 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 10920
  15726                           	line	199
  15727                           	
  15728  17FD                     l18006:	
- 15729                           ;Hardware.c: 199: trigFlag=0;
- 15730  17FD  01C9               	clrf	(_trigFlag)^080h
+ 15729                           ;Hardware.c: 199: trigDone=0;
+ 15730  17FD  01C9               	clrf	(_trigDone)^080h
  15731                           	line	200
  15732                           	
  15733  17FE                     l18008:	
@@ -16825,13 +16825,13 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 10920
  16461  002C                                 PREV_TRIG EQU (127&_prevTrig) ;#
  16462                           	line	376
  16463                           # 376 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 16464  0049                                 TRIG_FLAG EQU (127&_trigFlag) ;#
+ 16464  0049                                 TRIG_DONE EQU (127&_trigDone) ;#
  16465                           	line	377
  16466                           # 377 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16467  004A                                 TRIGGERING EQU (127&_triggering) ;#
  16468                           	line	379
  16469                           # 379 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 16470                                          SUB16 macro alb, ahb, blb, bhb ;#
+ 16470                                                   SUB16 macro alb, ahb, blb, bhb ;#
  16471                           	line	380
  16472                           # 380 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16473                                                   movf alb,W ;#
@@ -17057,116 +17057,116 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 10920
  16693                           	line	454
  16694                           # 454 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16695  003E                                 ZERO_CHECK: ;#
- 16696                           	line	456
- 16697                           # 456 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16696                           	line	455
+ 16697                           # 455 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16698  003E  1C4A                           BTFSS TRIGGERING, 0 ;#
- 16699                           	line	457
- 16700                           # 457 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16699                           	line	456
+ 16700                           # 456 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16701  003F  12DB                           BCF ODR_TRIAC, PIN_TRIAC ;#
- 16702                           	line	458
- 16703                           # 458 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 16704  0040  1849                           BTFSC TRIG_FLAG, 0 ;#
- 16705                           	line	459
- 16706                           # 459 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 16707  0041  12DB                  BCF ODR_TRIAC, PIN_TRIAC ;#
- 16708                           	line	460
- 16709                           # 460 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16702                           	line	457
+ 16703                           # 457 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16704  0040  1849                           BTFSC TRIG_DONE, 0 ;#
+ 16705                           	line	458
+ 16706                           # 458 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16707  0041  12DB                           BCF ODR_TRIAC, PIN_TRIAC ;#
+ 16708                           	line	459
+ 16709                           # 459 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16710  0042  1B47                           BTFSC AC_SCAN, nEDGE ;#
- 16711                           	line	461
- 16712                           # 461 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16711                           	line	460
+ 16712                           # 460 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16713  0043  2882                           GOTO ZERO_EDGE ; 4 ;#
- 16714                           	line	462
- 16715                           # 462 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16714                           	line	461
+ 16715                           # 461 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16716  0044                                 ZERO_TRIG: ;#
- 16717                           	line	463
- 16718                           # 463 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16717                           	line	462
+ 16718                           # 462 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16719                                       ;MOVLB 2 ;#
- 16720                           	line	464
- 16721                           # 464 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16720                           	line	463
+ 16721                           # 463 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16722                                       ;MOVF LATA, w ;#
- 16723                           	line	465
- 16724                           # 465 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16723                           	line	464
+ 16724                           # 464 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16725                                       ;ANDLW 0XFD ;#
- 16726                           	line	466
- 16727                           # 466 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16726                           	line	465
+ 16727                           # 465 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16728                                       ;MOVWF LATA ;#
- 16729                           	line	467
- 16730                           # 467 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16729                           	line	466
+ 16730                           # 466 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16731                                       ;MOVLB 1 ;#
- 16732                           	line	468
- 16733                           # 468 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16732                           	line	467
+ 16733                           # 467 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16734  0044  0021                           MOVLB 1 ;#
- 16735                           	line	469
- 16736                           # 469 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16735                           	line	468
+ 16736                           # 468 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16737  0045  10DB                           BCF ODRA, 1 ;#
- 16738                           	line	470
- 16739                           # 470 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16738                           	line	469
+ 16739                           # 469 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16740  0046  085B                           MOVF ODRA, W ;#
- 16741                           	line	471
- 16742                           # 471 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16741                           	line	470
+ 16742                           # 470 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16743  0047  0022                           MOVLB 2 ;#
- 16744                           	line	472
- 16745                           # 472 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16744                           	line	471
+ 16745                           # 471 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16746  0048  060C                           XORWF LATA, W ;#
- 16747                           	line	473
- 16748                           # 473 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16747                           	line	472
+ 16748                           # 472 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16749  0049  3926                           ANDLW 0X26 ;#
- 16750                           	line	474
- 16751                           # 474 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16750                           	line	473
+ 16751                           # 473 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16752  004A  068C                           XORWF LATA, F ;#
- 16753                           	line	475
- 16754                           # 475 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16753                           	line	474
+ 16754                           # 474 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16755  004B  0021                           MOVLB 1 ;#
- 16756                           	line	477
- 16757                           # 477 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16756                           	line	476
+ 16757                           # 476 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16758  004C  1FB3                                       BTFSS TMR_OFF+1, 7 ;#
- 16759                           	line	478
- 16760                           # 478 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16759                           	line	477
+ 16760                           # 477 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16761  004D  28E2                           GOTO ZERO_CHECK_E ; 6 ;#
- 16762                           	line	479
- 16763                           # 479 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16762                           	line	478
+ 16763                           # 478 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16764  004E  0FB2                           INCFSZ TMR_OFF, F ;#
- 16765                           	line	480
- 16766                           # 480 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16765                           	line	479
+ 16766                           # 479 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16767  004F  2851                           GOTO $+2 ;#
- 16768                           	line	481
- 16769                           # 481 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16768                           	line	480
+ 16769                           # 480 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16770  0050  0AB3                           INCF TMR_OFF+1, F ;#
- 16771                           	line	482
- 16772                           # 482 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16771                           	line	481
+ 16772                           # 481 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16773  0051  0FB4                           INCFSZ TMR_ON, F ;#
- 16774                           	line	483
- 16775                           # 483 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16774                           	line	482
+ 16775                           # 482 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16776  0052  2854                           GOTO $+2 ;#
- 16777                           	line	484
- 16778                           # 484 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16777                           	line	483
+ 16778                           # 483 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16779  0053  0AB5                           INCF TMR_ON+1, F ;#
- 16780                           	line	485
- 16781                           # 485 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16780                           	line	484
+ 16781                           # 484 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16782  0054  1BB5                           BTFSC TMR_ON+1, 7 ;#
- 16783                           	line	486
- 16784                           # 486 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16783                           	line	485
+ 16784                           # 485 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16785  0055  28E2                           GOTO ZERO_CHECK_E ; 14 ;#
- 16786                           	line	488
- 16787                           # 488 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 16788  0056  1849                           BTFSC TRIG_FLAG, 0 ;#
- 16789                           	line	489
- 16790                           # 489 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 16791  0057  28E2                  GOTO ZERO_CHECK_E ;#
- 16792                           	line	490
- 16793                           # 490 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16786                           	line	487
+ 16787                           # 487 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16788  0056  1849                           BTFSC TRIG_DONE, 0 ;#
+ 16789                           	line	488
+ 16790                           # 488 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16791  0057  28E2                           GOTO ZERO_CHECK_E ;#
+ 16792                           	line	489
+ 16793                           # 489 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16794  0058  302C                           MOVLW PREV_TRIG ;#
- 16795                           	line	491
- 16796                           # 491 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16795                           	line	490
+ 16796                           # 490 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16797  0059  0086                           MOVWF FSR1L ;#
- 16798                           	line	492
- 16799                           # 492 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16798                           	line	491
+ 16799                           # 491 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16800  005A  302D                           MOVLW PREV_TRIG+1 ;#
- 16801                           	line	493
- 16802                           # 493 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16801                           	line	492
+ 16802                           # 492 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16803  005B  0087                           MOVWF FSR1H ;#
- 16804                           	line	494
- 16805                           # 494 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16804                           	line	493
+ 16805                           # 493 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16806  005C  082E                           SUB16 SYS_TIMER,SYS_TIMER+1,FSR1L,FSR1H ;#
       + 005D  0286               	subwf	6,f
       + 005E  082F               	movf	((0+127)& ((+14))+1),w
@@ -17175,1024 +17175,1021 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 10920
 ;#
 	incfsz	((0+127)& ((+14))+1),w
       + 0060  0287               	subwf	7,f
- 16807                           	line	495
- 16808                           # 495 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16807                           	line	494
+ 16808                           # 494 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16809  0061  1F87                           BTFSS FSR1H,7 ;#
- 16810                           	line	496
- 16811                           # 496 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16810                           	line	495
+ 16811                           # 495 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16812  0062  2866                           GOTO POS_MINUS ;#
- 16813                           	line	497
- 16814                           # 497 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16813                           	line	496
+ 16814                           # 496 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16815  0063  0986                           COMF FSR1L ;#
- 16816                           	line	498
- 16817                           # 498 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16816                           	line	497
+ 16817                           # 497 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16818  0064  0987                           COMF FSR1H ;#
- 16819                           	line	499
- 16820                           # 499 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16819                           	line	498
+ 16820                           # 498 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16821  0065  0A86                           INCF FSR1L ;#
- 16822                           	line	500
- 16823                           # 500 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16822                           	line	499
+ 16823                           # 499 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16824                                       ;SUB16 SYS_TIMER,SYS_TIMER+1,PREV_TRIG,PREV_TRIG+1 ;#
- 16825                           	line	501
- 16826                           # 501 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16825                           	line	500
+ 16826                           # 500 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16827                                       ;BTFSS PREV_TRIG+1,7 ;#
- 16828                           	line	502
- 16829                           # 502 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16828                           	line	501
+ 16829                           # 501 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16830                                       ;GOTO POS_MINUS ;#
- 16831                           	line	503
- 16832                           # 503 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16831                           	line	502
+ 16832                           # 502 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16833                                       ;COMF PREV_TRIG ;#
- 16834                           	line	504
- 16835                           # 504 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16834                           	line	503
+ 16835                           # 503 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16836                                       ;COMF PREV_TRIG+1 ;#
- 16837                           	line	505
- 16838                           # 505 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16837                           	line	504
+ 16838                           # 504 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16839                                       ;INCF PREV_TRIG ;#
- 16840                           	line	506
- 16841                           # 506 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16840                           	line	505
+ 16841                           # 505 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16842  0066                                 POS_MINUS: ;#
- 16843                           	line	507
- 16844                           # 507 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16843                           	line	506
+ 16844                           # 506 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16845                                       ;300=0X12C 200=0XC8 240=0XF0 ;#
- 16846                           	line	508
- 16847                           # 508 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16846                           	line	507
+ 16847                           # 507 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16848  0066  30C8                           MOVLW 0XC8 ;#
- 16849                           	line	509
- 16850                           # 509 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16849                           	line	508
+ 16850                           # 508 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16851  0067  0206                           SUBWF FSR1L, W ;#
- 16852                           	line	510
- 16853                           # 510 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16852                           	line	509
+ 16853                           # 509 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16854  0068  3000                           MOVLW 0X00 ;#
- 16855                           	line	511
- 16856                           # 511 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16855                           	line	510
+ 16856                           # 510 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16857  0069  3B07                           SUBWFB FSR1H, W ;#
- 16858                           	line	512
- 16859                           # 512 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16858                           	line	511
+ 16859                           # 511 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16860                                       ;MOVLW 0XC8 ;#
- 16861                           	line	513
- 16862                           # 513 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16861                           	line	512
+ 16862                           # 512 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16863                                       ;SUBWF PREV_TRIG, W ;#
- 16864                           	line	514
- 16865                           # 514 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16864                           	line	513
+ 16865                           # 513 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16866                                       ;MOVLW 0X00 ;#
- 16867                           	line	515
- 16868                           # 515 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16867                           	line	514
+ 16868                           # 514 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16869                                       ;SUBWFB PREV_TRIG+1, W ;#
- 16870                           	line	517
- 16871                           # 517 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16870                           	line	515
+ 16871                           # 515 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16872  006A  1C03                           BTFSS STATUS, C ;#
- 16873                           	line	518
- 16874                           # 518 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16873                           	line	516
+ 16874                           # 516 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16875  006B  286F                           GOTO TIMING_TRIG ;#
- 16876                           	line	519
- 16877                           # 519 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16876                           	line	517
+ 16877                           # 517 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16878  006C  16DB                           BSF ODR_TRIAC, PIN_TRIAC ;#
- 16879                           	line	520
- 16880                           # 520 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 16881  006D  1049                           BCF TRIG_FLAG, 0 ;#
- 16882                           	line	521
- 16883                           # 521 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16879                           	line	518
+ 16880                           # 518 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16881  006D  1049                           BCF TRIG_DONE, 0 ;#
+ 16882                           	line	519
+ 16883                           # 519 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16884  006E  144A                           BSF TRIGGERING, 0 ;#
- 16885                           	line	522
- 16886                           # 522 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16885                           	line	520
+ 16886                           # 520 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16887  006F                                 TIMING_TRIG: ;#
- 16888                           	line	523
- 16889                           # 523 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16888                           	line	521
+ 16889                           # 521 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16890  006F  0834                           MOVF TMR_ON, W ;#
- 16891                           	line	524
- 16892                           # 524 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16891                           	line	522
+ 16892                           # 522 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16893  0070  3C14                           SUBLW 20 ;5->20 ;#
- 16894                           	line	525
- 16895                           # 525 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16894                           	line	523
+ 16895                           # 523 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16896  0071  1D03                           BTFSS STATUS, Z ;#
- 16897                           	line	526
- 16898                           # 526 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16897                           	line	524
+ 16898                           # 524 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16899                                       ;BTFSC STATUS, C ;yes,here. it is wondrous. ;#
- 16900                           	line	527
- 16901                           # 527 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16900                           	line	525
+ 16901                           # 525 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16902                                       ;if use this one, the speed will surge, pulsed. ;#
- 16903                           	line	528
- 16904                           # 528 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16903                           	line	526
+ 16904                           # 526 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16905  0072  28E2                           GOTO ZERO_CHECK_E ; 16 ;#
- 16906                           	line	529
- 16907                           # 529 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16906                           	line	527
+ 16907                           # 527 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16908  0073  082E                           MOVF SYS_TIMER, W ;#
- 16909                           	line	530
- 16910                           # 530 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16909                           	line	528
+ 16910                           # 528 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16911  0074  00AC                           MOVWF PREV_TRIG ;#
- 16912                           	line	531
- 16913                           # 531 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16912                           	line	529
+ 16913                           # 529 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16914  0075  082F                           MOVF SYS_TIMER+1, W ;#
- 16915                           	line	532
- 16916                           # 532 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16915                           	line	530
+ 16916                           # 530 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16917  0076  00AD                           MOVWF PREV_TRIG+1 ;#
- 16918                           	line	533
- 16919                           # 533 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16918                           	line	531
+ 16919                           # 531 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16920  0077  30F0                           MOVLW 0XF0 ;#
- 16921                           	line	534
- 16922                           # 534 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16921                           	line	532
+ 16922                           # 532 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16923  0078  00B4                           MOVWF TMR_ON ;#
- 16924                           	line	535
- 16925                           # 535 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16924                           	line	533
+ 16925                           # 533 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16926  0079  30F0                           MOVLW 0XF0 ;#
- 16927                           	line	536
- 16928                           # 536 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16927                           	line	534
+ 16928                           # 534 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16929  007A  00B5                           MOVWF TMR_ON+1 ; ;#
- 16930                           	line	537
- 16931                           # 537 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16930                           	line	535
+ 16931                           # 535 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16932  007B  300F                           MOVLW 0X0F ;#
- 16933                           	line	538
- 16934                           # 538 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16933                           	line	536
+ 16934                           # 536 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16935  007C  00B2                           MOVWF TMR_OFF ;#
- 16936                           	line	539
- 16937                           # 539 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16936                           	line	537
+ 16937                           # 537 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16938  007D  300F                           MOVLW 0X0F ;#
- 16939                           	line	540
- 16940                           # 540 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16939                           	line	538
+ 16940                           # 538 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16941  007E  00B3                           MOVWF TMR_OFF+1 ; ;#
- 16942                           	line	542
- 16943                           # 542 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 16944                                                  ;MOVLB 1 ;#
- 16945                           	line	543
- 16946                           # 543 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 16947  007F  1449                           BSF TRIG_FLAG, 0 ;#
- 16948                           	line	544
- 16949                           # 544 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 16950  0080  104A                           BCF TRIGGERING, 0 ;#
- 16951                           	line	545
- 16952                           # 545 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 16953  0081  28E2                           GOTO ZERO_CHECK_E ;#
- 16954                           	line	546
- 16955                           # 546 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 16956  0082                                 ZERO_EDGE: ;#
- 16957                           	line	547
- 16958                           # 547 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 16959                                       ;MOVLB 2 ;#
- 16960                           	line	548
- 16961                           # 548 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 16962                                       ;MOVF LATA, w ;#
- 16963                           	line	549
- 16964                           # 549 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 16965                                       ;IORLW 0x02 ;#
- 16966                           	line	550
- 16967                           # 550 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 16968                                       ;MOVWF LATA ;#
- 16969                           	line	551
- 16970                           # 551 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16942                           	line	539
+ 16943                           # 539 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16944  007F  1449                           BSF TRIG_DONE, 0 ;#
+ 16945                           	line	540
+ 16946                           # 540 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16947  0080  104A                           BCF TRIGGERING, 0 ;#
+ 16948                           	line	541
+ 16949                           # 541 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16950  0081  28E2                           GOTO ZERO_CHECK_E ;#
+ 16951                           	line	542
+ 16952                           # 542 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16953  0082                                 ZERO_EDGE: ;#
+ 16954                           	line	543
+ 16955                           # 543 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16956                                       ;MOVLB 2 ;#
+ 16957                           	line	544
+ 16958                           # 544 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16959                                       ;MOVF LATA, w ;#
+ 16960                           	line	545
+ 16961                           # 545 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16962                                       ;IORLW 0x02 ;#
+ 16963                           	line	546
+ 16964                           # 546 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16965                                       ;MOVWF LATA ;#
+ 16966                           	line	547
+ 16967                           # 547 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16968                                       ;MOVLB 1 ;#
+ 16969                           	line	548
+ 16970                           # 548 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
  16971                                       ;MOVLB 1 ;#
- 16972                           	line	552
- 16973                           # 552 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 16974                                       ;MOVLB 1 ;#
- 16975                           	line	553
- 16976                           # 553 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 16977  0082  14DB                           BSF ODRA, 1 ;#
- 16978                           	line	554
- 16979                           # 554 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 16980  0083  085B                           MOVF ODRA, W ;#
- 16981                           	line	555
- 16982                           # 555 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 16983  0084  0022                           MOVLB 2 ;#
- 16984                           	line	556
- 16985                           # 556 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 16986  0085  060C                           XORWF LATA, W ;#
- 16987                           	line	557
- 16988                           # 557 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 16989  0086  3926                           ANDLW 0X26 ;#
- 16990                           	line	558
- 16991                           # 558 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 16992  0087  068C                           XORWF LATA, F ;#
- 16993                           	line	559
- 16994                           # 559 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 16995  0088  0021                           MOVLB 1 ;#
- 16996                           	line	560
- 16997                           # 560 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 16998  0089  1049                  BCF TRIG_FLAG, 0 ;#
- 16999                           	line	561
- 17000                           # 561 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17001  008A  104A                  BCF TRIGGERING, 0 ;#
- 17002                           	line	562
- 17003                           # 562 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17004  008B  01B3                           CLRF TMR_OFF+1 ;#
- 17005                           	line	563
- 17006                           # 563 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17007  008C  083A                           MOVF AC_CYCLE_2, W ;#
- 17008                           	line	564
- 17009                           # 564 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17010  008D  1903                           BTFSC STATUS, Z ;#
- 17011                           	line	565
- 17012                           # 565 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17013  008E  28BA                           GOTO ZERO_CYCLE ; 9 ;#
- 17014                           	line	566
- 17015                           # 566 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17016  008F  3EFD                           ADDLW 256-3 ;#
- 17017                           	line	567
- 17018                           # 567 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17019  0090  00E0                           MOVWF TM_TST0 ;#
- 17020                           	line	568
- 17021                           # 568 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17022  0091  3E0A                           ADDLW 10 ;#
- 17023                           	line	569
- 17024                           # 569 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17025  0092  00E1                           MOVWF TM_TST1 ;#
- 17026                           	line	570
- 17027                           # 570 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17028  0093  3037                           MOVLW 55 ;40->55 ;#
- 17029                           	line	571
- 17030                           # 571 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17031  0094  0230                           SUBWF TM_TRIAC, W ;#
- 17032                           	line	572
- 17033                           # 572 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17034  0095  3000                           MOVLW 0 ;#
- 17035                           	line	573
- 17036                           # 573 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17037  0096  3B31                           SUBWFB TM_TRIAC+1, W ;#
- 17038                           	line	574
- 17039                           # 574 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17040  0097  1C03                           BTFSS STATUS, C ;#
- 17041                           	line	575
- 17042                           # 575 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17043  0098  28BA                           GOTO ZERO_CYCLE ; 19 ;#
- 17044                           	line	576
- 17045                           # 576 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17046  0099  082A                           MOVF AC_CYCLE, W ;#
- 17047                           	line	577
- 17048                           # 577 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17049  009A  0230                           SUBWF TM_TRIAC, W ;#
- 17050                           	line	578
- 17051                           # 578 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17052  009B  00B4                           MOVWF TMR_ON ;#
- 17053                           	line	579
- 17054                           # 579 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17055  009C  082B                           MOVF AC_CYCLE+1, W ;#
- 17056                           	line	580
- 17057                           # 580 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17058  009D  3B31                           SUBWFB TM_TRIAC+1, W ;#
- 17059                           	line	581
- 17060                           # 581 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17061  009E  00B5                           MOVWF TMR_ON+1 ;#
- 17062                           	line	582
- 17063                           # 582 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17064  009F  30F0                           MOVLW 240 ;#
- 17065                           	line	583
- 17066                           # 583 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17067  00A0  1803                           BTFSC STATUS, C ;#
- 17068                           	line	584
- 17069                           # 584 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17070  00A1  00B4                           MOVWF TMR_ON ;#
- 17071                           	line	585
- 17072                           # 585 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17073  00A2  1803                           BTFSC STATUS, C ;#
- 17074                           	line	586
- 17075                           # 586 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17076  00A3  00B5                           MOVWF TMR_ON+1 ;#
- 17077                           	line	587
- 17078                           # 587 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17079  00A4  082A                           MOVF AC_CYCLE, W ;#
- 17080                           	line	588
- 17081                           # 588 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17082  00A5  3C24                           SUBLW 36 ;#
- 17083                           	line	589
- 17084                           # 589 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17085  00A6  0084                           MOVWF FSR0L ;#
- 17086                           	line	590
- 17087                           # 590 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17088  00A7  082B                           MOVF AC_CYCLE+1, W ;#
- 17089                           	line	591
- 17090                           # 591 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17091  00A8  3B33                           SUBWFB TMR_OFF+1, W ;#
- 17092                           	line	592
- 17093                           # 592 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17094  00A9  0085                           MOVWF FSR0H ;#
- 17095                           	line	593
- 17096                           # 593 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17097  00AA  3014                           MOVLW 20 ;5->20 ;#
- 17098                           	line	594
- 17099                           # 594 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17100  00AB  0234                           SUBWF TMR_ON, W ;#
- 17101                           	line	595
- 17102                           # 595 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17103  00AC  00B2                           MOVWF TMR_OFF ;#
- 17104                           	line	596
- 17105                           # 596 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17106  00AD  3000                           MOVLW 0 ;#
- 17107                           	line	597
- 17108                           # 597 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17109  00AE  3B35                           SUBWFB TMR_ON+1, W ;#
- 17110                           	line	598
- 17111                           # 598 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17112  00AF  00B3                           MOVWF TMR_OFF+1 ;#
- 17113                           	line	599
- 17114                           # 599 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17115  00B0  0804                           MOVF FSR0L, W ;#
- 17116                           	line	600
- 17117                           # 600 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17118  00B1  0232                           SUBWF TMR_OFF, W ;#
- 17119                           	line	601
- 17120                           # 601 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17121  00B2  0805                           MOVF FSR0H, W ;#
- 17122                           	line	602
- 17123                           # 602 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17124  00B3  3B33                           SUBWFB TMR_OFF+1, W ;#
- 17125                           	line	603
- 17126                           # 603 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17127  00B4  1803                           BTFSC STATUS, C ;#
- 17128                           	line	604
- 17129                           # 604 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17130  00B5  28BA                           GOTO ZERO_CYCLE ; 48 ;#
- 17131                           	line	605
- 17132                           # 605 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17133  00B6  0804                           MOVF FSR0L, W ;#
- 17134                           	line	606
- 17135                           # 606 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17136  00B7  00B2                           MOVWF TMR_OFF ;#
- 17137                           	line	607
- 17138                           # 607 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17139  00B8  0805                           MOVF FSR0H, W ;#
- 17140                           	line	608
- 17141                           # 608 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17142  00B9  00B3                           MOVWF TMR_OFF+1 ; 51 ;#
- 17143                           	line	609
- 17144                           # 609 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17145  00BA                                 ZERO_CYCLE: ;#
- 17146                           	line	610
- 17147                           # 610 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17148  00BA  1E47                           BTFSS AC_SCAN, nRISE ;#
- 17149                           	line	611
- 17150                           # 611 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17151  00BB  28E2                           GOTO ZERO_CHECK_E ;#
- 17152                           	line	612
- 17153                           # 612 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17154  00BC  1439                           BSF AC_FLAG, 0 ;#
- 17155                           	line	613
- 17156                           # 613 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17157  00BD  3537                           LSLF AC_INDEX, W ;#
- 17158                           	line	614
- 17159                           # 614 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17160  00BE  390E                           ANDLW 7*2 ;#
- 17161                           	line	615
- 17162                           # 615 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17163  00BF  3E60                           ADDLW AC_TIME_PL ;#
- 17164                           	line	616
- 17165                           # 616 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17166  00C0  0084                           MOVWF FSR0L ;#
- 17167                           	line	617
- 17168                           # 617 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17169  00C1  3003                           MOVLW AC_TIME_PH ;#
- 17170                           	line	618
- 17171                           # 618 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17172  00C2  0085                           MOVWF FSR0H ;#
- 17173                           	line	619
- 17174                           # 619 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17175  00C3  082E                           MOVF SYS_TIMER, W ;#
- 17176                           	line	620
- 17177                           # 620 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17178  00C4  001A                           MOVWI FSR0++ ;#
- 17179                           	line	621
- 17180                           # 621 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17181  00C5  082F                           MOVF SYS_TIMER+1,W ;#
- 17182                           	line	622
- 17183                           # 622 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17184  00C6  001A                           MOVWI FSR0++ ;#
- 17185                           	line	623
- 17186                           # 623 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17187  00C7  0AB7                           INCF AC_INDEX, F ;#
- 17188                           	line	624
- 17189                           # 624 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17190  00C8  0AB6                           INCF AC_EVENT, F ;#
- 17191                           	line	625
- 17192                           # 625 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17193  00C9  01B8                           CLRF AC_WATCH ;#
- 17194                           	line	626
- 17195                           # 626 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17196  00CA  0824                           MOVF AD_CUR_2B, W ;#
- 17197                           	line	627
- 17198                           # 627 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17199  00CB  00A0                           MOVWF AD_CUR_2 ;#
- 17200                           	line	628
- 17201                           # 628 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17202  00CC  0825                           MOVF AD_CUR_2B+1,W ;#
- 17203                           	line	629
- 17204                           # 629 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17205  00CD  00A1                           MOVWF AD_CUR_2+1 ;#
- 17206                           	line	630
- 17207                           # 630 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17208  00CE  0826                           MOVF AD_CUR_2B+2,W ;#
- 17209                           	line	631
- 17210                           # 631 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17211  00CF  00A2                           MOVWF AD_CUR_2+2 ;#
- 17212                           	line	632
- 17213                           # 632 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17214  00D0  0827                           MOVF AD_CUR_2B+3,W ;#
- 17215                           	line	633
- 17216                           # 633 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17217  00D1  00A3                           MOVWF AD_CUR_2+3 ;#
- 17218                           	line	634
- 17219                           # 634 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17220  00D2  083C                           MOVF AD_CUR_NB, W ;#
- 17221                           	line	635
- 17222                           # 635 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17223  00D3  00BB                           MOVWF AD_CUR_N ;#
- 17224                           	line	636
- 17225                           # 636 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17226  00D4  01A4                           CLRF AD_CUR_2B ;#
- 17227                           	line	637
- 17228                           # 637 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17229  00D5  01A5                           CLRF AD_CUR_2B+1 ;#
- 17230                           	line	638
- 17231                           # 638 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17232  00D6  01A6                           CLRF AD_CUR_2B+2 ;#
- 17233                           	line	639
- 17234                           # 639 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17235  00D7  01A7                           CLRF AD_CUR_2B+3 ;#
- 17236                           	line	640
- 17237                           # 640 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17238  00D8  01BC                           CLRF AD_CUR_NB ;#
- 17239                           	line	641
- 17240                           # 641 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17241  00D9  083A                           MOVF AC_CYCLE_2, W ;#
- 17242                           	line	642
- 17243                           # 642 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17244  00DA  1903                           BTFSC STATUS, Z ;#
- 17245                           	line	643
- 17246                           # 643 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17247  00DB  28E2                           GOTO ZERO_CHECK_E ;#
- 17248                           	line	644
- 17249                           # 644 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17250  00DC  3E02                           ADDLW 2 ;#
- 17251                           	line	645
- 17252                           # 645 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17253  00DD  00DE                           MOVWF TAD_VAC ;#
- 17254                           	line	650
- 17255                           # 650 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17256  00DE  3E01                                                                           ADDLW 1 ;#
- 17257                           	line	652
- 17258                           # 652 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17259  00DF  00DF                                       MOVWF TAD_VRS ;#
- 17260                           	line	653
- 17261                           # 653 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17262  00E0  3E02                           ADDLW 2 ;#
- 17263                           	line	654
- 17264                           # 654 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17265  00E1  00DD                           MOVWF TAD_NTC ;#
- 17266                           	line	655
- 17267                           # 655 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17268  00E2                                 ZERO_CHECK_E: ;#
- 17269                           	line	656
- 17270                           # 656 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17271                                       ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
- 17272                           	line	657
- 17273                           # 657 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17274  00E2  082E                           MOVF SYS_TIMER, W ;#
- 17275                           	line	658
- 17276                           # 658 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17277  00E3  0FAE                           INCFSZ SYS_TIMER, F ;#
- 17278                           	line	659
- 17279                           # 659 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17280  00E4  28E6                           GOTO $+2 ;#
- 17281                           	line	660
- 17282                           # 660 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17283  00E5  0AAF                           INCF SYS_TIMER+1,F ;#
- 17284                           	line	661
- 17285                           # 661 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17286  00E6  3903                           ANDLW 3 ;#
- 17287                           	line	662
- 17288                           # 662 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17289  00E7  000B                           BRW ;#
- 17290                           	line	663
- 17291                           # 663 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17292  00E8  28EC                           GOTO ISR_BRCH_0 ; 9 ;#
- 17293                           	line	664
- 17294                           # 664 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17295  00E9  2920                           GOTO ISR_BRCH_1 ; 9 ;#
- 17296                           	line	665
- 17297                           # 665 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17298  00EA  294D                           GOTO ISR_BRCH_2 ; 9 ;#
- 17299                           	line	666
- 17300                           # 666 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17301  00EB  2965                           GOTO ISR_BRCH_3 ; 9 ;#
- 17302                           	line	667
- 17303                           # 667 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17304                                       ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
- 17305                           	line	668
- 17306                           # 668 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17307  00EC                                 ISR_BRCH_0: ;#
- 17308                           	line	669
- 17309                           # 669 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17310  00EC                                 UART_TX_PRO: ;#
- 17311                           	line	670
- 17312                           # 670 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17313  00EC  0023                           MOVLB 3 ;#
- 17314                           	line	671
- 17315                           # 671 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17316  00ED  1FA6                           BTFSS TX_TIM, 7 ;#
- 17317                           	line	672
- 17318                           # 672 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17319  00EE  0AA6                           INCF TX_TIM, F ;#
- 17320                           	line	673
- 17321                           # 673 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17322  00EF  0824                           MOVF TX_CNT, W ;#
- 17323                           	line	674
- 17324                           # 674 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17325  00F0  1903                           BTFSC STATUS, Z ;#
- 17326                           	line	675
- 17327                           # 675 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17328  00F1  2901                           GOTO UART_TX_PRO_E ; 7 ;#
- 17329                           	line	676
- 17330                           # 676 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17331  00F2  300C                           MOVLW 12 ;#
- 17332                           	line	677
- 17333                           # 677 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17334  00F3  0226                           SUBWF TX_TIM, W ;#
- 17335                           	line	678
- 17336                           # 678 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17337  00F4  1C03                           BTFSS STATUS, C ;#
- 17338                           	line	679
- 17339                           # 679 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17340  00F5  2901                           GOTO UART_TX_PRO_E ; 11 ;#
- 17341                           	line	680
- 17342                           # 680 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17343  00F6  01A6                           CLRF TX_TIM ;#
- 17344                           	line	681
- 17345                           # 681 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17346  00F7  0825                           MOVF TX_RDP, W ;#
- 17347                           	line	682
- 17348                           # 682 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17349  00F8  391F                           ANDLW 31 ;#
- 17350                           	line	683
- 17351                           # 683 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17352  00F9  3EA0                           ADDLW TX_FIFO_PL ;#
- 17353                           	line	684
- 17354                           # 684 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17355  00FA  0084                           MOVWF FSR0L ;#
- 17356                           	line	685
- 17357                           # 685 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17358  00FB  3003                           MOVLW TX_FIFO_PH ;#
- 17359                           	line	686
- 17360                           # 686 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17361  00FC  0085                           MOVWF FSR0H ;#
- 17362                           	line	687
- 17363                           # 687 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17364  00FD  3F00                           MOVIW [0]FSR0 ;#
- 17365                           	line	688
- 17366                           # 688 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17367  00FE  009A                           MOVWF TXREG ;#
- 17368                           	line	689
- 17369                           # 689 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17370  00FF  0AA5                           INCF TX_RDP, F ;#
- 17371                           	line	690
- 17372                           # 690 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17373  0100  03A4                           DECF TX_CNT, F ; 21 ;#
- 17374                           	line	691
- 17375                           # 691 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17376  0101                                 UART_TX_PRO_E: ;#
- 17377                           	line	692
- 17378                           # 692 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17379  0101  0021                           MOVLB 1 ;#
- 17380                           	line	693
- 17381                           # 693 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17382  0102  0AC8                           INCF SYS_TICKS, F ;#
- 17383                           	line	694
- 17384                           # 694 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17385  0103  1C5C                           BTFSS EN_ADC, 0 ;#
- 17386                           	line	695
- 17387                           # 695 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17388  0104  2916                           GOTO AD_VAC_START ;#
- 17389                           	line	696
- 17390                           # 696 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17391  0105                                 AD_CUR_READ: ;#
- 17392                           	line	697
- 17393                           # 697 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17394  0105  189D                           BTFSC ADCON0, 1 ;#
- 17395                           	line	698
- 17396                           # 698 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17397  0106  2905                           GOTO $-1 ; ? ;#
- 17398                           	line	699
- 17399                           # 699 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17400  0107  091B                           COMF ADRESL, W ;#
- 17401                           	line	700
- 17402                           # 700 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17403  0108  0084                           MOVWF FSR0L ;#
- 17404                           	line	701
- 17405                           # 701 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17406  0109  309E                           MOVLW HIGH _SQ8 | 0X80 ;#
- 17407                           	line	702
- 17408                           # 702 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17409  010A  0085                           MOVWF FSR0H ;#
- 17410                           	line	703
- 17411                           # 703 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17412  010B  3584                           LSLF FSR0L, F ;#
- 17413                           	line	704
- 17414                           # 704 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17415  010C  1803                           BTFSC STATUS, C ;#
- 17416                           	line	705
- 17417                           # 705 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17418  010D  0A85                           INCF FSR0H, F ;#
- 17419                           	line	706
- 17420                           # 706 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17421  010E  0012                           MOVIW FSR0++ ;#
- 17422                           	line	707
- 17423                           # 707 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17424  010F  07A4                           ADDWF AD_CUR_2B, F ;#
- 17425                           	line	708
- 17426                           # 708 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17427  0110  0012                           MOVIW FSR0++ ;#
- 17428                           	line	709
- 17429                           # 709 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17430  0111  3DA5                           ADDWFC AD_CUR_2B+1,F ;#
- 17431                           	line	710
- 17432                           # 710 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17433  0112  0100                           CLRW ;#
- 17434                           	line	711
- 17435                           # 711 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17436  0113  3DA6                           ADDWFC AD_CUR_2B+2,F ;#
- 17437                           	line	712
- 17438                           # 712 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17439  0114  3DA7                           ADDWFC AD_CUR_2B+3,F ;#
- 17440                           	line	713
- 17441                           # 713 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17442  0115  0ABC                           INCF AD_CUR_NB, F ;#
- 17443                           	line	714
- 17444                           # 714 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17445  0116                                 AD_VAC_START: ;#
- 17446                           	line	715
- 17447                           # 715 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17448  0116  01DC                           CLRF EN_ADC ;#
- 17449                           	line	716
- 17450                           # 716 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17451  0117  1FDE                           BTFSS TAD_VAC, 7 ;#
- 17452                           	line	717
- 17453                           # 717 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17454  0118  0BDE                           DECFSZ TAD_VAC, F ;#
- 17455                           	line	718
- 17456                           # 718 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17457  0119  0009                           RETFIE ;#
- 17458                           	line	719
- 17459                           # 719 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17460  011A  3015                           MOVLW 5*4+1 ;#
- 17461                           	line	720
- 17462                           # 720 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17463  011B  009D                           MOVWF ADCON0 ;#
- 17464                           	line	721
- 17465                           # 721 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17466  011C  3020                           MOVLW 0X20 ;#
- 17467                           	line	722
- 17468                           # 722 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17469  011D  009E                           MOVWF ADCON1 ;#
- 17470                           	line	723
- 17471                           # 723 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17472  011E  145C                           BSF EN_ADC, 0 ;#
- 17473                           	line	724
- 17474                           # 724 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17475  011F  0009                           RETFIE ;#
- 17476                           	line	725
- 17477                           # 725 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17478                                       ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
- 17479                           	line	726
- 17480                           # 726 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17481  0120                                 ISR_BRCH_1: ;#
- 17482                           	line	727
- 17483                           # 727 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17484  0120                                 UART_RX_PRO: ;#
- 17485                           	line	728
- 17486                           # 728 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17487  0120  0023                           MOVLB 3 ;#
- 17488                           	line	729
- 17489                           # 729 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17490  0121  1FA2                           BTFSS RX_TIM, 7 ;#
- 17491                           	line	730
- 17492                           # 730 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17493  0122  0AA2                           INCF RX_TIM, F ;#
- 17494                           	line	731
- 17495                           # 731 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17496  0123  0020                           MOVLB 0 ;#
- 17497                           	line	732
- 17498                           # 732 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17499  0124  1E91                           BTFSS PIR1, RCIF ;#
- 17500                           	line	733
- 17501                           # 733 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17502  0125  2939                           GOTO UART_RX_PRO_E ; 11 ;#
- 17503                           	line	734
- 17504                           # 734 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17505  0126  0023                           MOVLB 3 ;#
- 17506                           	line	735
- 17507                           # 735 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17508  0127  01A2                           CLRF RX_TIM ;#
- 17509                           	line	736
- 17510                           # 736 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17511  0128  0819                           MOVF RCREG, W ;#
- 17512                           	line	737
- 17513                           # 737 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17514  0129  0085                           MOVWF FSR0H ;#
- 17515                           	line	738
- 17516                           # 738 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17517  012A  3020                           MOVLW 32 ;#
- 17518                           	line	739
- 17519                           # 739 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17520  012B  0220                           SUBWF RX_CNT, W ;#
- 17521                           	line	740
- 17522                           # 740 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17523  012C  1C03                           BTFSS STATUS, C ;#
- 17524                           	line	741
- 17525                           # 741 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17526  012D  2939                           GOTO UART_RX_PRO_E ; 19 ;#
- 17527                           	line	742
- 17528                           # 742 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17529  012E  0823                           MOVF RX_WRP, W ;#
- 17530                           	line	743
- 17531                           # 743 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17532  012F  391F                           ANDLW 31 ;#
- 17533                           	line	744
- 17534                           # 744 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17535  0130  3EC0                           ADDLW RX_FIFO_PL ;#
- 17536                           	line	745
- 17537                           # 745 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17538  0131  0084                           MOVWF FSR0L ;#
- 17539                           	line	746
- 17540                           # 746 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17541  0132  3003                           MOVLW RX_FIFO_PH ;#
- 17542                           	line	747
- 17543                           # 747 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17544  0133  0605                           XORWF FSR0H, W ;#
- 17545                           	line	748
- 17546                           # 748 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17547  0134  0685                           XORWF FSR0H, F ;#
- 17548                           	line	749
- 17549                           # 749 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17550  0135  0605                           XORWF FSR0H, W ;#
- 17551                           	line	750
- 17552                           # 750 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17553  0136  3F80                           MOVWI [0]FSR0 ;#
- 17554                           	line	751
- 17555                           # 751 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17556  0137  0AA3                           INCF RX_WRP, F ;#
- 17557                           	line	752
- 17558                           # 752 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17559  0138  0AA0                           INCF RX_CNT, F ;#
- 17560                           	line	753
- 17561                           # 753 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17562  0139                                 UART_RX_PRO_E: ;#
- 17563                           	line	754
- 17564                           # 754 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17565  0139  0021                           MOVLB 1 ;#
- 17566                           	line	755
- 17567                           # 755 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17568  013A  1C5C                           BTFSS EN_ADC, 0 ;#
- 17569                           	line	756
- 17570                           # 756 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17571  013B  2943                           GOTO AD_VRS_START ;#
- 17572                           	line	757
- 17573                           # 757 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17574  013C                                 AD_VAC_READ: ;#
- 17575                           	line	758
- 17576                           # 758 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17577  013C  189D                           BTFSC ADCON0, 1 ;#
- 17578                           	line	759
- 17579                           # 759 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17580  013D  293C                           GOTO $-1 ; ? ;#
- 17581                           	line	760
- 17582                           # 760 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17583  013E  081C                           MOVF ADRESH, W ;#
- 17584                           	line	761
- 17585                           # 761 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17586  013F  3C80                           SUBLW 128 ;#
- 17587                           	line	762
- 17588                           # 762 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17589  0140  1C03                           BTFSS STATUS, C ;#
- 17590                           	line	763
- 17591                           # 763 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17592  0141  3C00                           SUBLW 0 ;#
- 17593                           	line	764
- 17594                           # 764 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17595  0142  00BE                           MOVWF AD_VAC ;#
- 17596                           	line	765
- 17597                           # 765 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17598  0143                                 AD_VRS_START: ;#
- 17599                           	line	766
- 17600                           # 766 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17601  0143  01DC                           CLRF EN_ADC ;#
- 17602                           	line	767
- 17603                           # 767 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17604  0144  1FDF                           BTFSS TAD_VRS, 7 ;#
- 17605                           	line	768
- 17606                           # 768 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17607  0145  0BDF                           DECFSZ TAD_VRS, F ;#
- 17608                           	line	769
- 17609                           # 769 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17610  0146  0009                           RETFIE ;#
- 17611                           	line	770
- 17612                           # 770 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17613  0147  3019                           MOVLW 6*4+1 ;#
- 17614                           	line	771
- 17615                           # 771 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17616  0148  009D                           MOVWF ADCON0 ;#
- 17617                           	line	772
- 17618                           # 772 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17619  0149  3020                           MOVLW 0X20 ;#
- 17620                           	line	773
- 17621                           # 773 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17622  014A  009E                           MOVWF ADCON1 ;#
- 17623                           	line	774
- 17624                           # 774 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17625  014B  145C                           BSF EN_ADC, 0 ;#
- 17626                           	line	775
- 17627                           # 775 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17628  014C  0009                           RETFIE ;#
- 17629                           	line	776
- 17630                           # 776 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17631                                       ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
- 17632                           	line	777
- 17633                           # 777 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17634  014D                                 ISR_BRCH_2: ;#
- 17635                           	line	778
- 17636                           # 778 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17637  014D                                 TST0_PRO: ;#
- 17638                           	line	779
- 17639                           # 779 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17640  014D  1FE0                           BTFSS TM_TST0, 7 ;#
- 17641                           	line	780
- 17642                           # 780 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17643  014E  0BE0                           DECFSZ TM_TST0, F ;#
- 17644                           	line	781
- 17645                           # 781 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17646  014F  2955                           GOTO TST0_PRO_E ;#
- 17647                           	line	782
- 17648                           # 782 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17649  0150  0846                           MOVF TS_SCAN, W ;#
- 17650                           	line	783
- 17651                           # 783 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17652  0151  0647                           XORWF AC_SCAN, W ;#
- 17653                           	line	784
- 17654                           # 784 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17655  0152  3A80                           XORLW 0X80 ;#
- 17656                           	line	785
- 17657                           # 785 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17658  0153  0D09                           RLF WREG, W ;#
- 17659                           	line	786
- 17660                           # 786 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17661  0154  0DC0                           RLF DR_TST0, F ;#
- 17662                           	line	787
- 17663                           # 787 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17664  0155                                 TST0_PRO_E: ;#
- 17665                           	line	788
- 17666                           # 788 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17667  0155  1C5C                           BTFSS EN_ADC, 0 ;#
- 17668                           	line	789
- 17669                           # 789 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17670  0156  295B                           GOTO AD_NTC_START ;#
- 17671                           	line	790
- 17672                           # 790 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17673  0157                                 AD_VRS_READ: ;#
- 17674                           	line	791
- 17675                           # 791 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17676  0157  189D                           BTFSC ADCON0, 1 ;#
- 17677                           	line	792
- 17678                           # 792 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17679  0158  2957                           GOTO $-1 ; ? ;#
- 17680                           	line	793
- 17681                           # 793 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17682  0159  081C                           MOVF ADRESH, W ;#
- 17683                           	line	794
- 17684                           # 794 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17685  015A  00BF                           MOVWF AD_VRS ;#
- 17686                           	line	795
- 17687                           # 795 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17688  015B                                 AD_NTC_START: ;#
- 17689                           	line	796
- 17690                           # 796 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17691  015B  01DC                           CLRF EN_ADC ;#
- 17692                           	line	797
- 17693                           # 797 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17694  015C  1FDD                           BTFSS TAD_NTC, 7 ;#
- 17695                           	line	798
- 17696                           # 798 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17697  015D  0BDD                           DECFSZ TAD_NTC, F ;#
- 17698                           	line	799
- 17699                           # 799 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17700  015E  0009                           RETFIE ;#
- 17701                           	line	800
- 17702                           # 800 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17703  015F  300D                           MOVLW 3*4+1 ;#
- 17704                           	line	801
- 17705                           # 801 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17706  0160  009D                           MOVWF ADCON0 ;#
- 17707                           	line	802
- 17708                           # 802 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17709  0161  3020                           MOVLW 0X20 ;#
- 17710                           	line	803
- 17711                           # 803 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17712  0162  009E                           MOVWF ADCON1 ;#
- 17713                           	line	804
- 17714                           # 804 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17715  0163  145C                           BSF EN_ADC, 0 ;#
- 17716                           	line	805
- 17717                           # 805 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17718  0164  0009                           RETFIE ;#
- 17719                           	line	806
- 17720                           # 806 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17721                                       ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
- 17722                           	line	807
- 17723                           # 807 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17724  0165                                 ISR_BRCH_3: ;#
- 17725                           	line	808
- 17726                           # 808 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17727  0165                                 TST1_PRO: ;#
- 17728                           	line	809
- 17729                           # 809 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17730  0165  1FE1                           BTFSS TM_TST1, 7 ;#
- 17731                           	line	810
- 17732                           # 810 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17733  0166  0BE1                           DECFSZ TM_TST1, F ;#
- 17734                           	line	811
- 17735                           # 811 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17736  0167  296D                           GOTO TST1_PRO_E ;#
- 17737                           	line	812
- 17738                           # 812 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17739  0168  0846                           MOVF TS_SCAN, W ;#
- 17740                           	line	813
- 17741                           # 813 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17742  0169  0647                           XORWF AC_SCAN, W ;#
- 17743                           	line	814
- 17744                           # 814 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17745  016A  3A80                           XORLW 0X80 ;#
- 17746                           	line	815
- 17747                           # 815 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17748  016B  0D09                           RLF WREG, W ;#
- 17749                           	line	816
- 17750                           # 816 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17751  016C  0DC1                           RLF DR_TST1, F ;#
- 17752                           	line	817
- 17753                           # 817 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17754  016D                                 TST1_PRO_E: ;#
- 17755                           	line	818
- 17756                           # 818 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17757  016D  1C5C                           BTFSS EN_ADC, 0 ;#
- 17758                           	line	819
- 17759                           # 819 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17760  016E  2973                           GOTO AD_CUR_START ;#
- 17761                           	line	820
- 17762                           # 820 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17763  016F                                 AD_NTC_READ: ;#
- 17764                           	line	821
- 17765                           # 821 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17766  016F  189D                           BTFSC ADCON0, 1 ;#
- 17767                           	line	822
- 17768                           # 822 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17769  0170  296F                           GOTO $-1 ; ? ;#
- 17770                           	line	823
- 17771                           # 823 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17772  0171  081C                           MOVF ADRESH, W ;#
- 17773                           	line	824
- 17774                           # 824 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17775  0172  00BD                           MOVWF AD_NTC ;#
- 17776                           	line	825
- 17777                           # 825 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17778  0173                                 AD_CUR_START: ;#
- 17779                           	line	826
- 17780                           # 826 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17781  0173  3025                           MOVLW 9*4+1 ;#
- 17782                           	line	827
- 17783                           # 827 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17784  0174  009D                           MOVWF ADCON0 ;#
- 17785                           	line	828
- 17786                           # 828 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17787  0175  30A0                           MOVLW 0XA0 ;#
- 17788                           	line	829
- 17789                           # 829 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17790  0176  009E                           MOVWF ADCON1 ;#
- 17791                           	line	830
- 17792                           # 830 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17793  0177  145C                           BSF EN_ADC, 0 ;#
- 17794                           	line	831
- 17795                           # 831 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17796  0178  0009                           RETFIE ;#
- 17797                           	line	832
- 17798                           # 832 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
- 17799                                       ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
- 17800                           psect	intentry
- 17801                           	line	834
- 17802                           	
- 17803  0179                     i1l3266:	
- 17804  0179  0870               	movf	(??_INTSR+0),w
- 17805  017A  0020               	movlb 0	; select bank0
- 17806  017B  00FF               	movwf	btemp+1
- 17807  017C  0009               	retfie
- 17808                           	opt stack 0
- 17809                           GLOBAL	__end_of_INTSR
- 17810  017D                     	__end_of_INTSR:
- 17811 ;; =============== function _INTSR ends ============
- 17812                           
- 17813                           	signat	_INTSR,88
- 17814                           psect	intentry
- 17815                           	global	btemp
- 17816  007E                     	btemp set 07Eh
- 17817                           
- 17818                           	DABS	1,126,2	;btemp
- 17819                           	global	wtemp0
- 17820  007E                     	wtemp0 set btemp
+ 16972                           	line	549
+ 16973                           # 549 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16974  0082  14DB                           BSF ODRA, 1 ;#
+ 16975                           	line	550
+ 16976                           # 550 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16977  0083  085B                           MOVF ODRA, W ;#
+ 16978                           	line	551
+ 16979                           # 551 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16980  0084  0022                           MOVLB 2 ;#
+ 16981                           	line	552
+ 16982                           # 552 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16983  0085  060C                           XORWF LATA, W ;#
+ 16984                           	line	553
+ 16985                           # 553 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16986  0086  3926                           ANDLW 0X26 ;#
+ 16987                           	line	554
+ 16988                           # 554 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16989  0087  068C                           XORWF LATA, F ;#
+ 16990                           	line	555
+ 16991                           # 555 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16992  0088  0021                           MOVLB 1 ;#
+ 16993                           	line	556
+ 16994                           # 556 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16995  0089  1049                           BCF TRIG_DONE, 0 ;#
+ 16996                           	line	557
+ 16997                           # 557 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 16998  008A  104A                           BCF TRIGGERING, 0 ;#
+ 16999                           	line	558
+ 17000                           # 558 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17001  008B  01B3                           CLRF TMR_OFF+1 ;#
+ 17002                           	line	559
+ 17003                           # 559 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17004  008C  083A                           MOVF AC_CYCLE_2, W ;#
+ 17005                           	line	560
+ 17006                           # 560 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17007  008D  1903                           BTFSC STATUS, Z ;#
+ 17008                           	line	561
+ 17009                           # 561 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17010  008E  28BA                           GOTO ZERO_CYCLE ; 9 ;#
+ 17011                           	line	562
+ 17012                           # 562 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17013  008F  3EFD                           ADDLW 256-3 ;#
+ 17014                           	line	563
+ 17015                           # 563 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17016  0090  00E0                           MOVWF TM_TST0 ;#
+ 17017                           	line	564
+ 17018                           # 564 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17019  0091  3E0A                           ADDLW 10 ;#
+ 17020                           	line	565
+ 17021                           # 565 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17022  0092  00E1                           MOVWF TM_TST1 ;#
+ 17023                           	line	566
+ 17024                           # 566 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17025  0093  3037                           MOVLW 55 ;40->55 ;#
+ 17026                           	line	567
+ 17027                           # 567 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17028  0094  0230                           SUBWF TM_TRIAC, W ;#
+ 17029                           	line	568
+ 17030                           # 568 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17031  0095  3000                           MOVLW 0 ;#
+ 17032                           	line	569
+ 17033                           # 569 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17034  0096  3B31                           SUBWFB TM_TRIAC+1, W ;#
+ 17035                           	line	570
+ 17036                           # 570 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17037  0097  1C03                           BTFSS STATUS, C ;#
+ 17038                           	line	571
+ 17039                           # 571 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17040  0098  28BA                           GOTO ZERO_CYCLE ; 19 ;#
+ 17041                           	line	572
+ 17042                           # 572 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17043  0099  082A                           MOVF AC_CYCLE, W ;#
+ 17044                           	line	573
+ 17045                           # 573 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17046  009A  0230                           SUBWF TM_TRIAC, W ;#
+ 17047                           	line	574
+ 17048                           # 574 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17049  009B  00B4                           MOVWF TMR_ON ;#
+ 17050                           	line	575
+ 17051                           # 575 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17052  009C  082B                           MOVF AC_CYCLE+1, W ;#
+ 17053                           	line	576
+ 17054                           # 576 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17055  009D  3B31                           SUBWFB TM_TRIAC+1, W ;#
+ 17056                           	line	577
+ 17057                           # 577 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17058  009E  00B5                           MOVWF TMR_ON+1 ;#
+ 17059                           	line	578
+ 17060                           # 578 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17061  009F  30F0                           MOVLW 240 ;#
+ 17062                           	line	579
+ 17063                           # 579 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17064  00A0  1803                           BTFSC STATUS, C ;#
+ 17065                           	line	580
+ 17066                           # 580 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17067  00A1  00B4                           MOVWF TMR_ON ;#
+ 17068                           	line	581
+ 17069                           # 581 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17070  00A2  1803                           BTFSC STATUS, C ;#
+ 17071                           	line	582
+ 17072                           # 582 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17073  00A3  00B5                           MOVWF TMR_ON+1 ;#
+ 17074                           	line	583
+ 17075                           # 583 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17076  00A4  082A                           MOVF AC_CYCLE, W ;#
+ 17077                           	line	584
+ 17078                           # 584 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17079  00A5  3C24                           SUBLW 36 ;#
+ 17080                           	line	585
+ 17081                           # 585 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17082  00A6  0084                           MOVWF FSR0L ;#
+ 17083                           	line	586
+ 17084                           # 586 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17085  00A7  082B                           MOVF AC_CYCLE+1, W ;#
+ 17086                           	line	587
+ 17087                           # 587 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17088  00A8  3B33                           SUBWFB TMR_OFF+1, W ;#
+ 17089                           	line	588
+ 17090                           # 588 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17091  00A9  0085                           MOVWF FSR0H ;#
+ 17092                           	line	589
+ 17093                           # 589 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17094  00AA  3014                           MOVLW 20 ;5->20 ;#
+ 17095                           	line	590
+ 17096                           # 590 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17097  00AB  0234                           SUBWF TMR_ON, W ;#
+ 17098                           	line	591
+ 17099                           # 591 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17100  00AC  00B2                           MOVWF TMR_OFF ;#
+ 17101                           	line	592
+ 17102                           # 592 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17103  00AD  3000                           MOVLW 0 ;#
+ 17104                           	line	593
+ 17105                           # 593 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17106  00AE  3B35                           SUBWFB TMR_ON+1, W ;#
+ 17107                           	line	594
+ 17108                           # 594 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17109  00AF  00B3                           MOVWF TMR_OFF+1 ;#
+ 17110                           	line	595
+ 17111                           # 595 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17112  00B0  0804                           MOVF FSR0L, W ;#
+ 17113                           	line	596
+ 17114                           # 596 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17115  00B1  0232                           SUBWF TMR_OFF, W ;#
+ 17116                           	line	597
+ 17117                           # 597 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17118  00B2  0805                           MOVF FSR0H, W ;#
+ 17119                           	line	598
+ 17120                           # 598 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17121  00B3  3B33                           SUBWFB TMR_OFF+1, W ;#
+ 17122                           	line	599
+ 17123                           # 599 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17124  00B4  1803                           BTFSC STATUS, C ;#
+ 17125                           	line	600
+ 17126                           # 600 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17127  00B5  28BA                           GOTO ZERO_CYCLE ; 48 ;#
+ 17128                           	line	601
+ 17129                           # 601 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17130  00B6  0804                           MOVF FSR0L, W ;#
+ 17131                           	line	602
+ 17132                           # 602 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17133  00B7  00B2                           MOVWF TMR_OFF ;#
+ 17134                           	line	603
+ 17135                           # 603 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17136  00B8  0805                           MOVF FSR0H, W ;#
+ 17137                           	line	604
+ 17138                           # 604 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17139  00B9  00B3                           MOVWF TMR_OFF+1 ; 51 ;#
+ 17140                           	line	605
+ 17141                           # 605 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17142  00BA                                 ZERO_CYCLE: ;#
+ 17143                           	line	606
+ 17144                           # 606 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17145  00BA  1E47                           BTFSS AC_SCAN, nRISE ;#
+ 17146                           	line	607
+ 17147                           # 607 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17148  00BB  28E2                           GOTO ZERO_CHECK_E ;#
+ 17149                           	line	608
+ 17150                           # 608 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17151  00BC  1439                           BSF AC_FLAG, 0 ;#
+ 17152                           	line	609
+ 17153                           # 609 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17154  00BD  3537                           LSLF AC_INDEX, W ;#
+ 17155                           	line	610
+ 17156                           # 610 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17157  00BE  390E                           ANDLW 7*2 ;#
+ 17158                           	line	611
+ 17159                           # 611 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17160  00BF  3E60                           ADDLW AC_TIME_PL ;#
+ 17161                           	line	612
+ 17162                           # 612 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17163  00C0  0084                           MOVWF FSR0L ;#
+ 17164                           	line	613
+ 17165                           # 613 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17166  00C1  3003                           MOVLW AC_TIME_PH ;#
+ 17167                           	line	614
+ 17168                           # 614 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17169  00C2  0085                           MOVWF FSR0H ;#
+ 17170                           	line	615
+ 17171                           # 615 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17172  00C3  082E                           MOVF SYS_TIMER, W ;#
+ 17173                           	line	616
+ 17174                           # 616 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17175  00C4  001A                           MOVWI FSR0++ ;#
+ 17176                           	line	617
+ 17177                           # 617 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17178  00C5  082F                           MOVF SYS_TIMER+1,W ;#
+ 17179                           	line	618
+ 17180                           # 618 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17181  00C6  001A                           MOVWI FSR0++ ;#
+ 17182                           	line	619
+ 17183                           # 619 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17184  00C7  0AB7                           INCF AC_INDEX, F ;#
+ 17185                           	line	620
+ 17186                           # 620 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17187  00C8  0AB6                           INCF AC_EVENT, F ;#
+ 17188                           	line	621
+ 17189                           # 621 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17190  00C9  01B8                           CLRF AC_WATCH ;#
+ 17191                           	line	622
+ 17192                           # 622 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17193  00CA  0824                           MOVF AD_CUR_2B, W ;#
+ 17194                           	line	623
+ 17195                           # 623 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17196  00CB  00A0                           MOVWF AD_CUR_2 ;#
+ 17197                           	line	624
+ 17198                           # 624 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17199  00CC  0825                           MOVF AD_CUR_2B+1,W ;#
+ 17200                           	line	625
+ 17201                           # 625 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17202  00CD  00A1                           MOVWF AD_CUR_2+1 ;#
+ 17203                           	line	626
+ 17204                           # 626 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17205  00CE  0826                           MOVF AD_CUR_2B+2,W ;#
+ 17206                           	line	627
+ 17207                           # 627 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17208  00CF  00A2                           MOVWF AD_CUR_2+2 ;#
+ 17209                           	line	628
+ 17210                           # 628 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17211  00D0  0827                           MOVF AD_CUR_2B+3,W ;#
+ 17212                           	line	629
+ 17213                           # 629 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17214  00D1  00A3                           MOVWF AD_CUR_2+3 ;#
+ 17215                           	line	630
+ 17216                           # 630 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17217  00D2  083C                           MOVF AD_CUR_NB, W ;#
+ 17218                           	line	631
+ 17219                           # 631 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17220  00D3  00BB                           MOVWF AD_CUR_N ;#
+ 17221                           	line	632
+ 17222                           # 632 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17223  00D4  01A4                           CLRF AD_CUR_2B ;#
+ 17224                           	line	633
+ 17225                           # 633 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17226  00D5  01A5                           CLRF AD_CUR_2B+1 ;#
+ 17227                           	line	634
+ 17228                           # 634 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17229  00D6  01A6                           CLRF AD_CUR_2B+2 ;#
+ 17230                           	line	635
+ 17231                           # 635 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17232  00D7  01A7                           CLRF AD_CUR_2B+3 ;#
+ 17233                           	line	636
+ 17234                           # 636 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17235  00D8  01BC                           CLRF AD_CUR_NB ;#
+ 17236                           	line	637
+ 17237                           # 637 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17238  00D9  083A                           MOVF AC_CYCLE_2, W ;#
+ 17239                           	line	638
+ 17240                           # 638 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17241  00DA  1903                           BTFSC STATUS, Z ;#
+ 17242                           	line	639
+ 17243                           # 639 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17244  00DB  28E2                           GOTO ZERO_CHECK_E ;#
+ 17245                           	line	640
+ 17246                           # 640 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17247  00DC  3E02                           ADDLW 2 ;#
+ 17248                           	line	641
+ 17249                           # 641 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17250  00DD  00DE                           MOVWF TAD_VAC ;#
+ 17251                           	line	646
+ 17252                           # 646 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17253  00DE  3E01                                                                           ADDLW 1 ;#
+ 17254                           	line	648
+ 17255                           # 648 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17256  00DF  00DF                                       MOVWF TAD_VRS ;#
+ 17257                           	line	649
+ 17258                           # 649 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17259  00E0  3E02                           ADDLW 2 ;#
+ 17260                           	line	650
+ 17261                           # 650 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17262  00E1  00DD                           MOVWF TAD_NTC ;#
+ 17263                           	line	651
+ 17264                           # 651 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17265  00E2                                 ZERO_CHECK_E: ;#
+ 17266                           	line	652
+ 17267                           # 652 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17268                                       ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
+ 17269                           	line	653
+ 17270                           # 653 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17271  00E2  082E                           MOVF SYS_TIMER, W ;#
+ 17272                           	line	654
+ 17273                           # 654 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17274  00E3  0FAE                           INCFSZ SYS_TIMER, F ;#
+ 17275                           	line	655
+ 17276                           # 655 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17277  00E4  28E6                           GOTO $+2 ;#
+ 17278                           	line	656
+ 17279                           # 656 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17280  00E5  0AAF                           INCF SYS_TIMER+1,F ;#
+ 17281                           	line	657
+ 17282                           # 657 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17283  00E6  3903                           ANDLW 3 ;#
+ 17284                           	line	658
+ 17285                           # 658 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17286  00E7  000B                           BRW ;#
+ 17287                           	line	659
+ 17288                           # 659 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17289  00E8  28EC                           GOTO ISR_BRCH_0 ; 9 ;#
+ 17290                           	line	660
+ 17291                           # 660 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17292  00E9  2920                           GOTO ISR_BRCH_1 ; 9 ;#
+ 17293                           	line	661
+ 17294                           # 661 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17295  00EA  294D                           GOTO ISR_BRCH_2 ; 9 ;#
+ 17296                           	line	662
+ 17297                           # 662 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17298  00EB  2965                           GOTO ISR_BRCH_3 ; 9 ;#
+ 17299                           	line	663
+ 17300                           # 663 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17301                                       ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
+ 17302                           	line	664
+ 17303                           # 664 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17304  00EC                                 ISR_BRCH_0: ;#
+ 17305                           	line	665
+ 17306                           # 665 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17307  00EC                                 UART_TX_PRO: ;#
+ 17308                           	line	666
+ 17309                           # 666 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17310  00EC  0023                           MOVLB 3 ;#
+ 17311                           	line	667
+ 17312                           # 667 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17313  00ED  1FA6                           BTFSS TX_TIM, 7 ;#
+ 17314                           	line	668
+ 17315                           # 668 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17316  00EE  0AA6                           INCF TX_TIM, F ;#
+ 17317                           	line	669
+ 17318                           # 669 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17319  00EF  0824                           MOVF TX_CNT, W ;#
+ 17320                           	line	670
+ 17321                           # 670 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17322  00F0  1903                           BTFSC STATUS, Z ;#
+ 17323                           	line	671
+ 17324                           # 671 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17325  00F1  2901                           GOTO UART_TX_PRO_E ; 7 ;#
+ 17326                           	line	672
+ 17327                           # 672 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17328  00F2  300C                           MOVLW 12 ;#
+ 17329                           	line	673
+ 17330                           # 673 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17331  00F3  0226                           SUBWF TX_TIM, W ;#
+ 17332                           	line	674
+ 17333                           # 674 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17334  00F4  1C03                           BTFSS STATUS, C ;#
+ 17335                           	line	675
+ 17336                           # 675 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17337  00F5  2901                           GOTO UART_TX_PRO_E ; 11 ;#
+ 17338                           	line	676
+ 17339                           # 676 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17340  00F6  01A6                           CLRF TX_TIM ;#
+ 17341                           	line	677
+ 17342                           # 677 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17343  00F7  0825                           MOVF TX_RDP, W ;#
+ 17344                           	line	678
+ 17345                           # 678 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17346  00F8  391F                           ANDLW 31 ;#
+ 17347                           	line	679
+ 17348                           # 679 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17349  00F9  3EA0                           ADDLW TX_FIFO_PL ;#
+ 17350                           	line	680
+ 17351                           # 680 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17352  00FA  0084                           MOVWF FSR0L ;#
+ 17353                           	line	681
+ 17354                           # 681 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17355  00FB  3003                           MOVLW TX_FIFO_PH ;#
+ 17356                           	line	682
+ 17357                           # 682 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17358  00FC  0085                           MOVWF FSR0H ;#
+ 17359                           	line	683
+ 17360                           # 683 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17361  00FD  3F00                           MOVIW [0]FSR0 ;#
+ 17362                           	line	684
+ 17363                           # 684 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17364  00FE  009A                           MOVWF TXREG ;#
+ 17365                           	line	685
+ 17366                           # 685 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17367  00FF  0AA5                           INCF TX_RDP, F ;#
+ 17368                           	line	686
+ 17369                           # 686 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17370  0100  03A4                           DECF TX_CNT, F ; 21 ;#
+ 17371                           	line	687
+ 17372                           # 687 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17373  0101                                 UART_TX_PRO_E: ;#
+ 17374                           	line	688
+ 17375                           # 688 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17376  0101  0021                           MOVLB 1 ;#
+ 17377                           	line	689
+ 17378                           # 689 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17379  0102  0AC8                           INCF SYS_TICKS, F ;#
+ 17380                           	line	690
+ 17381                           # 690 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17382  0103  1C5C                           BTFSS EN_ADC, 0 ;#
+ 17383                           	line	691
+ 17384                           # 691 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17385  0104  2916                           GOTO AD_VAC_START ;#
+ 17386                           	line	692
+ 17387                           # 692 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17388  0105                                 AD_CUR_READ: ;#
+ 17389                           	line	693
+ 17390                           # 693 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17391  0105  189D                           BTFSC ADCON0, 1 ;#
+ 17392                           	line	694
+ 17393                           # 694 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17394  0106  2905                           GOTO $-1 ; ? ;#
+ 17395                           	line	695
+ 17396                           # 695 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17397  0107  091B                           COMF ADRESL, W ;#
+ 17398                           	line	696
+ 17399                           # 696 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17400  0108  0084                           MOVWF FSR0L ;#
+ 17401                           	line	697
+ 17402                           # 697 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17403  0109  309E                           MOVLW HIGH _SQ8 | 0X80 ;#
+ 17404                           	line	698
+ 17405                           # 698 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17406  010A  0085                           MOVWF FSR0H ;#
+ 17407                           	line	699
+ 17408                           # 699 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17409  010B  3584                           LSLF FSR0L, F ;#
+ 17410                           	line	700
+ 17411                           # 700 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17412  010C  1803                           BTFSC STATUS, C ;#
+ 17413                           	line	701
+ 17414                           # 701 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17415  010D  0A85                           INCF FSR0H, F ;#
+ 17416                           	line	702
+ 17417                           # 702 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17418  010E  0012                           MOVIW FSR0++ ;#
+ 17419                           	line	703
+ 17420                           # 703 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17421  010F  07A4                           ADDWF AD_CUR_2B, F ;#
+ 17422                           	line	704
+ 17423                           # 704 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17424  0110  0012                           MOVIW FSR0++ ;#
+ 17425                           	line	705
+ 17426                           # 705 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17427  0111  3DA5                           ADDWFC AD_CUR_2B+1,F ;#
+ 17428                           	line	706
+ 17429                           # 706 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17430  0112  0100                           CLRW ;#
+ 17431                           	line	707
+ 17432                           # 707 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17433  0113  3DA6                           ADDWFC AD_CUR_2B+2,F ;#
+ 17434                           	line	708
+ 17435                           # 708 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17436  0114  3DA7                           ADDWFC AD_CUR_2B+3,F ;#
+ 17437                           	line	709
+ 17438                           # 709 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17439  0115  0ABC                           INCF AD_CUR_NB, F ;#
+ 17440                           	line	710
+ 17441                           # 710 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17442  0116                                 AD_VAC_START: ;#
+ 17443                           	line	711
+ 17444                           # 711 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17445  0116  01DC                           CLRF EN_ADC ;#
+ 17446                           	line	712
+ 17447                           # 712 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17448  0117  1FDE                           BTFSS TAD_VAC, 7 ;#
+ 17449                           	line	713
+ 17450                           # 713 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17451  0118  0BDE                           DECFSZ TAD_VAC, F ;#
+ 17452                           	line	714
+ 17453                           # 714 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17454  0119  0009                           RETFIE ;#
+ 17455                           	line	715
+ 17456                           # 715 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17457  011A  3015                           MOVLW 5*4+1 ;#
+ 17458                           	line	716
+ 17459                           # 716 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17460  011B  009D                           MOVWF ADCON0 ;#
+ 17461                           	line	717
+ 17462                           # 717 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17463  011C  3020                           MOVLW 0X20 ;#
+ 17464                           	line	718
+ 17465                           # 718 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17466  011D  009E                           MOVWF ADCON1 ;#
+ 17467                           	line	719
+ 17468                           # 719 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17469  011E  145C                           BSF EN_ADC, 0 ;#
+ 17470                           	line	720
+ 17471                           # 720 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17472  011F  0009                           RETFIE ;#
+ 17473                           	line	721
+ 17474                           # 721 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17475                                       ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
+ 17476                           	line	722
+ 17477                           # 722 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17478  0120                                 ISR_BRCH_1: ;#
+ 17479                           	line	723
+ 17480                           # 723 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17481  0120                                 UART_RX_PRO: ;#
+ 17482                           	line	724
+ 17483                           # 724 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17484  0120  0023                           MOVLB 3 ;#
+ 17485                           	line	725
+ 17486                           # 725 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17487  0121  1FA2                           BTFSS RX_TIM, 7 ;#
+ 17488                           	line	726
+ 17489                           # 726 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17490  0122  0AA2                           INCF RX_TIM, F ;#
+ 17491                           	line	727
+ 17492                           # 727 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17493  0123  0020                           MOVLB 0 ;#
+ 17494                           	line	728
+ 17495                           # 728 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17496  0124  1E91                           BTFSS PIR1, RCIF ;#
+ 17497                           	line	729
+ 17498                           # 729 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17499  0125  2939                           GOTO UART_RX_PRO_E ; 11 ;#
+ 17500                           	line	730
+ 17501                           # 730 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17502  0126  0023                           MOVLB 3 ;#
+ 17503                           	line	731
+ 17504                           # 731 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17505  0127  01A2                           CLRF RX_TIM ;#
+ 17506                           	line	732
+ 17507                           # 732 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17508  0128  0819                           MOVF RCREG, W ;#
+ 17509                           	line	733
+ 17510                           # 733 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17511  0129  0085                           MOVWF FSR0H ;#
+ 17512                           	line	734
+ 17513                           # 734 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17514  012A  3020                           MOVLW 32 ;#
+ 17515                           	line	735
+ 17516                           # 735 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17517  012B  0220                           SUBWF RX_CNT, W ;#
+ 17518                           	line	736
+ 17519                           # 736 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17520  012C  1C03                           BTFSS STATUS, C ;#
+ 17521                           	line	737
+ 17522                           # 737 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17523  012D  2939                           GOTO UART_RX_PRO_E ; 19 ;#
+ 17524                           	line	738
+ 17525                           # 738 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17526  012E  0823                           MOVF RX_WRP, W ;#
+ 17527                           	line	739
+ 17528                           # 739 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17529  012F  391F                           ANDLW 31 ;#
+ 17530                           	line	740
+ 17531                           # 740 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17532  0130  3EC0                           ADDLW RX_FIFO_PL ;#
+ 17533                           	line	741
+ 17534                           # 741 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17535  0131  0084                           MOVWF FSR0L ;#
+ 17536                           	line	742
+ 17537                           # 742 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17538  0132  3003                           MOVLW RX_FIFO_PH ;#
+ 17539                           	line	743
+ 17540                           # 743 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17541  0133  0605                           XORWF FSR0H, W ;#
+ 17542                           	line	744
+ 17543                           # 744 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17544  0134  0685                           XORWF FSR0H, F ;#
+ 17545                           	line	745
+ 17546                           # 745 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17547  0135  0605                           XORWF FSR0H, W ;#
+ 17548                           	line	746
+ 17549                           # 746 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17550  0136  3F80                           MOVWI [0]FSR0 ;#
+ 17551                           	line	747
+ 17552                           # 747 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17553  0137  0AA3                           INCF RX_WRP, F ;#
+ 17554                           	line	748
+ 17555                           # 748 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17556  0138  0AA0                           INCF RX_CNT, F ;#
+ 17557                           	line	749
+ 17558                           # 749 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17559  0139                                 UART_RX_PRO_E: ;#
+ 17560                           	line	750
+ 17561                           # 750 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17562  0139  0021                           MOVLB 1 ;#
+ 17563                           	line	751
+ 17564                           # 751 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17565  013A  1C5C                           BTFSS EN_ADC, 0 ;#
+ 17566                           	line	752
+ 17567                           # 752 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17568  013B  2943                           GOTO AD_VRS_START ;#
+ 17569                           	line	753
+ 17570                           # 753 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17571  013C                                 AD_VAC_READ: ;#
+ 17572                           	line	754
+ 17573                           # 754 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17574  013C  189D                           BTFSC ADCON0, 1 ;#
+ 17575                           	line	755
+ 17576                           # 755 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17577  013D  293C                           GOTO $-1 ; ? ;#
+ 17578                           	line	756
+ 17579                           # 756 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17580  013E  081C                           MOVF ADRESH, W ;#
+ 17581                           	line	757
+ 17582                           # 757 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17583  013F  3C80                           SUBLW 128 ;#
+ 17584                           	line	758
+ 17585                           # 758 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17586  0140  1C03                           BTFSS STATUS, C ;#
+ 17587                           	line	759
+ 17588                           # 759 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17589  0141  3C00                           SUBLW 0 ;#
+ 17590                           	line	760
+ 17591                           # 760 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17592  0142  00BE                           MOVWF AD_VAC ;#
+ 17593                           	line	761
+ 17594                           # 761 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17595  0143                                 AD_VRS_START: ;#
+ 17596                           	line	762
+ 17597                           # 762 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17598  0143  01DC                           CLRF EN_ADC ;#
+ 17599                           	line	763
+ 17600                           # 763 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17601  0144  1FDF                           BTFSS TAD_VRS, 7 ;#
+ 17602                           	line	764
+ 17603                           # 764 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17604  0145  0BDF                           DECFSZ TAD_VRS, F ;#
+ 17605                           	line	765
+ 17606                           # 765 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17607  0146  0009                           RETFIE ;#
+ 17608                           	line	766
+ 17609                           # 766 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17610  0147  3019                           MOVLW 6*4+1 ;#
+ 17611                           	line	767
+ 17612                           # 767 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17613  0148  009D                           MOVWF ADCON0 ;#
+ 17614                           	line	768
+ 17615                           # 768 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17616  0149  3020                           MOVLW 0X20 ;#
+ 17617                           	line	769
+ 17618                           # 769 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17619  014A  009E                           MOVWF ADCON1 ;#
+ 17620                           	line	770
+ 17621                           # 770 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17622  014B  145C                           BSF EN_ADC, 0 ;#
+ 17623                           	line	771
+ 17624                           # 771 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17625  014C  0009                           RETFIE ;#
+ 17626                           	line	772
+ 17627                           # 772 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17628                                       ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
+ 17629                           	line	773
+ 17630                           # 773 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17631  014D                                 ISR_BRCH_2: ;#
+ 17632                           	line	774
+ 17633                           # 774 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17634  014D                                 TST0_PRO: ;#
+ 17635                           	line	775
+ 17636                           # 775 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17637  014D  1FE0                           BTFSS TM_TST0, 7 ;#
+ 17638                           	line	776
+ 17639                           # 776 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17640  014E  0BE0                           DECFSZ TM_TST0, F ;#
+ 17641                           	line	777
+ 17642                           # 777 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17643  014F  2955                           GOTO TST0_PRO_E ;#
+ 17644                           	line	778
+ 17645                           # 778 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17646  0150  0846                           MOVF TS_SCAN, W ;#
+ 17647                           	line	779
+ 17648                           # 779 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17649  0151  0647                           XORWF AC_SCAN, W ;#
+ 17650                           	line	780
+ 17651                           # 780 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17652  0152  3A80                           XORLW 0X80 ;#
+ 17653                           	line	781
+ 17654                           # 781 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17655  0153  0D09                           RLF WREG, W ;#
+ 17656                           	line	782
+ 17657                           # 782 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17658  0154  0DC0                           RLF DR_TST0, F ;#
+ 17659                           	line	783
+ 17660                           # 783 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17661  0155                                 TST0_PRO_E: ;#
+ 17662                           	line	784
+ 17663                           # 784 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17664  0155  1C5C                           BTFSS EN_ADC, 0 ;#
+ 17665                           	line	785
+ 17666                           # 785 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17667  0156  295B                           GOTO AD_NTC_START ;#
+ 17668                           	line	786
+ 17669                           # 786 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17670  0157                                 AD_VRS_READ: ;#
+ 17671                           	line	787
+ 17672                           # 787 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17673  0157  189D                           BTFSC ADCON0, 1 ;#
+ 17674                           	line	788
+ 17675                           # 788 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17676  0158  2957                           GOTO $-1 ; ? ;#
+ 17677                           	line	789
+ 17678                           # 789 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17679  0159  081C                           MOVF ADRESH, W ;#
+ 17680                           	line	790
+ 17681                           # 790 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17682  015A  00BF                           MOVWF AD_VRS ;#
+ 17683                           	line	791
+ 17684                           # 791 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17685  015B                                 AD_NTC_START: ;#
+ 17686                           	line	792
+ 17687                           # 792 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17688  015B  01DC                           CLRF EN_ADC ;#
+ 17689                           	line	793
+ 17690                           # 793 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17691  015C  1FDD                           BTFSS TAD_NTC, 7 ;#
+ 17692                           	line	794
+ 17693                           # 794 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17694  015D  0BDD                           DECFSZ TAD_NTC, F ;#
+ 17695                           	line	795
+ 17696                           # 795 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17697  015E  0009                           RETFIE ;#
+ 17698                           	line	796
+ 17699                           # 796 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17700  015F  300D                           MOVLW 3*4+1 ;#
+ 17701                           	line	797
+ 17702                           # 797 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17703  0160  009D                           MOVWF ADCON0 ;#
+ 17704                           	line	798
+ 17705                           # 798 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17706  0161  3020                           MOVLW 0X20 ;#
+ 17707                           	line	799
+ 17708                           # 799 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17709  0162  009E                           MOVWF ADCON1 ;#
+ 17710                           	line	800
+ 17711                           # 800 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17712  0163  145C                           BSF EN_ADC, 0 ;#
+ 17713                           	line	801
+ 17714                           # 801 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17715  0164  0009                           RETFIE ;#
+ 17716                           	line	802
+ 17717                           # 802 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17718                                       ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
+ 17719                           	line	803
+ 17720                           # 803 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17721  0165                                 ISR_BRCH_3: ;#
+ 17722                           	line	804
+ 17723                           # 804 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17724  0165                                 TST1_PRO: ;#
+ 17725                           	line	805
+ 17726                           # 805 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17727  0165  1FE1                           BTFSS TM_TST1, 7 ;#
+ 17728                           	line	806
+ 17729                           # 806 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17730  0166  0BE1                           DECFSZ TM_TST1, F ;#
+ 17731                           	line	807
+ 17732                           # 807 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17733  0167  296D                           GOTO TST1_PRO_E ;#
+ 17734                           	line	808
+ 17735                           # 808 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17736  0168  0846                           MOVF TS_SCAN, W ;#
+ 17737                           	line	809
+ 17738                           # 809 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17739  0169  0647                           XORWF AC_SCAN, W ;#
+ 17740                           	line	810
+ 17741                           # 810 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17742  016A  3A80                           XORLW 0X80 ;#
+ 17743                           	line	811
+ 17744                           # 811 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17745  016B  0D09                           RLF WREG, W ;#
+ 17746                           	line	812
+ 17747                           # 812 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17748  016C  0DC1                           RLF DR_TST1, F ;#
+ 17749                           	line	813
+ 17750                           # 813 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17751  016D                                 TST1_PRO_E: ;#
+ 17752                           	line	814
+ 17753                           # 814 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17754  016D  1C5C                           BTFSS EN_ADC, 0 ;#
+ 17755                           	line	815
+ 17756                           # 815 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17757  016E  2973                           GOTO AD_CUR_START ;#
+ 17758                           	line	816
+ 17759                           # 816 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17760  016F                                 AD_NTC_READ: ;#
+ 17761                           	line	817
+ 17762                           # 817 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17763  016F  189D                           BTFSC ADCON0, 1 ;#
+ 17764                           	line	818
+ 17765                           # 818 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17766  0170  296F                           GOTO $-1 ; ? ;#
+ 17767                           	line	819
+ 17768                           # 819 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17769  0171  081C                           MOVF ADRESH, W ;#
+ 17770                           	line	820
+ 17771                           # 820 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17772  0172  00BD                           MOVWF AD_NTC ;#
+ 17773                           	line	821
+ 17774                           # 821 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17775  0173                                 AD_CUR_START: ;#
+ 17776                           	line	822
+ 17777                           # 822 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17778  0173  3025                           MOVLW 9*4+1 ;#
+ 17779                           	line	823
+ 17780                           # 823 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17781  0174  009D                           MOVWF ADCON0 ;#
+ 17782                           	line	824
+ 17783                           # 824 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17784  0175  30A0                           MOVLW 0XA0 ;#
+ 17785                           	line	825
+ 17786                           # 825 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17787  0176  009E                           MOVWF ADCON1 ;#
+ 17788                           	line	826
+ 17789                           # 826 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17790  0177  145C                           BSF EN_ADC, 0 ;#
+ 17791                           	line	827
+ 17792                           # 827 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17793  0178  0009                           RETFIE ;#
+ 17794                           	line	828
+ 17795                           # 828 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+ 17796                                       ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
+ 17797                           psect	intentry
+ 17798                           	line	830
+ 17799                           	
+ 17800  0179                     i1l3266:	
+ 17801  0179  0870               	movf	(??_INTSR+0),w
+ 17802  017A  0020               	movlb 0	; select bank0
+ 17803  017B  00FF               	movwf	btemp+1
+ 17804  017C  0009               	retfie
+ 17805                           	opt stack 0
+ 17806                           GLOBAL	__end_of_INTSR
+ 17807  017D                     	__end_of_INTSR:
+ 17808 ;; =============== function _INTSR ends ============
+ 17809                           
+ 17810                           	signat	_INTSR,88
+ 17811                           psect	intentry
+ 17812                           	global	btemp
+ 17813  007E                     	btemp set 07Eh
+ 17814                           
+ 17815                           	DABS	1,126,2	;btemp
+ 17816                           	global	wtemp0
+ 17817  007E                     	wtemp0 set btemp
 
 
 HI-TECH Software PICC Macro Assembler V9.83 build 10920 
-Symbol Table                                                                                   Thu May 08 14:55:06 2025
+Symbol Table                                                                                   Thu May 08 17:15:32 2025
 
                          C 0000                           Z 0002       __end_of_CAL_MtrLevel 050C  
      __end_of_CAL_MtrError 080C                          pc 0002       __end_of_CAL_MtrSpeed 0C40  
@@ -18913,7 +18910,7 @@ __size_of_SVC_GetTuneValue 0004            _faultTotalCount 0527                
                 _faultCode 0520                   ?___lwdiv 0071                   ?___lwmod 0071  
                  PREV_TRIG 002C             _faultTimeStamp 0530                   _H3M1_ADD 1441  
                  POS_MINUS 0066                  __pswtext1 07EC                  __pswtext2 0800  
-               TIMING_TRIG 006F                   TRIG_FLAG 0049             __size_of_INTSR 0179  
+               TIMING_TRIG 006F                   TRIG_DONE 0049             __size_of_INTSR 0179  
                  ZERO_EDGE 0082                   ZERO_TRIG 0044                 UART_RX_PRO 0120  
           ??_CAL_TuneValue 0073           ___lwdiv@quotient 0076                 UART_TX_PRO 00EC  
               ??_SVC_Timer 0077   __size_of_REC_WorkingTemp 0069                   _COM_Ctrl 150E  
@@ -18943,7 +18940,7 @@ __size_of_SVC_SetTuneValue 000F          CAL_TuneValue@time 002E                
               ?_H1M1S1_SUB 0071              __size_of_main 004F                ?_H2M1S1_ADD 0071  
                  clear_ram 1101                   _mtrLevel 007D                   _mtrError 0049  
         ??_REC_WorkingTemp 0071                   _mtrSpeed 0034                   _prevTrig 00AC  
-                 _trigFlag 00C9                AD_VRS_START 0143                   _sysFault 004A  
+                 _trigDone 00C9                AD_VRS_START 0143                   _sysFault 004A  
                  _sysLevel 004B                   _sysTicks 00C8                   _sysTimer 00AE  
              ?_CAL_MtrTemp 0070                _mtrHallTime 0320               _acCrossIndex 00B7  
              _acCrossEvent 00B6                   intlevel1 0000           ___lwmod@dividend 0073  

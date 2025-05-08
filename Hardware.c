@@ -29,7 +29,7 @@ static bank1 U16 tmTriacOff;
 static bank1 U32 adCur2Buf;
 static bank1 U8  adCurNBuf;
 static bank1 U16 prevTrig;
-static bank1 U8  trigFlag;
+static bank1 U8  trigDone;
 static bank1 U8  triggering;
 CROM U8  FLT[ 256 ] @ 0X1D00 =
   {
@@ -196,8 +196,8 @@ void MCU_Init( void )
     tmTriacOn = 0; //0XFED4;  //-300  //0;
     tmTriacOff = 0; //0XFECF;  //-305  //0;
     prevTrig=0;
-    trigFlag=0;
-    triggering = 0;	
+    trigDone=0;
+    triggering = 0; 
   }
 
 void MCU_Refresh( void )
@@ -373,9 +373,9 @@ void interrupt INTSR( void )
             TMR_OFF     EQU         (127&_tmTriacOff)
             MTRERR      EQU         (127&_mtrError)   
             PREV_TRIG   EQU         (127&_prevTrig)
-            TRIG_FLAG   EQU         (127&_trigFlag)
+            TRIG_DONE   EQU         (127&_trigDone)
             TRIGGERING  EQU         (127&_triggering)
-			
+            
             SUB16       macro       alb, ahb, blb, bhb
                         movf       alb,W
                         subwf       blb
@@ -452,11 +452,10 @@ void interrupt INTSR( void )
             HALL_CHECK_E:
             ;++++++++++++++++++++++++++++++++++++++++++++++
             ZERO_CHECK:
-
             BTFSS       TRIGGERING,   0
             BCF         ODR_TRIAC,  PIN_TRIAC
-            BTFSC       TRIG_FLAG,   0	
-			BCF         ODR_TRIAC,  PIN_TRIAC
+            BTFSC       TRIG_DONE,   0  
+            BCF         ODR_TRIAC,  PIN_TRIAC
             BTFSC       AC_SCAN,    nEDGE
             GOTO        ZERO_EDGE               ; 4
             ZERO_TRIG:
@@ -485,8 +484,8 @@ void interrupt INTSR( void )
             BTFSC       TMR_ON+1,   7
             GOTO        ZERO_CHECK_E            ; 14
 
-            BTFSC       TRIG_FLAG,  0
-			GOTO        ZERO_CHECK_E
+            BTFSC       TRIG_DONE,  0
+            GOTO        ZERO_CHECK_E
             MOVLW       PREV_TRIG
             MOVWF       FSR1L
             MOVLW       PREV_TRIG+1
@@ -513,11 +512,10 @@ void interrupt INTSR( void )
             ;SUBWF       PREV_TRIG,   W
             ;MOVLW       0X00
             ;SUBWFB      PREV_TRIG+1, W         
-
             BTFSS       STATUS,     C  
             GOTO        TIMING_TRIG           
             BSF         ODR_TRIAC,  PIN_TRIAC  
-            BCF         TRIG_FLAG,   0        
+            BCF         TRIG_DONE,   0        
             BSF         TRIGGERING,  0
             TIMING_TRIG:             
             MOVF        TMR_ON,   W
@@ -537,10 +535,8 @@ void interrupt INTSR( void )
             MOVLW       0X0F
             MOVWF       TMR_OFF
             MOVLW       0X0F
-            MOVWF       TMR_OFF+1          ; //0XFED4=-300,0xF0F0=-3856
-           
-            ;MOVLB       1
-            BSF         TRIG_FLAG,   0
+            MOVWF       TMR_OFF+1          ;           
+            BSF         TRIG_DONE,   0
             BCF         TRIGGERING,  0
             GOTO        ZERO_CHECK_E
             ZERO_EDGE:
@@ -557,8 +553,8 @@ void interrupt INTSR( void )
             ANDLW       0X26
             XORWF       LATA,       F
             MOVLB       1      
-			BCF         TRIG_FLAG,  0
-			BCF         TRIGGERING,  0
+            BCF         TRIG_DONE,  0
+            BCF         TRIGGERING,  0
             CLRF        TMR_OFF+1
             MOVF        AC_CYCLE_2, W
             BTFSC       STATUS,     Z

@@ -10725,7 +10725,7 @@
 "31
 [v _prevTrig `Xus  1 s 2 prevTrig ]
 "32
-[v _trigFlag `Xuc  1 s 1 trigFlag ]
+[v _trigDone `Xuc  1 s 1 trigDone ]
 "33
 [v _triggering `Xuc  1 s 1 triggering ]
 "34
@@ -11260,5 +11260,5 @@
 "253 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c
 [v _INTSR `I(v  1 e 0 0 ]
 {
-"834
+"830
 } 0
