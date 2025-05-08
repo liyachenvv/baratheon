@@ -452,7 +452,8 @@ void interrupt INTSR( void )
             HALL_CHECK_E:
             ;++++++++++++++++++++++++++++++++++++++++++++++
             ZERO_CHECK:
-            BTFSS       TRIG_FLAG,   0
+            ;BTFSS       TRIG_FLAG,   0
+            BTFSS       TRIGGERING,   0
             BCF         ODR_TRIAC,  PIN_TRIAC
             BTFSC       AC_SCAN,    nEDGE
             GOTO        ZERO_EDGE               ; 4
@@ -514,7 +515,8 @@ void interrupt INTSR( void )
             BTFSS       STATUS,     C  
             GOTO        TIMING_TRIG           
             BSF         ODR_TRIAC,  PIN_TRIAC  
-            BSF         TRIG_FLAG,   0               
+            BSF         TRIG_FLAG,   0        
+            BSF         TRIGGERING,  0
             TIMING_TRIG:             
             MOVF        TMR_ON,   W
             SUBLW       20                      ;5->20
@@ -537,6 +539,7 @@ void interrupt INTSR( void )
            
             ;MOVLB       1
             BCF         TRIG_FLAG,   0
+            BCF         TRIGGERING,  0
             GOTO        ZERO_CHECK_E
             ZERO_EDGE:
             ;MOVLB       2
