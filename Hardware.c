@@ -461,19 +461,12 @@ void interrupt INTSR( void )
             BTFSC       AC_SCAN,    nEDGE
             GOTO        ZERO_EDGE               ; 4
             ZERO_TRIG:
-            ;MOVLB       2
-            ;MOVF        LATA,    w
-            ;ANDLW       0XFD
-            ;MOVWF       LATA
-            ;MOVLB       1
+            MOVLB       2                       ;RA1=0
+            MOVF        LATA,    w
+            ANDLW       0XFD
+            MOVWF       LATA
             MOVLB       1
-            BCF         ODRA,       1
-            MOVF        ODRA,       W
-            MOVLB       2
-            XORWF       LATA,       W
-            ANDLW       0X26
-            XORWF       LATA,       F
-            MOVLB       1
+
             
             BTFSS       TMR_OFF+1,  7
             GOTO        ZERO_CHECK_E            ; 6
@@ -517,19 +510,13 @@ void interrupt INTSR( void )
             BSF         TRIGGERING,  0
             TIMING_TRIG:             
             MOVF        TMR_ON,   W
-            SUBLW       20                      ;5->20
+            SUBLW       20                      ;
             BTFSS       STATUS,    Z
-            ;BTFSC       STATUS,     C   ;yes,here. it is wondrous.
-            ;if use this one, the speed will surge, pulsed.
             GOTO        ZERO_CHECK_E            ; 16            
-            ;MOVF        SYS_TIMER,    W
-            ;MOVWF       PREV_TRIG
-            ;MOVF        SYS_TIMER+1,   W
-            ;MOVWF       PREV_TRIG+1
             MOVLW       0XF0
             MOVWF       TMR_ON
             MOVLW       0XF0
-            MOVWF       TMR_ON+1          ; //0XFED4=-300,0xF0F0=-3856
+            MOVWF       TMR_ON+1          ;0xF0F0=-3856
             MOVLW       0X0F
             MOVWF       TMR_OFF
             MOVLW       0X0F
@@ -538,19 +525,12 @@ void interrupt INTSR( void )
             BCF         TRIGGERING,  0
             GOTO        ZERO_CHECK_E
             ZERO_EDGE:
-            ;MOVLB       2
-            ;MOVF        LATA,    w
-            ;IORLW       0x02
-            ;MOVWF       LATA
-            ;MOVLB       1            
-            ;MOVLB       1
-            BSF         ODRA,       1
-            MOVF        ODRA,       W
-            MOVLB       2
-            XORWF       LATA,       W
-            ANDLW       0X26
-            XORWF       LATA,       F
-            MOVLB       1      
+            MOVLB       2                  ;RA1=1
+            MOVF        LATA,    w
+            IORLW       0x02
+            MOVWF       LATA
+            MOVLB       1            
+
             BCF         TRIG_DONE,  0
             BCF         TRIGGERING,  0
             CLRF        TMR_OFF+1
