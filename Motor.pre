@@ -3027,7 +3027,7 @@ n = ( U32 )adCurN;
 adCurN = 0;
 s = ( U32 )SQRT32( s );
 n = ( U32 )SQRT32( n << 16 );
-mtrCurrent = ( U16 )( ( 25600UL*4800UL/50UL/1023UL ) * s / n );
+mtrCurrent = ( U16 )(2402*s/n);
 }
 if ( mtrCurrent < 1000 )
 {
@@ -3048,7 +3048,7 @@ if ( ++mtrHallWDT >= 50 )
 {
 mtrHallWDT = 50;
 mtrHallEvent = 0;
-
+mtrSpeed = 0;
 }
 else if ( mtrHallEvent >= 3 )
 {
@@ -3131,7 +3131,7 @@ if ( time ) time--;
 if ( mtrSpeedRef == 0 || !acCycleHalf )
 {
 state = 0;
-do { GIE = 0; tmTriac = (0); GIE = 1; } while(0);
+do { GIE = 0; tmTriac = (103); GIE = 1; } while(0);
 }
 else switch ( state )
 {
@@ -3191,18 +3191,6 @@ PID_LIM( &SREG, 40, OLIM.W.H );
 }
 do { GIE = 0; tmTriac = (SREG.ro.W.H); GIE = 1; } while(0);
 }
-else if(mtrError)
-{
-
-if(acCycle>363)
-{
-do { GIE = 0; tmTriac = (103); GIE = 1; } while(0);
-}
-else
-{
-do { GIE = 0; tmTriac = (103-10); GIE = 1; } while(0);
-}
-}
 break;
 }
 }
@@ -3231,9 +3219,23 @@ void MTR_Ctrl( void )
 CAL_MtrTemp( );
 CAL_MtrCurrent( );
 CAL_MtrSpeed( );
+if(!mtrError)
+{
 CAL_AcPeriod( );
 CAL_MtrError( );
 MTR_Driver( );
+}
+else
+{
+if(acCycle>363)
+{
+do { GIE = 0; tmTriac = (103); GIE = 1; } while(0);
+}
+else
+{
+do { GIE = 0; tmTriac = (103-10); GIE = 1; } while(0);
+}
+}
 acCycleFlag = 0;
 }
 

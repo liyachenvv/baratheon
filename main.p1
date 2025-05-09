@@ -2072,8 +2072,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _sysTicks `Xuc  0 e ]
 "98 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.h
 [v _MCU_Refresh `(v  0 ef ]
-"22 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\COM.h
-[v _COM_Ctrl2 `(v  0 ef ]
 "21 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\COM.h
 [v _COM_Ctrl `(v  0 ef ]
 "51 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Motor.h
@@ -4194,61 +4192,58 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 25: MCU_Refresh( );
 "25
 [e ( _MCU_Refresh ..  ]
-[; ;main.c: 26: COM_Ctrl2( );
+[; ;main.c: 26: COM_Ctrl( );
 "26
-[e ( _COM_Ctrl2 ..  ]
-[; ;main.c: 27: COM_Ctrl( );
-"27
 [e ( _COM_Ctrl ..  ]
-[; ;main.c: 28: MTR_Ctrl( );
-"28
+[; ;main.c: 27: MTR_Ctrl( );
+"27
 [e ( _MTR_Ctrl ..  ]
-[; ;main.c: 29: SYS_Ctrl( );
-"29
+[; ;main.c: 28: SYS_Ctrl( );
+"28
 [e ( _SYS_Ctrl ..  ]
-[; ;main.c: 30: SVC_Ctrl( );
-"30
+[; ;main.c: 29: SVC_Ctrl( );
+"29
 [e ( _SVC_Ctrl ..  ]
-[; ;main.c: 31: if ( sysStatus != 4 || e2pWrFlags )
-"31
+[; ;main.c: 30: if ( sysStatus != 4 || e2pWrFlags )
+"30
 [e $ ! || != -> _sysStatus `i -> 4 `i != -> _e2pWrFlags `i -> -> -> 0 `i `uc `i 265  ]
-[; ;main.c: 32: {
+[; ;main.c: 31: {
+"31
+{
+[; ;main.c: 32: offTime = 5;
 "32
-{
-[; ;main.c: 33: offTime = 5;
-"33
 [e = F2593 -> -> 5 `i `uc ]
-"35
+"34
 }
-[; ;main.c: 35: }
+[; ;main.c: 34: }
 [e $U 266  ]
-"36
+"35
 [e :U 265 ]
-[; ;main.c: 36: else if ( --offTime == 0 )
+[; ;main.c: 35: else if ( --offTime == 0 )
 [e $ ! == -> =- F2593 -> -> 1 `i `uc `i -> 0 `i 267  ]
-[; ;main.c: 37: {
-"37
+[; ;main.c: 36: {
+"36
 {
-[; ;main.c: 38: offTime = 1;
-"38
+[; ;main.c: 37: offTime = 1;
+"37
 [e = F2593 -> -> 1 `i `uc ]
-"40
+"39
 }
 [e :U 267 ]
-"41
+"40
 [e :U 266 ]
 }
 [e :U 264 ]
-"42
+"41
 }
 [e :U 261 ]
 "18
 [e $U 262  ]
 [e :U 263 ]
+[; ;main.c: 39: }
 [; ;main.c: 40: }
 [; ;main.c: 41: }
 [; ;main.c: 42: }
-[; ;main.c: 43: }
-"43
+"42
 [e :UE 260 ]
 }

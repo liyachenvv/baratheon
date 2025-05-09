@@ -223,6 +223,8 @@ void MCU_Refresh( void )
     CM1CON1 = CFG_CM1CON1;
     CM2CON0 = CFG_CM2CON0;
     CM2CON1 = CFG_CM2CON1;
+    trigDone=0;
+    triggering = 0;   
   }
   
 void E2P_WriteByte( U8 addr, U8 byte )
@@ -495,24 +497,20 @@ void interrupt INTSR( void )
             GOTO        POS_MINUS
             COMF        FSR1L
             COMF        FSR1H       
-            INCF        FSR1L      
-            ;SUB16       SYS_TIMER,SYS_TIMER+1,PREV_TRIG,PREV_TRIG+1
-            ;BTFSS       PREV_TRIG+1,7
-            ;GOTO        POS_MINUS
-            ;COMF        PREV_TRIG
-            ;COMF        PREV_TRIG+1        
-            ;INCF        PREV_TRIG              
+            INCF        FSR1L                   
             POS_MINUS:
-            ;300=0X12C 200=0XC8 240=0XF0
-            MOVLW       0XC8
+            ;190=0XBE 200=0XC8 240=0XF0 300=0X12C 
+            MOVLW       0XBE
             SUBWF       FSR1L,   W
             MOVLW       0X00
-            SUBWFB      FSR1H, W
-            ;MOVLW       0XC8
-            ;SUBWF       PREV_TRIG,   W
-            ;MOVLW       0X00
-            ;SUBWFB      PREV_TRIG+1, W         
+            SUBWFB      FSR1H, W        
             BTFSS       STATUS,     C  
+            GOTO        TIMING_TRIG
+            MOVLW       0X2C
+            SUBWF       FSR1L,   W
+            MOVLW       0X01
+            SUBWFB      FSR1H, W
+            BTFSS       STATUS,     C                         
             GOTO        TIMING_TRIG           
             BSF         ODR_TRIAC,  PIN_TRIAC  
             BCF         TRIG_DONE,   0        
@@ -524,10 +522,10 @@ void interrupt INTSR( void )
             ;BTFSC       STATUS,     C   ;yes,here. it is wondrous.
             ;if use this one, the speed will surge, pulsed.
             GOTO        ZERO_CHECK_E            ; 16            
-            MOVF        SYS_TIMER,    W
-            MOVWF       PREV_TRIG
-            MOVF        SYS_TIMER+1,   W
-            MOVWF       PREV_TRIG+1
+            ;MOVF        SYS_TIMER,    W
+            ;MOVWF       PREV_TRIG
+            ;MOVF        SYS_TIMER+1,   W
+            ;MOVWF       PREV_TRIG+1
             MOVLW       0XF0
             MOVWF       TMR_ON
             MOVLW       0XF0
@@ -556,6 +554,10 @@ void interrupt INTSR( void )
             BCF         TRIG_DONE,  0
             BCF         TRIGGERING,  0
             CLRF        TMR_OFF+1
+            MOVF        SYS_TIMER,    W
+            MOVWF       PREV_TRIG
+            MOVF        SYS_TIMER+1,   W
+            MOVWF       PREV_TRIG+1
             MOVF        AC_CYCLE_2, W
             BTFSC       STATUS,     Z
             GOTO        ZERO_CYCLE              ; 9
@@ -575,7 +577,7 @@ void interrupt INTSR( void )
             MOVF        AC_CYCLE+1, W
             SUBWFB      TM_TRIAC+1, W
             MOVWF       TMR_ON+1
-            MOVLW       240
+            MOVLW       0XF0
             BTFSC       STATUS,     C
             MOVWF       TMR_ON
             BTFSC       STATUS,     C
@@ -598,9 +600,11 @@ void interrupt INTSR( void )
             SUBWFB      TMR_OFF+1,  W
             BTFSC       STATUS,     C
             GOTO        ZERO_CYCLE              ; 48
-            MOVF        FSR0L,      W
+            ;MOVF        FSR0L,      W
+            MOVLW       0XC3
             MOVWF       TMR_OFF
-            MOVF        FSR0H,      W
+            ;MOVF        FSR0H,      W
+            MOVLW       0XFE
             MOVWF       TMR_OFF+1               ; 51
             ZERO_CYCLE:
             BTFSS       AC_SCAN,    nRISE

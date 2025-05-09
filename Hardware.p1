@@ -5215,1230 +5215,1240 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Hardware.c: 225: CM2CON1 = 0X01;
 "225
 [e = _CM2CON1 -> -> 1 `i `uc ]
-[; ;Hardware.c: 226: }
+[; ;Hardware.c: 226: trigDone=0;
 "226
+[e = _trigDone -> -> 0 `i `uc ]
+[; ;Hardware.c: 227: triggering = 0;
+"227
+[e = _triggering -> -> 0 `i `uc ]
+[; ;Hardware.c: 228: }
+"228
 [e :UE 261 ]
 }
-"229
+"231
 [v _E2P_WriteByte `(v  1 ef2`uc`uc ]
 {
-[; ;Hardware.c: 228: void E2P_WriteByte( U8 addr, U8 byte )
-[; ;Hardware.c: 229: {
+[; ;Hardware.c: 230: void E2P_WriteByte( U8 addr, U8 byte )
+[; ;Hardware.c: 231: {
 [e :U _E2P_WriteByte ]
 [v _addr `uc  1 r1 ]
 [v _byte `uc  1 r2 ]
 [f ]
-[; ;Hardware.c: 230: EEADRL = addr;
-"230
-[e = _EEADRL _addr ]
-[; ;Hardware.c: 231: EEDATL = byte;
-"231
-[e = _EEDATL _byte ]
-[; ;Hardware.c: 232: CFGS = 0;
+[; ;Hardware.c: 232: EEADRL = addr;
 "232
-[e = _CFGS -> -> 0 `i `b ]
-[; ;Hardware.c: 233: EEPGD = 0;
+[e = _EEADRL _addr ]
+[; ;Hardware.c: 233: EEDATL = byte;
 "233
-[e = _EEPGD -> -> 0 `i `b ]
-[; ;Hardware.c: 234: WREN = 1;
+[e = _EEDATL _byte ]
+[; ;Hardware.c: 234: CFGS = 0;
 "234
-[e = _WREN -> -> 1 `i `b ]
-[; ;Hardware.c: 235: GIE = 0;
+[e = _CFGS -> -> 0 `i `b ]
+[; ;Hardware.c: 235: EEPGD = 0;
 "235
-[e = _GIE -> -> 0 `i `b ]
-[; ;Hardware.c: 236: EECON2 = 0X55;
+[e = _EEPGD -> -> 0 `i `b ]
+[; ;Hardware.c: 236: WREN = 1;
 "236
-[e = _EECON2 -> -> 85 `i `uc ]
-[; ;Hardware.c: 237: EECON2 = 0XAA;
+[e = _WREN -> -> 1 `i `b ]
+[; ;Hardware.c: 237: GIE = 0;
 "237
-[e = _EECON2 -> -> 170 `i `uc ]
-[; ;Hardware.c: 238: WR = 1;
+[e = _GIE -> -> 0 `i `b ]
+[; ;Hardware.c: 238: EECON2 = 0X55;
 "238
-[e = _WR -> -> 1 `i `b ]
-[; ;Hardware.c: 239: GIE = 1;
+[e = _EECON2 -> -> 85 `i `uc ]
+[; ;Hardware.c: 239: EECON2 = 0XAA;
 "239
-[e = _GIE -> -> 1 `i `b ]
-[; ;Hardware.c: 240: WREN = 0;
+[e = _EECON2 -> -> 170 `i `uc ]
+[; ;Hardware.c: 240: WR = 1;
 "240
-[e = _WREN -> -> 0 `i `b ]
-[; ;Hardware.c: 241: }
+[e = _WR -> -> 1 `i `b ]
+[; ;Hardware.c: 241: GIE = 1;
 "241
+[e = _GIE -> -> 1 `i `b ]
+[; ;Hardware.c: 242: WREN = 0;
+"242
+[e = _WREN -> -> 0 `i `b ]
+[; ;Hardware.c: 243: }
+"243
 [e :UE 262 ]
 }
-"244
+"246
 [v _E2P_ReadByte `(uc  1 ef1`uc ]
 {
-[; ;Hardware.c: 243: U8 E2P_ReadByte( U8 addr )
-[; ;Hardware.c: 244: {
+[; ;Hardware.c: 245: U8 E2P_ReadByte( U8 addr )
+[; ;Hardware.c: 246: {
 [e :U _E2P_ReadByte ]
 [v _addr `uc  1 r1 ]
 [f ]
-[; ;Hardware.c: 245: EEADRL = addr;
-"245
-[e = _EEADRL _addr ]
-[; ;Hardware.c: 246: CFGS = 0;
-"246
-[e = _CFGS -> -> 0 `i `b ]
-[; ;Hardware.c: 247: EEPGD = 0;
+[; ;Hardware.c: 247: EEADRL = addr;
 "247
-[e = _EEPGD -> -> 0 `i `b ]
-[; ;Hardware.c: 248: RD = 1;
+[e = _EEADRL _addr ]
+[; ;Hardware.c: 248: CFGS = 0;
 "248
-[e = _RD -> -> 1 `i `b ]
-[; ;Hardware.c: 249: return EEDATL;
+[e = _CFGS -> -> 0 `i `b ]
+[; ;Hardware.c: 249: EEPGD = 0;
 "249
+[e = _EEPGD -> -> 0 `i `b ]
+[; ;Hardware.c: 250: RD = 1;
+"250
+[e = _RD -> -> 1 `i `b ]
+[; ;Hardware.c: 251: return EEDATL;
+"251
 [e ) _EEDATL ]
 [e $UE 263  ]
-[; ;Hardware.c: 250: }
-"250
+[; ;Hardware.c: 252: }
+"252
 [e :UE 263 ]
 }
-"253
+"255
 [v F2595 `(v  1 tf ]
 [v _INTSR `IF2595  1 e ]
 {
-[; ;Hardware.c: 252: void interrupt INTSR( void )
-[; ;Hardware.c: 253: {
+[; ;Hardware.c: 254: void interrupt INTSR( void )
+[; ;Hardware.c: 255: {
 [e :U _INTSR ]
 [f ]
-"255
-[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
-"256
-[;             ; COMMON REGS. ;#
 "257
-[;             INDF0 EQU 0X00 ;#
+[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
 "258
-[;             INDF1 EQU 0X01 ;#
+[;             ; COMMON REGS. ;#
 "259
-[;             PCL EQU 0X02 ;#
+[;             INDF0 EQU 0X00 ;#
 "260
-[;             STATUS EQU 0X03 ;#
+[;             INDF1 EQU 0X01 ;#
 "261
-[;             C EQU 0 ;#
+[;             PCL EQU 0X02 ;#
 "262
-[;             Z EQU 2 ;#
+[;             STATUS EQU 0X03 ;#
 "263
-[;             FSR0L EQU 0X04 ;#
+[;             C EQU 0 ;#
 "264
-[;             FSR0H EQU 0X05 ;#
+[;             Z EQU 2 ;#
 "265
-[;             FSR1L EQU 0X06 ;#
+[;             FSR0L EQU 0X04 ;#
 "266
-[;             FSR1H EQU 0X07 ;#
+[;             FSR0H EQU 0X05 ;#
 "267
-[;             BSR EQU 0X08 ;#
+[;             FSR1L EQU 0X06 ;#
 "268
-[;             WREG EQU 0X09 ;#
+[;             FSR1H EQU 0X07 ;#
 "269
-[;             PCLATH EQU 0X0A ;#
+[;             BSR EQU 0X08 ;#
 "270
-[;             INTCON EQU 0X0B ;#
+[;             WREG EQU 0X09 ;#
 "271
-[;             ; BANK0 REGS. ;#
+[;             PCLATH EQU 0X0A ;#
 "272
-[;             PORTA EQU 0X0C ;#
+[;             INTCON EQU 0X0B ;#
 "273
-[;             PORTB EQU 0X0D ;#
+[;             ; BANK0 REGS. ;#
 "274
-[;             PORTC EQU 0X0E ;#
+[;             PORTA EQU 0X0C ;#
 "275
-[;             PIR1 EQU 0X11 ;#
+[;             PORTB EQU 0X0D ;#
 "276
-[;             TMR1IF EQU 0 ;#
+[;             PORTC EQU 0X0E ;#
 "277
-[;             TMR2IF EQU 1 ;#
+[;             PIR1 EQU 0X11 ;#
 "278
-[;             TXIF EQU 4 ;#
+[;             TMR1IF EQU 0 ;#
 "279
-[;             RCIF EQU 5 ;#
+[;             TMR2IF EQU 1 ;#
 "280
-[;             PIR2 EQU 0X12 ;#
+[;             TXIF EQU 4 ;#
 "281
-[;             PIR3 EQU 0X13 ;#
+[;             RCIF EQU 5 ;#
 "282
-[;             TMR4IF EQU 1 ;#
+[;             PIR2 EQU 0X12 ;#
 "283
-[;             TMR6IF EQU 3 ;#
+[;             PIR3 EQU 0X13 ;#
 "284
-[;             PIR4 EQU 0X14 ;#
+[;             TMR4IF EQU 1 ;#
 "285
-[;             ; BANK1 REGS. ;#
+[;             TMR6IF EQU 3 ;#
 "286
-[;             TRISA EQU 0X0C ;#
+[;             PIR4 EQU 0X14 ;#
 "287
-[;             TRISB EQU 0X0D ;#
+[;             ; BANK1 REGS. ;#
 "288
-[;             TRISC EQU 0X0E ;#
+[;             TRISA EQU 0X0C ;#
 "289
-[;             PIE1 EQU 0X11 ;#
+[;             TRISB EQU 0X0D ;#
 "290
-[;             PIE2 EQU 0X12 ;#
+[;             TRISC EQU 0X0E ;#
 "291
-[;             PIE3 EQU 0X13 ;#
+[;             PIE1 EQU 0X11 ;#
 "292
-[;             PIE4 EQU 0X14 ;#
+[;             PIE2 EQU 0X12 ;#
 "293
-[;             ADRESL EQU 0X1B ;#
+[;             PIE3 EQU 0X13 ;#
 "294
-[;             ADRESH EQU 0X1C ;#
+[;             PIE4 EQU 0X14 ;#
 "295
-[;             ADCON0 EQU 0X1D ;#
+[;             ADRESL EQU 0X1B ;#
 "296
-[;             ADCON1 EQU 0X1E ;#
+[;             ADRESH EQU 0X1C ;#
 "297
-[;             ; BANK2 REGS. ;#
+[;             ADCON0 EQU 0X1D ;#
 "298
-[;             LATA EQU 0X0C ;#
+[;             ADCON1 EQU 0X1E ;#
 "299
-[;             LATB EQU 0X0D ;#
+[;             ; BANK2 REGS. ;#
 "300
-[;             LATC EQU 0X0E ;#
+[;             LATA EQU 0X0C ;#
 "301
-[;             CM1CON0 EQU 0X11 ;#
+[;             LATB EQU 0X0D ;#
 "302
-[;             CM1CON1 EQU 0X12 ;#
+[;             LATC EQU 0X0E ;#
 "303
-[;             CM2CON0 EQU 0X13 ;#
+[;             CM1CON0 EQU 0X11 ;#
 "304
-[;             CM2CON1 EQU 0X14 ;#
+[;             CM1CON1 EQU 0X12 ;#
 "305
-[;             CMOUT EQU 0X15 ;#
+[;             CM2CON0 EQU 0X13 ;#
 "306
-[;             DACCON0 EQU 0X18 ;#
+[;             CM2CON1 EQU 0X14 ;#
 "307
-[;             DACCON1 EQU 0X19 ;#
+[;             CMOUT EQU 0X15 ;#
 "308
-[;             ; BANK3 REGS. ;#
+[;             DACCON0 EQU 0X18 ;#
 "309
-[;             ANSELA EQU 0X0C ;#
+[;             DACCON1 EQU 0X19 ;#
 "310
-[;             ANSELB EQU 0X0D ;#
+[;             ; BANK3 REGS. ;#
 "311
-[;             ANSELC EQU 0X0E ;#
+[;             ANSELA EQU 0X0C ;#
 "312
-[;             RCREG EQU 0X19 ;#
+[;             ANSELB EQU 0X0D ;#
 "313
-[;             TXREG EQU 0X1A ;#
+[;             ANSELC EQU 0X0E ;#
 "314
-[;             RCSTA EQU 0X1D ;#
+[;             RCREG EQU 0X19 ;#
 "315
-[;             TXSTA EQU 0X1E ;#
+[;             TXREG EQU 0X1A ;#
 "316
-[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
+[;             RCSTA EQU 0X1D ;#
 "317
-[;             ; PORT DEFINITION. ;#
+[;             TXSTA EQU 0X1E ;#
 "318
-[;             ODRA EQU (127&_ODRA) ;#
+[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
 "319
-[;             ODR_TRIAC EQU ODRA ;#
+[;             ; PORT DEFINITION. ;#
 "320
-[;             PIN_TRIAC EQU 5 ;#
+[;             ODRA EQU (127&_ODRA) ;#
 "321
-[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
+[;             ODR_TRIAC EQU ODRA ;#
 "322
-[;             ; DATA DEFINITION. ;#
+[;             PIN_TRIAC EQU 5 ;#
 "323
-[;             SYS_TICKS EQU (127&_sysTicks) ;#
+[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
 "324
-[;             SYS_TIMER EQU (127&_sysTimer) ;#
+[;             ; DATA DEFINITION. ;#
 "325
-[;             HL_SCAN EQU (127&_scnHall) ;#
+[;             SYS_TICKS EQU (127&_sysTicks) ;#
 "326
-[;             AC_SCAN EQU (127&_scnZero) ;#
+[;             SYS_TIMER EQU (127&_sysTimer) ;#
 "327
-[;             TS_SCAN EQU (127&_scnTest) ;#
+[;             HL_SCAN EQU (127&_scnHall) ;#
 "328
-[;             nEDGE EQU 6 ;#
+[;             AC_SCAN EQU (127&_scnZero) ;#
 "329
-[;             nFALL EQU 5 ;#
+[;             TS_SCAN EQU (127&_scnTest) ;#
 "330
-[;             nRISE EQU 4 ;#
+[;             nEDGE EQU 6 ;#
 "331
-[;             EN_ADC EQU (127&_enADC) ;#
+[;             nFALL EQU 5 ;#
 "332
-[;             TAD_VAC EQU (127&_tmADVAC) ;#
+[;             nRISE EQU 4 ;#
 "333
-[;             TAD_VRS EQU (127&_tmADVRS) ;#
+[;             EN_ADC EQU (127&_enADC) ;#
 "334
-[;             TAD_NTC EQU (127&_tmADNTC) ;#
+[;             TAD_VAC EQU (127&_tmADVAC) ;#
 "335
-[;             TM_TST0 EQU (127&_tmTST0) ;#
+[;             TAD_VRS EQU (127&_tmADVRS) ;#
 "336
-[;             TM_TST1 EQU (127&_tmTST1) ;#
+[;             TAD_NTC EQU (127&_tmADNTC) ;#
 "337
-[;             DR_TST0 EQU (127&_idrTest0) ;#
+[;             TM_TST0 EQU (127&_tmTST0) ;#
 "338
-[;             DR_TST1 EQU (127&_idrTest1) ;#
+[;             TM_TST1 EQU (127&_tmTST1) ;#
 "339
-[;             AD_VRS EQU (127&_adVrs) ;#
+[;             DR_TST0 EQU (127&_idrTest0) ;#
 "340
-[;             AD_NTC EQU (127&_adNtc) ;#
+[;             DR_TST1 EQU (127&_idrTest1) ;#
 "341
-[;             AD_VAC EQU (127&_adVac) ;#
+[;             AD_VRS EQU (127&_adVrs) ;#
 "342
-[;             AD_CUR_2 EQU (127&_adCur2) ;#
+[;             AD_NTC EQU (127&_adNtc) ;#
 "343
-[;             AD_CUR_N EQU (127&_adCurN) ;#
+[;             AD_VAC EQU (127&_adVac) ;#
 "344
-[;             AD_CUR_2B EQU (127&_adCur2Buf) ;#
+[;             AD_CUR_2 EQU (127&_adCur2) ;#
 "345
-[;             AD_CUR_NB EQU (127&_adCurNBuf) ;#
+[;             AD_CUR_N EQU (127&_adCurN) ;#
 "346
-[;             TX_CNT EQU (127&_txCNT) ;#
+[;             AD_CUR_2B EQU (127&_adCur2Buf) ;#
 "347
-[;             TX_WRP EQU (127&_txWRP) ;#
+[;             AD_CUR_NB EQU (127&_adCurNBuf) ;#
 "348
-[;             TX_RDP EQU (127&_txRDP) ;#
+[;             TX_CNT EQU (127&_txCNT) ;#
 "349
-[;             TX_TIM EQU (127&_txTIM) ;#
+[;             TX_WRP EQU (127&_txWRP) ;#
 "350
-[;             TX_FIFO_PL EQU LOW (_txFIFO) ;#
+[;             TX_RDP EQU (127&_txRDP) ;#
 "351
-[;             TX_FIFO_PH EQU HIGH(_txFIFO) ;#
+[;             TX_TIM EQU (127&_txTIM) ;#
 "352
-[;             RX_CNT EQU (127&_rxCNT) ;#
+[;             TX_FIFO_PL EQU LOW (_txFIFO) ;#
 "353
-[;             RX_WRP EQU (127&_rxWRP) ;#
+[;             TX_FIFO_PH EQU HIGH(_txFIFO) ;#
 "354
-[;             RX_RDP EQU (127&_rxRDP) ;#
+[;             RX_CNT EQU (127&_rxCNT) ;#
 "355
-[;             RX_TIM EQU (127&_rxTIM) ;#
+[;             RX_WRP EQU (127&_rxWRP) ;#
 "356
-[;             RX_FIFO_PL EQU LOW (_rxFIFO) ;#
+[;             RX_RDP EQU (127&_rxRDP) ;#
 "357
-[;             RX_FIFO_PH EQU HIGH(_rxFIFO) ;#
+[;             RX_TIM EQU (127&_rxTIM) ;#
 "358
-[;             AC_CYCLE EQU (127&_acCycle) ;#
+[;             RX_FIFO_PL EQU LOW (_rxFIFO) ;#
 "359
-[;             AC_CYCLE_2 EQU (127&_acCycleHalf) ;#
+[;             RX_FIFO_PH EQU HIGH(_rxFIFO) ;#
 "360
-[;             AC_FLAG EQU (127&_acCycleFlag) ;#
+[;             AC_CYCLE EQU (127&_acCycle) ;#
 "361
-[;             AC_INDEX EQU (127&_acCrossIndex) ;#
+[;             AC_CYCLE_2 EQU (127&_acCycleHalf) ;#
 "362
-[;             AC_EVENT EQU (127&_acCrossEvent) ;#
+[;             AC_FLAG EQU (127&_acCycleFlag) ;#
 "363
-[;             AC_WATCH EQU (127&_acCrossWDT) ;#
+[;             AC_INDEX EQU (127&_acCrossIndex) ;#
 "364
-[;             AC_TIME_PL EQU LOW (_acCrossTime) ;#
+[;             AC_EVENT EQU (127&_acCrossEvent) ;#
 "365
-[;             AC_TIME_PH EQU HIGH(_acCrossTime) ;#
+[;             AC_WATCH EQU (127&_acCrossWDT) ;#
 "366
-[;             HL_INDEX EQU (127&_mtrHallIndex) ;#
+[;             AC_TIME_PL EQU LOW (_acCrossTime) ;#
 "367
-[;             HL_EVENT EQU (127&_mtrHallEvent) ;#
+[;             AC_TIME_PH EQU HIGH(_acCrossTime) ;#
 "368
-[;             HL_WATCH EQU (127&_mtrHallWDT) ;#
+[;             HL_INDEX EQU (127&_mtrHallIndex) ;#
 "369
-[;             HL_TIME_PL EQU LOW (_mtrHallTime) ;#
+[;             HL_EVENT EQU (127&_mtrHallEvent) ;#
 "370
-[;             HL_TIME_PH EQU HIGH(_mtrHallTime) ;#
+[;             HL_WATCH EQU (127&_mtrHallWDT) ;#
 "371
-[;             TM_TRIAC EQU (127&_tmTriac) ;#
+[;             HL_TIME_PL EQU LOW (_mtrHallTime) ;#
 "372
-[;             TMR_ON EQU (127&_tmTriacOn) ;#
+[;             HL_TIME_PH EQU HIGH(_mtrHallTime) ;#
 "373
-[;             TMR_OFF EQU (127&_tmTriacOff) ;#
+[;             TM_TRIAC EQU (127&_tmTriac) ;#
 "374
-[;             MTRERR EQU (127&_mtrError) ;#
+[;             TMR_ON EQU (127&_tmTriacOn) ;#
 "375
-[;             PREV_TRIG EQU (127&_prevTrig) ;#
+[;             TMR_OFF EQU (127&_tmTriacOff) ;#
 "376
-[;             TRIG_DONE EQU (127&_trigDone) ;#
+[;             MTRERR EQU (127&_mtrError) ;#
 "377
-[;             TRIGGERING EQU (127&_triggering) ;#
+[;             PREV_TRIG EQU (127&_prevTrig) ;#
 "378
+[;             TRIG_DONE EQU (127&_trigDone) ;#
 "379
-[;                         SUB16 macro alb, ahb, blb, bhb ;#
+[;             TRIGGERING EQU (127&_triggering) ;#
 "380
-[;                         movf alb,W ;#
 "381
-[;                         subwf blb ;#
+[;                         SUB16 macro alb, ahb, blb, bhb ;#
 "382
-[;                         movf ahb,W ;#
+[;                         movf alb,W ;#
 "383
-[;                         skpc ;#
+[;                         subwf blb ;#
 "384
-[;                         incfsz ahb, W ;#
+[;                         movf ahb,W ;#
 "385
-[;                         subwf bhb ;#
+[;                         skpc ;#
 "386
-[;                         endm ;#
+[;                         incfsz ahb, W ;#
 "387
-[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
+[;                         subwf bhb ;#
 "388
-[;            ;MOVLP 0 ;#
+[;                         endm ;#
 "389
-[;             MOVLB 1 ;#
+[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
 "390
-[;             BCF TRISA, 1 ;RA1=0 ;#
+[;            ;MOVLP 0 ;#
 "391
-[;             BTFSC EN_ADC, 0 ;#
+[;             MOVLB 1 ;#
 "392
-[;             BSF ADCON0, 1 ;#
+[;             BCF TRISA, 1 ;RA1=0 ;#
 "393
-[;             BSF ODRA, 2 ;#
+[;             BTFSC EN_ADC, 0 ;#
 "394
-[;             MOVF ODRA, W ;#
+[;             BSF ADCON0, 1 ;#
 "395
-[;             MOVLB 2 ;#
+[;             BSF ODRA, 2 ;#
 "396
-[;             XORWF LATA, W ;#
+[;             MOVF ODRA, W ;#
 "397
-[;             ANDLW 0X26 ;#
+[;             MOVLB 2 ;#
 "398
-[;             XORWF LATA, F ;#
+[;             XORWF LATA, W ;#
 "399
-[;             MOVLB 0 ;#
+[;             ANDLW 0X26 ;#
 "400
-[;             BCF PIR3, TMR6IF ; 12 ;#
+[;             XORWF LATA, F ;#
 "401
-[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
-"402
-[;             MOVLW HIGH _FLT | 0X80 ;#
-"403
-[;             MOVWF FSR0H ;#
-"404
-[;             MOVLB 1 ; 3 ;#
-"405
-[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
-"406
-[;             SCAN_HALL: ;#
-"407
-[;             MOVF HL_SCAN, W ;#
-"408
 [;             MOVLB 0 ;#
-"409
-[;             BTFSC PORTC, 5 ;#
-"410
-[;             IORLW 1 ;#
-"411
-[;             MOVWF FSR0L ;#
-"412
-[;             MOVIW [0]FSR0 ;#
-"413
-[;             MOVLB 1 ;#
-"414
-[;             MOVWF HL_SCAN ; 9 ;#
-"415
+"402
+[;             BCF PIR3, TMR6IF ; 12 ;#
+"403
 [;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
-"416
-[;             SCAN_ZERO: ;#
-"417
-[;             MOVF AC_SCAN, W ;#
-"418
-[;             MOVLB 2 ;#
-"419
-[;             BTFSC CMOUT, 1 ;#
-"420
-[;             IORLW 1 ;#
-"421
-[;             MOVWF FSR0L ;#
-"422
-[;             MOVIW [0]FSR0 ;#
-"423
-[;             MOVLB 1 ;#
-"424
-[;             MOVWF AC_SCAN ; 9 ;#
-"425
-[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
-"426
-[;             SCAN_TEST: ;#
-"427
-[;             MOVF TS_SCAN, W ;#
-"428
-[;             MOVLB 2 ;#
-"429
-[;             BTFSC CMOUT, 0 ;#
-"430
-[;             IORLW 1 ;#
-"431
-[;             MOVWF FSR0L ;#
-"432
-[;             MOVIW [0]FSR0 ;#
-"433
-[;             MOVLB 1 ;#
-"434
-[;             MOVWF TS_SCAN ; 9 ;#
-"435
-[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
-"436
-[;             HALL_CHECK: ;#
-"437
-[;             BTFSS HL_SCAN, nFALL ;#
-"438
-[;             GOTO HALL_CHECK_E ; 3 ;#
-"439
-[;             LSLF HL_INDEX, W ;#
-"440
-[;             ANDLW 31*2 ;#
-"441
-[;             ADDLW HL_TIME_PL ;#
-"442
-[;             MOVWF FSR0L ;#
-"443
-[;             MOVLW HL_TIME_PH ;#
-"444
+"404
+[;             MOVLW HIGH _FLT | 0X80 ;#
+"405
 [;             MOVWF FSR0H ;#
+"406
+[;             MOVLB 1 ; 3 ;#
+"407
+[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
+"408
+[;             SCAN_HALL: ;#
+"409
+[;             MOVF HL_SCAN, W ;#
+"410
+[;             MOVLB 0 ;#
+"411
+[;             BTFSC PORTC, 5 ;#
+"412
+[;             IORLW 1 ;#
+"413
+[;             MOVWF FSR0L ;#
+"414
+[;             MOVIW [0]FSR0 ;#
+"415
+[;             MOVLB 1 ;#
+"416
+[;             MOVWF HL_SCAN ; 9 ;#
+"417
+[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
+"418
+[;             SCAN_ZERO: ;#
+"419
+[;             MOVF AC_SCAN, W ;#
+"420
+[;             MOVLB 2 ;#
+"421
+[;             BTFSC CMOUT, 1 ;#
+"422
+[;             IORLW 1 ;#
+"423
+[;             MOVWF FSR0L ;#
+"424
+[;             MOVIW [0]FSR0 ;#
+"425
+[;             MOVLB 1 ;#
+"426
+[;             MOVWF AC_SCAN ; 9 ;#
+"427
+[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
+"428
+[;             SCAN_TEST: ;#
+"429
+[;             MOVF TS_SCAN, W ;#
+"430
+[;             MOVLB 2 ;#
+"431
+[;             BTFSC CMOUT, 0 ;#
+"432
+[;             IORLW 1 ;#
+"433
+[;             MOVWF FSR0L ;#
+"434
+[;             MOVIW [0]FSR0 ;#
+"435
+[;             MOVLB 1 ;#
+"436
+[;             MOVWF TS_SCAN ; 9 ;#
+"437
+[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
+"438
+[;             HALL_CHECK: ;#
+"439
+[;             BTFSS HL_SCAN, nFALL ;#
+"440
+[;             GOTO HALL_CHECK_E ; 3 ;#
+"441
+[;             LSLF HL_INDEX, W ;#
+"442
+[;             ANDLW 31*2 ;#
+"443
+[;             ADDLW HL_TIME_PL ;#
+"444
+[;             MOVWF FSR0L ;#
 "445
-[;             MOVF SYS_TIMER, W ;#
+[;             MOVLW HL_TIME_PH ;#
 "446
-[;             MOVWI FSR0++ ;#
+[;             MOVWF FSR0H ;#
 "447
-[;             MOVF SYS_TIMER+1,W ;#
+[;             MOVF SYS_TIMER, W ;#
 "448
 [;             MOVWI FSR0++ ;#
 "449
-[;             INCF HL_INDEX, F ;#
+[;             MOVF SYS_TIMER+1,W ;#
 "450
-[;             INCF HL_EVENT, F ;#
+[;             MOVWI FSR0++ ;#
 "451
-[;             CLRF HL_WATCH ; 15 ;#
+[;             INCF HL_INDEX, F ;#
 "452
-[;             HALL_CHECK_E: ;#
+[;             INCF HL_EVENT, F ;#
 "453
-[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
+[;             CLRF HL_WATCH ; 15 ;#
 "454
-[;             ZERO_CHECK: ;#
+[;             HALL_CHECK_E: ;#
 "455
-[;             BTFSS TRIGGERING, 0 ;#
+[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
 "456
-[;             BCF ODR_TRIAC, PIN_TRIAC ;#
+[;             ZERO_CHECK: ;#
 "457
-[;             BTFSC TRIG_DONE, 0 ;#
+[;             BTFSS TRIGGERING, 0 ;#
 "458
 [;             BCF ODR_TRIAC, PIN_TRIAC ;#
 "459
-[;             BTFSC AC_SCAN, nEDGE ;#
-"460
-[;             GOTO ZERO_EDGE ; 4 ;#
-"461
-[;             ZERO_TRIG: ;#
-"462
-[;             ;MOVLB 2 ;#
-"463
-[;             ;MOVF LATA, w ;#
-"464
-[;             ;ANDLW 0XFD ;#
-"465
-[;             ;MOVWF LATA ;#
-"466
-[;             ;MOVLB 1 ;#
-"467
-[;             MOVLB 1 ;#
-"468
-[;             BCF ODRA, 1 ;#
-"469
-[;             MOVF ODRA, W ;#
-"470
-[;             MOVLB 2 ;#
-"471
-[;             XORWF LATA, W ;#
-"472
-[;             ANDLW 0X26 ;#
-"473
-[;             XORWF LATA, F ;#
-"474
-[;             MOVLB 1 ;#
-"475
-"476
-[;                         BTFSS TMR_OFF+1, 7 ;#
-"477
-[;             GOTO ZERO_CHECK_E ; 6 ;#
-"478
-[;             INCFSZ TMR_OFF, F ;#
-"479
-[;             GOTO $+2 ;#
-"480
-[;             INCF TMR_OFF+1, F ;#
-"481
-[;             INCFSZ TMR_ON, F ;#
-"482
-[;             GOTO $+2 ;#
-"483
-[;             INCF TMR_ON+1, F ;#
-"484
-[;             BTFSC TMR_ON+1, 7 ;#
-"485
-[;             GOTO ZERO_CHECK_E ; 14 ;#
-"486
-"487
 [;             BTFSC TRIG_DONE, 0 ;#
+"460
+[;             BCF ODR_TRIAC, PIN_TRIAC ;#
+"461
+[;             BTFSC AC_SCAN, nEDGE ;#
+"462
+[;             GOTO ZERO_EDGE ; 4 ;#
+"463
+[;             ZERO_TRIG: ;#
+"464
+[;             ;MOVLB 2 ;#
+"465
+[;             ;MOVF LATA, w ;#
+"466
+[;             ;ANDLW 0XFD ;#
+"467
+[;             ;MOVWF LATA ;#
+"468
+[;             ;MOVLB 1 ;#
+"469
+[;             MOVLB 1 ;#
+"470
+[;             BCF ODRA, 1 ;#
+"471
+[;             MOVF ODRA, W ;#
+"472
+[;             MOVLB 2 ;#
+"473
+[;             XORWF LATA, W ;#
+"474
+[;             ANDLW 0X26 ;#
+"475
+[;             XORWF LATA, F ;#
+"476
+[;             MOVLB 1 ;#
+"477
+"478
+[;                         BTFSS TMR_OFF+1, 7 ;#
+"479
+[;             GOTO ZERO_CHECK_E ; 6 ;#
+"480
+[;             INCFSZ TMR_OFF, F ;#
+"481
+[;             GOTO $+2 ;#
+"482
+[;             INCF TMR_OFF+1, F ;#
+"483
+[;             INCFSZ TMR_ON, F ;#
+"484
+[;             GOTO $+2 ;#
+"485
+[;             INCF TMR_ON+1, F ;#
+"486
+[;             BTFSC TMR_ON+1, 7 ;#
+"487
+[;             GOTO ZERO_CHECK_E ; 14 ;#
 "488
-[;             GOTO ZERO_CHECK_E ;#
 "489
-[;             MOVLW PREV_TRIG ;#
+[;             BTFSC TRIG_DONE, 0 ;#
 "490
-[;             MOVWF FSR1L ;#
+[;             GOTO ZERO_CHECK_E ;#
 "491
-[;             MOVLW PREV_TRIG+1 ;#
+[;             MOVLW PREV_TRIG ;#
 "492
-[;             MOVWF FSR1H ;#
+[;             MOVWF FSR1L ;#
 "493
-[;             SUB16 SYS_TIMER,SYS_TIMER+1,FSR1L,FSR1H ;#
+[;             MOVLW PREV_TRIG+1 ;#
 "494
-[;             BTFSS FSR1H,7 ;#
+[;             MOVWF FSR1H ;#
 "495
-[;             GOTO POS_MINUS ;#
+[;             SUB16 SYS_TIMER,SYS_TIMER+1,FSR1L,FSR1H ;#
 "496
-[;             COMF FSR1L ;#
+[;             BTFSS FSR1H,7 ;#
 "497
-[;             COMF FSR1H ;#
+[;             GOTO POS_MINUS ;#
 "498
-[;             INCF FSR1L ;#
+[;             COMF FSR1L ;#
 "499
-[;             ;SUB16 SYS_TIMER,SYS_TIMER+1,PREV_TRIG,PREV_TRIG+1 ;#
+[;             COMF FSR1H ;#
 "500
-[;             ;BTFSS PREV_TRIG+1,7 ;#
+[;             INCF FSR1L ;#
 "501
-[;             ;GOTO POS_MINUS ;#
-"502
-[;             ;COMF PREV_TRIG ;#
-"503
-[;             ;COMF PREV_TRIG+1 ;#
-"504
-[;             ;INCF PREV_TRIG ;#
-"505
 [;             POS_MINUS: ;#
-"506
-[;             ;300=0X12C 200=0XC8 240=0XF0 ;#
-"507
-[;             MOVLW 0XC8 ;#
-"508
+"502
+[;             ;190=0XBE 200=0XC8 240=0XF0 300=0X12C ;#
+"503
+[;             MOVLW 0XBE ;#
+"504
 [;             SUBWF FSR1L, W ;#
-"509
+"505
 [;             MOVLW 0X00 ;#
-"510
+"506
 [;             SUBWFB FSR1H, W ;#
-"511
-[;             ;MOVLW 0XC8 ;#
-"512
-[;             ;SUBWF PREV_TRIG, W ;#
-"513
-[;             ;MOVLW 0X00 ;#
-"514
-[;             ;SUBWFB PREV_TRIG+1, W ;#
-"515
+"507
 [;             BTFSS STATUS, C ;#
-"516
+"508
 [;             GOTO TIMING_TRIG ;#
-"517
+"509
+[;             MOVLW 0X2C ;#
+"510
+[;             SUBWF FSR1L, W ;#
+"511
+[;             MOVLW 0X01 ;#
+"512
+[;             SUBWFB FSR1H, W ;#
+"513
+[;             BTFSS STATUS, C ;#
+"514
+[;             GOTO TIMING_TRIG ;#
+"515
 [;             BSF ODR_TRIAC, PIN_TRIAC ;#
-"518
+"516
 [;             BCF TRIG_DONE, 0 ;#
-"519
+"517
 [;             BSF TRIGGERING, 0 ;#
-"520
+"518
 [;             TIMING_TRIG: ;#
-"521
+"519
 [;             MOVF TMR_ON, W ;#
-"522
+"520
 [;             SUBLW 20 ;5->20 ;#
-"523
+"521
 [;             BTFSS STATUS, Z ;#
-"524
+"522
 [;             ;BTFSC STATUS, C ;yes,here. it is wondrous. ;#
-"525
+"523
 [;             ;if use this one, the speed will surge, pulsed. ;#
-"526
+"524
 [;             GOTO ZERO_CHECK_E ; 16 ;#
+"525
+[;             ;MOVF SYS_TIMER, W ;#
+"526
+[;             ;MOVWF PREV_TRIG ;#
 "527
-[;             MOVF SYS_TIMER, W ;#
+[;             ;MOVF SYS_TIMER+1, W ;#
 "528
-[;             MOVWF PREV_TRIG ;#
+[;             ;MOVWF PREV_TRIG+1 ;#
 "529
-[;             MOVF SYS_TIMER+1, W ;#
+[;             MOVLW 0XF0 ;#
 "530
-[;             MOVWF PREV_TRIG+1 ;#
+[;             MOVWF TMR_ON ;#
 "531
 [;             MOVLW 0XF0 ;#
 "532
-[;             MOVWF TMR_ON ;#
-"533
-[;             MOVLW 0XF0 ;#
-"534
 [;             MOVWF TMR_ON+1 ; ;#
+"533
+[;             MOVLW 0X0F ;#
+"534
+[;             MOVWF TMR_OFF ;#
 "535
 [;             MOVLW 0X0F ;#
 "536
-[;             MOVWF TMR_OFF ;#
-"537
-[;             MOVLW 0X0F ;#
-"538
 [;             MOVWF TMR_OFF+1 ; ;#
-"539
+"537
 [;             BSF TRIG_DONE, 0 ;#
-"540
+"538
 [;             BCF TRIGGERING, 0 ;#
-"541
+"539
 [;             GOTO ZERO_CHECK_E ;#
-"542
+"540
 [;             ZERO_EDGE: ;#
-"543
+"541
 [;             ;MOVLB 2 ;#
-"544
+"542
 [;             ;MOVF LATA, w ;#
-"545
+"543
 [;             ;IORLW 0x02 ;#
-"546
+"544
 [;             ;MOVWF LATA ;#
+"545
+[;             ;MOVLB 1 ;#
+"546
+[;             ;MOVLB 1 ;#
 "547
-[;             ;MOVLB 1 ;#
-"548
-[;             ;MOVLB 1 ;#
-"549
 [;             BSF ODRA, 1 ;#
-"550
+"548
 [;             MOVF ODRA, W ;#
-"551
+"549
 [;             MOVLB 2 ;#
-"552
+"550
 [;             XORWF LATA, W ;#
-"553
+"551
 [;             ANDLW 0X26 ;#
-"554
+"552
 [;             XORWF LATA, F ;#
-"555
+"553
 [;             MOVLB 1 ;#
-"556
+"554
 [;             BCF TRIG_DONE, 0 ;#
-"557
+"555
 [;             BCF TRIGGERING, 0 ;#
-"558
+"556
 [;             CLRF TMR_OFF+1 ;#
+"557
+[;             MOVF SYS_TIMER, W ;#
+"558
+[;             MOVWF PREV_TRIG ;#
 "559
-[;             MOVF AC_CYCLE_2, W ;#
+[;             MOVF SYS_TIMER+1, W ;#
 "560
-[;             BTFSC STATUS, Z ;#
+[;             MOVWF PREV_TRIG+1 ;#
 "561
-[;             GOTO ZERO_CYCLE ; 9 ;#
+[;             MOVF AC_CYCLE_2, W ;#
 "562
-[;             ADDLW 256-3 ;#
+[;             BTFSC STATUS, Z ;#
 "563
-[;             MOVWF TM_TST0 ;#
+[;             GOTO ZERO_CYCLE ; 9 ;#
 "564
-[;             ADDLW 10 ;#
+[;             ADDLW 256-3 ;#
 "565
-[;             MOVWF TM_TST1 ;#
+[;             MOVWF TM_TST0 ;#
 "566
-[;             MOVLW 55 ;40->55 ;#
+[;             ADDLW 10 ;#
 "567
-[;             SUBWF TM_TRIAC, W ;#
+[;             MOVWF TM_TST1 ;#
 "568
-[;             MOVLW 0 ;#
+[;             MOVLW 55 ;40->55 ;#
 "569
-[;             SUBWFB TM_TRIAC+1, W ;#
-"570
-[;             BTFSS STATUS, C ;#
-"571
-[;             GOTO ZERO_CYCLE ; 19 ;#
-"572
-[;             MOVF AC_CYCLE, W ;#
-"573
 [;             SUBWF TM_TRIAC, W ;#
-"574
-[;             MOVWF TMR_ON ;#
-"575
-[;             MOVF AC_CYCLE+1, W ;#
-"576
+"570
+[;             MOVLW 0 ;#
+"571
 [;             SUBWFB TM_TRIAC+1, W ;#
-"577
-[;             MOVWF TMR_ON+1 ;#
-"578
-[;             MOVLW 240 ;#
-"579
-[;             BTFSC STATUS, C ;#
-"580
+"572
+[;             BTFSS STATUS, C ;#
+"573
+[;             GOTO ZERO_CYCLE ; 19 ;#
+"574
+[;             MOVF AC_CYCLE, W ;#
+"575
+[;             SUBWF TM_TRIAC, W ;#
+"576
 [;             MOVWF TMR_ON ;#
+"577
+[;             MOVF AC_CYCLE+1, W ;#
+"578
+[;             SUBWFB TM_TRIAC+1, W ;#
+"579
+[;             MOVWF TMR_ON+1 ;#
+"580
+[;             MOVLW 0XF0 ;#
 "581
 [;             BTFSC STATUS, C ;#
 "582
-[;             MOVWF TMR_ON+1 ;#
+[;             MOVWF TMR_ON ;#
 "583
-[;             MOVF AC_CYCLE, W ;#
+[;             BTFSC STATUS, C ;#
 "584
-[;             SUBLW 36 ;#
+[;             MOVWF TMR_ON+1 ;#
 "585
-[;             MOVWF FSR0L ;#
+[;             MOVF AC_CYCLE, W ;#
 "586
-[;             MOVF AC_CYCLE+1, W ;#
+[;             SUBLW 36 ;#
 "587
-[;             SUBWFB TMR_OFF+1, W ;#
+[;             MOVWF FSR0L ;#
 "588
-[;             MOVWF FSR0H ;#
+[;             MOVF AC_CYCLE+1, W ;#
 "589
-[;             MOVLW 20 ;5->20 ;#
-"590
-[;             SUBWF TMR_ON, W ;#
-"591
-[;             MOVWF TMR_OFF ;#
-"592
-[;             MOVLW 0 ;#
-"593
-[;             SUBWFB TMR_ON+1, W ;#
-"594
-[;             MOVWF TMR_OFF+1 ;#
-"595
-[;             MOVF FSR0L, W ;#
-"596
-[;             SUBWF TMR_OFF, W ;#
-"597
-[;             MOVF FSR0H, W ;#
-"598
 [;             SUBWFB TMR_OFF+1, W ;#
-"599
-[;             BTFSC STATUS, C ;#
-"600
-[;             GOTO ZERO_CYCLE ; 48 ;#
-"601
-[;             MOVF FSR0L, W ;#
-"602
+"590
+[;             MOVWF FSR0H ;#
+"591
+[;             MOVLW 20 ;5->20 ;#
+"592
+[;             SUBWF TMR_ON, W ;#
+"593
 [;             MOVWF TMR_OFF ;#
-"603
+"594
+[;             MOVLW 0 ;#
+"595
+[;             SUBWFB TMR_ON+1, W ;#
+"596
+[;             MOVWF TMR_OFF+1 ;#
+"597
+[;             MOVF FSR0L, W ;#
+"598
+[;             SUBWF TMR_OFF, W ;#
+"599
 [;             MOVF FSR0H, W ;#
-"604
-[;             MOVWF TMR_OFF+1 ; 51 ;#
-"605
-[;             ZERO_CYCLE: ;#
-"606
-[;             BTFSS AC_SCAN, nRISE ;#
-"607
-[;             GOTO ZERO_CHECK_E ;#
-"608
-[;             BSF AC_FLAG, 0 ;#
-"609
-[;             LSLF AC_INDEX, W ;#
-"610
-[;             ANDLW 7*2 ;#
-"611
-[;             ADDLW AC_TIME_PL ;#
-"612
-[;             MOVWF FSR0L ;#
-"613
-[;             MOVLW AC_TIME_PH ;#
-"614
-[;             MOVWF FSR0H ;#
-"615
-[;             MOVF SYS_TIMER, W ;#
-"616
-[;             MOVWI FSR0++ ;#
-"617
-[;             MOVF SYS_TIMER+1,W ;#
-"618
-[;             MOVWI FSR0++ ;#
-"619
-[;             INCF AC_INDEX, F ;#
-"620
-[;             INCF AC_EVENT, F ;#
-"621
-[;             CLRF AC_WATCH ;#
-"622
-[;             MOVF AD_CUR_2B, W ;#
-"623
-[;             MOVWF AD_CUR_2 ;#
-"624
-[;             MOVF AD_CUR_2B+1,W ;#
-"625
-[;             MOVWF AD_CUR_2+1 ;#
-"626
-[;             MOVF AD_CUR_2B+2,W ;#
-"627
-[;             MOVWF AD_CUR_2+2 ;#
-"628
-[;             MOVF AD_CUR_2B+3,W ;#
-"629
-[;             MOVWF AD_CUR_2+3 ;#
-"630
-[;             MOVF AD_CUR_NB, W ;#
-"631
-[;             MOVWF AD_CUR_N ;#
-"632
-[;             CLRF AD_CUR_2B ;#
-"633
-[;             CLRF AD_CUR_2B+1 ;#
-"634
-[;             CLRF AD_CUR_2B+2 ;#
-"635
-[;             CLRF AD_CUR_2B+3 ;#
-"636
-[;             CLRF AD_CUR_NB ;#
-"637
-[;             MOVF AC_CYCLE_2, W ;#
-"638
-[;             BTFSC STATUS, Z ;#
-"639
-[;             GOTO ZERO_CHECK_E ;#
-"640
-[;             ADDLW 2 ;#
-"641
-[;             MOVWF TAD_VAC ;#
-"642
-"646
-[;                                                             ADDLW 1 ;#
-"647
-"648
-[;                         MOVWF TAD_VRS ;#
-"649
-[;             ADDLW 2 ;#
-"650
-[;             MOVWF TAD_NTC ;#
-"651
-[;             ZERO_CHECK_E: ;#
-"652
-[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
-"653
-[;             MOVF SYS_TIMER, W ;#
-"654
-[;             INCFSZ SYS_TIMER, F ;#
-"655
-[;             GOTO $+2 ;#
-"656
-[;             INCF SYS_TIMER+1,F ;#
-"657
-[;             ANDLW 3 ;#
-"658
-[;             BRW ;#
-"659
-[;             GOTO ISR_BRCH_0 ; 9 ;#
-"660
-[;             GOTO ISR_BRCH_1 ; 9 ;#
-"661
-[;             GOTO ISR_BRCH_2 ; 9 ;#
-"662
-[;             GOTO ISR_BRCH_3 ; 9 ;#
-"663
-[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
-"664
-[;             ISR_BRCH_0: ;#
-"665
-[;             UART_TX_PRO: ;#
-"666
-[;             MOVLB 3 ;#
-"667
-[;             BTFSS TX_TIM, 7 ;#
-"668
-[;             INCF TX_TIM, F ;#
-"669
-[;             MOVF TX_CNT, W ;#
-"670
-[;             BTFSC STATUS, Z ;#
-"671
-[;             GOTO UART_TX_PRO_E ; 7 ;#
-"672
-[;             MOVLW 12 ;#
-"673
-[;             SUBWF TX_TIM, W ;#
-"674
-[;             BTFSS STATUS, C ;#
-"675
-[;             GOTO UART_TX_PRO_E ; 11 ;#
-"676
-[;             CLRF TX_TIM ;#
-"677
-[;             MOVF TX_RDP, W ;#
-"678
-[;             ANDLW 31 ;#
-"679
-[;             ADDLW TX_FIFO_PL ;#
-"680
-[;             MOVWF FSR0L ;#
-"681
-[;             MOVLW TX_FIFO_PH ;#
-"682
-[;             MOVWF FSR0H ;#
-"683
-[;             MOVIW [0]FSR0 ;#
-"684
-[;             MOVWF TXREG ;#
-"685
-[;             INCF TX_RDP, F ;#
-"686
-[;             DECF TX_CNT, F ; 21 ;#
-"687
-[;             UART_TX_PRO_E: ;#
-"688
-[;             MOVLB 1 ;#
-"689
-[;             INCF SYS_TICKS, F ;#
-"690
-[;             BTFSS EN_ADC, 0 ;#
-"691
-[;             GOTO AD_VAC_START ;#
-"692
-[;             AD_CUR_READ: ;#
-"693
-[;             BTFSC ADCON0, 1 ;#
-"694
-[;             GOTO $-1 ; ? ;#
-"695
-[;             COMF ADRESL, W ;#
-"696
-[;             MOVWF FSR0L ;#
-"697
-[;             MOVLW HIGH _SQ8 | 0X80 ;#
-"698
-[;             MOVWF FSR0H ;#
-"699
-[;             LSLF FSR0L, F ;#
-"700
+"600
+[;             SUBWFB TMR_OFF+1, W ;#
+"601
 [;             BTFSC STATUS, C ;#
-"701
-[;             INCF FSR0H, F ;#
-"702
-[;             MOVIW FSR0++ ;#
-"703
-[;             ADDWF AD_CUR_2B, F ;#
-"704
-[;             MOVIW FSR0++ ;#
-"705
-[;             ADDWFC AD_CUR_2B+1,F ;#
-"706
-[;             CLRW ;#
-"707
-[;             ADDWFC AD_CUR_2B+2,F ;#
-"708
-[;             ADDWFC AD_CUR_2B+3,F ;#
-"709
-[;             INCF AD_CUR_NB, F ;#
-"710
-[;             AD_VAC_START: ;#
-"711
-[;             CLRF EN_ADC ;#
-"712
-[;             BTFSS TAD_VAC, 7 ;#
-"713
-[;             DECFSZ TAD_VAC, F ;#
-"714
-[;             RETFIE ;#
-"715
-[;             MOVLW 5*4+1 ;#
-"716
-[;             MOVWF ADCON0 ;#
-"717
-[;             MOVLW 0X20 ;#
-"718
-[;             MOVWF ADCON1 ;#
-"719
-[;             BSF EN_ADC, 0 ;#
-"720
-[;             RETFIE ;#
-"721
-[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
-"722
-[;             ISR_BRCH_1: ;#
-"723
-[;             UART_RX_PRO: ;#
-"724
-[;             MOVLB 3 ;#
-"725
-[;             BTFSS RX_TIM, 7 ;#
-"726
-[;             INCF RX_TIM, F ;#
-"727
-[;             MOVLB 0 ;#
-"728
-[;             BTFSS PIR1, RCIF ;#
-"729
-[;             GOTO UART_RX_PRO_E ; 11 ;#
-"730
-[;             MOVLB 3 ;#
-"731
-[;             CLRF RX_TIM ;#
-"732
-[;             MOVF RCREG, W ;#
-"733
-[;             MOVWF FSR0H ;#
-"734
-[;             MOVLW 32 ;#
-"735
-[;             SUBWF RX_CNT, W ;#
-"736
-[;             BTFSS STATUS, C ;#
-"737
-[;             GOTO UART_RX_PRO_E ; 19 ;#
-"738
-[;             MOVF RX_WRP, W ;#
-"739
-[;             ANDLW 31 ;#
-"740
-[;             ADDLW RX_FIFO_PL ;#
-"741
+"602
+[;             GOTO ZERO_CYCLE ; 48 ;#
+"603
+[;             ;MOVF FSR0L, W ;#
+"604
+[;             MOVLW 0XC3 ;#
+"605
+[;             MOVWF TMR_OFF ;#
+"606
+[;             ;MOVF FSR0H, W ;#
+"607
+[;             MOVLW 0XFE ;#
+"608
+[;             MOVWF TMR_OFF+1 ; 51 ;#
+"609
+[;             ZERO_CYCLE: ;#
+"610
+[;             BTFSS AC_SCAN, nRISE ;#
+"611
+[;             GOTO ZERO_CHECK_E ;#
+"612
+[;             BSF AC_FLAG, 0 ;#
+"613
+[;             LSLF AC_INDEX, W ;#
+"614
+[;             ANDLW 7*2 ;#
+"615
+[;             ADDLW AC_TIME_PL ;#
+"616
 [;             MOVWF FSR0L ;#
-"742
-[;             MOVLW RX_FIFO_PH ;#
-"743
-[;             XORWF FSR0H, W ;#
-"744
-[;             XORWF FSR0H, F ;#
-"745
-[;             XORWF FSR0H, W ;#
-"746
-[;             MOVWI [0]FSR0 ;#
-"747
-[;             INCF RX_WRP, F ;#
-"748
-[;             INCF RX_CNT, F ;#
-"749
-[;             UART_RX_PRO_E: ;#
-"750
-[;             MOVLB 1 ;#
-"751
-[;             BTFSS EN_ADC, 0 ;#
-"752
-[;             GOTO AD_VRS_START ;#
-"753
-[;             AD_VAC_READ: ;#
-"754
-[;             BTFSC ADCON0, 1 ;#
-"755
-[;             GOTO $-1 ; ? ;#
-"756
-[;             MOVF ADRESH, W ;#
-"757
-[;             SUBLW 128 ;#
-"758
+"617
+[;             MOVLW AC_TIME_PH ;#
+"618
+[;             MOVWF FSR0H ;#
+"619
+[;             MOVF SYS_TIMER, W ;#
+"620
+[;             MOVWI FSR0++ ;#
+"621
+[;             MOVF SYS_TIMER+1,W ;#
+"622
+[;             MOVWI FSR0++ ;#
+"623
+[;             INCF AC_INDEX, F ;#
+"624
+[;             INCF AC_EVENT, F ;#
+"625
+[;             CLRF AC_WATCH ;#
+"626
+[;             MOVF AD_CUR_2B, W ;#
+"627
+[;             MOVWF AD_CUR_2 ;#
+"628
+[;             MOVF AD_CUR_2B+1,W ;#
+"629
+[;             MOVWF AD_CUR_2+1 ;#
+"630
+[;             MOVF AD_CUR_2B+2,W ;#
+"631
+[;             MOVWF AD_CUR_2+2 ;#
+"632
+[;             MOVF AD_CUR_2B+3,W ;#
+"633
+[;             MOVWF AD_CUR_2+3 ;#
+"634
+[;             MOVF AD_CUR_NB, W ;#
+"635
+[;             MOVWF AD_CUR_N ;#
+"636
+[;             CLRF AD_CUR_2B ;#
+"637
+[;             CLRF AD_CUR_2B+1 ;#
+"638
+[;             CLRF AD_CUR_2B+2 ;#
+"639
+[;             CLRF AD_CUR_2B+3 ;#
+"640
+[;             CLRF AD_CUR_NB ;#
+"641
+[;             MOVF AC_CYCLE_2, W ;#
+"642
+[;             BTFSC STATUS, Z ;#
+"643
+[;             GOTO ZERO_CHECK_E ;#
+"644
+[;             ADDLW 2 ;#
+"645
+[;             MOVWF TAD_VAC ;#
+"646
+"650
+[;                                                             ADDLW 1 ;#
+"651
+"652
+[;                         MOVWF TAD_VRS ;#
+"653
+[;             ADDLW 2 ;#
+"654
+[;             MOVWF TAD_NTC ;#
+"655
+[;             ZERO_CHECK_E: ;#
+"656
+[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
+"657
+[;             MOVF SYS_TIMER, W ;#
+"658
+[;             INCFSZ SYS_TIMER, F ;#
+"659
+[;             GOTO $+2 ;#
+"660
+[;             INCF SYS_TIMER+1,F ;#
+"661
+[;             ANDLW 3 ;#
+"662
+[;             BRW ;#
+"663
+[;             GOTO ISR_BRCH_0 ; 9 ;#
+"664
+[;             GOTO ISR_BRCH_1 ; 9 ;#
+"665
+[;             GOTO ISR_BRCH_2 ; 9 ;#
+"666
+[;             GOTO ISR_BRCH_3 ; 9 ;#
+"667
+[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
+"668
+[;             ISR_BRCH_0: ;#
+"669
+[;             UART_TX_PRO: ;#
+"670
+[;             MOVLB 3 ;#
+"671
+[;             BTFSS TX_TIM, 7 ;#
+"672
+[;             INCF TX_TIM, F ;#
+"673
+[;             MOVF TX_CNT, W ;#
+"674
+[;             BTFSC STATUS, Z ;#
+"675
+[;             GOTO UART_TX_PRO_E ; 7 ;#
+"676
+[;             MOVLW 12 ;#
+"677
+[;             SUBWF TX_TIM, W ;#
+"678
 [;             BTFSS STATUS, C ;#
+"679
+[;             GOTO UART_TX_PRO_E ; 11 ;#
+"680
+[;             CLRF TX_TIM ;#
+"681
+[;             MOVF TX_RDP, W ;#
+"682
+[;             ANDLW 31 ;#
+"683
+[;             ADDLW TX_FIFO_PL ;#
+"684
+[;             MOVWF FSR0L ;#
+"685
+[;             MOVLW TX_FIFO_PH ;#
+"686
+[;             MOVWF FSR0H ;#
+"687
+[;             MOVIW [0]FSR0 ;#
+"688
+[;             MOVWF TXREG ;#
+"689
+[;             INCF TX_RDP, F ;#
+"690
+[;             DECF TX_CNT, F ; 21 ;#
+"691
+[;             UART_TX_PRO_E: ;#
+"692
+[;             MOVLB 1 ;#
+"693
+[;             INCF SYS_TICKS, F ;#
+"694
+[;             BTFSS EN_ADC, 0 ;#
+"695
+[;             GOTO AD_VAC_START ;#
+"696
+[;             AD_CUR_READ: ;#
+"697
+[;             BTFSC ADCON0, 1 ;#
+"698
+[;             GOTO $-1 ; ? ;#
+"699
+[;             COMF ADRESL, W ;#
+"700
+[;             MOVWF FSR0L ;#
+"701
+[;             MOVLW HIGH _SQ8 | 0X80 ;#
+"702
+[;             MOVWF FSR0H ;#
+"703
+[;             LSLF FSR0L, F ;#
+"704
+[;             BTFSC STATUS, C ;#
+"705
+[;             INCF FSR0H, F ;#
+"706
+[;             MOVIW FSR0++ ;#
+"707
+[;             ADDWF AD_CUR_2B, F ;#
+"708
+[;             MOVIW FSR0++ ;#
+"709
+[;             ADDWFC AD_CUR_2B+1,F ;#
+"710
+[;             CLRW ;#
+"711
+[;             ADDWFC AD_CUR_2B+2,F ;#
+"712
+[;             ADDWFC AD_CUR_2B+3,F ;#
+"713
+[;             INCF AD_CUR_NB, F ;#
+"714
+[;             AD_VAC_START: ;#
+"715
+[;             CLRF EN_ADC ;#
+"716
+[;             BTFSS TAD_VAC, 7 ;#
+"717
+[;             DECFSZ TAD_VAC, F ;#
+"718
+[;             RETFIE ;#
+"719
+[;             MOVLW 5*4+1 ;#
+"720
+[;             MOVWF ADCON0 ;#
+"721
+[;             MOVLW 0X20 ;#
+"722
+[;             MOVWF ADCON1 ;#
+"723
+[;             BSF EN_ADC, 0 ;#
+"724
+[;             RETFIE ;#
+"725
+[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
+"726
+[;             ISR_BRCH_1: ;#
+"727
+[;             UART_RX_PRO: ;#
+"728
+[;             MOVLB 3 ;#
+"729
+[;             BTFSS RX_TIM, 7 ;#
+"730
+[;             INCF RX_TIM, F ;#
+"731
+[;             MOVLB 0 ;#
+"732
+[;             BTFSS PIR1, RCIF ;#
+"733
+[;             GOTO UART_RX_PRO_E ; 11 ;#
+"734
+[;             MOVLB 3 ;#
+"735
+[;             CLRF RX_TIM ;#
+"736
+[;             MOVF RCREG, W ;#
+"737
+[;             MOVWF FSR0H ;#
+"738
+[;             MOVLW 32 ;#
+"739
+[;             SUBWF RX_CNT, W ;#
+"740
+[;             BTFSS STATUS, C ;#
+"741
+[;             GOTO UART_RX_PRO_E ; 19 ;#
+"742
+[;             MOVF RX_WRP, W ;#
+"743
+[;             ANDLW 31 ;#
+"744
+[;             ADDLW RX_FIFO_PL ;#
+"745
+[;             MOVWF FSR0L ;#
+"746
+[;             MOVLW RX_FIFO_PH ;#
+"747
+[;             XORWF FSR0H, W ;#
+"748
+[;             XORWF FSR0H, F ;#
+"749
+[;             XORWF FSR0H, W ;#
+"750
+[;             MOVWI [0]FSR0 ;#
+"751
+[;             INCF RX_WRP, F ;#
+"752
+[;             INCF RX_CNT, F ;#
+"753
+[;             UART_RX_PRO_E: ;#
+"754
+[;             MOVLB 1 ;#
+"755
+[;             BTFSS EN_ADC, 0 ;#
+"756
+[;             GOTO AD_VRS_START ;#
+"757
+[;             AD_VAC_READ: ;#
+"758
+[;             BTFSC ADCON0, 1 ;#
 "759
-[;             SUBLW 0 ;#
+[;             GOTO $-1 ; ? ;#
 "760
-[;             MOVWF AD_VAC ;#
+[;             MOVF ADRESH, W ;#
 "761
-[;             AD_VRS_START: ;#
+[;             SUBLW 128 ;#
 "762
-[;             CLRF EN_ADC ;#
+[;             BTFSS STATUS, C ;#
 "763
-[;             BTFSS TAD_VRS, 7 ;#
+[;             SUBLW 0 ;#
 "764
-[;             DECFSZ TAD_VRS, F ;#
+[;             MOVWF AD_VAC ;#
 "765
-[;             RETFIE ;#
+[;             AD_VRS_START: ;#
 "766
-[;             MOVLW 6*4+1 ;#
-"767
-[;             MOVWF ADCON0 ;#
-"768
-[;             MOVLW 0X20 ;#
-"769
-[;             MOVWF ADCON1 ;#
-"770
-[;             BSF EN_ADC, 0 ;#
-"771
-[;             RETFIE ;#
-"772
-[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
-"773
-[;             ISR_BRCH_2: ;#
-"774
-[;             TST0_PRO: ;#
-"775
-[;             BTFSS TM_TST0, 7 ;#
-"776
-[;             DECFSZ TM_TST0, F ;#
-"777
-[;             GOTO TST0_PRO_E ;#
-"778
-[;             MOVF TS_SCAN, W ;#
-"779
-[;             XORWF AC_SCAN, W ;#
-"780
-[;             XORLW 0X80 ;#
-"781
-[;             RLF WREG, W ;#
-"782
-[;             RLF DR_TST0, F ;#
-"783
-[;             TST0_PRO_E: ;#
-"784
-[;             BTFSS EN_ADC, 0 ;#
-"785
-[;             GOTO AD_NTC_START ;#
-"786
-[;             AD_VRS_READ: ;#
-"787
-[;             BTFSC ADCON0, 1 ;#
-"788
-[;             GOTO $-1 ; ? ;#
-"789
-[;             MOVF ADRESH, W ;#
-"790
-[;             MOVWF AD_VRS ;#
-"791
-[;             AD_NTC_START: ;#
-"792
 [;             CLRF EN_ADC ;#
-"793
-[;             BTFSS TAD_NTC, 7 ;#
-"794
-[;             DECFSZ TAD_NTC, F ;#
-"795
+"767
+[;             BTFSS TAD_VRS, 7 ;#
+"768
+[;             DECFSZ TAD_VRS, F ;#
+"769
 [;             RETFIE ;#
-"796
-[;             MOVLW 3*4+1 ;#
-"797
+"770
+[;             MOVLW 6*4+1 ;#
+"771
 [;             MOVWF ADCON0 ;#
-"798
+"772
 [;             MOVLW 0X20 ;#
-"799
+"773
 [;             MOVWF ADCON1 ;#
-"800
+"774
 [;             BSF EN_ADC, 0 ;#
-"801
+"775
 [;             RETFIE ;#
-"802
+"776
 [;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
-"803
-[;             ISR_BRCH_3: ;#
-"804
-[;             TST1_PRO: ;#
-"805
-[;             BTFSS TM_TST1, 7 ;#
-"806
-[;             DECFSZ TM_TST1, F ;#
-"807
-[;             GOTO TST1_PRO_E ;#
-"808
+"777
+[;             ISR_BRCH_2: ;#
+"778
+[;             TST0_PRO: ;#
+"779
+[;             BTFSS TM_TST0, 7 ;#
+"780
+[;             DECFSZ TM_TST0, F ;#
+"781
+[;             GOTO TST0_PRO_E ;#
+"782
 [;             MOVF TS_SCAN, W ;#
-"809
+"783
 [;             XORWF AC_SCAN, W ;#
-"810
+"784
 [;             XORLW 0X80 ;#
-"811
+"785
 [;             RLF WREG, W ;#
-"812
-[;             RLF DR_TST1, F ;#
-"813
-[;             TST1_PRO_E: ;#
-"814
+"786
+[;             RLF DR_TST0, F ;#
+"787
+[;             TST0_PRO_E: ;#
+"788
 [;             BTFSS EN_ADC, 0 ;#
-"815
-[;             GOTO AD_CUR_START ;#
-"816
-[;             AD_NTC_READ: ;#
-"817
+"789
+[;             GOTO AD_NTC_START ;#
+"790
+[;             AD_VRS_READ: ;#
+"791
 [;             BTFSC ADCON0, 1 ;#
-"818
+"792
 [;             GOTO $-1 ; ? ;#
-"819
+"793
 [;             MOVF ADRESH, W ;#
-"820
-[;             MOVWF AD_NTC ;#
-"821
-[;             AD_CUR_START: ;#
-"822
-[;             MOVLW 9*4+1 ;#
-"823
-[;             MOVWF ADCON0 ;#
-"824
-[;             MOVLW 0XA0 ;#
-"825
-[;             MOVWF ADCON1 ;#
-"826
-[;             BSF EN_ADC, 0 ;#
-"827
+"794
+[;             MOVWF AD_VRS ;#
+"795
+[;             AD_NTC_START: ;#
+"796
+[;             CLRF EN_ADC ;#
+"797
+[;             BTFSS TAD_NTC, 7 ;#
+"798
+[;             DECFSZ TAD_NTC, F ;#
+"799
 [;             RETFIE ;#
-"828
+"800
+[;             MOVLW 3*4+1 ;#
+"801
+[;             MOVWF ADCON0 ;#
+"802
+[;             MOVLW 0X20 ;#
+"803
+[;             MOVWF ADCON1 ;#
+"804
+[;             BSF EN_ADC, 0 ;#
+"805
+[;             RETFIE ;#
+"806
 [;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
-[; ;Hardware.c: 830: }
+"807
+[;             ISR_BRCH_3: ;#
+"808
+[;             TST1_PRO: ;#
+"809
+[;             BTFSS TM_TST1, 7 ;#
+"810
+[;             DECFSZ TM_TST1, F ;#
+"811
+[;             GOTO TST1_PRO_E ;#
+"812
+[;             MOVF TS_SCAN, W ;#
+"813
+[;             XORWF AC_SCAN, W ;#
+"814
+[;             XORLW 0X80 ;#
+"815
+[;             RLF WREG, W ;#
+"816
+[;             RLF DR_TST1, F ;#
+"817
+[;             TST1_PRO_E: ;#
+"818
+[;             BTFSS EN_ADC, 0 ;#
+"819
+[;             GOTO AD_CUR_START ;#
+"820
+[;             AD_NTC_READ: ;#
+"821
+[;             BTFSC ADCON0, 1 ;#
+"822
+[;             GOTO $-1 ; ? ;#
+"823
+[;             MOVF ADRESH, W ;#
+"824
+[;             MOVWF AD_NTC ;#
+"825
+[;             AD_CUR_START: ;#
+"826
+[;             MOVLW 9*4+1 ;#
+"827
+[;             MOVWF ADCON0 ;#
+"828
+[;             MOVLW 0XA0 ;#
+"829
+[;             MOVWF ADCON1 ;#
 "830
+[;             BSF EN_ADC, 0 ;#
+"831
+[;             RETFIE ;#
+"832
+[;             ;++++++++++++++++++++++++++++++++++++++++++++++ ;#
+[; ;Hardware.c: 834: }
+"834
 [e :UE 264 ]
 }

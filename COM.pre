@@ -3006,15 +3006,8 @@ SRL_Putc( ',' );
 COM_Print( ( U16 )mtrTemp );
 SRL_Putc( ',' );
 COM_Print( ( U16 )E2P_ReadByte( 0xFE ) );
-
-# 108
 SRL_Putc( '\r' );
 SRL_Putc( '\n' );
 }
-}
-void COM_Ctrl2( void )
-{
-
-# 141
 }
 

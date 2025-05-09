@@ -23,7 +23,6 @@ void main( void )
           {
             sysTicks -= 100;
             MCU_Refresh( );
-            COM_Ctrl2( );
             COM_Ctrl( );      
             MTR_Ctrl( );
             SYS_Ctrl( );

@@ -4314,28 +4314,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;COM.c: 70: COM_Print( ( U16 )E2P_ReadByte( 0xFE ) );
 "70
 [e ( _COM_Print (1 -> ( _E2P_ReadByte (1 -> -> 254 `i `uc `us ]
-[; ;COM.c: 108: SRL_Putc( '\r' );
-"108
+[; ;COM.c: 71: SRL_Putc( '\r' );
+"71
 [e ( _SRL_Putc (1 -> -> 13 `ui `uc ]
-[; ;COM.c: 109: SRL_Putc( '\n' );
-"109
+[; ;COM.c: 72: SRL_Putc( '\n' );
+"72
 [e ( _SRL_Putc (1 -> -> 10 `ui `uc ]
-"110
+"73
 }
 [e :U 270 ]
-[; ;COM.c: 110: }
-[; ;COM.c: 111: }
-"111
+[; ;COM.c: 73: }
+[; ;COM.c: 74: }
+"74
 [e :UE 269 ]
-}
-"113
-[v _COM_Ctrl2 `(v  1 ef ]
-{
-[; ;COM.c: 112: void COM_Ctrl2( void )
-[; ;COM.c: 113: {
-[e :U _COM_Ctrl2 ]
-[f ]
-[; ;COM.c: 141: }
-"141
-[e :UE 271 ]
 }

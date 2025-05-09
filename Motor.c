@@ -67,14 +67,14 @@ void CAL_MtrTemp( void )
         sum += ( U16 )adNtc;
         if ( adNtc < 2 )
         {
-        	err++;
-        	mtrTemp=127;
+            err++;
+            mtrTemp=127;
         }
         if( adNtc >= 254 ) 
         {
-	        err++;
-	        mtrTemp=0;
-	    }
+            err++;
+            mtrTemp=0;
+        }
         if ( ++cnt >= 4 )
           {
             if ( !err )
@@ -112,7 +112,7 @@ void CAL_MtrCurrent( void )
         adCurN = 0;
         s = ( U32 )SQRT32( s );
         n = ( U32 )SQRT32( n << 16 );
-        mtrCurrent = ( U16 )( ( 25600UL*4800UL/50UL/1023UL ) * s / n );
+        mtrCurrent = ( U16 )(2402*s/n);  //( ( 25600UL*4800UL/50UL/1023UL ) * s / n );
       }
     if ( mtrCurrent < CUR_THR /*|| ( mtrSpeedRef & 1 )*/ )
       {
@@ -133,7 +133,7 @@ void CAL_MtrSpeed( void )
       {
         mtrHallWDT = 50;
         mtrHallEvent = 0;
-        //mtrSpeed = 0;
+        mtrSpeed = 0;
       }
     else if ( mtrHallEvent >= 3 )
       {
@@ -216,7 +216,7 @@ void MTR_Driver( void )
     if ( mtrSpeedRef == 0 || !acCycleHalf )
       {
         state = 0;
-        TRIAC_TIME_SET( 0 );
+        TRIAC_TIME_SET( FAULTPOWER );
       }
     else switch ( state )
       {
@@ -276,18 +276,6 @@ void MTR_Driver( void )
                   }
                 TRIAC_TIME_SET( SREG.ro.W.H );
               }
-              else if(mtrError)
-              {
-                //TRIAC_TIME_SET(FAULTPOWER);
-	            if(acCycle>363)
-	            {  
-                  TRIAC_TIME_SET(FAULTPOWER);
-                }
-                else
-                {
-                  TRIAC_TIME_SET(FAULTPOWER-10);
-                }
-              }
             break;
       }
   }
@@ -316,9 +304,23 @@ void MTR_Ctrl( void )
     CAL_MtrTemp( );
     CAL_MtrCurrent( );
     CAL_MtrSpeed( );
-    CAL_AcPeriod( );
-    CAL_MtrError( );
-    MTR_Driver( );
+    if(!mtrError)
+    {
+        CAL_AcPeriod( );
+        CAL_MtrError( );
+        MTR_Driver( );
+    }
+    else 
+    {
+        if(acCycle>363)
+        {  
+            TRIAC_TIME_SET(FAULTPOWER);
+        }
+        else
+        {
+            TRIAC_TIME_SET(FAULTPOWER-10);
+        }
+    }    
     acCycleFlag = 0;
   }
 

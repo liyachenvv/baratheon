@@ -135,8 +135,11 @@ void SYS_Init( void )
 void SYS_Ctrl( void )
   {
     static XRAM U32 time = 0;
-    CAL_MtrLevel( );
-    CAL_TuneValue( );
+    if(!mtrError) 
+	{
+	    CAL_MtrLevel( );
+	    CAL_TuneValue( );
+    }
     if ( time ) time--;
     //timetemp= (U16) time;
     switch ( sysStatus )
