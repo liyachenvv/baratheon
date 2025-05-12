@@ -19,7 +19,7 @@
 
 #define VER_110VAC  0
 #define VER_220VAC  1
-#define FAULTPOWER  95
+#define FAULTPOWER  103
 
 #if  ( !VER_110VAC && !VER_220VAC ) || ( VER_110VAC && VER_220VAC )
 #error  One and only one of "VER_110VAC & VER_220VAC" should be set as "1"
@@ -28,5 +28,5 @@
 #include <htc.h>
 #include "PicTypes.h"
 #include "Hardware.h"
-//bank2 U16 timetemp;
+
 #endif

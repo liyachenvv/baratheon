@@ -2894,7 +2894,6 @@ extern U8 E2P_ReadByte( U8 addr );
 # 20 "D:\project\baratheon-winnie\baratheon-mplab-for-production\COM.h"
 extern void COM_Init( void );
 extern void COM_Ctrl( void );
-extern void COM_Ctrl2( void );
 
 # 36 "D:\project\baratheon-winnie\baratheon-mplab-for-production\Motor.h"
 extern  U16 mtrSpeedRef;
@@ -2947,7 +2946,6 @@ if ( sysTicks >= 100 )
 {
 sysTicks -= 100;
 MCU_Refresh( );
-COM_Ctrl2( );
 COM_Ctrl( );
 MTR_Ctrl( );
 SYS_Ctrl( );

@@ -4206,90 +4206,90 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _p `*S262  1 r1 ]
 [v _err `s  1 r2 ]
 [f ]
-[; ;MyMath.c: 39: if ( !( p->ro.W.H < p->ro.W.L && err >= 0 )
-[; ;MyMath.c: 40: && !( p->ro.W.L < p->ro.W.H && err < 0 ) )
-"40
+[; ;MyMath.c: 38: if ( !( p->ro.W.H < p->ro.W.L && err >= 0 )
+[; ;MyMath.c: 39: && !( p->ro.W.L < p->ro.W.H && err < 0 ) )
+"39
 [e $ ! && ! && < -> . . . *U _p 5 1 1 `i -> . . . *U _p 5 1 0 `i >= -> _err `i -> 0 `i ! && < -> . . . *U _p 5 1 0 `i -> . . . *U _p 5 1 1 `i < -> _err `i -> 0 `i 271  ]
-[; ;MyMath.c: 41: {
-"41
+[; ;MyMath.c: 40: {
+"40
 {
-[; ;MyMath.c: 42: p->ri.D += ( ( S32 )p->ki * ( S32 )err );
-"42
+[; ;MyMath.c: 41: p->ri.D += ( ( S32 )p->ki * ( S32 )err );
+"41
 [e =+ . . *U _p 4 0 * -> . *U _p 1 `l -> _err `l ]
-"43
+"42
 }
 [e :U 271 ]
-[; ;MyMath.c: 43: }
-[; ;MyMath.c: 62: p->ro.D = ( ( S32 )p->kp * ( S32 )err ) + ( ( S32 )p->kd * ( S32 )err - p->e1 ) + p->ri.D;
-"62
+[; ;MyMath.c: 42: }
+[; ;MyMath.c: 43: p->ro.D = ( ( S32 )p->kp * ( S32 )err ) + ( ( S32 )p->kd * ( S32 )err - p->e1 ) + p->ri.D;
+"43
 [e = . . *U _p 5 0 + + * -> . *U _p 0 `l -> _err `l - * -> . *U _p 2 `l -> _err `l -> . *U _p 3 `l . . *U _p 4 0 ]
-[; ;MyMath.c: 63: p->ro.W.L = p->ro.W.H;
-"63
+[; ;MyMath.c: 44: p->ro.W.L = p->ro.W.H;
+"44
 [e = . . . *U _p 5 1 0 . . . *U _p 5 1 1 ]
-[; ;MyMath.c: 64: p->e1 = err;
-"64
+[; ;MyMath.c: 45: p->e1 = err;
+"45
 [e = . *U _p 3 _err ]
-[; ;MyMath.c: 65: return p->ro.W.H;
-"65
+[; ;MyMath.c: 46: return p->ro.W.H;
+"46
 [e ) . . . *U _p 5 1 1 ]
 [e $UE 270  ]
-[; ;MyMath.c: 66: }
-"66
+[; ;MyMath.c: 47: }
+"47
 [e :UE 270 ]
 }
-"69
+"50
 [v _PID_LIM `(s  1 ef3`*S262`s`s ]
 {
-[; ;MyMath.c: 68: S16 PID_LIM( PID_t * p, S16 min, S16 max )
-[; ;MyMath.c: 69: {
+[; ;MyMath.c: 49: S16 PID_LIM( PID_t * p, S16 min, S16 max )
+[; ;MyMath.c: 50: {
 [e :U _PID_LIM ]
 [v _p `*S262  1 r1 ]
 [v _min `s  1 r2 ]
 [v _max `s  1 r3 ]
 [f ]
-[; ;MyMath.c: 70: if ( min < max )
-"70
+[; ;MyMath.c: 51: if ( min < max )
+"51
 [e $ ! < -> _min `i -> _max `i 273  ]
-[; ;MyMath.c: 71: {
-"71
+[; ;MyMath.c: 52: {
+"52
 {
-[; ;MyMath.c: 72: if ( p->ro.W.H > max )
-"72
+[; ;MyMath.c: 53: if ( p->ro.W.H > max )
+"53
 [e $ ! > -> . . . *U _p 5 1 1 `i -> _max `i 274  ]
-[; ;MyMath.c: 73: {
-"73
+[; ;MyMath.c: 54: {
+"54
 {
-[; ;MyMath.c: 74: p->ro.W.H = max;
-"74
+[; ;MyMath.c: 55: p->ro.W.H = max;
+"55
 [e = . . . *U _p 5 1 1 _max ]
-"75
+"56
 }
-[; ;MyMath.c: 75: }
+[; ;MyMath.c: 56: }
 [e $U 275  ]
-"76
+"57
 [e :U 274 ]
-[; ;MyMath.c: 76: else if ( p->ro.W.H < min )
+[; ;MyMath.c: 57: else if ( p->ro.W.H < min )
 [e $ ! < -> . . . *U _p 5 1 1 `i -> _min `i 276  ]
-[; ;MyMath.c: 77: {
-"77
+[; ;MyMath.c: 58: {
+"58
 {
-[; ;MyMath.c: 78: p->ro.W.H = min;
-"78
+[; ;MyMath.c: 59: p->ro.W.H = min;
+"59
 [e = . . . *U _p 5 1 1 _min ]
-"79
+"60
 }
 [e :U 276 ]
-"80
+"61
 [e :U 275 ]
 }
 [e :U 273 ]
-[; ;MyMath.c: 79: }
-[; ;MyMath.c: 80: }
-[; ;MyMath.c: 81: return p->ro.W.H;
-"81
+[; ;MyMath.c: 60: }
+[; ;MyMath.c: 61: }
+[; ;MyMath.c: 62: return p->ro.W.H;
+"62
 [e ) . . . *U _p 5 1 1 ]
 [e $UE 272  ]
-[; ;MyMath.c: 82: }
-"82
+[; ;MyMath.c: 63: }
+"63
 [e :UE 272 ]
 }

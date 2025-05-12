@@ -3046,10 +3046,12 @@ mtrLevel = 0;
 void SYS_Ctrl( void )
 {
 static  U32 time = 0;
+if(!mtrError)
+{
 CAL_MtrLevel( );
 CAL_TuneValue( );
+}
 if ( time ) time--;
-
 switch ( sysStatus )
 {
 case 0:

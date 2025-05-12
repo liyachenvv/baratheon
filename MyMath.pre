@@ -2942,14 +2942,11 @@ return ( ( U16 )root );
 
 S16 PID_CAL( PID_t * p, S16 err )
 {
-
 if ( !( p->ro.W.H < p->ro.W.L && err >= 0 )
 && !( p->ro.W.L < p->ro.W.H && err < 0 ) )
 {
 p->ri.D += ( ( S32 )p->ki * ( S32 )err );
 }
-
-# 62
 p->ro.D = ( ( S32 )p->kp * ( S32 )err ) + ( ( S32 )p->kd * ( S32 )err - p->e1 ) + p->ri.D;
 p->ro.W.L = p->ro.W.H;
 p->e1 = err;
