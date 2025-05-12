@@ -2894,7 +2894,6 @@ extern U8 E2P_ReadByte( U8 addr );
 # 20 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\COM.h"
 extern void COM_Init( void );
 extern void COM_Ctrl( void );
-extern void COM_Ctrl2( void );
 
 # 36 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Motor.h"
 extern  U16 mtrSpeedRef;

@@ -4126,205 +4126,187 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Uart.h: 23: extern U8 SRL_Puts( U8 * s, U8 n );
 [; ;COM.h: 20: void COM_Init( void );
 [; ;COM.h: 21: void COM_Ctrl( void );
-[; ;COM.h: 22: void COM_Ctrl2( void );
-[; ;MyMath.h: 20: typedef union
-[; ;MyMath.h: 21: {
-[; ;MyMath.h: 22: S32 D;
-[; ;MyMath.h: 23: struct { S16 L; S16 H; } W;
-[; ;MyMath.h: 24: } SDW;
-[; ;MyMath.h: 26: typedef struct
-[; ;MyMath.h: 27: {
-[; ;MyMath.h: 28: S16 kp;
-[; ;MyMath.h: 29: S16 ki;
-[; ;MyMath.h: 30: S16 kd;
-[; ;MyMath.h: 31: S16 e1;
-[; ;MyMath.h: 32: SDW ri;
-[; ;MyMath.h: 33: SDW ro;
-[; ;MyMath.h: 34: } PID_t;
-[; ;MyMath.h: 39: extern U16 SQRT32( U32 a );
-[; ;MyMath.h: 40: extern S16 PID_CAL( PID_t * p, S16 err );
-[; ;MyMath.h: 41: extern S16 PID_LIM( PID_t * p, S16 min, S16 max );
-"18 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\COM.c
+"16 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\COM.c
 [v _COM_Print `(v  1 ef1`us ]
 {
-[; ;COM.c: 17: void COM_Print( U16 n )
-[; ;COM.c: 18: {
+[; ;COM.c: 15: void COM_Print( U16 n )
+[; ;COM.c: 16: {
 [e :U _COM_Print ]
 [v _n `us  1 r1 ]
 [f ]
-"19
+"17
 [v _f `uc  1 a ]
-[; ;COM.c: 19: U8 f = 0;
+[; ;COM.c: 17: U8 f = 0;
 [e = _f -> -> 0 `i `uc ]
-[; ;COM.c: 20: if ( n >= 10000 )
-"20
-[e $ ! >= -> _n `ui -> -> 10000 `i `ui 264  ]
-[; ;COM.c: 21: {
-"21
+[; ;COM.c: 18: if ( n >= 10000 )
+"18
+[e $ ! >= -> _n `ui -> -> 10000 `i `ui 261  ]
+[; ;COM.c: 19: {
+"19
 {
-[; ;COM.c: 22: SRL_Putc( '0' + ( U8 )( n / 10000 ) );
-"22
+[; ;COM.c: 20: SRL_Putc( '0' + ( U8 )( n / 10000 ) );
+"20
 [e ( _SRL_Putc (1 -> + -> 48 `ui -> -> / -> _n `ui -> -> 10000 `i `ui `uc `ui `uc ]
-[; ;COM.c: 23: n %= 10000;
-"23
+[; ;COM.c: 21: n %= 10000;
+"21
 [e =% _n -> 10000 `us ]
-[; ;COM.c: 24: f = 1;
-"24
+[; ;COM.c: 22: f = 1;
+"22
 [e = _f -> -> 1 `i `uc ]
+"23
+}
+[e :U 261 ]
+[; ;COM.c: 23: }
+[; ;COM.c: 24: if ( f || n >= 1000 )
+"24
+[e $ ! || != -> _f `i -> -> -> 0 `i `uc `i >= -> _n `ui -> -> 1000 `i `ui 262  ]
+[; ;COM.c: 25: {
 "25
+{
+[; ;COM.c: 26: SRL_Putc( '0' + ( U8 )( n / 1000 ) );
+"26
+[e ( _SRL_Putc (1 -> + -> 48 `ui -> -> / -> _n `ui -> -> 1000 `i `ui `uc `ui `uc ]
+[; ;COM.c: 27: n %= 1000;
+"27
+[e =% _n -> 1000 `us ]
+[; ;COM.c: 28: f = 1;
+"28
+[e = _f -> -> 1 `i `uc ]
+"29
+}
+[e :U 262 ]
+[; ;COM.c: 29: }
+[; ;COM.c: 30: if ( f || n >= 100 )
+"30
+[e $ ! || != -> _f `i -> -> -> 0 `i `uc `i >= -> _n `ui -> -> 100 `i `ui 263  ]
+[; ;COM.c: 31: {
+"31
+{
+[; ;COM.c: 32: SRL_Putc( '0' + ( U8 )( n / 100 ) );
+"32
+[e ( _SRL_Putc (1 -> + -> 48 `ui -> -> / -> _n `ui -> -> 100 `i `ui `uc `ui `uc ]
+[; ;COM.c: 33: n %= 100;
+"33
+[e =% _n -> -> 100 `uc `us ]
+[; ;COM.c: 34: f = 1;
+"34
+[e = _f -> -> 1 `i `uc ]
+"35
+}
+[e :U 263 ]
+[; ;COM.c: 35: }
+[; ;COM.c: 36: if ( f || n >= 10 )
+"36
+[e $ ! || != -> _f `i -> -> -> 0 `i `uc `i >= -> _n `ui -> -> 10 `i `ui 264  ]
+[; ;COM.c: 37: {
+"37
+{
+[; ;COM.c: 38: SRL_Putc( '0' + ( U8 )( n / 10 ) );
+"38
+[e ( _SRL_Putc (1 -> + -> 48 `ui -> -> / -> _n `ui -> -> 10 `i `ui `uc `ui `uc ]
+[; ;COM.c: 39: n %= 10;
+"39
+[e =% _n -> -> 10 `uc `us ]
+"40
 }
 [e :U 264 ]
-[; ;COM.c: 25: }
-[; ;COM.c: 26: if ( f || n >= 1000 )
-"26
-[e $ ! || != -> _f `i -> -> -> 0 `i `uc `i >= -> _n `ui -> -> 1000 `i `ui 265  ]
-[; ;COM.c: 27: {
-"27
-{
-[; ;COM.c: 28: SRL_Putc( '0' + ( U8 )( n / 1000 ) );
-"28
-[e ( _SRL_Putc (1 -> + -> 48 `ui -> -> / -> _n `ui -> -> 1000 `i `ui `uc `ui `uc ]
-[; ;COM.c: 29: n %= 1000;
-"29
-[e =% _n -> 1000 `us ]
-[; ;COM.c: 30: f = 1;
-"30
-[e = _f -> -> 1 `i `uc ]
-"31
-}
-[e :U 265 ]
-[; ;COM.c: 31: }
-[; ;COM.c: 32: if ( f || n >= 100 )
-"32
-[e $ ! || != -> _f `i -> -> -> 0 `i `uc `i >= -> _n `ui -> -> 100 `i `ui 266  ]
-[; ;COM.c: 33: {
-"33
-{
-[; ;COM.c: 34: SRL_Putc( '0' + ( U8 )( n / 100 ) );
-"34
-[e ( _SRL_Putc (1 -> + -> 48 `ui -> -> / -> _n `ui -> -> 100 `i `ui `uc `ui `uc ]
-[; ;COM.c: 35: n %= 100;
-"35
-[e =% _n -> -> 100 `uc `us ]
-[; ;COM.c: 36: f = 1;
-"36
-[e = _f -> -> 1 `i `uc ]
-"37
-}
-[e :U 266 ]
-[; ;COM.c: 37: }
-[; ;COM.c: 38: if ( f || n >= 10 )
-"38
-[e $ ! || != -> _f `i -> -> -> 0 `i `uc `i >= -> _n `ui -> -> 10 `i `ui 267  ]
-[; ;COM.c: 39: {
-"39
-{
-[; ;COM.c: 40: SRL_Putc( '0' + ( U8 )( n / 10 ) );
-"40
-[e ( _SRL_Putc (1 -> + -> 48 `ui -> -> / -> _n `ui -> -> 10 `i `ui `uc `ui `uc ]
-[; ;COM.c: 41: n %= 10;
+[; ;COM.c: 40: }
+[; ;COM.c: 41: SRL_Putc( '0' + ( U8 )( n ) );
 "41
-[e =% _n -> -> 10 `uc `us ]
-"42
-}
-[e :U 267 ]
-[; ;COM.c: 42: }
-[; ;COM.c: 43: SRL_Putc( '0' + ( U8 )( n ) );
-"43
 [e ( _SRL_Putc (1 -> + -> 48 `ui -> -> _n `uc `ui `uc ]
-[; ;COM.c: 44: }
-"44
-[e :UE 263 ]
+[; ;COM.c: 42: }
+"42
+[e :UE 260 ]
 }
-"47
+"45
 [v _COM_Init `(v  1 ef ]
 {
-[; ;COM.c: 46: void COM_Init( void )
-[; ;COM.c: 47: {
+[; ;COM.c: 44: void COM_Init( void )
+[; ;COM.c: 45: {
 [e :U _COM_Init ]
 [f ]
-[; ;COM.c: 48: }
-"48
-[e :UE 268 ]
+[; ;COM.c: 46: }
+"46
+[e :UE 265 ]
 }
-"51
+"49
 [v _COM_Ctrl `(v  1 ef ]
 {
-[; ;COM.c: 50: void COM_Ctrl( void )
-[; ;COM.c: 51: {
+[; ;COM.c: 48: void COM_Ctrl( void )
+[; ;COM.c: 49: {
 [e :U _COM_Ctrl ]
 [f ]
-"52
-[v F2625 `uc  1 s t ]
-[i F2625
+"50
+[v F2599 `uc  1 s t ]
+[i F2599
 -> -> 0 `i `uc
 ]
-[; ;COM.c: 52: static  U8 t = 0;
-[; ;COM.c: 53: if ( ++t >= 100 )
-"53
-[e $ ! >= -> =+ F2625 -> -> 1 `i `uc `i -> 100 `i 270  ]
-[; ;COM.c: 54: {
-"54
+[; ;COM.c: 50: static  U8 t = 0;
+[; ;COM.c: 51: if ( ++t >= 100 )
+"51
+[e $ ! >= -> =+ F2599 -> -> 1 `i `uc `i -> 100 `i 267  ]
+[; ;COM.c: 52: {
+"52
 {
-[; ;COM.c: 55: t = 0;
-"55
-[e = F2625 -> -> 0 `i `uc ]
-[; ;COM.c: 56: COM_Print( ( U16 )mtrLevel );
-"56
+[; ;COM.c: 53: t = 0;
+"53
+[e = F2599 -> -> 0 `i `uc ]
+[; ;COM.c: 54: COM_Print( ( U16 )mtrLevel );
+"54
 [e ( _COM_Print (1 -> _mtrLevel `us ]
+[; ;COM.c: 55: SRL_Putc( ',' );
+"55
+[e ( _SRL_Putc (1 -> -> 44 `ui `uc ]
+[; ;COM.c: 56: COM_Print( ( U16 )adVrs );
+"56
+[e ( _COM_Print (1 -> _adVrs `us ]
 [; ;COM.c: 57: SRL_Putc( ',' );
 "57
 [e ( _SRL_Putc (1 -> -> 44 `ui `uc ]
-[; ;COM.c: 58: COM_Print( ( U16 )adVrs );
+[; ;COM.c: 58: COM_Print( ( U16 )adNtc );
 "58
-[e ( _COM_Print (1 -> _adVrs `us ]
+[e ( _COM_Print (1 -> _adNtc `us ]
 [; ;COM.c: 59: SRL_Putc( ',' );
 "59
 [e ( _SRL_Putc (1 -> -> 44 `ui `uc ]
-[; ;COM.c: 60: COM_Print( ( U16 )adNtc );
+[; ;COM.c: 60: COM_Print( mtrSpeedRef );
 "60
-[e ( _COM_Print (1 -> _adNtc `us ]
+[e ( _COM_Print (1 _mtrSpeedRef ]
 [; ;COM.c: 61: SRL_Putc( ',' );
 "61
 [e ( _SRL_Putc (1 -> -> 44 `ui `uc ]
-[; ;COM.c: 62: COM_Print( mtrSpeedRef );
+[; ;COM.c: 62: COM_Print( mtrSpeed );
 "62
-[e ( _COM_Print (1 _mtrSpeedRef ]
+[e ( _COM_Print (1 _mtrSpeed ]
 [; ;COM.c: 63: SRL_Putc( ',' );
 "63
 [e ( _SRL_Putc (1 -> -> 44 `ui `uc ]
-[; ;COM.c: 64: COM_Print( mtrSpeed );
+[; ;COM.c: 64: COM_Print( mtrCurrent );
 "64
-[e ( _COM_Print (1 _mtrSpeed ]
+[e ( _COM_Print (1 _mtrCurrent ]
 [; ;COM.c: 65: SRL_Putc( ',' );
 "65
 [e ( _SRL_Putc (1 -> -> 44 `ui `uc ]
-[; ;COM.c: 66: COM_Print( mtrCurrent );
+[; ;COM.c: 66: COM_Print( ( U16 )mtrTemp );
 "66
-[e ( _COM_Print (1 _mtrCurrent ]
+[e ( _COM_Print (1 -> _mtrTemp `us ]
 [; ;COM.c: 67: SRL_Putc( ',' );
 "67
 [e ( _SRL_Putc (1 -> -> 44 `ui `uc ]
-[; ;COM.c: 68: COM_Print( ( U16 )mtrTemp );
+[; ;COM.c: 68: COM_Print( ( U16 )E2P_ReadByte( 0xFE ) );
 "68
-[e ( _COM_Print (1 -> _mtrTemp `us ]
-[; ;COM.c: 69: SRL_Putc( ',' );
-"69
-[e ( _SRL_Putc (1 -> -> 44 `ui `uc ]
-[; ;COM.c: 70: COM_Print( ( U16 )E2P_ReadByte( 0xFE ) );
-"70
 [e ( _COM_Print (1 -> ( _E2P_ReadByte (1 -> -> 254 `i `uc `us ]
-[; ;COM.c: 71: SRL_Putc( '\r' );
-"71
+[; ;COM.c: 69: SRL_Putc( '\r' );
+"69
 [e ( _SRL_Putc (1 -> -> 13 `ui `uc ]
-[; ;COM.c: 72: SRL_Putc( '\n' );
-"72
+[; ;COM.c: 70: SRL_Putc( '\n' );
+"70
 [e ( _SRL_Putc (1 -> -> 10 `ui `uc ]
-"73
+"71
 }
-[e :U 270 ]
-[; ;COM.c: 73: }
-[; ;COM.c: 74: }
-"74
-[e :UE 269 ]
+[e :U 267 ]
+[; ;COM.c: 71: }
+[; ;COM.c: 72: }
+"72
+[e :UE 266 ]
 }

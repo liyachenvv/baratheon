@@ -8,7 +8,6 @@
 #define _HARDWARE_SRC_
 #include "Globals.h"
 #include "Hardware.h"
-#include "Motor.h"
 
 __CONFIG( 0X0F9C );
 __CONFIG( 0X3FFC );
@@ -467,7 +466,6 @@ void interrupt INTSR( void )
             MOVWF       LATA
             MOVLB       1
 
-            
             BTFSS       TMR_OFF+1,  7
             GOTO        ZERO_CHECK_E            ; 6
             INCFSZ      TMR_OFF,    F
@@ -492,8 +490,8 @@ void interrupt INTSR( void )
             COMF        FSR1H       
             INCF        FSR1L                   
             POS_MINUS:
-            ;190=0XBE 200=0XC8 240=0XF0 300=0X12C 
-            MOVLW       0XBE
+            ;180=0XB4 190=0XBE 200=0XC8 240=0XF0 300=0X12C 
+            MOVLW       0XB4
             SUBWF       FSR1L,   W
             MOVLW       0X00
             SUBWFB      FSR1H, W        

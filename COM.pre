@@ -2925,33 +2925,8 @@ extern U8 SRL_Puts( U8 * s, U8 n );
 # 20 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\COM.h"
  void COM_Init( void );
  void COM_Ctrl( void );
- void COM_Ctrl2( void );
 
-# 20 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\MyMath.h"
-typedef union
-{
-S32 D;
-struct { S16 L; S16 H; } W;
-} SDW;
-
-typedef struct
-{
-S16 kp;
-S16 ki;
-S16 kd;
-S16 e1;
-SDW ri;
-SDW ro;
-} PID_t;
-
-
-
-
-extern U16 SQRT32( U32 a );
-extern S16 PID_CAL( PID_t * p, S16 err );
-extern S16 PID_LIM( PID_t * p, S16 min, S16 max );
-
-# 17 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\COM.c"
+# 15 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\COM.c"
 void COM_Print( U16 n )
 {
 U8 f = 0;

@@ -2230,8 +2230,8 @@
 [s S4843 . 1 `uc 1 TOSH 1 0 :7:0 
 ]
 [u S4845 . 1 `S2873 1 . 1 0 ]
-"255 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c
-[v F2595 `(v  1 t 0 ]
+"254 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c
+[v F2586 `(v  1 t 0 ]
 "150 c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f1829.h
 [s S4916 . 1 `uc 1 C 1 0 :1:0 
 `uc 1 DC 1 0 :1:1 
@@ -9008,21 +9008,21 @@
 [v ___tmul `(um  1 e 3 0 ]
 "3 c:\Program Files (x86)\HI-TECH Software\PICC\9.83\sources\wmul.c
 [v ___wmul `(ui  1 e 2 0 ]
-"18 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\COM.c
+"16 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\COM.c
 [v _COM_Print `(v  1 e 0 0 ]
-"47
+"45
 [v _COM_Init `(v  1 e 0 0 ]
-"51
+"49
 [v _COM_Ctrl `(v  1 e 0 0 ]
-"107 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c
+"106 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c
 [v _MCU_Init `(v  1 e 0 0 ]
-"204
+"203
 [v _MCU_Refresh `(v  1 e 0 0 ]
-"231
+"230
 [v _E2P_WriteByte `(v  1 e 0 0 ]
-"246
+"245
 [v _E2P_ReadByte `(uc  1 e 1 0 ]
-"255
+"254
 [v _INTSR `I(v  1 e 0 0 ]
 "10 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\main.c
 [v _main `(v  1 e 0 0 ]
@@ -9046,7 +9046,7 @@
 [v _SQRT32 `(us  1 e 2 0 ]
 "37
 [v _PID_CAL `(s  1 e 2 0 ]
-"69
+"50
 [v _PID_LIM `(s  1 e 2 0 ]
 "158 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Service.c
 [v _E2P_RD `(v  1 e 0 0 ]
@@ -10690,45 +10690,45 @@
 [v _STKPTRbits `VES2846  1 e 1 @4077 ]
 "3028
 [v _TOSHbits `VES83  1 e 1 @4079 ]
-"16 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c
+"15 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c
 [v _ODRA `Xuc  1 s 1 ODRA ]
-"17
+"16
 [v _scnHall `Xuc  1 s 1 scnHall ]
-"18
+"17
 [v _scnZero `Xuc  1 s 1 scnZero ]
-"19
+"18
 [v _scnTest `Xuc  1 s 1 scnTest ]
-"20
+"19
 [v _enADC `Xuc  1 s 1 enADC ]
-"21
+"20
 [v _tmADVAC `Xuc  1 s 1 tmADVAC ]
-"22
+"21
 [v _tmADVRS `Xuc  1 s 1 tmADVRS ]
-"23
+"22
 [v _tmADNTC `Xuc  1 s 1 tmADNTC ]
-"24
+"23
 [v _tmTST0 `Xuc  1 s 1 tmTST0 ]
-"25
+"24
 [v _tmTST1 `Xuc  1 s 1 tmTST1 ]
-"26
+"25
 [v _sysTimer `Xus  1 s 2 sysTimer ]
-"27
+"26
 [v _tmTriacOn `Xus  1 s 2 tmTriacOn ]
-"28
+"27
 [v _tmTriacOff `Xus  1 s 2 tmTriacOff ]
-"29
+"28
 [v _adCur2Buf `Xul  1 s 4 adCur2Buf ]
-"30
+"29
 [v _adCurNBuf `Xuc  1 s 1 adCurNBuf ]
-"31
+"30
 [v _prevTrig `Xus  1 s 2 prevTrig ]
-"32
+"31
 [v _trigDone `Xuc  1 s 1 trigDone ]
-"33
+"32
 [v _triggering `Xuc  1 s 1 triggering ]
-"34
+"33
 [v _FLT `DC[256]uc  1 e 256 @7424 ]
-"70
+"69
 [v _SQ8 `DC[256]us  1 e 512 @7680 ]
 "60 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.h
 [v _sysTicks `Xuc  1 e 1 0 ]
@@ -10899,7 +10899,7 @@
 {
 "137
 [v SYS_Ctrl@time `ul  1 s 4 time ]
-"230
+"229
 } 0
 "332 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Service.c
 [v _SVC_Init `(v  1 e 0 0 ]
@@ -10908,12 +10908,12 @@
 [v SVC_Init@cmp `c  1 a 1 10 ]
 "379
 } 0
-"51 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\COM.c
+"49 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\COM.c
 [v _COM_Ctrl `(v  1 e 0 0 ]
 {
-"52
+"50
 [v COM_Ctrl@t `uc  1 s 1 t ]
-"74
+"72
 } 0
 "517 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Service.c
 [v _REC_Faults `(v  1 e 0 0 ]
@@ -10988,7 +10988,7 @@
 [v PID_CAL@p `*.0S8862  1 a 1 wreg ]
 [v PID_CAL@p `*.0S8862  1 a 1 wreg ]
 [v PID_CAL@err `s  1 p 2 0 ]
-"66
+"47
 } 0
 "128 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Motor.c
 [v _CAL_MtrSpeed `(v  1 e 0 0 ]
@@ -11013,14 +11013,14 @@
 [v CAL_MtrCurrent@tmOVC `us  1 s 2 tmOVC ]
 "125
 } 0
-"18 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\COM.c
+"16 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\COM.c
 [v _COM_Print `(v  1 e 0 0 ]
 {
-"19
+"17
 [v COM_Print@f `uc  1 a 1 11 ]
-"18
+"16
 [v COM_Print@n `us  1 p 2 9 ]
-"44
+"42
 } 0
 "5 c:\Program Files (x86)\HI-TECH Software\PICC\9.83\sources\lldiv.c
 [v ___lldiv `(ul  1 e 4 0 ]
@@ -11150,14 +11150,14 @@
 {
 "643
 } 0
-"69 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\MyMath.c
+"50 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\MyMath.c
 [v _PID_LIM `(s  1 e 2 0 ]
 {
 [v PID_LIM@p `*.0S8862  1 a 1 wreg ]
 [v PID_LIM@p `*.0S8862  1 a 1 wreg ]
 [v PID_LIM@min `s  1 p 2 1 ]
 [v PID_LIM@max `s  1 p 2 3 ]
-"82
+"63
 } 0
 "203 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Motor.c
 [v _CAL_MtrError `(v  1 e 0 0 ]
@@ -11213,35 +11213,35 @@
 {
 "300
 } 0
-"231 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c
+"230 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c
 [v _E2P_WriteByte `(v  1 e 0 0 ]
 {
 [v E2P_WriteByte@addr `uc  1 a 1 wreg ]
 [v E2P_WriteByte@addr `uc  1 a 1 wreg ]
 [v E2P_WriteByte@byte `uc  1 p 1 1 ]
-"243
+"242
 } 0
-"204
+"203
 [v _MCU_Refresh `(v  1 e 0 0 ]
 {
-"228
+"227
 } 0
-"107
+"106
 [v _MCU_Init `(v  1 e 0 0 ]
 {
-"201
+"200
 } 0
-"246
+"245
 [v _E2P_ReadByte `(uc  1 e 1 0 ]
 {
 [v E2P_ReadByte@addr `uc  1 a 1 wreg ]
 [v E2P_ReadByte@addr `uc  1 a 1 wreg ]
-"252
+"251
 } 0
-"47 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\COM.c
+"45 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\COM.c
 [v _COM_Init `(v  1 e 0 0 ]
 {
-"48
+"46
 } 0
 "39 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Uart.c
 [v _SRL_Putc `(uc  1 e 1 0 ]
@@ -11250,8 +11250,8 @@
 [v SRL_Putc@c `uc  1 a 1 wreg ]
 "45
 } 0
-"255 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c
+"254 D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c
 [v _INTSR `I(v  1 e 0 0 ]
 {
-"830
+"812
 } 0

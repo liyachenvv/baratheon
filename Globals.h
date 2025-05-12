@@ -28,5 +28,5 @@
 #include <htc.h>
 #include "PicTypes.h"
 #include "Hardware.h"
-//bank2 U16 timetemp;
+
 #endif

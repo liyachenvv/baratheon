@@ -141,7 +141,6 @@ void SYS_Ctrl( void )
 	    CAL_TuneValue( );
     }
     if ( time ) time--;
-    //timetemp= (U16) time;
     switch ( sysStatus )
       {
         case E_SYS_INIT:

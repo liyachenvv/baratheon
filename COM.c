@@ -11,8 +11,6 @@
 #include "Motor.h"
 #include "Uart.h"
 #include "COM.h"
-#include "MyMath.h"
-#include "Hardware.h"
 
 void COM_Print( U16 n )
   {
@@ -54,7 +52,7 @@ void COM_Ctrl( void )
       {
         t = 0;
         COM_Print( ( U16 )mtrLevel );
-        SRL_Putc( ',' ); 
+        SRL_Putc( ',' );
         COM_Print( ( U16 )adVrs );
         SRL_Putc( ',' );
         COM_Print( ( U16 )adNtc );
@@ -62,15 +60,14 @@ void COM_Ctrl( void )
         COM_Print( mtrSpeedRef );
         SRL_Putc( ',' );
         COM_Print( mtrSpeed );
-        SRL_Putc( ',' );     
+        SRL_Putc( ',' );
         COM_Print( mtrCurrent );
         SRL_Putc( ',' );
         COM_Print( ( U16 )mtrTemp );
-        SRL_Putc( ',' );      
-        COM_Print( ( U16 )E2P_ReadByte( 0xFE ) ); 
+        SRL_Putc( ',' );
+        COM_Print( ( U16 )E2P_ReadByte( 0xFE ) );
         SRL_Putc( '\r' );
         SRL_Putc( '\n' );
       }
   }
-
 

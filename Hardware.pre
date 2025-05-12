@@ -2891,19 +2891,7 @@ U8 T;
  void E2P_WriteByte( U8 addr, U8 byte );
  U8 E2P_ReadByte( U8 addr );
 
-# 36 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Motor.h"
-extern  U16 mtrSpeedRef;
-extern  U16 mtrSpeed;
-extern  U16 mtrCurrent;
-extern  S8 mtrTemp;
-
-# 48
-extern  U8 mtrError;
-
-extern void MTR_Init( void );
-extern void MTR_Ctrl( void );
-
-# 13 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
+# 12 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.c"
 asm("\tpsect config,class=CONFIG,delta=2"); asm("\tdw ""0X0F9C");
 asm("\tpsect config,class=CONFIG,delta=2"); asm("\tdw ""0X3FFC");
 
@@ -3148,7 +3136,7 @@ return EEDATL;
 void interrupt INTSR( void )
 {
 
-# 256
+# 255
 #asm
             ;++++++++++++++++++++++++++++++++++++++++++++++
             ; COMMON REGS.
@@ -3357,21 +3345,13 @@ void interrupt INTSR( void )
             BTFSC AC_SCAN, nEDGE
             GOTO ZERO_EDGE ; 4
             ZERO_TRIG:
-            MOVLB 2
+            MOVLB 2 ;RA1=0
             MOVF LATA, w
             ANDLW 0XFD
             MOVWF LATA
             MOVLB 1
-            ;MOVLB 1
-            ;BCF ODRA, 1
-            ;MOVF ODRA, W
-            ;MOVLB 2
-            ;XORWF LATA, W
-            ;ANDLW 0X26
-            ;XORWF LATA, F
-            ;MOVLB 1
 
-                        BTFSS TMR_OFF+1, 7
+            BTFSS TMR_OFF+1, 7
             GOTO ZERO_CHECK_E ; 6
             INCFSZ TMR_OFF, F
             GOTO $+2
@@ -3395,8 +3375,8 @@ void interrupt INTSR( void )
             COMF FSR1H
             INCF FSR1L
             POS_MINUS:
-            ;190=0XBE 200=0XC8 240=0XF0 300=0X12C
-            MOVLW 0XBE
+            ;180=0XB4 190=0XBE 200=0XC8 240=0XF0 300=0X12C
+            MOVLW 0XB4
             SUBWF FSR1L, W
             MOVLW 0X00
             SUBWFB FSR1H, W
@@ -3413,15 +3393,13 @@ void interrupt INTSR( void )
             BSF TRIGGERING, 0
             TIMING_TRIG:
             MOVF TMR_ON, W
-            SUBLW 20 ;5->20
+            SUBLW 20 ;
             BTFSS STATUS, Z
-            ;BTFSC STATUS, C ;yes,here. it is wondrous.
-            ;if use this one, the speed will surge, pulsed.
             GOTO ZERO_CHECK_E ; 16
             MOVLW 0XF0
             MOVWF TMR_ON
             MOVLW 0XF0
-            MOVWF TMR_ON+1 ;
+            MOVWF TMR_ON+1 ;0xF0F0=-3856
             MOVLW 0X0F
             MOVWF TMR_OFF
             MOVLW 0X0F
@@ -3430,19 +3408,12 @@ void interrupt INTSR( void )
             BCF TRIGGERING, 0
             GOTO ZERO_CHECK_E
             ZERO_EDGE:
-            MOVLB 2
+            MOVLB 2 ;RA1=1
             MOVF LATA, w
             IORLW 0x02
             MOVWF LATA
             MOVLB 1
-            ;MOVLB 1
-            ;BSF ODRA, 1
-            ;MOVF ODRA, W
-            ;MOVLB 2
-            ;XORWF LATA, W
-            ;ANDLW 0X26
-            ;XORWF LATA, F
-            ;MOVLB 1
+
             BCF TRIG_DONE, 0
             BCF TRIGGERING, 0
             CLRF TMR_OFF+1
@@ -3537,7 +3508,7 @@ void interrupt INTSR( void )
             MOVWF TAD_VAC
 
 #endasm
-# 645
+# 627
 #asm
                                                             ADDLW 1
 
