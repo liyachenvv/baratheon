@@ -1,5 +1,5 @@
 
-# 1 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Motor.c"
+# 1 "D:\project\baratheon-winnie\baratheon-mplab-calibrate\Motor.c"
 
 # 132 "c:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f1829.h"
 volatile unsigned char INDF0 @ 0x000;
@@ -2797,7 +2797,7 @@ extern void memcpyee(eeprom unsigned char *to, const unsigned char *from, unsign
 #pragma inline(_delay)
 extern void _delay(unsigned long);
 
-# 15 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\PicTypes.h"
+# 15 "D:\project\baratheon-winnie\baratheon-mplab-calibrate\PicTypes.h"
 typedef unsigned char U8;
 typedef unsigned short U16;
 typedef unsigned long U32;
@@ -2848,7 +2848,7 @@ U8 T;
 } B;
 } DWORD;
 
-# 60 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Hardware.h"
+# 60 "D:\project\baratheon-winnie\baratheon-mplab-calibrate\Hardware.h"
 extern bank1 U8 sysTicks;
 
 extern bank1 U32 adCur2;
@@ -2891,7 +2891,7 @@ extern void MCU_Refresh( void );
 extern void E2P_WriteByte( U8 addr, U8 byte );
 extern U8 E2P_ReadByte( U8 addr );
 
-# 36 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Motor.h"
+# 36 "D:\project\baratheon-winnie\baratheon-mplab-calibrate\Motor.h"
   U16 mtrSpeedRef;
   U16 mtrSpeed;
   U16 mtrCurrent;
@@ -2903,7 +2903,7 @@ extern U8 E2P_ReadByte( U8 addr );
  void MTR_Init( void );
  void MTR_Ctrl( void );
 
-# 20 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\MyMath.h"
+# 20 "D:\project\baratheon-winnie\baratheon-mplab-calibrate\MyMath.h"
 typedef union
 {
 S32 D;
@@ -2927,7 +2927,7 @@ extern U16 SQRT32( U32 a );
 extern S16 PID_CAL( PID_t * p, S16 err );
 extern S16 PID_LIM( PID_t * p, S16 min, S16 max );
 
-# 16 "D:\project\baratheon-winnie\baratheon-mplab-500us-continus-works\Motor.c"
+# 16 "D:\project\baratheon-winnie\baratheon-mplab-calibrate\Motor.c"
 const U8 ad2tpr[ 256 ] =
 {
 127, 127, 127, 127, 127, 127, 127, 127,

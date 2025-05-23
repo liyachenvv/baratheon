@@ -54,8 +54,8 @@
 #define AIN_NTC       3
 #define AIN_VAC       5
 
-#define SYS_RELAY_ON( )   LATB6 = 1
-#define SYS_RELAY_OFF( )  LATB6 = 0
+#define SYS_LED_ON( )   LATB6 = 0
+#define SYS_LED_OFF( )  LATB6 = 1
 
 EXTERN bank1 U8  sysTicks;
 

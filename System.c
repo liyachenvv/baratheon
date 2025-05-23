@@ -74,6 +74,7 @@ void CAL_TuneValue( void )
                 if ( mtrLevel == 10 )
                   {
                     state++;
+                    SYS_LED_ON( );
                   }
                 else
                   {
@@ -117,6 +118,7 @@ void CAL_TuneValue( void )
             break;
         case 4:
             SVC_SetTuneValue( ( min + max ) >> 1 );
+            SYS_LED_OFF( );
             state = 255;
             break;
         default:
@@ -135,8 +137,8 @@ void SYS_Init( void )
 void SYS_Ctrl( void )
   {
     static XRAM U32 time = 0;
-    if(!mtrError) 
-	{
+    //if(!mtrError) 
+    {
 	    CAL_MtrLevel( );
 	    CAL_TuneValue( );
     }
