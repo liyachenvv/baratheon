@@ -30,12 +30,10 @@ void main( void )
             if ( sysStatus != E_SYS_OFF || e2pWrFlags )
               {
                 offTime = 5;
-                //SYS_RELAY_ON( );
               }
             else if ( --offTime == 0 )
               {
                 offTime = 1;
-                //SYS_RELAY_OFF( );
               }
           }
       }

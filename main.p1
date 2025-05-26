@@ -4212,37 +4212,37 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 32: offTime = 5;
 "32
 [e = F2591 -> -> 5 `i `uc ]
-"34
+"33
 }
-[; ;main.c: 34: }
+[; ;main.c: 33: }
 [e $U 266  ]
-"35
+"34
 [e :U 265 ]
-[; ;main.c: 35: else if ( --offTime == 0 )
+[; ;main.c: 34: else if ( --offTime == 0 )
 [e $ ! == -> =- F2591 -> -> 1 `i `uc `i -> 0 `i 267  ]
-[; ;main.c: 36: {
-"36
+[; ;main.c: 35: {
+"35
 {
-[; ;main.c: 37: offTime = 1;
-"37
+[; ;main.c: 36: offTime = 1;
+"36
 [e = F2591 -> -> 1 `i `uc ]
-"39
+"37
 }
 [e :U 267 ]
-"40
+"38
 [e :U 266 ]
 }
 [e :U 264 ]
-"41
+"39
 }
 [e :U 261 ]
 "18
 [e $U 262  ]
 [e :U 263 ]
+[; ;main.c: 37: }
+[; ;main.c: 38: }
 [; ;main.c: 39: }
 [; ;main.c: 40: }
-[; ;main.c: 41: }
-[; ;main.c: 42: }
-"42
+"40
 [e :UE 260 ]
 }

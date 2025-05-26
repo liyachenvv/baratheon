@@ -2073,10 +2073,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _acCycleHalf `Xuc  0 e ]
 "78 D:\project\baratheon-winnie\baratheon-mplab-for-production\Service.h
 [v _SVC_SetTuneValue `(v  0 ef1`uc ]
-"48 D:\project\baratheon-winnie\baratheon-mplab-for-production\Motor.h
-[v _mtrError `uc  0 e ]
 "36 D:\project\baratheon-winnie\baratheon-mplab-for-production\Motor.h
 [v _mtrSpeedRef `us  0 e ]
+"48 D:\project\baratheon-winnie\baratheon-mplab-for-production\Motor.h
+[v _mtrError `uc  0 e ]
 "69 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
 [v _idrTest0 `Xuc  0 e ]
 "70 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
@@ -4406,166 +4406,172 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;System.c: 76: state++;
 "76
 [e ++ F2591 -> -> 1 `i `uc ]
+[; ;System.c: 77: LATB6 = 0;
 "77
-}
-[; ;System.c: 77: }
-[e $U 310  ]
+[e = _LATB6 -> -> 0 `i `b ]
 "78
-[e :U 309 ]
-[; ;System.c: 78: else
-[; ;System.c: 79: {
-"79
-{
-[; ;System.c: 80: state = 255;
-"80
-[e = F2591 -> -> 255 `i `uc ]
-"81
 }
-[e :U 310 ]
+[; ;System.c: 78: }
+[e $U 310  ]
+"79
+[e :U 309 ]
+[; ;System.c: 79: else
+[; ;System.c: 80: {
+"80
+{
+[; ;System.c: 81: state = 255;
+"81
+[e = F2591 -> -> 255 `i `uc ]
 "82
 }
-[e :U 308 ]
-[; ;System.c: 81: }
-[; ;System.c: 82: }
-[; ;System.c: 83: break;
+[e :U 310 ]
 "83
-[e $U 303  ]
-[; ;System.c: 84: case 2:
+}
+[e :U 308 ]
+[; ;System.c: 82: }
+[; ;System.c: 83: }
+[; ;System.c: 84: break;
 "84
-[e :U 311 ]
-[; ;System.c: 85: if ( mtrLevel == 1 )
+[e $U 303  ]
+[; ;System.c: 85: case 2:
 "85
-[e $ ! == -> _mtrLevel `i -> 1 `i 312  ]
-[; ;System.c: 86: {
+[e :U 311 ]
+[; ;System.c: 86: if ( mtrLevel == 1 )
 "86
-{
-[; ;System.c: 87: state++;
+[e $ ! == -> _mtrLevel `i -> 1 `i 312  ]
+[; ;System.c: 87: {
 "87
-[e ++ F2591 -> -> 1 `i `uc ]
-[; ;System.c: 88: time = 300;
+{
+[; ;System.c: 88: state++;
 "88
-[e = F2592 -> -> 300 `i `us ]
+[e ++ F2591 -> -> 1 `i `uc ]
+[; ;System.c: 89: time = 300;
 "89
+[e = F2592 -> -> 300 `i `us ]
+"90
 }
 [e :U 312 ]
-[; ;System.c: 89: }
-[; ;System.c: 90: break;
-"90
-[e $U 303  ]
-[; ;System.c: 91: case 3:
+[; ;System.c: 90: }
+[; ;System.c: 91: break;
 "91
-[e :U 313 ]
-[; ;System.c: 92: if ( mtrLevel != 1 )
+[e $U 303  ]
+[; ;System.c: 92: case 3:
 "92
-[e $ ! != -> _mtrLevel `i -> 1 `i 314  ]
-[; ;System.c: 93: {
+[e :U 313 ]
+[; ;System.c: 93: if ( mtrLevel != 1 )
 "93
-{
-[; ;System.c: 94: state = 255;
+[e $ ! != -> _mtrLevel `i -> 1 `i 314  ]
+[; ;System.c: 94: {
 "94
-[e = F2591 -> -> 255 `i `uc ]
+{
+[; ;System.c: 95: state = 255;
 "95
-}
-[; ;System.c: 95: }
-[e $U 315  ]
+[e = F2591 -> -> 255 `i `uc ]
 "96
-[e :U 314 ]
-[; ;System.c: 96: else if ( time >= 100 )
-[e $ ! >= -> F2592 `ui -> -> 100 `i `ui 316  ]
-[; ;System.c: 97: {
-"97
-{
-[; ;System.c: 98: min = adVrs;
-"98
-[e = F2593 _adVrs ]
-[; ;System.c: 99: max = adVrs;
-"99
-[e = F2594 _adVrs ]
-"100
 }
-[; ;System.c: 100: }
-[e $U 317  ]
-"101
-[e :U 316 ]
-[; ;System.c: 101: else
-[; ;System.c: 102: {
-"102
+[; ;System.c: 96: }
+[e $U 315  ]
+"97
+[e :U 314 ]
+[; ;System.c: 97: else if ( time >= 100 )
+[e $ ! >= -> F2592 `ui -> -> 100 `i `ui 316  ]
+[; ;System.c: 98: {
+"98
 {
-[; ;System.c: 103: if ( adVrs < min ) min = adVrs;
+[; ;System.c: 99: min = adVrs;
+"99
+[e = F2593 _adVrs ]
+[; ;System.c: 100: max = adVrs;
+"100
+[e = F2594 _adVrs ]
+"101
+}
+[; ;System.c: 101: }
+[e $U 317  ]
+"102
+[e :U 316 ]
+[; ;System.c: 102: else
+[; ;System.c: 103: {
 "103
+{
+[; ;System.c: 104: if ( adVrs < min ) min = adVrs;
+"104
 [e $ ! < -> _adVrs `i -> F2593 `i 318  ]
 [e = F2593 _adVrs ]
 [e :U 318 ]
-[; ;System.c: 104: if ( adVrs > max ) max = adVrs;
-"104
+[; ;System.c: 105: if ( adVrs > max ) max = adVrs;
+"105
 [e $ ! > -> _adVrs `i -> F2594 `i 319  ]
 [e = F2594 _adVrs ]
 [e :U 319 ]
-[; ;System.c: 105: if ( !time )
-"105
-[e $ ! ! != -> F2592 `ui -> -> -> 0 `i `us `ui 320  ]
-[; ;System.c: 106: {
+[; ;System.c: 106: if ( !time )
 "106
-{
-[; ;System.c: 107: if ( min < 10 || max >= 30 )
+[e $ ! ! != -> F2592 `ui -> -> -> 0 `i `us `ui 320  ]
+[; ;System.c: 107: {
 "107
-[e $ ! || < -> F2593 `i -> 10 `i >= -> F2594 `i -> 30 `i 321  ]
-[; ;System.c: 108: {
+{
+[; ;System.c: 108: if ( min < 10 || max >= 30 )
 "108
-{
-[; ;System.c: 109: state = 255;
+[e $ ! || < -> F2593 `i -> 10 `i >= -> F2594 `i -> 30 `i 321  ]
+[; ;System.c: 109: {
 "109
-[e = F2591 -> -> 255 `i `uc ]
-"110
-}
-[; ;System.c: 110: }
-[e $U 322  ]
-"111
-[e :U 321 ]
-[; ;System.c: 111: else
-[; ;System.c: 112: {
-"112
 {
-[; ;System.c: 113: state++;
-"113
-[e ++ F2591 -> -> 1 `i `uc ]
-"114
+[; ;System.c: 110: state = 255;
+"110
+[e = F2591 -> -> 255 `i `uc ]
+"111
 }
-[e :U 322 ]
+[; ;System.c: 111: }
+[e $U 322  ]
+"112
+[e :U 321 ]
+[; ;System.c: 112: else
+[; ;System.c: 113: {
+"113
+{
+[; ;System.c: 114: state++;
+"114
+[e ++ F2591 -> -> 1 `i `uc ]
 "115
 }
-[e :U 320 ]
+[e :U 322 ]
 "116
+}
+[e :U 320 ]
+"117
 }
 [e :U 317 ]
 [e :U 315 ]
-[; ;System.c: 114: }
 [; ;System.c: 115: }
 [; ;System.c: 116: }
-[; ;System.c: 117: break;
-"117
-[e $U 303  ]
-[; ;System.c: 118: case 4:
+[; ;System.c: 117: }
+[; ;System.c: 118: break;
 "118
-[e :U 323 ]
-[; ;System.c: 119: SVC_SetTuneValue( ( min + max ) >> 1 );
-"119
-[e ( _SVC_SetTuneValue (1 -> >> + -> F2593 `i -> F2594 `i -> 1 `i `uc ]
-[; ;System.c: 120: state = 255;
-"120
-[e = F2591 -> -> 255 `i `uc ]
-[; ;System.c: 121: break;
-"121
 [e $U 303  ]
-[; ;System.c: 122: default:
+[; ;System.c: 119: case 4:
+"119
+[e :U 323 ]
+[; ;System.c: 120: SVC_SetTuneValue( ( min + max ) >> 1 );
+"120
+[e ( _SVC_SetTuneValue (1 -> >> + -> F2593 `i -> F2594 `i -> 1 `i `uc ]
+[; ;System.c: 121: LATB6 = 1;
+"121
+[e = _LATB6 -> -> 1 `i `b ]
+[; ;System.c: 122: state = 255;
 "122
-[e :U 324 ]
+[e = F2591 -> -> 255 `i `uc ]
 [; ;System.c: 123: break;
 "123
 [e $U 303  ]
+[; ;System.c: 124: default:
 "124
+[e :U 324 ]
+[; ;System.c: 125: break;
+"125
+[e $U 303  ]
+"126
 }
-[; ;System.c: 124: }
+[; ;System.c: 126: }
 [e $U 303  ]
 "62
 [e :U 304 ]
@@ -4575,359 +4581,355 @@ Version 3.2 HI-TECH Software Intermediate Code
  , $ -> -> 3 `i `uc 313
  , $ -> -> 4 `i `uc 323
  324 ]
-"124
+"126
 [e :U 303 ]
-[; ;System.c: 125: }
-"125
+[; ;System.c: 127: }
+"127
 [e :UE 301 ]
 }
-"128
+"130
 [v _SYS_Init `(v  1 ef ]
 {
-[; ;System.c: 127: void SYS_Init( void )
-[; ;System.c: 128: {
+[; ;System.c: 129: void SYS_Init( void )
+[; ;System.c: 130: {
 [e :U _SYS_Init ]
 [f ]
-[; ;System.c: 129: sysStatus = 0;
-"129
-[e = _sysStatus -> -> 0 `i `uc ]
-[; ;System.c: 130: sysLevel = 0;
-"130
-[e = _sysLevel -> -> 0 `i `uc ]
-[; ;System.c: 131: sysFault = 0;
+[; ;System.c: 131: sysStatus = 0;
 "131
-[e = _sysFault -> -> 0 `i `uc ]
-[; ;System.c: 132: mtrLevel = 0;
+[e = _sysStatus -> -> 0 `i `uc ]
+[; ;System.c: 132: sysLevel = 0;
 "132
-[e = _mtrLevel -> -> 0 `i `uc ]
-[; ;System.c: 133: }
+[e = _sysLevel -> -> 0 `i `uc ]
+[; ;System.c: 133: sysFault = 0;
 "133
+[e = _sysFault -> -> 0 `i `uc ]
+[; ;System.c: 134: mtrLevel = 0;
+"134
+[e = _mtrLevel -> -> 0 `i `uc ]
+[; ;System.c: 135: }
+"135
 [e :UE 325 ]
 }
-"136
+"138
 [v _SYS_Ctrl `(v  1 ef ]
 {
-[; ;System.c: 135: void SYS_Ctrl( void )
-[; ;System.c: 136: {
+[; ;System.c: 137: void SYS_Ctrl( void )
+[; ;System.c: 138: {
 [e :U _SYS_Ctrl ]
 [f ]
-"137
+"139
 [v F2597 `ul  1 s time ]
 [i F2597
 -> -> -> 0 `i `l `ul
 ]
-[; ;System.c: 137: static  U32 time = 0;
-[; ;System.c: 138: if(!mtrError)
-"138
-[e $ ! ! != -> _mtrError `i -> -> -> 0 `i `uc `i 327  ]
-[; ;System.c: 139: {
-"139
-{
-[; ;System.c: 140: CAL_MtrLevel( );
-"140
-[e ( _CAL_MtrLevel ..  ]
-[; ;System.c: 141: CAL_TuneValue( );
+[; ;System.c: 139: static  U32 time = 0;
+[; ;System.c: 141: {
 "141
-[e ( _CAL_TuneValue ..  ]
+{
+[; ;System.c: 142: CAL_MtrLevel( );
 "142
-}
-[e :U 327 ]
-[; ;System.c: 142: }
-[; ;System.c: 143: if ( time ) time--;
+[e ( _CAL_MtrLevel ..  ]
+[; ;System.c: 143: CAL_TuneValue( );
 "143
-[e $ ! != F2597 -> -> 0 `i `ul 328  ]
-[e -- F2597 -> -> -> 1 `i `l `ul ]
-[e :U 328 ]
-[; ;System.c: 144: switch ( sysStatus )
+[e ( _CAL_TuneValue ..  ]
 "144
-[e $U 330  ]
-[; ;System.c: 145: {
+}
+[; ;System.c: 144: }
+[; ;System.c: 145: if ( time ) time--;
 "145
-{
-[; ;System.c: 146: case 0:
+[e $ ! != F2597 -> -> 0 `i `ul 327  ]
+[e -- F2597 -> -> -> 1 `i `l `ul ]
+[e :U 327 ]
+[; ;System.c: 146: switch ( sysStatus )
 "146
-[e :U 331 ]
-[; ;System.c: 147: mtrSpeedRef = 0;
+[e $U 329  ]
+[; ;System.c: 147: {
 "147
-[e = _mtrSpeedRef -> -> 0 `i `us ]
-[; ;System.c: 148: sysStatus = 1;
+{
+[; ;System.c: 148: case 0:
 "148
-[e = _sysStatus -> -> 1 `i `uc ]
-[; ;System.c: 149: time = 100UL*5;
+[e :U 330 ]
+[; ;System.c: 149: mtrSpeedRef = 0;
 "149
-[e = F2597 * -> 100 `ul -> -> -> 5 `i `l `ul ]
-[; ;System.c: 150: break;
+[e = _mtrSpeedRef -> -> 0 `i `us ]
+[; ;System.c: 150: sysStatus = 1;
 "150
-[e $U 329  ]
-[; ;System.c: 151: case 1:
+[e = _sysStatus -> -> 1 `i `uc ]
+[; ;System.c: 151: time = 100UL*5;
 "151
-[e :U 332 ]
-[; ;System.c: 152: mtrSpeedRef = 0;
+[e = F2597 * -> 100 `ul -> -> -> 5 `i `l `ul ]
+[; ;System.c: 152: break;
 "152
-[e = _mtrSpeedRef -> -> 0 `i `us ]
-[; ;System.c: 153: if ( mtrError || !time )
+[e $U 328  ]
+[; ;System.c: 153: case 1:
 "153
-[e $ ! || != -> _mtrError `i -> -> -> 0 `i `uc `i ! != F2597 -> -> 0 `i `ul 333  ]
-[; ;System.c: 154: {
+[e :U 331 ]
+[; ;System.c: 154: mtrSpeedRef = 0;
 "154
-{
-[; ;System.c: 155: sysFault = mtrError;
+[e = _mtrSpeedRef -> -> 0 `i `us ]
+[; ;System.c: 155: if ( mtrError || !time )
 "155
-[e = _sysFault _mtrError ]
-[; ;System.c: 156: sysStatus = 3;
+[e $ ! || != -> _mtrError `i -> -> -> 0 `i `uc `i ! != F2597 -> -> 0 `i `ul 332  ]
+[; ;System.c: 156: {
 "156
-[e = _sysStatus -> -> 3 `i `uc ]
-[; ;System.c: 157: time = 100UL/2;
+{
+[; ;System.c: 157: sysFault = mtrError;
 "157
-[e = F2597 / -> 100 `ul -> -> -> 2 `i `l `ul ]
-"158
-}
-[; ;System.c: 158: }
-[e $U 334  ]
-"159
-[e :U 333 ]
-[; ;System.c: 159: else if ( idrTest0 == 0xFF && idrTest1 == 0xFF && mtrTemp >= 0 )
-[e $ ! && && == -> _idrTest0 `i -> 255 `i == -> _idrTest1 `i -> 255 `i >= -> _mtrTemp `i -> 0 `i 335  ]
-[; ;System.c: 160: {
-"160
-{
-[; ;System.c: 161: sysStatus = 2;
-"161
-[e = _sysStatus -> -> 2 `i `uc ]
-[; ;System.c: 162: time = 100UL*60*45;
-"162
-[e = F2597 * * -> 100 `ul -> -> -> 60 `i `l `ul -> -> -> 45 `i `l `ul ]
-"163
-}
-[e :U 335 ]
-"164
-[e :U 334 ]
-[; ;System.c: 163: }
-[; ;System.c: 164: break;
-[e $U 329  ]
-[; ;System.c: 165: case 2:
-"165
-[e :U 336 ]
-[; ;System.c: 166: if ( mtrError || !time )
-"166
-[e $ ! || != -> _mtrError `i -> -> -> 0 `i `uc `i ! != F2597 -> -> 0 `i `ul 337  ]
-[; ;System.c: 167: {
-"167
-{
-[; ;System.c: 168: if(!time) {
-"168
-[e $ ! ! != F2597 -> -> 0 `i `ul 338  ]
-{
-[; ;System.c: 169: if ( !mtrError )
-"169
-[e $ ! ! != -> _mtrError `i -> -> -> 0 `i `uc `i 339  ]
-[; ;System.c: 170: mtrError = 4;
-"170
-[e = _mtrError -> -> 4 `i `uc ]
-[e :U 339 ]
-"171
-}
-[e :U 338 ]
-[; ;System.c: 171: }
-[; ;System.c: 172: sysFault = mtrError;
-"172
 [e = _sysFault _mtrError ]
-[; ;System.c: 173: sysStatus = 3;
-"173
+[; ;System.c: 158: sysStatus = 3;
+"158
 [e = _sysStatus -> -> 3 `i `uc ]
-[; ;System.c: 175: time = 5;
-"175
-[e = F2597 -> -> -> 5 `i `l `ul ]
-"176
+[; ;System.c: 159: time = 100UL/2;
+"159
+[e = F2597 / -> 100 `ul -> -> -> 2 `i `l `ul ]
+"160
 }
-[; ;System.c: 176: }
-[e $U 340  ]
-"177
-[e :U 337 ]
-[; ;System.c: 177: else switch ( mtrLevel )
-[e $U 342  ]
-[; ;System.c: 178: {
-"178
+[; ;System.c: 160: }
+[e $U 333  ]
+"161
+[e :U 332 ]
+[; ;System.c: 161: else if ( idrTest0 == 0xFF && idrTest1 == 0xFF && mtrTemp >= 0 )
+[e $ ! && && == -> _idrTest0 `i -> 255 `i == -> _idrTest1 `i -> 255 `i >= -> _mtrTemp `i -> 0 `i 334  ]
+[; ;System.c: 162: {
+"162
 {
-[; ;System.c: 179: default:
-"179
-[e :U 343 ]
-[; ;System.c: 180: sysLevel = 0;
-"180
-[e = _sysLevel -> -> 0 `i `uc ]
-[; ;System.c: 181: mtrSpeedRef = 0;
-"181
-[e = _mtrSpeedRef -> -> 0 `i `us ]
-[; ;System.c: 182: break;
-"182
-[e $U 341  ]
-[; ;System.c: 183: case 1:
-"183
-[e :U 344 ]
-[; ;System.c: 184: sysLevel = 0;
-"184
-[e = _sysLevel -> -> 0 `i `uc ]
-[; ;System.c: 185: mtrSpeedRef = 0;
-"185
-[e = _mtrSpeedRef -> -> 0 `i `us ]
-[; ;System.c: 186: break;
-"186
-[e $U 341  ]
-[; ;System.c: 187: case 2:
-"187
-[e :U 345 ]
-[; ;System.c: 188: sysLevel = 2;
-"188
-[e = _sysLevel -> -> 2 `i `uc ]
-[; ;System.c: 189: mtrSpeedRef = 2500;
-"189
-[e = _mtrSpeedRef -> -> 2500 `i `us ]
-[; ;System.c: 190: break;
-"190
-[e $U 341  ]
-[; ;System.c: 191: case 3:
-"191
-[e :U 346 ]
-[; ;System.c: 192: sysLevel = 2;
-"192
-[e = _sysLevel -> -> 2 `i `uc ]
-[; ;System.c: 193: mtrSpeedRef = 5000;
-"193
-[e = _mtrSpeedRef -> -> 5000 `i `us ]
-[; ;System.c: 194: break;
-"194
-[e $U 341  ]
-[; ;System.c: 195: case 4:
-"195
-[e :U 347 ]
-[; ;System.c: 196: sysLevel = 3;
-"196
-[e = _sysLevel -> -> 3 `i `uc ]
-[; ;System.c: 197: mtrSpeedRef = 6000;
-"197
-[e = _mtrSpeedRef -> -> 6000 `i `us ]
-[; ;System.c: 198: break;
-"198
-[e $U 341  ]
-[; ;System.c: 199: case 5:
-"199
-[e :U 348 ]
-[; ;System.c: 200: sysLevel = 4;
-"200
-[e = _sysLevel -> -> 4 `i `uc ]
-[; ;System.c: 201: mtrSpeedRef = 8000;
-"201
-[e = _mtrSpeedRef -> -> 8000 `i `us ]
-[; ;System.c: 202: break;
-"202
-[e $U 341  ]
-[; ;System.c: 203: case 6:
-"203
-[e :U 349 ]
-[; ;System.c: 204: sysLevel = 5;
-"204
-[e = _sysLevel -> -> 5 `i `uc ]
-[; ;System.c: 205: mtrSpeedRef = 9500;
-"205
-[e = _mtrSpeedRef -> -> 9500 `i `us ]
-[; ;System.c: 206: break;
-"206
-[e $U 341  ]
-[; ;System.c: 207: case 7:
-"207
-[e :U 350 ]
-[; ;System.c: 208: sysLevel = 6;
-"208
-[e = _sysLevel -> -> 6 `i `uc ]
-[; ;System.c: 209: mtrSpeedRef = 10500;
-"209
-[e = _mtrSpeedRef -> -> 10500 `i `us ]
-[; ;System.c: 210: break;
-"210
-[e $U 341  ]
-[; ;System.c: 211: case 8:
-"211
-[e :U 351 ]
-[; ;System.c: 212: sysLevel = 7;
-"212
-[e = _sysLevel -> -> 7 `i `uc ]
-[; ;System.c: 213: mtrSpeedRef = 12000;
-"213
-[e = _mtrSpeedRef -> -> 12000 `i `us ]
-[; ;System.c: 214: break;
-"214
-[e $U 341  ]
-[; ;System.c: 215: case 9:
-"215
-[e :U 352 ]
-[; ;System.c: 216: sysLevel = 7;
-"216
-[e = _sysLevel -> -> 7 `i `uc ]
-[; ;System.c: 217: mtrSpeedRef = 13500;
-"217
-[e = _mtrSpeedRef -> -> 13500 `i `us ]
-[; ;System.c: 218: break;
-"218
-[e $U 341  ]
-[; ;System.c: 219: case 10:
-"219
-[e :U 353 ]
-[; ;System.c: 220: sysLevel = 1;
-"220
-[e = _sysLevel -> -> 1 `i `uc ]
-[; ;System.c: 221: mtrSpeedRef = 13501;
-"221
-[e = _mtrSpeedRef -> -> 13501 `i `us ]
-[; ;System.c: 222: break;
-"222
-[e $U 341  ]
-"223
+[; ;System.c: 163: sysStatus = 2;
+"163
+[e = _sysStatus -> -> 2 `i `uc ]
+[; ;System.c: 164: time = 100UL*60*45;
+"164
+[e = F2597 * * -> 100 `ul -> -> -> 60 `i `l `ul -> -> -> 45 `i `l `ul ]
+"165
 }
-[; ;System.c: 223: }
-[e $U 341  ]
+[e :U 334 ]
+"166
+[e :U 333 ]
+[; ;System.c: 165: }
+[; ;System.c: 166: break;
+[e $U 328  ]
+[; ;System.c: 167: case 2:
+"167
+[e :U 335 ]
+[; ;System.c: 168: if ( mtrError || !time )
+"168
+[e $ ! || != -> _mtrError `i -> -> -> 0 `i `uc `i ! != F2597 -> -> 0 `i `ul 336  ]
+[; ;System.c: 169: {
+"169
+{
+[; ;System.c: 170: if(!time) {
+"170
+[e $ ! ! != F2597 -> -> 0 `i `ul 337  ]
+{
+[; ;System.c: 171: if ( !mtrError )
+"171
+[e $ ! ! != -> _mtrError `i -> -> -> 0 `i `uc `i 338  ]
+[; ;System.c: 172: mtrError = 4;
+"172
+[e = _mtrError -> -> 4 `i `uc ]
+[e :U 338 ]
+"173
+}
+[e :U 337 ]
+[; ;System.c: 173: }
+[; ;System.c: 174: sysFault = mtrError;
+"174
+[e = _sysFault _mtrError ]
+[; ;System.c: 175: sysStatus = 3;
+"175
+[e = _sysStatus -> -> 3 `i `uc ]
+[; ;System.c: 177: time = 5;
 "177
+[e = F2597 -> -> -> 5 `i `l `ul ]
+"178
+}
+[; ;System.c: 178: }
+[e $U 339  ]
+"179
+[e :U 336 ]
+[; ;System.c: 179: else switch ( mtrLevel )
+[e $U 341  ]
+[; ;System.c: 180: {
+"180
+{
+[; ;System.c: 181: default:
+"181
 [e :U 342 ]
-[e [\ _mtrLevel , $ -> -> 1 `i `uc 344
- , $ -> -> 2 `i `uc 345
- , $ -> -> 3 `i `uc 346
- , $ -> -> 4 `i `uc 347
- , $ -> -> 5 `i `uc 348
- , $ -> -> 6 `i `uc 349
- , $ -> -> 7 `i `uc 350
- , $ -> -> 8 `i `uc 351
- , $ -> -> 9 `i `uc 352
- , $ -> -> 10 `i `uc 353
- 343 ]
+[; ;System.c: 182: sysLevel = 0;
+"182
+[e = _sysLevel -> -> 0 `i `uc ]
+[; ;System.c: 183: mtrSpeedRef = 0;
+"183
+[e = _mtrSpeedRef -> -> 0 `i `us ]
+[; ;System.c: 184: break;
+"184
+[e $U 340  ]
+[; ;System.c: 185: case 1:
+"185
+[e :U 343 ]
+[; ;System.c: 186: sysLevel = 0;
+"186
+[e = _sysLevel -> -> 0 `i `uc ]
+[; ;System.c: 187: mtrSpeedRef = 0;
+"187
+[e = _mtrSpeedRef -> -> 0 `i `us ]
+[; ;System.c: 188: break;
+"188
+[e $U 340  ]
+[; ;System.c: 189: case 2:
+"189
+[e :U 344 ]
+[; ;System.c: 190: sysLevel = 2;
+"190
+[e = _sysLevel -> -> 2 `i `uc ]
+[; ;System.c: 191: mtrSpeedRef = 2500;
+"191
+[e = _mtrSpeedRef -> -> 2500 `i `us ]
+[; ;System.c: 192: break;
+"192
+[e $U 340  ]
+[; ;System.c: 193: case 3:
+"193
+[e :U 345 ]
+[; ;System.c: 194: sysLevel = 2;
+"194
+[e = _sysLevel -> -> 2 `i `uc ]
+[; ;System.c: 195: mtrSpeedRef = 5000;
+"195
+[e = _mtrSpeedRef -> -> 5000 `i `us ]
+[; ;System.c: 196: break;
+"196
+[e $U 340  ]
+[; ;System.c: 197: case 4:
+"197
+[e :U 346 ]
+[; ;System.c: 198: sysLevel = 3;
+"198
+[e = _sysLevel -> -> 3 `i `uc ]
+[; ;System.c: 199: mtrSpeedRef = 6000;
+"199
+[e = _mtrSpeedRef -> -> 6000 `i `us ]
+[; ;System.c: 200: break;
+"200
+[e $U 340  ]
+[; ;System.c: 201: case 5:
+"201
+[e :U 347 ]
+[; ;System.c: 202: sysLevel = 4;
+"202
+[e = _sysLevel -> -> 4 `i `uc ]
+[; ;System.c: 203: mtrSpeedRef = 8000;
+"203
+[e = _mtrSpeedRef -> -> 8000 `i `us ]
+[; ;System.c: 204: break;
+"204
+[e $U 340  ]
+[; ;System.c: 205: case 6:
+"205
+[e :U 348 ]
+[; ;System.c: 206: sysLevel = 5;
+"206
+[e = _sysLevel -> -> 5 `i `uc ]
+[; ;System.c: 207: mtrSpeedRef = 9500;
+"207
+[e = _mtrSpeedRef -> -> 9500 `i `us ]
+[; ;System.c: 208: break;
+"208
+[e $U 340  ]
+[; ;System.c: 209: case 7:
+"209
+[e :U 349 ]
+[; ;System.c: 210: sysLevel = 6;
+"210
+[e = _sysLevel -> -> 6 `i `uc ]
+[; ;System.c: 211: mtrSpeedRef = 10500;
+"211
+[e = _mtrSpeedRef -> -> 10500 `i `us ]
+[; ;System.c: 212: break;
+"212
+[e $U 340  ]
+[; ;System.c: 213: case 8:
+"213
+[e :U 350 ]
+[; ;System.c: 214: sysLevel = 7;
+"214
+[e = _sysLevel -> -> 7 `i `uc ]
+[; ;System.c: 215: mtrSpeedRef = 12000;
+"215
+[e = _mtrSpeedRef -> -> 12000 `i `us ]
+[; ;System.c: 216: break;
+"216
+[e $U 340  ]
+[; ;System.c: 217: case 9:
+"217
+[e :U 351 ]
+[; ;System.c: 218: sysLevel = 7;
+"218
+[e = _sysLevel -> -> 7 `i `uc ]
+[; ;System.c: 219: mtrSpeedRef = 13500;
+"219
+[e = _mtrSpeedRef -> -> 13500 `i `us ]
+[; ;System.c: 220: break;
+"220
+[e $U 340  ]
+[; ;System.c: 221: case 10:
+"221
+[e :U 352 ]
+[; ;System.c: 222: sysLevel = 1;
+"222
+[e = _sysLevel -> -> 1 `i `uc ]
+[; ;System.c: 223: mtrSpeedRef = 13501;
 "223
-[e :U 341 ]
-[e :U 340 ]
+[e = _mtrSpeedRef -> -> 13501 `i `us ]
 [; ;System.c: 224: break;
 "224
-[e $U 329  ]
-[; ;System.c: 225: default:
+[e $U 340  ]
 "225
-[e :U 354 ]
-[; ;System.c: 226: if ( !time ) sysStatus = 4;
-"226
-[e $ ! ! != F2597 -> -> 0 `i `ul 355  ]
-[e = _sysStatus -> -> 4 `i `uc ]
-[e :U 355 ]
-[; ;System.c: 227: break;
-"227
-[e $U 329  ]
-"228
 }
-[; ;System.c: 228: }
-[e $U 329  ]
-"144
-[e :U 330 ]
-[e [\ _sysStatus , $ -> -> 0 `i `uc 331
- , $ -> -> 1 `i `uc 332
- , $ -> -> 2 `i `uc 336
- 354 ]
+[; ;System.c: 225: }
+[e $U 340  ]
+"179
+[e :U 341 ]
+[e [\ _mtrLevel , $ -> -> 1 `i `uc 343
+ , $ -> -> 2 `i `uc 344
+ , $ -> -> 3 `i `uc 345
+ , $ -> -> 4 `i `uc 346
+ , $ -> -> 5 `i `uc 347
+ , $ -> -> 6 `i `uc 348
+ , $ -> -> 7 `i `uc 349
+ , $ -> -> 8 `i `uc 350
+ , $ -> -> 9 `i `uc 351
+ , $ -> -> 10 `i `uc 352
+ 342 ]
+"225
+[e :U 340 ]
+[e :U 339 ]
+[; ;System.c: 226: break;
+"226
+[e $U 328  ]
+[; ;System.c: 227: default:
+"227
+[e :U 353 ]
+[; ;System.c: 228: if ( !time ) sysStatus = 4;
 "228
-[e :U 329 ]
-[; ;System.c: 229: }
+[e $ ! ! != F2597 -> -> 0 `i `ul 354  ]
+[e = _sysStatus -> -> 4 `i `uc ]
+[e :U 354 ]
+[; ;System.c: 229: break;
 "229
+[e $U 328  ]
+"230
+}
+[; ;System.c: 230: }
+[e $U 328  ]
+"146
+[e :U 329 ]
+[e [\ _sysStatus , $ -> -> 0 `i `uc 330
+ , $ -> -> 1 `i `uc 331
+ , $ -> -> 2 `i `uc 335
+ 353 ]
+"230
+[e :U 328 ]
+[; ;System.c: 231: }
+"231
 [e :UE 326 ]
 }

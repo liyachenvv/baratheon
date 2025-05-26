@@ -1,4 +1,4 @@
-[p LITE_MODE AUTOSTATIC PIC14 PIC14E ]
+[p PRO_MODE GLOBOPT AUTOSTATIC PIC14 PIC14E SPEEDOPT ]
 [d version 1.1 ]
 [d edition pro ]
 [d chip 16F1829 ]
@@ -9096,9 +9096,9 @@
 [v _CAL_MtrLevel `(v  1 e 0 0 ]
 "56
 [v _CAL_TuneValue `(v  1 e 0 0 ]
-"128
+"130
 [v _SYS_Init `(v  1 e 0 0 ]
-"136
+"138
 [v _SYS_Ctrl `(v  1 e 0 0 ]
 "13 D:\project\baratheon-winnie\baratheon-mplab-for-production\Uart.c
 [v _SRL_Getc `(uc  1 e 1 0 ]
@@ -10863,7 +10863,7 @@
 {
 "11
 [v main@offTime `uc  1 s 1 offTime ]
-"42
+"40
 } 0
 "303 D:\project\baratheon-winnie\baratheon-mplab-for-production\Motor.c
 [v _MTR_Ctrl `(v  1 e 0 0 ]
@@ -10874,9 +10874,9 @@
 [v _MTR_Driver `(v  1 e 0 0 ]
 {
 "213
-[v MTR_Driver@max `s  1 a 2 25 ]
+[v MTR_Driver@max `s  1 a 2 22 ]
 "214
-[v MTR_Driver@err `s  1 a 2 23 ]
+[v MTR_Driver@err `s  1 a 2 20 ]
 "208
 [v MTR_Driver@state `uc  1 s 1 state ]
 "209
@@ -10894,18 +10894,18 @@
 {
 "638
 } 0
-"136 D:\project\baratheon-winnie\baratheon-mplab-for-production\System.c
+"138 D:\project\baratheon-winnie\baratheon-mplab-for-production\System.c
 [v _SYS_Ctrl `(v  1 e 0 0 ]
 {
-"137
+"139
 [v SYS_Ctrl@time `ul  1 s 4 time ]
-"229
+"231
 } 0
 "332 D:\project\baratheon-winnie\baratheon-mplab-for-production\Service.c
 [v _SVC_Init `(v  1 e 0 0 ]
 {
 "333
-[v SVC_Init@cmp `c  1 a 1 10 ]
+[v SVC_Init@cmp `c  1 a 1 6 ]
 "379
 } 0
 "49 D:\project\baratheon-winnie\baratheon-mplab-for-production\COM.c
@@ -10947,8 +10947,8 @@
 {
 [v E2P_WR@addr `uc  1 a 1 wreg ]
 [v E2P_WR@addr `uc  1 a 1 wreg ]
-[v E2P_WR@p `*uc  1 p 2 3 ]
-[v E2P_WR@n `uc  1 p 1 5 ]
+[v E2P_WR@p `*uc  1 p 2 2 ]
+[v E2P_WR@n `uc  1 p 1 4 ]
 "184
 } 0
 "158
@@ -10956,8 +10956,8 @@
 {
 [v E2P_RD@addr `uc  1 a 1 wreg ]
 [v E2P_RD@addr `uc  1 a 1 wreg ]
-[v E2P_RD@p `*uc  1 p 2 2 ]
-[v E2P_RD@n `uc  1 p 1 4 ]
+[v E2P_RD@p `*uc  1 p 2 1 ]
+[v E2P_RD@n `uc  1 p 1 3 ]
 "164
 } 0
 "56 D:\project\baratheon-winnie\baratheon-mplab-for-production\System.c
@@ -10971,7 +10971,7 @@
 [v CAL_TuneValue@min `uc  1 s 1 min ]
 "60
 [v CAL_TuneValue@max `uc  1 s 1 max ]
-"125
+"127
 } 0
 "18
 [v _CAL_MtrLevel `(v  1 e 0 0 ]
@@ -10987,18 +10987,18 @@
 {
 [v PID_CAL@p `*.0S8862  1 a 1 wreg ]
 [v PID_CAL@p `*.0S8862  1 a 1 wreg ]
-[v PID_CAL@err `s  1 p 2 0 ]
+[v PID_CAL@err `s  1 p 2 12 ]
 "47
 } 0
 "128 D:\project\baratheon-winnie\baratheon-mplab-for-production\Motor.c
 [v _CAL_MtrSpeed `(v  1 e 0 0 ]
 {
 "131
-[v CAL_MtrSpeed@t `us  1 a 2 18 ]
+[v CAL_MtrSpeed@t `us  1 a 2 13 ]
 "130
-[v CAL_MtrSpeed@i `uc  1 a 1 22 ]
-[v CAL_MtrSpeed@j `uc  1 a 1 21 ]
-[v CAL_MtrSpeed@n `uc  1 a 1 20 ]
+[v CAL_MtrSpeed@i `uc  1 a 1 17 ]
+[v CAL_MtrSpeed@j `uc  1 a 1 16 ]
+[v CAL_MtrSpeed@n `uc  1 a 1 15 ]
 "129
 [v CAL_MtrSpeed@tmZSP `us  1 s 2 tmZSP ]
 "167
@@ -11007,8 +11007,8 @@
 [v _CAL_MtrCurrent `(v  1 e 0 0 ]
 {
 "103
-[v CAL_MtrCurrent@n `ul  1 a 4 22 ]
-[v CAL_MtrCurrent@s `ul  1 a 4 18 ]
+[v CAL_MtrCurrent@s `ul  1 a 4 17 ]
+[v CAL_MtrCurrent@n `ul  1 a 4 13 ]
 "102
 [v CAL_MtrCurrent@tmOVC `us  1 s 2 tmOVC ]
 "125
@@ -11017,18 +11017,18 @@
 [v _COM_Print `(v  1 e 0 0 ]
 {
 "17
-[v COM_Print@f `uc  1 a 1 11 ]
+[v COM_Print@f `uc  1 a 1 9 ]
 "16
-[v COM_Print@n `us  1 p 2 9 ]
+[v COM_Print@n `us  1 p 2 7 ]
 "42
 } 0
 "5 c:\Program Files (x86)\HI-TECH Software\PICC\9.83\sources\lldiv.c
 [v ___lldiv `(ul  1 e 4 0 ]
 {
 "6
-[v ___lldiv@quotient `ul  1 a 4 9 ]
+[v ___lldiv@quotient `ul  1 a 4 8 ]
 "7
-[v ___lldiv@counter `uc  1 a 1 13 ]
+[v ___lldiv@counter `uc  1 a 1 12 ]
 "5
 [v ___lldiv@divisor `ul  1 p 4 0 ]
 [v ___lldiv@dividend `ul  1 p 4 4 ]
@@ -11038,42 +11038,42 @@
 [v ___lmul `(ul  1 e 4 0 ]
 {
 "4
-[v ___lmul@product `ul  1 a 4 9 ]
+[v ___lmul@product `ul  1 a 4 8 ]
 "3
-[v ___lmul@multiplier `ul  1 p 4 1 ]
-[v ___lmul@multiplicand `ul  1 p 4 5 ]
+[v ___lmul@multiplier `ul  1 p 4 0 ]
+[v ___lmul@multiplicand `ul  1 p 4 4 ]
 "13
 } 0
 "5 c:\Program Files (x86)\HI-TECH Software\PICC\9.83\sources\lwmod.c
 [v ___lwmod `(ui  1 e 2 0 ]
 {
 "6
-[v ___lwmod@counter `uc  1 a 1 6 ]
+[v ___lwmod@counter `uc  1 a 1 4 ]
 "5
-[v ___lwmod@divisor `ui  1 p 2 1 ]
-[v ___lwmod@dividend `ui  1 p 2 3 ]
+[v ___lwmod@divisor `ui  1 p 2 0 ]
+[v ___lwmod@dividend `ui  1 p 2 2 ]
 "21
 } 0
 "5 c:\Program Files (x86)\HI-TECH Software\PICC\9.83\sources\lwdiv.c
 [v ___lwdiv `(ui  1 e 2 0 ]
 {
 "6
-[v ___lwdiv@quotient `ui  1 a 2 6 ]
+[v ___lwdiv@quotient `ui  1 a 2 4 ]
 "7
-[v ___lwdiv@counter `uc  1 a 1 8 ]
+[v ___lwdiv@counter `uc  1 a 1 6 ]
 "5
-[v ___lwdiv@divisor `ui  1 p 2 1 ]
-[v ___lwdiv@dividend `ui  1 p 2 3 ]
+[v ___lwdiv@divisor `ui  1 p 2 0 ]
+[v ___lwdiv@dividend `ui  1 p 2 2 ]
 "26
 } 0
 "3 c:\Program Files (x86)\HI-TECH Software\PICC\9.83\sources\wmul.c
 [v ___wmul `(ui  1 e 2 0 ]
 {
 "4
-[v ___wmul@product `ui  1 a 2 5 ]
+[v ___wmul@product `ui  1 a 2 4 ]
 "3
-[v ___wmul@multiplier `ui  1 p 2 1 ]
-[v ___wmul@multiplicand `ui  1 p 2 3 ]
+[v ___wmul@multiplier `ui  1 p 2 0 ]
+[v ___wmul@multiplicand `ui  1 p 2 2 ]
 "13
 } 0
 "479 D:\project\baratheon-winnie\baratheon-mplab-for-production\Service.c
@@ -11093,8 +11093,8 @@
 "299
 [v _H3M1_ADD `(v  1 e 0 0 ]
 {
-[v H3M1_ADD@p `*S16852  1 p 2 1 ]
-[v H3M1_ADD@m `uc  1 p 1 3 ]
+[v H3M1_ADD@p `*S16852  1 p 2 0 ]
+[v H3M1_ADD@m `uc  1 p 1 2 ]
 "311
 } 0
 "267
@@ -11102,7 +11102,7 @@
 {
 [v H2M1S1_ADD@p `*S16838  1 a 1 wreg ]
 [v H2M1S1_ADD@p `*S16838  1 a 1 wreg ]
-[v H2M1S1_ADD@s `uc  1 p 1 1 ]
+[v H2M1S1_ADD@s `uc  1 p 1 0 ]
 "280
 } 0
 "252
@@ -11110,7 +11110,7 @@
 {
 [v H1M1S1_SUB@p `*.0S16833  1 a 1 wreg ]
 [v H1M1S1_SUB@p `*.0S16833  1 a 1 wreg ]
-[v H1M1S1_SUB@s `uc  1 p 1 1 ]
+[v H1M1S1_SUB@s `uc  1 p 1 0 ]
 "264
 } 0
 "237
@@ -11118,7 +11118,7 @@
 {
 [v H1M1S1_ADD@p `*.0S16833  1 a 1 wreg ]
 [v H1M1S1_ADD@p `*.0S16833  1 a 1 wreg ]
-[v H1M1S1_ADD@s `uc  1 p 1 1 ]
+[v H1M1S1_ADD@s `uc  1 p 1 0 ]
 "249
 } 0
 "206
@@ -11126,16 +11126,16 @@
 {
 [v MEM_Cmp@p1 `*uc  1 a 1 wreg ]
 [v MEM_Cmp@p1 `*uc  1 a 1 wreg ]
-[v MEM_Cmp@p2 `*uc  1 p 1 1 ]
-[v MEM_Cmp@n `uc  1 p 1 2 ]
+[v MEM_Cmp@p2 `*uc  1 p 1 0 ]
+[v MEM_Cmp@n `uc  1 p 1 1 ]
 "214
 } 0
 "196
 [v _MEM_Cpy `(v  1 e 0 0 ]
 {
-[v MEM_Cpy@p1 `*uc  1 p 2 1 ]
-[v MEM_Cpy@p2 `*uc  1 p 2 3 ]
-[v MEM_Cpy@n `uc  1 p 1 5 ]
+[v MEM_Cpy@p1 `*uc  1 p 2 0 ]
+[v MEM_Cpy@p2 `*uc  1 p 2 2 ]
+[v MEM_Cpy@n `uc  1 p 1 4 ]
 "203
 } 0
 "646
@@ -11155,8 +11155,8 @@
 {
 [v PID_LIM@p `*.0S8862  1 a 1 wreg ]
 [v PID_LIM@p `*.0S8862  1 a 1 wreg ]
-[v PID_LIM@min `s  1 p 2 1 ]
-[v PID_LIM@max `s  1 p 2 3 ]
+[v PID_LIM@min `s  1 p 2 0 ]
+[v PID_LIM@max `s  1 p 2 2 ]
 "63
 } 0
 "203 D:\project\baratheon-winnie\baratheon-mplab-for-production\Motor.c
@@ -11168,9 +11168,9 @@
 [v _CAL_AcPeriod `(v  1 e 0 0 ]
 {
 "173
-[v CAL_AcPeriod@t `us  1 a 2 6 ]
+[v CAL_AcPeriod@t `us  1 a 2 3 ]
 "172
-[v CAL_AcPeriod@i `uc  1 a 1 5 ]
+[v CAL_AcPeriod@i `uc  1 a 1 2 ]
 "171
 [v CAL_AcPeriod@tmCRS `us  1 s 2 tmCRS ]
 "200
@@ -11178,16 +11178,16 @@
 "13 D:\project\baratheon-winnie\baratheon-mplab-for-production\MyMath.c
 [v _SQRT32 `(us  1 e 2 0 ]
 {
-"14
-[v SQRT32@root `ul  1 a 4 9 ]
-"16
-[v SQRT32@remainder `ul  1 a 4 5 ]
 "15
-[v SQRT32@divisor `ul  1 a 4 1 ]
+[v SQRT32@divisor `ul  1 a 4 9 ]
+"14
+[v SQRT32@root `ul  1 a 4 5 ]
+"16
+[v SQRT32@remainder `ul  1 a 4 1 ]
 "17
 [v SQRT32@i `uc  1 a 1 0 ]
 "13
-[v SQRT32@a `ul  1 p 4 1 ]
+[v SQRT32@a `ul  1 p 4 0 ]
 "34
 } 0
 "53 D:\project\baratheon-winnie\baratheon-mplab-for-production\Motor.c
@@ -11203,10 +11203,10 @@
 [v CAL_MtrTemp@cnt `uc  1 s 1 cnt ]
 "98
 } 0
-"128 D:\project\baratheon-winnie\baratheon-mplab-for-production\System.c
+"130 D:\project\baratheon-winnie\baratheon-mplab-for-production\System.c
 [v _SYS_Init `(v  1 e 0 0 ]
 {
-"133
+"135
 } 0
 "284 D:\project\baratheon-winnie\baratheon-mplab-for-production\Motor.c
 [v _MTR_Init `(v  1 e 0 0 ]
@@ -11218,7 +11218,7 @@
 {
 [v E2P_WriteByte@addr `uc  1 a 1 wreg ]
 [v E2P_WriteByte@addr `uc  1 a 1 wreg ]
-[v E2P_WriteByte@byte `uc  1 p 1 1 ]
+[v E2P_WriteByte@byte `uc  1 p 1 0 ]
 "242
 } 0
 "203

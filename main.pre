@@ -2953,12 +2953,10 @@ SVC_Ctrl( );
 if ( sysStatus != 4 || e2pWrFlags )
 {
 offTime = 5;
-
 }
 else if ( --offTime == 0 )
 {
 offTime = 1;
-
 }
 }
 }

@@ -2985,6 +2985,7 @@ if ( !time )
 if ( mtrLevel == 10 )
 {
 state++;
+LATB6 = 0;
 }
 else
 {
@@ -3028,6 +3029,7 @@ state++;
 break;
 case 4:
 SVC_SetTuneValue( ( min + max ) >> 1 );
+LATB6 = 1;
 state = 255;
 break;
 default:
@@ -3046,7 +3048,7 @@ mtrLevel = 0;
 void SYS_Ctrl( void )
 {
 static  U32 time = 0;
-if(!mtrError)
+
 {
 CAL_MtrLevel( );
 CAL_TuneValue( );
