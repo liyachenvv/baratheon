@@ -81,7 +81,7 @@ void CAL_MtrTemp( void )
               {
                 er1 = 0;
                 mtrTemp = ad2tpr[ sum >> 2 ];
-                if ( mtrTemp >= 104 )
+                if ( mtrTemp >= 109 )
                   {
                     MOTOR_ERROR_SET( E_ERR_OVER_HEAT );
                   }

@@ -4609,9 +4609,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Motor.c: 83: mtrTemp = ad2tpr[ sum >> 2 ];
 "83
 [e = _mtrTemp -> *U + &U _ad2tpr * -> >> -> F2595 `ui -> 2 `i `ux -> -> # *U &U _ad2tpr `ui `ux `c ]
-[; ;Motor.c: 84: if ( mtrTemp >= 104 )
+[; ;Motor.c: 84: if ( mtrTemp >= 109 )
 "84
-[e $ ! >= -> _mtrTemp `i -> 104 `i 271  ]
+[e $ ! >= -> _mtrTemp `i -> 109 `i 271  ]
 [; ;Motor.c: 85: {
 "85
 {

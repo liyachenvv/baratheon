@@ -1,7 +1,7 @@
 
 
 HI-TECH Software PIC PRO Macro Assembler V9.83 build 10920 
-                                                                                               Mon May 26 08:18:12 2025
+                                                                                               Mon Aug 11 10:34:51 2025
 
 HI-TECH Software Omniscient Code Generator (PRO mode) build 10920
      1                           	processor	16F1829
@@ -74,9 +74,9 @@ HI-TECH Software Omniscient Code Generator (PRO mode) build 10920
     66  0008  00B4 004F 008F     	db	180,79,143,253,0,0,1,180	;#
       +       00FD 0000 0000     
       +       0001 00B4          
-    67  0010  004F 008F 00FD     	db	79,143,253,0,46,0,46,5	;#
-      +       0000 002E 0000     
-      +       002E 0005          
+    67  0010  004F 008F 00FD     	db	79,143,253,0,46,1,46,0	;#
+      +       0000 002E 0001     
+      +       002E 0000          
     68  0018  0000 0000 0000     	db	0,0,0,0,0,0,0,0	;#
       +       0000 0000 0000     
       +       0000 0000          
@@ -5697,9 +5697,9 @@ HI-TECH Software Omniscient Code Generator (PRO mode) build 10920
   5461  0F39  0800               	movf	0,w	;code access
   5462  0F3A  00EC               	movwf	_mtrTemp
   5463                           
-  5464                           ;Motor.c: 84: if ( mtrTemp >= 104 )
+  5464                           ;Motor.c: 84: if ( mtrTemp >= 109 )
   5465  0F3B  3A80               	xorlw	128
-  5466  0F3C  3E18               	addlw	-232
+  5466  0F3C  3E13               	addlw	-237
   5467  0F3D  1C03               	skipc
   5468  0F3E  2F4D               	goto	l17221
   5469  0F3F  08CB               	movf	_mtrError,f
@@ -10992,7 +10992,7 @@ HI-TECH Software Omniscient Code Generator (PRO mode) build 10920
 
 
 HI-TECH Software PICC Macro Assembler V9.83 build 10920 
-Symbol Table                                                                                   Mon May 26 08:18:12 2025
+Symbol Table                                                                                   Mon Aug 11 10:34:51 2025
 
                          C 0000                           Z 0002       __end_of_CAL_MtrLevel 06A6  
      __end_of_CAL_MtrError 07FF                          pc 0002       __end_of_CAL_MtrSpeed 07D9  
