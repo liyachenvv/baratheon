@@ -3071,7 +3071,8 @@ if ( t >= 1600 ) break;
 }
 mtrSpeed = ( U16 )( 600000UL * ( U32 )j / ( U32 )t );
 }
-if ( tmTriac <= ( U16 )( acCycleHalf ) || (mtrSpeed >= 300 && mtrHallEvent))
+
+if ( tmTriac <= ( U16 )( acCycleHalf ) || (mtrSpeed >= 800 && mtrHallEvent))
 {
 tmZSP = 0;
 }
@@ -3227,14 +3228,9 @@ MTR_Driver( );
 }
 else
 {
-if(acCycle>363)
-{
 do { GIE = 0; tmTriac = (103); GIE = 1; } while(0);
-}
-else
-{
-do { GIE = 0; tmTriac = (103-10); GIE = 1; } while(0);
-}
+
+# 325
 }
 acCycleFlag = 0;
 }

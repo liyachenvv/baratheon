@@ -53,19 +53,21 @@ void COM_Ctrl( void )
         t = 0;
         COM_Print( ( U16 )mtrLevel );
         SRL_Putc( ',' );
-        COM_Print( ( U16 )adVrs );
+        COM_Print( ( U16 )adVrs );//POT
         SRL_Putc( ',' );
         COM_Print( ( U16 )adNtc );
+        SRL_Putc( ',' );     
+        COM_Print(( U16 ) mtrSpeedRef );
         SRL_Putc( ',' );
-        COM_Print( mtrSpeedRef );
+        COM_Print( ( U16 )mtrSpeed );
         SRL_Putc( ',' );
-        COM_Print( mtrSpeed );
-        SRL_Putc( ',' );
-        COM_Print( mtrCurrent );
+        COM_Print( ( U16 )mtrCurrent );
         SRL_Putc( ',' );
         COM_Print( ( U16 )mtrTemp );
         SRL_Putc( ',' );
         COM_Print( ( U16 )E2P_ReadByte( 0xFE ) );
+        SRL_Putc( ',' );
+        COM_Print( mtrError );   
         SRL_Putc( '\r' );
         SRL_Putc( '\n' );
       }

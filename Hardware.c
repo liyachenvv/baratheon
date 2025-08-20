@@ -104,6 +104,7 @@ CROM U16 SQ8[ 256 ] @ 0x1E00 =
   
 void MCU_Init( void )
   {
+    U8 i;  
     __DI( );
     // Initialize System Register.
     OSCCON  = CFG_OSCCON;
@@ -197,7 +198,13 @@ void MCU_Init( void )
     prevTrig=0;
     trigDone=0;
     triggering = 0; 
-  }
+    for (i=0;i<32;i++) {
+	    mtrHallTime[i]=0;
+	  }
+    for (i=0;i<8;i++) {
+	    acCrossTime[i]=0;
+	  }		
+}
 
 void MCU_Refresh( void )
   {

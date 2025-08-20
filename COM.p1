@@ -2075,6 +2075,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _mtrTemp `c  0 e ]
 "100 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
 [v _E2P_ReadByte `(uc  0 ef1`uc ]
+"48 D:\project\baratheon-winnie\baratheon-mplab-for-production\Motor.h
+[v _mtrError `uc  0 e ]
 [; ;pic16f1829.h: 132: volatile unsigned char INDF0 @ 0x000;
 [; ;pic16f1829.h: 136: volatile unsigned char INDF1 @ 0x001;
 [; ;pic16f1829.h: 140: volatile unsigned char PCL @ 0x002;
@@ -4269,19 +4271,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;COM.c: 59: SRL_Putc( ',' );
 "59
 [e ( _SRL_Putc (1 -> -> 44 `ui `uc ]
-[; ;COM.c: 60: COM_Print( mtrSpeedRef );
+[; ;COM.c: 60: COM_Print(( U16 ) mtrSpeedRef );
 "60
 [e ( _COM_Print (1 _mtrSpeedRef ]
 [; ;COM.c: 61: SRL_Putc( ',' );
 "61
 [e ( _SRL_Putc (1 -> -> 44 `ui `uc ]
-[; ;COM.c: 62: COM_Print( mtrSpeed );
+[; ;COM.c: 62: COM_Print( ( U16 )mtrSpeed );
 "62
 [e ( _COM_Print (1 _mtrSpeed ]
 [; ;COM.c: 63: SRL_Putc( ',' );
 "63
 [e ( _SRL_Putc (1 -> -> 44 `ui `uc ]
-[; ;COM.c: 64: COM_Print( mtrCurrent );
+[; ;COM.c: 64: COM_Print( ( U16 )mtrCurrent );
 "64
 [e ( _COM_Print (1 _mtrCurrent ]
 [; ;COM.c: 65: SRL_Putc( ',' );
@@ -4296,17 +4298,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;COM.c: 68: COM_Print( ( U16 )E2P_ReadByte( 0xFE ) );
 "68
 [e ( _COM_Print (1 -> ( _E2P_ReadByte (1 -> -> 254 `i `uc `us ]
-[; ;COM.c: 69: SRL_Putc( '\r' );
+[; ;COM.c: 69: SRL_Putc( ',' );
 "69
-[e ( _SRL_Putc (1 -> -> 13 `ui `uc ]
-[; ;COM.c: 70: SRL_Putc( '\n' );
+[e ( _SRL_Putc (1 -> -> 44 `ui `uc ]
+[; ;COM.c: 70: COM_Print( mtrError );
 "70
-[e ( _SRL_Putc (1 -> -> 10 `ui `uc ]
+[e ( _COM_Print (1 -> _mtrError `us ]
+[; ;COM.c: 71: SRL_Putc( '\r' );
 "71
+[e ( _SRL_Putc (1 -> -> 13 `ui `uc ]
+[; ;COM.c: 72: SRL_Putc( '\n' );
+"72
+[e ( _SRL_Putc (1 -> -> 10 `ui `uc ]
+"73
 }
 [e :U 267 ]
-[; ;COM.c: 71: }
-[; ;COM.c: 72: }
-"72
+[; ;COM.c: 73: }
+[; ;COM.c: 74: }
+"74
 [e :UE 266 ]
 }

@@ -156,7 +156,8 @@ void CAL_MtrSpeed( void )
           }
         mtrSpeed = ( U16 )( 600000UL * ( U32 )j / ( U32 )t );
       }
-    if ( tmTriac <= ( U16 )( acCycleHalf ) || (mtrSpeed >= 300 && mtrHallEvent))
+   
+    if ( tmTriac <= ( U16 )( acCycleHalf ) || (mtrSpeed >= 800 && mtrHallEvent))
       {
         tmZSP = 0;
       }
@@ -312,14 +313,15 @@ void MTR_Ctrl( void )
     }
     else 
     {
-        if(acCycle>363)
-        {  
-            TRIAC_TIME_SET(FAULTPOWER);
-        }
-        else
-        {
-            TRIAC_TIME_SET(FAULTPOWER-10);
-        }
+	    TRIAC_TIME_SET(FAULTPOWER); //220V
+        //if(acCycle>363)
+        //{  
+        //    TRIAC_TIME_SET(FAULTPOWER); //220V
+        //}
+        //else
+        //{
+        //    TRIAC_TIME_SET(FAULTPOWER-10);  //110v
+        //}
     }    
     acCycleFlag = 0;
   }

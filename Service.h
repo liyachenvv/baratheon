@@ -63,7 +63,7 @@
 #endif
 #define SOFTWARE_VER_0        0
 #define SOFTWARE_VER_1        1
-#define SOFTWARE_VER_2        0
+#define SOFTWARE_VER_2        1
 #define SERIAL_NUM_0          0
 #define SERIAL_NUM_1          0
 #define SERIAL_NUM_2          0
