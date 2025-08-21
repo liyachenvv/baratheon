@@ -5109,12 +5109,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Motor.c: 219: state = 0;
 "219
 [e = F2629 -> -> 0 `i `uc ]
-[; ;Motor.c: 220: do { GIE = 0; tmTriac = (103); GIE = 1; } while(0);
+[; ;Motor.c: 220: do { GIE = 0; tmTriac = (126); GIE = 1; } while(0);
 "220
 [e :U 330 ]
 {
 [e = _GIE -> -> 0 `i `b ]
-[e = _tmTriac -> -> 103 `i `us ]
+[e = _tmTriac -> -> 126 `i `us ]
 [e = _GIE -> -> 1 `i `b ]
 }
 [e :U 329 ]
@@ -5441,12 +5441,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Motor.c: 315: {
 "315
 {
-[; ;Motor.c: 316: do { GIE = 0; tmTriac = (103); GIE = 1; } while(0);
+[; ;Motor.c: 316: do { GIE = 0; tmTriac = (126); GIE = 1; } while(0);
 "316
 [e :U 360 ]
 {
 [e = _GIE -> -> 0 `i `b ]
-[e = _tmTriac -> -> 103 `i `us ]
+[e = _tmTriac -> -> 126 `i `us ]
 [e = _GIE -> -> 1 `i `b ]
 }
 [e :U 359 ]

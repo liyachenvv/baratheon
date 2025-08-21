@@ -1,7 +1,7 @@
 
 
 HI-TECH Software PIC PRO Macro Assembler V9.83 build 10920 
-                                                                                               Wed Aug 20 14:16:54 2025
+                                                                                               Thu Aug 21 09:36:00 2025
 
 HI-TECH Software Omniscient Code Generator (PRO mode) build 10920
      1                           	processor	16F1829
@@ -73,9 +73,9 @@ HI-TECH Software Omniscient Code Generator (PRO mode) build 10920
     65  0008  00B4 004F 008F     	db	180,79,143,253,0,0,1,180	;#
       +       00FD 0000 0000     
       +       0001 00B4          
-    66  0010  004F 008F 00FD     	db	79,143,253,0,46,1,46,1	;#
+    66  0010  004F 008F 00FD     	db	79,143,253,0,46,1,46,2	;#
       +       0000 002E 0001     
-      +       002E 0001          
+      +       002E 0002          
     67  0018  0000 0000 0000     	db	0,0,0,0,0,0,0,0	;#
       +       0000 0000 0000     
       +       0000 0000          
@@ -4094,9 +4094,9 @@ HI-TECH Software Omniscient Code Generator (PRO mode) build 10920
   3931  0BDF                     l6598:	
   3932                           ;Motor.c: 314: else
   3933                           ;Motor.c: 315: {
-  3934                           ;Motor.c: 316: do { GIE = 0; tmTriac = (103); GIE = 1; } while(0);
+  3934                           ;Motor.c: 316: do { GIE = 0; tmTriac = (126); GIE = 1; } while(0);
   3935                           
-  3936  0BDF  3067               	movlw	103
+  3936  0BDF  307E               	movlw	126
   3937  0BE0  138B               	bcf	11,7
   3938  0BE1  0021               	movlb	1	; select bank1
   3939  0BE2  00AE               	movwf	_tmTriac^(0+128)
@@ -9119,7 +9119,7 @@ HI-TECH Software Omniscient Code Generator (PRO mode) build 10920
   8806                           ;Motor.c: 218: {
   8807                           ;Motor.c: 219: state = 0;
   8808  0292  0020               	movlb	0	; select bank0
-  8809  0293  3067               	movlw	103
+  8809  0293  307E               	movlw	126
   8810  0294  01C1               	clrf	MTR_Driver@state
   8811  0295  138B               	bcf	11,7
   8812  0296  0021               	movlb	1	; select bank1
@@ -11025,7 +11025,7 @@ HI-TECH Software Omniscient Code Generator (PRO mode) build 10920
 
 
 HI-TECH Software PICC Macro Assembler V9.83 build 10920 
-Symbol Table                                                                                   Wed Aug 20 14:16:54 2025
+Symbol Table                                                                                   Thu Aug 21 09:36:00 2025
 
                          C 0000                           Z 0002       __end_of_CAL_MtrLevel 06A6  
      __end_of_CAL_MtrError 07FF                          pc 0002       __end_of_CAL_MtrSpeed 07D9  

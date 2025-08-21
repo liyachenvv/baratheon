@@ -3132,7 +3132,7 @@ if ( time ) time--;
 if ( mtrSpeedRef == 0 || !acCycleHalf )
 {
 state = 0;
-do { GIE = 0; tmTriac = (103); GIE = 1; } while(0);
+do { GIE = 0; tmTriac = (126); GIE = 1; } while(0);
 }
 else switch ( state )
 {
@@ -3228,7 +3228,7 @@ MTR_Driver( );
 }
 else
 {
-do { GIE = 0; tmTriac = (103); GIE = 1; } while(0);
+do { GIE = 0; tmTriac = (126); GIE = 1; } while(0);
 
 # 325
 }
