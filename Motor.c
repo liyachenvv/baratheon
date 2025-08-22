@@ -11,7 +11,7 @@
 #include "MyMath.h"
 
 #define TRIAC_TIME_SET( t )   do { __DI( ); tmTriac  = (t);   __EI( ); } while(0)
-#define MOTOR_ERROR_SET( e )  do { if ( !mtrError ) mtrError = e; } while(0)
+#define MOTOR_ERROR_SET( e )  do { if ( mtrError<2 ) mtrError = e; } while(0)
 
 CROM U8 ad2tpr[ 256 ] =
   {

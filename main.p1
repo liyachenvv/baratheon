@@ -2062,7 +2062,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _MCU_Init `(v  0 ef ]
 "20 D:\project\baratheon-winnie\baratheon-mplab-for-production\COM.h
 [v _COM_Init `(v  0 ef ]
-"50 D:\project\baratheon-winnie\baratheon-mplab-for-production\Motor.h
+"51 D:\project\baratheon-winnie\baratheon-mplab-for-production\Motor.h
 [v _MTR_Init `(v  0 ef ]
 "41 D:\project\baratheon-winnie\baratheon-mplab-for-production\System.h
 [v _SYS_Init `(v  0 ef ]
@@ -2074,7 +2074,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _MCU_Refresh `(v  0 ef ]
 "21 D:\project\baratheon-winnie\baratheon-mplab-for-production\COM.h
 [v _COM_Ctrl `(v  0 ef ]
-"51 D:\project\baratheon-winnie\baratheon-mplab-for-production\Motor.h
+"52 D:\project\baratheon-winnie\baratheon-mplab-for-production\Motor.h
 [v _MTR_Ctrl `(v  0 ef ]
 "42 D:\project\baratheon-winnie\baratheon-mplab-for-production\System.h
 [v _SYS_Ctrl `(v  0 ef ]
@@ -4122,9 +4122,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Motor.h: 37: extern  U16 mtrSpeed;
 [; ;Motor.h: 38: extern  U16 mtrCurrent;
 [; ;Motor.h: 39: extern  S8 mtrTemp;
-[; ;Motor.h: 48: extern  U8 mtrError;
-[; ;Motor.h: 50: extern void MTR_Init( void );
-[; ;Motor.h: 51: extern void MTR_Ctrl( void );
+[; ;Motor.h: 49: extern  U8 mtrError;
+[; ;Motor.h: 51: extern void MTR_Init( void );
+[; ;Motor.h: 52: extern void MTR_Ctrl( void );
 [; ;System.h: 25: extern  U8 sysStatus;
 [; ;System.h: 27: extern  U8 sysFault;
 [; ;System.h: 37: extern  U8 sysLevel;

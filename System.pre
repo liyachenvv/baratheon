@@ -2910,7 +2910,7 @@ extern  U16 mtrSpeed;
 extern  U16 mtrCurrent;
 extern  S8 mtrTemp;
 
-# 48
+# 49
 extern  U8 mtrError;
 
 extern void MTR_Init( void );
@@ -3048,7 +3048,6 @@ mtrLevel = 0;
 void SYS_Ctrl( void )
 {
 static  U32 time = 0;
-
 if(mtrError==1)
 {
 mtrLevel=1;
@@ -3066,13 +3065,6 @@ sysStatus = 1;
 time = 100UL*5;
 break;
 case 1:
-
-if( (mtrError ==0) && (!time))
-{
-mtrError = 1;
-sysStatus = 2;
-time = 100UL*60;
-};
 if ( mtrError>1 )
 {
 sysFault = mtrError;
@@ -3082,16 +3074,13 @@ time = 100UL/2;
 else if ( idrTest0 == 0xFF && idrTest1 == 0xFF && mtrTemp >= 0 )
 {
 sysStatus = 2;
-
-time = 100UL*60*1;
-
+time = 100UL*60*45;
 }
 break;
 case 2:
 if( (mtrError ==0) && (!time))
 {
 mtrError=1;
-time = 100UL*60;
 };
 if(mtrError ==1)
 {
@@ -3103,8 +3092,7 @@ else if(mtrError >1)
 {
 sysFault = mtrError;
 sysStatus = 3;
-
-time = 5;
+time = 100UL/2;
 }
 else switch ( mtrLevel )
 {

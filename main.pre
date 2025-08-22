@@ -2901,7 +2901,7 @@ extern  U16 mtrSpeed;
 extern  U16 mtrCurrent;
 extern  S8 mtrTemp;
 
-# 48
+# 49
 extern  U8 mtrError;
 
 extern void MTR_Init( void );

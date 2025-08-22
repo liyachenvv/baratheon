@@ -2065,7 +2065,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _mtrCurrent `us  1 e ]
 "39 D:\project\baratheon-winnie\baratheon-mplab-for-production\Motor.h
 [v _mtrTemp `c  1 e ]
-"48 D:\project\baratheon-winnie\baratheon-mplab-for-production\Motor.h
+"49 D:\project\baratheon-winnie\baratheon-mplab-for-production\Motor.h
 [v _mtrError `uc  1 e ]
 "16 D:\project\baratheon-winnie\baratheon-mplab-for-production\Motor.c
 [v _ad2tpr `Cuc  -> 256 `i e ]
@@ -4147,9 +4147,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Motor.h: 37: U16 mtrSpeed;
 [; ;Motor.h: 38: U16 mtrCurrent;
 [; ;Motor.h: 39: S8 mtrTemp;
-[; ;Motor.h: 48: U8 mtrError;
-[; ;Motor.h: 50: void MTR_Init( void );
-[; ;Motor.h: 51: void MTR_Ctrl( void );
+[; ;Motor.h: 49: U8 mtrError;
+[; ;Motor.h: 51: void MTR_Init( void );
+[; ;Motor.h: 52: void MTR_Ctrl( void );
 [; ;MyMath.h: 20: typedef union
 [; ;MyMath.h: 21: {
 [; ;MyMath.h: 22: S32 D;
@@ -4615,12 +4615,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Motor.c: 85: {
 "85
 {
-[; ;Motor.c: 86: do { if ( !mtrError ) mtrError = 4; } while(0);
+[; ;Motor.c: 86: do { if ( mtrError<2 ) mtrError = 3; } while(0);
 "86
 [e :U 274 ]
 {
-[e $ ! ! != -> _mtrError `i -> -> -> 0 `i `uc `i 275  ]
-[e = _mtrError -> -> 4 `i `uc ]
+[e $ ! < -> _mtrError `i -> 2 `i 275  ]
+[e = _mtrError -> -> 3 `i `uc ]
 [e :U 275 ]
 }
 [e :U 273 ]
@@ -4639,12 +4639,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Motor.c: 90: {
 "90
 {
-[; ;Motor.c: 91: do { if ( !mtrError ) mtrError = 3; } while(0);
+[; ;Motor.c: 91: do { if ( mtrError<2 ) mtrError = 4; } while(0);
 "91
 [e :U 280 ]
 {
-[e $ ! ! != -> _mtrError `i -> -> -> 0 `i `uc `i 281  ]
-[e = _mtrError -> -> 3 `i `uc ]
+[e $ ! < -> _mtrError `i -> 2 `i 281  ]
+[e = _mtrError -> -> 4 `i `uc ]
 [e :U 281 ]
 }
 [e :U 279 ]
@@ -4755,11 +4755,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Motor.c: 122: {
 "122
 {
-[; ;Motor.c: 123: do { if ( !mtrError ) mtrError = 8; } while(0);
+[; ;Motor.c: 123: do { if ( mtrError<2 ) mtrError = 8; } while(0);
 "123
 [e :U 291 ]
 {
-[e $ ! ! != -> _mtrError `i -> -> -> 0 `i `uc `i 292  ]
+[e $ ! < -> _mtrError `i -> 2 `i 292  ]
 [e = _mtrError -> -> 8 `i `uc ]
 [e :U 292 ]
 }
@@ -4913,11 +4913,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Motor.c: 165: {
 "165
 {
-[; ;Motor.c: 166: do { if ( !mtrError ) mtrError = mtrError = 7; } while(0);
+[; ;Motor.c: 166: do { if ( mtrError<2 ) mtrError = mtrError = 7; } while(0);
 "166
 [e :U 310 ]
 {
-[e $ ! ! != -> _mtrError `i -> -> -> 0 `i `uc `i 311  ]
+[e $ ! < -> _mtrError `i -> 2 `i 311  ]
 [e = _mtrError = _mtrError -> -> 7 `i `uc ]
 [e :U 311 ]
 }
@@ -5029,11 +5029,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Motor.c: 198: {
 "198
 {
-[; ;Motor.c: 199: do { if ( !mtrError ) mtrError = mtrError = 10; } while(0);
+[; ;Motor.c: 199: do { if ( mtrError<2 ) mtrError = mtrError = 10; } while(0);
 "199
 [e :U 322 ]
 {
-[e $ ! ! != -> _mtrError `i -> -> -> 0 `i `uc `i 323  ]
+[e $ ! < -> _mtrError `i -> 2 `i 323  ]
 [e = _mtrError = _mtrError -> -> 10 `i `uc ]
 [e :U 323 ]
 }

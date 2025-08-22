@@ -2897,7 +2897,7 @@ extern U8 E2P_ReadByte( U8 addr );
   U16 mtrCurrent;
   S8 mtrTemp;
 
-# 48
+# 49
   U8 mtrError;
 
  void MTR_Init( void );
@@ -2998,12 +2998,12 @@ er1 = 0;
 mtrTemp = ad2tpr[ sum >> 2 ];
 if ( mtrTemp >= 109 )
 {
-do { if ( !mtrError ) mtrError = 4; } while(0);
+do { if ( mtrError<2 ) mtrError = 3; } while(0);
 }
 }
 else if ( ++er1 >= 10 )
 {
-do { if ( !mtrError ) mtrError = 3; } while(0);
+do { if ( mtrError<2 ) mtrError = 4; } while(0);
 }
 sum = 0;
 err = 0;
@@ -3035,7 +3035,7 @@ tmOVC = 0;
 }
 else if ( ++tmOVC >= 600 )
 {
-do { if ( !mtrError ) mtrError = 8; } while(0);
+do { if ( mtrError<2 ) mtrError = 8; } while(0);
 }
 }
 
@@ -3078,7 +3078,7 @@ tmZSP = 0;
 }
 else if ( ++tmZSP >= 300 )
 {
-do { if ( !mtrError ) mtrError = mtrError = 7; } while(0);
+do { if ( mtrError<2 ) mtrError = mtrError = 7; } while(0);
 }
 }
 
@@ -3111,7 +3111,7 @@ tmCRS = 0;
 }
 else if ( ++tmCRS >= 300 )
 {
-do { if ( !mtrError ) mtrError = mtrError = 10; } while(0);
+do { if ( mtrError<2 ) mtrError = mtrError = 10; } while(0);
 }
 }
 

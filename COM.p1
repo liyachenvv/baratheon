@@ -2075,7 +2075,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _mtrTemp `c  0 e ]
 "100 D:\project\baratheon-winnie\baratheon-mplab-for-production\Hardware.h
 [v _E2P_ReadByte `(uc  0 ef1`uc ]
-"48 D:\project\baratheon-winnie\baratheon-mplab-for-production\Motor.h
+"49 D:\project\baratheon-winnie\baratheon-mplab-for-production\Motor.h
 [v _mtrError `uc  0 e ]
 [; ;pic16f1829.h: 132: volatile unsigned char INDF0 @ 0x000;
 [; ;pic16f1829.h: 136: volatile unsigned char INDF1 @ 0x001;
@@ -4119,9 +4119,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Motor.h: 37: extern  U16 mtrSpeed;
 [; ;Motor.h: 38: extern  U16 mtrCurrent;
 [; ;Motor.h: 39: extern  S8 mtrTemp;
-[; ;Motor.h: 48: extern  U8 mtrError;
-[; ;Motor.h: 50: extern void MTR_Init( void );
-[; ;Motor.h: 51: extern void MTR_Ctrl( void );
+[; ;Motor.h: 49: extern  U8 mtrError;
+[; ;Motor.h: 51: extern void MTR_Init( void );
+[; ;Motor.h: 52: extern void MTR_Ctrl( void );
 [; ;Uart.h: 20: extern U8 SRL_Getc( U8 *c );
 [; ;Uart.h: 21: extern U8 SRL_Gets( U8 * s );
 [; ;Uart.h: 22: extern U8 SRL_Putc( U8 c );

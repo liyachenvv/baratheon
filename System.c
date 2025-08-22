@@ -137,7 +137,6 @@ void SYS_Init( void )
 void SYS_Ctrl( void )
   {
     static XRAM U32 time = 0;
-    //if(!mtrError) 
 	if(mtrError==1)
 	{
 		mtrLevel=1;
@@ -155,13 +154,6 @@ void SYS_Ctrl( void )
             time = SECOND*5;
             break;
         case E_SYS_PREPARE:
-            //mtrSpeedRef = 0;
-            if( (mtrError ==0) && (!time))
-            {
-            	mtrError = E_ERR_OVER_TIME;    
-            	sysStatus = E_SYS_RUN;	 
-            	time = MINUTE;      	
-            };
             if ( mtrError>1 )
               {
                 sysFault = mtrError;
@@ -171,16 +163,13 @@ void SYS_Ctrl( void )
             else if ( idrTest0 == 0xFF && idrTest1 == 0xFF && mtrTemp >= 0 )
               {
                 sysStatus = E_SYS_RUN;
-                //if(!mtrError) {
-                	time = MINUTE*1;
-                //}
+                time = MINUTE*45;
               } 
             break;
         case E_SYS_RUN:
             if( (mtrError ==0) && (!time))
             {
-            	mtrError=E_ERR_OVER_TIME;     
-            	time = MINUTE;      	
+            	mtrError=E_ERR_OVER_TIME;          	
             };
             if(mtrError ==1)
             {
@@ -192,8 +181,7 @@ void SYS_Ctrl( void )
             {
                 sysFault = mtrError;
                 sysStatus = E_SYS_TURN_OFF;
-                //time = SECOND/2;
-                time = 5;
+                time = SECOND/2;
             }
             else switch ( mtrLevel )
               {
