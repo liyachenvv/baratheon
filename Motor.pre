@@ -2998,12 +2998,12 @@ er1 = 0;
 mtrTemp = ad2tpr[ sum >> 2 ];
 if ( mtrTemp >= 109 )
 {
-do { if ( !mtrError ) mtrError = 2; } while(0);
+do { if ( !mtrError ) mtrError = 4; } while(0);
 }
 }
 else if ( ++er1 >= 10 )
 {
-do { if ( !mtrError ) mtrError = 2; } while(0);
+do { if ( !mtrError ) mtrError = 3; } while(0);
 }
 sum = 0;
 err = 0;
@@ -3132,7 +3132,7 @@ if ( time ) time--;
 if ( mtrSpeedRef == 0 || !acCycleHalf )
 {
 state = 0;
-do { GIE = 0; tmTriac = (126); GIE = 1; } while(0);
+do { GIE = 0; tmTriac = (122); GIE = 1; } while(0);
 }
 else switch ( state )
 {
@@ -3156,7 +3156,7 @@ time = 200;
 }
 break;
 case 1:
-if ( acCycleFlag && !mtrError)
+if ( acCycleFlag && mtrError<2)
 {
 if ( sref != mtrSpeedRef )
 {
@@ -3220,7 +3220,7 @@ void MTR_Ctrl( void )
 CAL_MtrTemp( );
 CAL_MtrCurrent( );
 CAL_MtrSpeed( );
-if(!mtrError)
+if(mtrError <2)
 {
 CAL_AcPeriod( );
 CAL_MtrError( );
@@ -3228,9 +3228,13 @@ MTR_Driver( );
 }
 else
 {
-do { GIE = 0; tmTriac = (126); GIE = 1; } while(0);
-
-# 325
+if(mtrSpeedRef==2500){
+do { GIE = 0; tmTriac = (122-10); GIE = 1; } while(0); }
+else if(mtrSpeedRef==5000){
+do { GIE = 0; tmTriac = (122-5); GIE = 1; } while(0);
+} else {
+do { GIE = 0; tmTriac = (122); GIE = 1; } while(0);
+}
 }
 acCycleFlag = 0;
 }

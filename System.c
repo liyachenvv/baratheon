@@ -138,10 +138,14 @@ void SYS_Ctrl( void )
   {
     static XRAM U32 time = 0;
     //if(!mtrError) 
-    {
-	    CAL_MtrLevel( );
-	    CAL_TuneValue( );
+	if(mtrError==1)
+	{
+		mtrLevel=1;
+	} 
+	else {   
+    	CAL_MtrLevel( );
     }
+    CAL_TuneValue( );
     if ( time ) time--;
     switch ( sysStatus )
       {
@@ -151,8 +155,14 @@ void SYS_Ctrl( void )
             time = SECOND*5;
             break;
         case E_SYS_PREPARE:
-            mtrSpeedRef = 0;
-            if ( mtrError || !time )
+            //mtrSpeedRef = 0;
+            if( (mtrError ==0) && (!time))
+            {
+            	mtrError = E_ERR_OVER_TIME;    
+            	sysStatus = E_SYS_RUN;	 
+            	time = MINUTE;      	
+            };
+            if ( mtrError>1 )
               {
                 sysFault = mtrError;
                 sysStatus = E_SYS_TURN_OFF;
@@ -161,30 +171,39 @@ void SYS_Ctrl( void )
             else if ( idrTest0 == 0xFF && idrTest1 == 0xFF && mtrTemp >= 0 )
               {
                 sysStatus = E_SYS_RUN;
-                time = MINUTE*45;
-              }
+                //if(!mtrError) {
+                	time = MINUTE*1;
+                //}
+              } 
             break;
         case E_SYS_RUN:
-            if ( mtrError || !time )
-              {
-                if(!time) {
-                  if ( !mtrError ) 
-                    mtrError = E_ERR_OVER_TIME;
-                }
+            if( (mtrError ==0) && (!time))
+            {
+            	mtrError=E_ERR_OVER_TIME;     
+            	time = MINUTE;      	
+            };
+            if(mtrError ==1)
+            {
+                sysLevel = E_LVL_1;
+                mtrSpeedRef = 1800;
+                time = MINUTE;
+            }
+            else if(mtrError >1)
+            {
                 sysFault = mtrError;
                 sysStatus = E_SYS_TURN_OFF;
                 //time = SECOND/2;
                 time = 5;
-              }
+            }
             else switch ( mtrLevel )
               {
                 default:    // Stop
                     sysLevel = E_LVL_STOP;
                     mtrSpeedRef = 0;
                     break;
-                case 1:     // Fold->Off 
-                    sysLevel = E_LVL_STOP;
-                    mtrSpeedRef = 0;
+                case 1:     // Fold->Off ---timeout 
+                    sysLevel = E_LVL_1;
+                    mtrSpeedRef = 1800;
                     break;
                 case 2:     // Min
                     sysLevel = E_LVL_1;
@@ -224,8 +243,10 @@ void SYS_Ctrl( void )
                     break;
               }
             break;
+        case E_SYS_TURN_OFF:
         default:
             if ( !time ) sysStatus = E_SYS_OFF;
+            
             break;
       }
   }

@@ -4615,12 +4615,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Motor.c: 85: {
 "85
 {
-[; ;Motor.c: 86: do { if ( !mtrError ) mtrError = 2; } while(0);
+[; ;Motor.c: 86: do { if ( !mtrError ) mtrError = 4; } while(0);
 "86
 [e :U 274 ]
 {
 [e $ ! ! != -> _mtrError `i -> -> -> 0 `i `uc `i 275  ]
-[e = _mtrError -> -> 2 `i `uc ]
+[e = _mtrError -> -> 4 `i `uc ]
 [e :U 275 ]
 }
 [e :U 273 ]
@@ -4639,12 +4639,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Motor.c: 90: {
 "90
 {
-[; ;Motor.c: 91: do { if ( !mtrError ) mtrError = 2; } while(0);
+[; ;Motor.c: 91: do { if ( !mtrError ) mtrError = 3; } while(0);
 "91
 [e :U 280 ]
 {
 [e $ ! ! != -> _mtrError `i -> -> -> 0 `i `uc `i 281  ]
-[e = _mtrError -> -> 2 `i `uc ]
+[e = _mtrError -> -> 3 `i `uc ]
 [e :U 281 ]
 }
 [e :U 279 ]
@@ -5109,12 +5109,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Motor.c: 219: state = 0;
 "219
 [e = F2629 -> -> 0 `i `uc ]
-[; ;Motor.c: 220: do { GIE = 0; tmTriac = (126); GIE = 1; } while(0);
+[; ;Motor.c: 220: do { GIE = 0; tmTriac = (122); GIE = 1; } while(0);
 "220
 [e :U 330 ]
 {
 [e = _GIE -> -> 0 `i `b ]
-[e = _tmTriac -> -> 126 `i `us ]
+[e = _tmTriac -> -> 122 `i `us ]
 [e = _GIE -> -> 1 `i `b ]
 }
 [e :U 329 ]
@@ -5196,9 +5196,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Motor.c: 243: case 1:
 "243
 [e :U 339 ]
-[; ;Motor.c: 244: if ( acCycleFlag && !mtrError)
+[; ;Motor.c: 244: if ( acCycleFlag && mtrError<2)
 "244
-[e $ ! && != -> _acCycleFlag `i -> -> -> 0 `i `Xuc `i ! != -> _mtrError `i -> -> -> 0 `i `uc `i 340  ]
+[e $ ! && != -> _acCycleFlag `i -> -> -> 0 `i `Xuc `i < -> _mtrError `i -> 2 `i 340  ]
 [; ;Motor.c: 245: {
 "245
 {
@@ -5416,9 +5416,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Motor.c: 307: CAL_MtrSpeed( );
 "307
 [e ( _CAL_MtrSpeed ..  ]
-[; ;Motor.c: 308: if(!mtrError)
+[; ;Motor.c: 308: if(mtrError <2)
 "308
-[e $ ! ! != -> _mtrError `i -> -> -> 0 `i `uc `i 356  ]
+[e $ ! < -> _mtrError `i -> 2 `i 356  ]
 [; ;Motor.c: 309: {
 "309
 {
@@ -5441,23 +5441,63 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Motor.c: 315: {
 "315
 {
-[; ;Motor.c: 316: do { GIE = 0; tmTriac = (126); GIE = 1; } while(0);
+[; ;Motor.c: 316: if(mtrSpeedRef==2500){
 "316
-[e :U 360 ]
+[e $ ! == -> _mtrSpeedRef `ui -> -> 2500 `i `ui 358  ]
+{
+[; ;Motor.c: 317: do { GIE = 0; tmTriac = (122-10); GIE = 1; } while(0); }
+"317
+[e :U 361 ]
 {
 [e = _GIE -> -> 0 `i `b ]
-[e = _tmTriac -> -> 126 `i `us ]
+[e = _tmTriac -> - -> 122 `i -> 10 `i `us ]
 [e = _GIE -> -> 1 `i `b ]
 }
-[e :U 359 ]
-"325
+[e :U 360 ]
+}
+[e $U 362  ]
+"318
+[e :U 358 ]
+[; ;Motor.c: 318: else if(mtrSpeedRef==5000){
+[e $ ! == -> _mtrSpeedRef `ui -> -> 5000 `i `ui 363  ]
+{
+[; ;Motor.c: 319: do { GIE = 0; tmTriac = (122-5); GIE = 1; } while(0);
+"319
+[e :U 366 ]
+{
+[e = _GIE -> -> 0 `i `b ]
+[e = _tmTriac -> - -> 122 `i -> 5 `i `us ]
+[e = _GIE -> -> 1 `i `b ]
+}
+[e :U 365 ]
+"320
+}
+[; ;Motor.c: 320: } else {
+[e $U 367  ]
+[e :U 363 ]
+{
+[; ;Motor.c: 321: do { GIE = 0; tmTriac = (122); GIE = 1; } while(0);
+"321
+[e :U 370 ]
+{
+[e = _GIE -> -> 0 `i `b ]
+[e = _tmTriac -> -> 122 `i `us ]
+[e = _GIE -> -> 1 `i `b ]
+}
+[e :U 369 ]
+"322
+}
+[e :U 367 ]
+[e :U 362 ]
+"323
 }
 [e :U 357 ]
-[; ;Motor.c: 325: }
-[; ;Motor.c: 326: acCycleFlag = 0;
-"326
+[; ;Motor.c: 322: }
+[; ;Motor.c: 323: }
+[; ;Motor.c: 324: acCycleFlag = 0;
+"324
 [e = _acCycleFlag -> -> 0 `i `uc ]
-[; ;Motor.c: 327: }
-"327
+[; ;Motor.c: 325: }
+"325
 [e :UE 355 ]
 }

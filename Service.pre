@@ -2931,7 +2931,7 @@ asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "'W'" "," 
 asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "0XB4" "," "0X4F" "," "0X8F" "," "0XFD" "," "0X00" "," "0X00" "," "0X01" "," "0XB4");
 
 # 32
-asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "0X4F" "," "0X8F" "," "0XFD" "," "0" "," "'.'" "," "1" "," "'.'" "," "2");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "0X4F" "," "0X8F" "," "0XFD" "," "0" "," "'.'" "," "1" "," "'.'" "," "4");
 
 # 41
 asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=2"); asm("\tdb\t" "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0" "," "0");

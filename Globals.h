@@ -19,7 +19,7 @@
 
 #define VER_110VAC  0
 #define VER_220VAC  1
-#define FAULTPOWER  126
+#define FAULTPOWER  122
 
 #if  ( !VER_110VAC && !VER_220VAC ) || ( VER_110VAC && VER_220VAC )
 #error  One and only one of "VER_110VAC & VER_220VAC" should be set as "1"

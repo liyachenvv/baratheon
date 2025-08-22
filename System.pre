@@ -3049,10 +3049,14 @@ void SYS_Ctrl( void )
 {
 static  U32 time = 0;
 
+if(mtrError==1)
 {
-CAL_MtrLevel( );
-CAL_TuneValue( );
+mtrLevel=1;
 }
+else {
+CAL_MtrLevel( );
+}
+CAL_TuneValue( );
 if ( time ) time--;
 switch ( sysStatus )
 {
@@ -3062,8 +3066,14 @@ sysStatus = 1;
 time = 100UL*5;
 break;
 case 1:
-mtrSpeedRef = 0;
-if ( mtrError || !time )
+
+if( (mtrError ==0) && (!time))
+{
+mtrError = 1;
+sysStatus = 2;
+time = 100UL*60;
+};
+if ( mtrError>1 )
 {
 sysFault = mtrError;
 sysStatus = 3;
@@ -3072,16 +3082,25 @@ time = 100UL/2;
 else if ( idrTest0 == 0xFF && idrTest1 == 0xFF && mtrTemp >= 0 )
 {
 sysStatus = 2;
-time = 100UL*60*45;
+
+time = 100UL*60*1;
+
 }
 break;
 case 2:
-if ( mtrError || !time )
+if( (mtrError ==0) && (!time))
 {
-if(!time) {
-if ( !mtrError )
-mtrError = 4;
+mtrError=1;
+time = 100UL*60;
+};
+if(mtrError ==1)
+{
+sysLevel = 2;
+mtrSpeedRef = 1800;
+time = 100UL*60;
 }
+else if(mtrError >1)
+{
 sysFault = mtrError;
 sysStatus = 3;
 
@@ -3094,8 +3113,8 @@ sysLevel = 0;
 mtrSpeedRef = 0;
 break;
 case 1:
-sysLevel = 0;
-mtrSpeedRef = 0;
+sysLevel = 2;
+mtrSpeedRef = 1800;
 break;
 case 2:
 sysLevel = 2;
@@ -3135,8 +3154,10 @@ mtrSpeedRef = 13501;
 break;
 }
 break;
+case 3:
 default:
 if ( !time ) sysStatus = 4;
+
 break;
 }
 }

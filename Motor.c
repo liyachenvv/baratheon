@@ -241,7 +241,7 @@ void MTR_Driver( void )
               }
             break;
         case 1:
-            if ( acCycleFlag && !mtrError)
+            if ( acCycleFlag && mtrError<2)
               {
                 if ( sref != mtrSpeedRef )
                   {
@@ -305,7 +305,7 @@ void MTR_Ctrl( void )
     CAL_MtrTemp( );
     CAL_MtrCurrent( );
     CAL_MtrSpeed( );
-    if(!mtrError)
+    if(mtrError <2)
     {
         CAL_AcPeriod( );
         CAL_MtrError( );
@@ -313,15 +313,13 @@ void MTR_Ctrl( void )
     }
     else 
     {
-	    TRIAC_TIME_SET(FAULTPOWER); //220V
-        //if(acCycle>363)
-        //{  
-        //    TRIAC_TIME_SET(FAULTPOWER); //220V
-        //}
-        //else
-        //{
-        //    TRIAC_TIME_SET(FAULTPOWER-10);  //110v
-        //}
+	    if(mtrSpeedRef==2500){
+	    	TRIAC_TIME_SET(FAULTPOWER-10); }
+	    else if(mtrSpeedRef==5000){
+		    TRIAC_TIME_SET(FAULTPOWER-5);
+		} else {
+			TRIAC_TIME_SET(FAULTPOWER);
+		}
     }    
     acCycleFlag = 0;
   }
