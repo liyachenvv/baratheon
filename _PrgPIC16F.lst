@@ -1,7 +1,7 @@
 
 
 HI-TECH Software PIC PRO Macro Assembler V9.83 build 10920 
-                                                                                               Fri Aug 22 16:47:57 2025
+                                                                                               Mon Aug 25 11:41:57 2025
 
 HI-TECH Software Omniscient Code Generator (PRO mode) build 10920
      1                           	processor	16F1829
@@ -76,9 +76,9 @@ HI-TECH Software Omniscient Code Generator (PRO mode) build 10920
     68  0008  00B4 004F 008F     	db	180,79,143,253,0,0,1,180	;#
       +       00FD 0000 0000     
       +       0001 00B4          
-    69  0010  004F 008F 00FD     	db	79,143,253,0,46,1,46,4	;#
-      +       0000 002E 0001     
-      +       002E 0004          
+    69  0010  004F 008F 00FD     	db	79,143,253,0,46,2,46,0	;#
+      +       0000 002E 0002     
+      +       002E 0000          
     70  0018  0000 0000 0000     	db	0,0,0,0,0,0,0,0	;#
       +       0000 0000 0000     
       +       0000 0000          
@@ -11103,7 +11103,7 @@ HI-TECH Software Omniscient Code Generator (PRO mode) build 10920
 
 
 HI-TECH Software PICC Macro Assembler V9.83 build 10920 
-Symbol Table                                                                                   Fri Aug 22 16:47:57 2025
+Symbol Table                                                                                   Mon Aug 25 11:41:57 2025
 
                          C 0000                           Z 0002       __end_of_CAL_MtrLevel 06AD  
      __end_of_CAL_MtrError 0800                          pc 0002       __end_of_CAL_MtrSpeed 07DE  

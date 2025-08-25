@@ -29,7 +29,7 @@ Linker command line:
   -ACONFIG=08007h-08008h -pconfig=CONFIG -DCONFIG=2 -AIDLOC=08000h-08003h \
   -pidloc=IDLOC -DIDLOC=2 -AEEDATA=00h-0FFh/0F000h -peeprom_data=EEDATA \
   -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k \
-  C:\Users\liyachen\AppData\Local\Temp\sihs.obj _PrgPIC16F.obj 
+  C:\Users\liyachen\AppData\Local\Temp\sh7c.obj _PrgPIC16F.obj 
 
 Object code version is 3.10
 
@@ -38,7 +38,7 @@ Machine type is 16F1829
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\liyachen\AppData\Local\Temp\sihs.obj
+C:\Users\liyachen\AppData\Local\Temp\sh7c.obj
                 end_init                            16C      16C        3        8       0
                 reset_vec                             0        0        3        0       0
 _PrgPIC16F.obj  intentry                              4        4      168        8       0
