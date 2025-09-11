@@ -3081,7 +3081,7 @@ case 2:
 if( (mtrError ==0) && (!time))
 {
 mtrError=1;
-};
+}
 if(mtrError ==1)
 {
 sysLevel = 2;

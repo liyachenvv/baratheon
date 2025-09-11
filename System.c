@@ -170,7 +170,7 @@ void SYS_Ctrl( void )
             if( (mtrError ==0) && (!time))
             {
             	mtrError=E_ERR_OVER_TIME;          	
-            };
+            }
             if(mtrError ==1)
             {
                 sysLevel = E_LVL_1;

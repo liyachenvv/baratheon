@@ -4734,7 +4734,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "173
 }
 [e :U 338 ]
-[; ;System.c: 173: };
+[; ;System.c: 173: }
 [; ;System.c: 174: if(mtrError ==1)
 "174
 [e $ ! == -> _mtrError `i -> 1 `i 339  ]
